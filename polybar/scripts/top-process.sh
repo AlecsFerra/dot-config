@@ -15,5 +15,5 @@ fi
 echo "$data"
 notify-send "TOP PROCESSES 🥵" \
             "$data" \
-            -i /usr/share/icons/Flat-Remix-Blue-Light/status/symbolic/process-working-symbolic.svg
+            -i /usr/share/icons/Flat-Remix-Blue-Light/status/symbolic/arch-uptodate-symbolic.svg
 
