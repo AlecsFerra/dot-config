@@ -1,0 +1,40 @@
+# vim: filetype=sh
+
+super + Return
+    $TERMINAL
+
+super + c
+    firefox
+
+super + shift + f
+    $TERMINAL -e zsh -ic ranger
+
+Print
+    $HOME/.config/sxhkd/scripts/scrot.sh
+
+super + d
+    rofi -show drun -modi drun -config $HOME/.config/rofi/config
+
+super + e
+    $HOME/.config/rofi/scripts/emoji/emoji-selector.sh
+
+super + g
+    $HOME/.config/rofi/scripts/search/search.sh
+
+super + shift + x
+    sleep 1 && xset dpms force suspend
+
+XF86AudioMute
+    pavolume mutetoggle --noshow
+
+XF86AudioRaiseVolume
+    pavolume volup 5 --noshow
+
+XF86AudioLowerVolume
+    pavolume voldown 5 --noshow
+
+XF86MonBrightnessUp
+    xbacklight -inc 5
+
+XF86MonBrightnessDown
+    xbacklight -dec 5
