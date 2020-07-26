@@ -28,8 +28,8 @@ get_duration() {
 
 }
 
-KEY="a780fc914fa4d4f72ef6b27c0df4472c"
-CITY="Peschiera del Garda"
+. $HOME/.config/secrets
+
 UNITS="metric"
 SYMBOL="°"
 
