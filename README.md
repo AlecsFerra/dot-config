@@ -4,8 +4,6 @@
 
 ## Secrets file
 
-Stores sensitive infotmation
-
 ``` Bash
 # Polybar - OpenWeatherMap
 KEY="foo" # API KEY for the OWM api
