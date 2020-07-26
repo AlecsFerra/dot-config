@@ -46,6 +46,7 @@ font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=11"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=11"
 font-5 = "Font Awesome 5 Brands:pixelsize=11"
 font-6 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
+font-7 = "JetBrains Mono Nerd Font:pixelsize=11"
 
 modules-left = ${config.top-left}
 modules-center = ${config.top-center}
