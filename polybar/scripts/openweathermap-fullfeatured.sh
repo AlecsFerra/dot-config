@@ -2,7 +2,7 @@
 
 get_icon() {
     case $1 in
-        01*) icon="🔴";;
+        01*) icon="☀";;
         02*) icon="🌤";;
         03*) icon="🌥";;
         04*) icon="☁";;
@@ -28,7 +28,7 @@ get_duration() {
 
 }
 
-. $HOME/.config/secrets
+. "$HOME"/.config/secrets
 
 UNITS="metric"
 SYMBOL="°"

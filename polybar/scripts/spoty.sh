@@ -5,9 +5,7 @@ main() {
     echo ""; exit
   fi
 
-  cmd="org.freedesktop.DBus.Properties.Get"
   domain="org.mpris.MediaPlayer2"
-  path="/org/mpris/MediaPlayer2"
 
   meta=$(dbus-send --print-reply --dest=${domain}.spotify \
     /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:${domain}.Player string:Metadata)
