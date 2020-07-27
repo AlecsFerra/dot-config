@@ -8,6 +8,7 @@ include-file = $HOME/.config/polybar/bottom-bar
 
 [bar/base]
 theme = dark
+monitor = ${env:MONITOR:eDP-1}
 width = ${config.width}
 height = ${config.height}
 offset-x = ${config.offset-x}

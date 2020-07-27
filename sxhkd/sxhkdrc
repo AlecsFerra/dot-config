@@ -3,11 +3,11 @@
 super + Return
     $TERMINAL
 
-super + c
+super + w
     firefox
 
-super + shift + f
-    $TERMINAL -e zsh -ic ranger
+super + w + shift
+    tor-browser
 
 Print
     $HOME/.config/sxhkd/scripts/scrot.sh
@@ -20,6 +20,12 @@ super + e
 
 super + g
     $HOME/.config/rofi/scripts/search/search.sh
+
+super + m
+    $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh
+
+super + shift + f
+    $TERMINAL -e zsh -ic ranger
 
 super + shift + x
     sleep 1 && xset dpms force suspend
