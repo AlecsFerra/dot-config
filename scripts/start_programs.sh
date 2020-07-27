@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Monitor
-"$HOME"/.config/scripts/monitor.sh
+"$HOME"/.config/scripts/monitor.sh &
 
 # Load Xresources
 xrdb ~/.config/Xresources &
@@ -15,7 +15,7 @@ batsignal -b &
 
 # Wallpaper and lockscreen
 betterlockscreen --update "$HOME"/Pictures/Wallpapers/nord.jpg &
-xss-lock -- "$HOME"/.config/scripts/lock.sh
+xss-lock -- "$HOME"/.config/scripts/lock.sh &
 feh --bg-scale "$HOME"/Pictures/Wallpapers/nord.jpg &
 wal --theme base16-nord &
 
