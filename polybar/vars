@@ -17,7 +17,7 @@ wm-restack = i3
 
 
 # Top modules
-top-left = i3 title
+top-left = bspwm title
 top-center = spotify
 top-right = network-short alsa backlight date battery
 

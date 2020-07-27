@@ -4,10 +4,7 @@
 "$HOME"/.config/scripts/monitor.sh &
 
 # Load Xresources
-xrdb ~/.config/Xresources &
-
-# Load keybindings
-sxhkd &
+    xrdb ~/.config/Xresources &
 
 # Notifications
 "$HOME"/.config/dunst/run_dunst.sh &
