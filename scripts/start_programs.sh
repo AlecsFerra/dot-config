@@ -2,9 +2,10 @@
 
 # Monitor
 "$HOME"/.config/scripts/monitor.sh &
+sxhkd &
 
 # Load Xresources
-    xrdb ~/.config/Xresources &
+xrdb ~/.config/Xresources &
 
 # Notifications
 "$HOME"/.config/dunst/run_dunst.sh &

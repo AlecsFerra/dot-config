@@ -1,7 +1,7 @@
 # vim: filetype=sh
 
-super + Return
-    $TERMINAL
+super + {_, shift} + Return
+    $TERMINAL { , --class dropdown_terminal}
 
 super + w
     firefox
@@ -59,4 +59,4 @@ super + {_,shift} + {1-9,0}
     bspc {desktop -f,node -d} '^{1-9,10}'
 
 super + {t, s, f}
-    bspc node -t \~{tiled,floating, fullscreen}
+    bspc node -t {tiled, floating, fullscreen}

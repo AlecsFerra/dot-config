@@ -1,8 +1,6 @@
 #! /bin/sh
 
-sxhkd &
-
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+"$HOME"/.config/scripts/start_programs.sh &
 
 bspc config border_width          2
 bspc config window_gap            12
@@ -13,12 +11,30 @@ bspc config gapless_monocle       true
 bspc config focus_follows_pointer true
 bspc config center_pseudo_tiled   true
 
-"$HOME"/.config/scripts/start_programs.sh &
+# Wal colors
+. "$HOME"/.cache/wal/colors.sh
+bspc config normal_border_color   "$color8"
+bspc config active_border_color   "$color2"
+bspc config focused_border_color  "$color7"
+bspc config presel_feedback_color "$color7"
 
- # Wal colors
- . "$HOME"/.cache/wal/colors.sh
- bspc config normal_border_color   "$color8"
- bspc config active_border_color   "$color2"
- bspc config focused_border_color  "$color7"
- bspc config presel_feedback_color "$color7"
+# Auto positioning
+bspc rule -a VSCodium desktop='^2'
+bspc rule -a IntelliJ desktop='^2'
+bspc rule -a CLion desktop='^2'
 
+bspc rule -a Firefox desktop='^3'
+bspc rule -a Tor Browser desktop='^3'
+
+bspc rule -a TelegramDesktop desktop='^4'
+
+bspc rule -a spotify desktop='^5'
+
+# Swallow
+pgrep bspswallow.sh || bspswallow.sh &
+
+# Auto float
+bspc rule -a Alacritty:dropdown_update state=floating
+bspc rule -a Alacritty:dropdown_conn state=floating
+bspc rule -a Alacritty:dropdown_terminal state=floating
+bspc rule -a Zathura state=tiled

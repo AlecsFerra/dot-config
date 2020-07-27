@@ -13,7 +13,7 @@ radius = 0.0
 
 fixed-center = true
 override-redirect = false
-wm-restack = i3
+wm-restack = bspwm
 
 
 # Top modules
