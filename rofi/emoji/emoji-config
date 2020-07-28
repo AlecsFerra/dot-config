@@ -1,0 +1,7 @@
+rofi.theme: ~/.config/rofi/emoji/theme.rasi
+
+rofi.font: "Noto Color Emoji" 18
+
+rofi.width: 45
+rofi.lines: 5
+rofi.columns: 24

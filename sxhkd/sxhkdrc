@@ -13,13 +13,13 @@ Print
     $HOME/.config/sxhkd/scripts/scrot.sh
 
 super + d
-    rofi -show drun -modi drun -config $HOME/.config/rofi/config
+    rofi -show drun -modi drun -config $HOME/.config/rofi/launcher/config
 
 super + e
-    $HOME/.config/rofi/scripts/emoji/emoji-selector.sh
+    $HOME/.config/rofi/emoji/emoji-selector.sh
 
 super + g
-    $HOME/.config/rofi/scripts/search/search.sh
+    $HOME/.config/rofi/search/search.sh
 
 super + m
     $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh

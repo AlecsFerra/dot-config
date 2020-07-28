@@ -31,7 +31,7 @@ bspc rule -a TelegramDesktop desktop='^4'
 bspc rule -a spotify desktop='^5'
 
 # Swallow
-pgrep bspswallow.sh || bspswallow.sh &
+#pgrep bspswallow.sh || bspswallow.sh &
 
 # Auto float
 bspc rule -a Alacritty:dropdown_update state=floating

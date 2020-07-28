@@ -71,6 +71,11 @@ label-empty = %icon%
 label-empty-foreground = ${colors.buffer}
 label-empty-padding = 2
 
+label-urgent = %icon%
+label-urgent-foreground = ${colors.urgent}
+label-urgent-underline = ${colors.urgent}
+label-urgent-padding = 2
+
 ; seperator
 label-separator = |
 label-separator-foreground = ${colors.buffer}
