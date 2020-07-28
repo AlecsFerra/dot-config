@@ -11,8 +11,11 @@ type = custom/menu
 
 expand-right = true
 
-label-open = " "
-label-close = "   | "
+label-open = " "
+label-close = "  | "
+label-open-font = 8
+label-close-font = 8
+label-open-foreground = ${colors.nord9}
 
 menu-0-0 = 
 menu-0-0-foreground = ${colors.urgent}

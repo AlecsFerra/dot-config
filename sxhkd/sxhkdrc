@@ -60,3 +60,6 @@ super + {_,shift} + {1-9,0}
 
 super + {t, s, f}
     bspc node -t {tiled, floating, fullscreen}
+
+super + shift + {t, s, f}
+    bsp-layout set {tall, even, wide}

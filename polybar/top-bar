@@ -58,12 +58,12 @@ ws-icon-8 = 9;Ⅸ
 ws-icon-9 = 10;Ⅹ
 
 label-focused = %icon%
-label-focused-underline = ${colors.nord7}
+;label-focused-underline = ${colors.nord7}
 label-focused-foreground = ${colors.nord7}
 label-focused-padding = 2
 
 label-occupied = %icon%
-label-occupied-underline = ${colors.nord9}
+;label-occupied-underline = ${colors.nord9}
 label-occupied-foreground = ${colors.nord9}
 label-occupied-padding = 2
 
@@ -73,11 +73,11 @@ label-empty-padding = 2
 
 label-urgent = %icon%
 label-urgent-foreground = ${colors.urgent}
-label-urgent-underline = ${colors.urgent}
+;label-urgent-underline = ${colors.urgent}
 label-urgent-padding = 2
 
 ; seperator
-label-separator = |
+label-separator =
 label-separator-foreground = ${colors.buffer}
 
 [module/workspace-name]
@@ -89,7 +89,7 @@ format = <label-state>
 label-focused = %name%
 label-focused-padding = 2
 label-focused-foreground = ${colors.nord7}
-label-focused-underline = ${colors.nord7}
+;label-focused-underline = ${colors.nord7}
 
 label-unfocused =
 
