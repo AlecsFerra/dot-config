@@ -4,7 +4,7 @@
 type = custom/script
 exec = ~/.config/polybar/scripts/arch-up.sh
 interval = 600
-click-left = alacritty --class dropdown_update -e yay
+click-left = alacritty --class dropdown_update -e yay &
 
 [module/powermenu]
 type = custom/menu
@@ -28,7 +28,7 @@ menu-0-1-exec = reboot
 menu-0-2 = 
 menu-0-2-foreground = ${colors.warning}
 menu-0-2-padding = 2
-menu-0-2-exec = alacritty --class dropdown_update -e sl
+menu-0-2-exec = alacritty --class dropdown_update -e sl &
 
 [module/cpu]
 type = internal/cpu
