@@ -24,7 +24,7 @@ top-right = network-short alsa backlight date battery
 # Bottom modules
 bottom-left = powermenu
 bottom-center =
-bottom-right = weather updates cpu memory temperature xkeyboard
+bottom-right = weather news updates cpu memory temperature xkeyboard
 
 systray-top = none
 systray-bottom = right

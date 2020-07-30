@@ -6,6 +6,12 @@ exec = ~/.config/polybar/scripts/arch-up.sh
 interval = 600
 click-left = alacritty --class dropdown_update -e yay &
 
+[module/news]
+type = custom/script
+exec = newsboat -x print-unread | awk '{print "  " $1}'
+interval = 100
+click-left = alacritty -e zsh -ic newsboat
+
 [module/powermenu]
 type = custom/menu
 
