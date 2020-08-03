@@ -1,7 +1,7 @@
 ; vim:ft=dosini
 
 [global-wm]
-include-file = $HOME/.config/polybar/colors
+include-file = $HOME/.config/polybar/colors-pywal
 include-file = $HOME/.config/polybar/top-bar
 include-file = $HOME/.config/polybar/vars
 include-file = $HOME/.config/polybar/bottom-bar

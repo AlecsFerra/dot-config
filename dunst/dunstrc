@@ -16,7 +16,7 @@ horizontal_padding = 8
 frame_width = 3
 sort = yes
 idle_threshold = 120
-corner_radius = 8
+corner_radius = 0
 
 # Text style
 font = Monospace 10

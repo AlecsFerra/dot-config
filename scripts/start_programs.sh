@@ -12,10 +12,11 @@ xrdb ~/.config/Xresources &
 batsignal -b &
 
 # Wallpaper and lockscreen
-betterlockscreen --update "$HOME"/Pictures/Wallpapers/nord.jpg &
+wallpaper="$HOME"/Pictures/Wallpapers/tokio-vicolo.jpg
+betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
-feh --bg-scale "$HOME"/Pictures/Wallpapers/nord.jpg &
-wal --theme base16-nord &
+feh --bg-fill $wallpaper &
+wal --theme sexy-material &
 
 # Auth manager
 lxpolkit &
@@ -36,3 +37,4 @@ picom &
 blueman-applet &
 redshift &
 redshift-gtk &
+flameshot &

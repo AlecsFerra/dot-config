@@ -9,8 +9,8 @@ super + w
 super + w + shift
     tor-browser
 
-Print
-    $HOME/.config/sxhkd/scripts/scrot.sh
+{_, shift} + Print
+    flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
 
 super + d
     rofi -show drun -modi drun -config $HOME/.config/rofi/launcher/config

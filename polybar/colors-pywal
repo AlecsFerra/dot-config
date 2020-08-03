@@ -1,14 +1,14 @@
 #nord color palette
 [colors]
-background = ${xrdb:color0:#222}
+background = 00000000
 buffer = #4c566a
-foreground = ${xrdb:color7:#222}
+foreground = ${xrdb:foreground:#222}
 nord6 = ${xrdb:color1:#222}
 nord7 = ${xrdb:color2:#222}
 nord8 = ${xrdb:color3:#222}
 nord9 = ${xrdb:color4:#222}
-urgent = #BF616A
-warning = #D08770
-notify = #EBCB8B
-success = #A3BE8C
-function = #B48EAD
+urgent = ${xrdb:color5:#222}
+warning = ${xrdb:color6:#222}
+notify = ${xrdb:color7:#222}
+success = ${xrdb:color9:#222}
+function = ${xrdb:color10:#222}
