@@ -9,4 +9,4 @@ else
 fi
 
 echo lol
-notify-send "Mode updated" "$mode" -i /usr/share/icons/Flat-Remix-Blue-Light/status/symbolic/battery-full-charged-symbolic.svg
+notify-send "Mode updated" "$mode" -i battery

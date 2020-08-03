@@ -8,7 +8,8 @@ sxhkd &
 xrdb ~/.config/Xresources &
 
 # Notifications
-"$HOME"/.config/dunst/run_dunst.sh &
+# "$HOME"/.config/dunst/run_dunst.sh &
+deadd-notification-center &
 batsignal -b &
 
 # Wallpaper and lockscreen

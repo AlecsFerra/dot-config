@@ -14,6 +14,6 @@ echo "  $n_updates "
 if [ $n_updates -ne "$old_up" ]; then
     echo $n_updates > "$HOME/.cache/arch-up-script/old"
     if [ $n_updates -gt 0 ]; then
-        notify-send -i a "📦 Updates" " $n_updates ready to install"
+        notify-send "📦 Updates" " $n_updates ready to install" -i system-sotware-update
     fi
 fi

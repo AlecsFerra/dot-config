@@ -24,6 +24,9 @@ super + g
 super + m
     $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh
 
+super + n
+    kill -s USR1 $(pidof deadd-notification-center)
+
 super + shift + f
     $TERMINAL -e zsh -ic ranger
 
