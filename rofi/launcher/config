@@ -1,9 +1,0 @@
-rofi.theme: ~/.config/rofi/launcher/theme.rasi
-
-rofi.show-icons: true
-rofi.font: "Ubuntu Mono" 18
-rofi.fullscreen: false
-rofi.separator-style: none
-rofi.hide-scrollbar: true
-rofi.lines: 5
-rofi.eh: 1

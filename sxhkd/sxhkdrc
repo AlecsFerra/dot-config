@@ -13,7 +13,7 @@ super + w + shift
     flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
 
 super + d
-    rofi -show drun -modi drun -config $HOME/.config/rofi/launcher/config
+    rofi -show drun -modi drun -config $HOME/.config/rofi/launcher/config.rasi
 
 super + e
     $HOME/.config/rofi/emoji/emoji-selector.sh
