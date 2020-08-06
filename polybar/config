@@ -53,7 +53,7 @@ modules-left = ${config.top-left}
 modules-center = ${config.top-center}
 modules-right = ${config.top-right}
 
-tray-position = ${config.systray-top}
+;tray-position = ${config.systray-top}
 
 [bar/bottom]
 inherit = bar/base

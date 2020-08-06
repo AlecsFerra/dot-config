@@ -27,7 +27,7 @@ bottom-center =
 bottom-right = weather news updates cpu memory temperature xkeyboard
 
 systray-top = none
-systray-bottom = right
+systray-bottom = none
 
 # global style
 line-size = 6

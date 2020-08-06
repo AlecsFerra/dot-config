@@ -13,7 +13,7 @@ super + w + shift
     flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
 
 super + d
-    rofi -show drun -modi drun -config $HOME/.config/rofi/launcher/config.rasi
+    rofi -show drun -modi "drun" -config $HOME/.config/rofi/launcher/config.rasi
 
 super + e
     $HOME/.config/rofi/emoji/emoji-selector.sh
@@ -63,6 +63,9 @@ super + {_,shift} + {1-9,0}
 
 super + {t, s, f}
     bspc node -t {tiled, floating, fullscreen}
+
+super + shift + t
+    bspc node -t pseudo_tiled
 
 #super + shift + {t, s, f}
 #    bsp-layout set {tall, even, wide}

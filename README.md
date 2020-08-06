@@ -1,6 +1,7 @@
 # My dot files
 
-![Screenshot](https://github.com/AlecsFerra/dot-config/raw/master/.github/Jul26-17-04-36.png)
+![Screenshot](https://github.com/AlecsFerra/dot-config/raw/master/.github/desktop.png)
+![Gif](https://media.giphy.com/media/ekeswxZZK4y1HQ09tR/giphy.gif)
 
 ## Secrets file
 
