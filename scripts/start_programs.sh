@@ -17,7 +17,7 @@ wallpaper="$HOME"/Pictures/Wallpapers/tokio-vicolo.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 feh --bg-fill $wallpaper &
-wal --theme sexy-material &
+wal --theme base16-onedark &
 
 # Auth manager
 lxpolkit &

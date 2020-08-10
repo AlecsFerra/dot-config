@@ -2,7 +2,7 @@
 
 "$HOME"/.config/scripts/start_programs.sh &
 
-bspc config border_width          2
+bspc config border_width          0
 bspc config window_gap            12
 
 bspc config split_ratio           0.60

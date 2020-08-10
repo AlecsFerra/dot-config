@@ -1,8 +1,8 @@
 configuration {
-    font:                           "Noto Sans 10";
+    font:                           "JetBrains Mono Nerd Font 10";
     show-icons:                     true;
 	icon-theme: 					"Papirus";
-    display-drun: 					"";
+    display-drun: 					"";
     drun-display-format:            "{name}";
     threads:                        0;
     scroll-method:                  0;
@@ -30,17 +30,17 @@ window {
     text-color:                     @foreground;
     border-radius:                  0px;
     height:                         55%;
-    width:                          50%;
-    location:                       center;
-    anchor:                         center;
-    x-offset:                       0;
-    y-offset:                       0;
+    width:                          40%;
+    location:                       west;
+    anchor:                         west;
+    x-offset:                       45;
+    y-offset:                       270;
     border-radius:                  6px;
 }
 
 prompt {
-    enabled: 						true;
-	padding: 						0px 8px 0px 4px;
+    enabled: 						false;
+	padding: 						0px 8px -10px 4px;
 	background-color: 				@background;
 	text-color: 					@foreground;
 	font:							"FantasqueSansMono Nerd Font 16";
@@ -53,7 +53,7 @@ inputbar {
     border-radius:                  6px;
     margin:                         0px 0px 0px 0px;
     padding:                        10px 10px 10px 10px;
-    position:                       center;
+    position:                       south;
 }
 
 
