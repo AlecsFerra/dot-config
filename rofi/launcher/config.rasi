@@ -14,10 +14,10 @@ configuration {
 
 
 * {
-    background:                     #00000000;
-    background-color:               #00000066;
-    background-entry:               #00000033;
-    background-alt:                 #03a9f415;
+    background:                     #282c3400;
+    background-color:               #282c3466;
+    background-entry:               #282c3433;
+    background-alt:                 #61afef40;
     foreground:                     #f2f2f2EE;
     foreground-selected:            #ffffffFF;
     urgent:                         #E91E6366;
