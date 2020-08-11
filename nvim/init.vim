@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'frazrepo/vim-rainbow'
 
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 syntax on
@@ -39,7 +40,7 @@ set colorcolumn=80
 set updatetime=50
 set cmdheight=2
 set autochdir
-set showtabline=2
+
 
 
 let g:python3_host_prog = '/usr/bin/python3'

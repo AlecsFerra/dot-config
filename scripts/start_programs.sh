@@ -39,3 +39,7 @@ blueman-applet &
 redshift &
 redshift-gtk &
 flameshot &
+
+# kde-bugget
+/usr/lib/kdeconnectd &
+indicator-kdeconnect &
