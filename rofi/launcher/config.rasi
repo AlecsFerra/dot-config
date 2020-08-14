@@ -22,6 +22,7 @@ configuration {
     foreground-selected:            #ffffffFF;
     urgent:                         #E91E6366;
     urgent-selected:                #E91E6377;
+    border-radius:                  6px;
 }
 
 window {
@@ -30,10 +31,10 @@ window {
     text-color:                     @foreground;
     border-radius:                  0px;
     height:                         55%;
-    width:                          40%;
+    width:                          30%;
     location:                       west;
     anchor:                         west;
-    x-offset:                       45;
+    x-offset:                       180;
     y-offset:                       270;
     border-radius:                  6px;
 }
@@ -85,6 +86,7 @@ listview {
 
 mainbox {
     background-color:               @background-color;
+    border-radius:                  6px;
     children:                       [ inputbar, listview ];
     spacing:                        15px;
     padding:                        30px 25px 15px 25px;

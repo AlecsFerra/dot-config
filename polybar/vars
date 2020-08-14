@@ -15,19 +15,21 @@ fixed-center = true
 override-redirect = false
 wm-restack = bspwm
 
+mpd-host = "127.0.0.1"
+mpd-port = "6600"
 
 # Top modules
-top-left = bspwm title
-top-center = spotify
+top-left = bspwm
+top-center = spotify mpd
 top-right = network-short alsa backlight date battery
 
 # Bottom modules
-bottom-left = powermenu
-bottom-center =
-bottom-right = weather news updates cpu memory temperature xkeyboard
+bottom-left =  xkeyboard news updates
+bottom-center = weather
+bottom-right = cpu memory temperature
 
 systray-top = none
-systray-bottom = right
+systray-bottom = left
 
 # global style
 line-size = 6

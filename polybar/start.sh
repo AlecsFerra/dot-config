@@ -11,4 +11,5 @@ for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     echo monitor
     MONITOR=$m polybar top &
     MONITOR=$m polybar bottom &
+    #MONITOR=$m polybar minimal &
   done

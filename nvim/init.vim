@@ -3,7 +3,6 @@ let mapleader = ' '
 
 call plug#begin('/home/alecs/.local/share/nvim/plugged')
 
-Plug 'arcticicestudio/nord-vim'
 Plug 'dylanaraps/wal.vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
@@ -22,6 +21,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'frazrepo/vim-rainbow'
 
 Plug 'easymotion/vim-easymotion'
+
 call plug#end()
 
 syntax on
