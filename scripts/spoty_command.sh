@@ -4,6 +4,7 @@ domain="org.mpris.MediaPlayer2"
 
 case $1 in
     playpause)
+        pgrep spotify 1>/dev/null || spotify
         command=org.mpris.MediaPlayer2.Player.PlayPause
         ;;
     previus)
@@ -11,6 +12,9 @@ case $1 in
         ;;
     next)
         command=org.mpris.MediaPlayer2.Player.Next
+        ;;
+    uri)
+        command="org.freedesktop.MediaPlayer2.OpenUri $2"
         ;;
     *)
         echo "Invalid command $1"

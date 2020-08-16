@@ -13,11 +13,15 @@ deadd-notification-center &
 batsignal -b &
 
 # Wallpaper and lockscreen
-wallpaper="$HOME"/Pictures/Wallpapers/tokio-vicolo.jpg
+wallpaper="$HOME"/Pictures/Wallpapers/mountain.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 feh --bg-fill $wallpaper &
 wal --theme base16-onedark &
+
+conky -c $HOME/.config/conky/clock/conkyrc &
+conky -c $HOME/.config/conky/spoty/conkyrc &
+glava --desktop &
 
 # Auth manager
 lxpolkit &

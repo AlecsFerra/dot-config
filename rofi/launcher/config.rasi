@@ -34,8 +34,8 @@ window {
     width:                          30%;
     location:                       west;
     anchor:                         west;
-    x-offset:                       180;
-    y-offset:                       270;
+    x-offset:                       0;
+    y-offset:                       0;
     border-radius:                  6px;
 }
 

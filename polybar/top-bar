@@ -14,7 +14,7 @@ fuzzy-match = false
 
 format = <label-state> <label-mode>
 
-ws-icon-0 = 1;
+ws-icon-0 = 1;
 ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3= 4;
@@ -46,16 +46,16 @@ label-separator-foreground = ${colors.buffer}
 [module/bspwm]
 type = internal/bspwm
 
-ws-icon-0 = 1;
+ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3= 4;
-ws-icon-4 = 5;
+ws-icon-2 = 3;
+ws-icon-3= 4;切
+ws-icon-4 = 5;阮
 ws-icon-5 = 6;Ⅵ
 ws-icon-6 = 7;Ⅶ
 ws-icon-7 = 8;Ⅷ
 ws-icon-8 = 9;Ⅸ
-ws-icon-9 = 10;Ⅹ
+ws-icon-9 = 10;
 
 label-focused = %icon%
 ;label-focused-underline = ${colors.nord7}
@@ -213,6 +213,31 @@ ramp-foreground = ${colors.nord9}
 click-left = ${config.notify-click-left}
 
 [module/network-short]
+type = internal/network
+interface = ${config.interface}
+
+interval = 1
+
+;format-connected = %{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> %{A}
+format-connected = %{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> <label-connected>%{A}
+format-disconnected = %{A1:alacritty --class dropdown_conn -e nmtui:}<label-disconnected>%{A}
+
+;label-connected = "%local_ip%    %downspeed%   %upspeed% "
+label-connected =
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.urgent}
+
+ramp-signal-0 = 直
+ramp-signal-0-foreground = ${colors.urgent}
+ramp-signal-1 = 直
+ramp-signal-1-foreground = ${colors.nord9}
+ramp-signal-2 = 直
+ramp-signal-2-foreground = ${colors.warning}
+ramp-signal-3 = 直
+ramp-signal-3-foreground = ${colors.nord7}
+
+[module/network]
 type = internal/network
 interface = ${config.interface}
 
