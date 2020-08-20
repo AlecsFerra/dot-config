@@ -6,9 +6,14 @@ exec = ~/.config/polybar/scripts/arch-up.sh
 interval = 600
 click-left = alacritty --class dropdown_update -e yay &
 
+[module/kde-connect]
+type = custom/script
+exec = ~/.config/polybar/scripts/kde-connect-battery.sh
+interval = 5
+
 [module/news]
 type = custom/script
-exec = newsboat -x print-unread | awk '{print "  " $1}'
+exec = newsboat -x print-unread | awk '{print "    " $1}'
 interval = 100
 click-left = alacritty -e zsh -ic newsboat
 

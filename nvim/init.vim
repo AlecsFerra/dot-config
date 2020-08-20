@@ -22,6 +22,8 @@ Plug 'frazrepo/vim-rainbow'
 
 Plug 'easymotion/vim-easymotion'
 
+Plug 'edwinb/idris2-vim'
+
 call plug#end()
 
 syntax on

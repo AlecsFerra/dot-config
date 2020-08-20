@@ -22,9 +22,6 @@ gap_y=0,
 
 alignment="middle_middle",
 
-minimum_height=400,
-minimum_width=600,
-
 own_window=true,
 own_window_type="desktop",
 own_window_transparent=true,
@@ -57,7 +54,7 @@ color1='abb2bf', -- date
 --  Locale (e.g. "es_ES.UTF-8")
 --  Leave empty for default
 -------------------------------------
-template9="it_IT"
+template9="en_UK"
 
 }
 
@@ -80,7 +77,7 @@ ${font}${color}
 \
 ${font Iosevka Nerd Font:weight=Light:size=28}${color1}\
 ${voffset 30}\
-${alignc}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %d %B"}\
+${alignc}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %d"}\
 ${font}${color}
 \
 \

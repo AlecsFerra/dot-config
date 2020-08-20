@@ -9,7 +9,7 @@ if ! updates_aur=$(yay -Qum 2> /dev/null | wc -l); then
 fi
 
 n_updates=$(("$updates_arch" + "$updates_aur"))
-echo "  $n_updates"
+echo "   $n_updates"
 
 if [ $n_updates -ne "$old_up" ]; then
     echo $n_updates > "$HOME/.cache/arch-up-script/old"

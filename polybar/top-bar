@@ -135,26 +135,26 @@ battery = ${config.battery-bat}
 adapter = ${config.battery-adp}
 
 
-format-charging = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<animation-charging> <label-charging> %{A}
+format-charging = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<animation-charging>  <label-charging> %{A}
 ;format-charging-underline = ${colors.foreground}
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
 animation-charging-framerate = 750
 
-format-discharging = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-discharging>%{A}
+format-discharging = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity>  <label-discharging>%{A}
 ;format-discharging-underline = ${colors.notify}
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.notify}
 
 format-full = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-full> %{A}
-label-full = 
+label-full = 
 label-full-foreground = ${colors.success}
 ;label-full-underline = ${colors.success}
 

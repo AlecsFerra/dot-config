@@ -16,7 +16,7 @@ configuration {
 * {
     background:                     #282c3400;
     background-color:               #282c3466;
-    background-entry:               #282c3433;
+    background-entry:               #282c3466;
     background-alt:                 #61afef40;
     foreground:                     #f2f2f2EE;
     foreground-selected:            #ffffffFF;
@@ -30,8 +30,8 @@ window {
     background-color:               @background;
     text-color:                     @foreground;
     border-radius:                  0px;
-    height:                         55%;
-    width:                          30%;
+    height:                         100%;
+    width:                          26%;
     location:                       west;
     anchor:                         west;
     x-offset:                       0;

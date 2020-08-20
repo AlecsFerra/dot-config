@@ -17,3 +17,4 @@ ln -s "$ABSOLUTE_PATH"/rofi      $TARGET
 ln -s "$ABSOLUTE_PATH"/nvim      $TARGET
 ln -s "$ABSOLUTE_PATH"/newsboat  $TARGET
 ln -s "$ABSOLUTE_PATH"/secrets   $TARGET
+ln -s "$ABSOLUTE_PATH"/conky     $TARGET

@@ -17,10 +17,10 @@ draw_borders=false,
 -------------------------------------
 --  Window Specifications
 -------------------------------------
-gap_x=0,
-gap_y=0,
+gap_x=10,
+gap_y=25,
 
-alignment="top_middle",
+alignment="bottom_left",
 
 
 own_window=true,
@@ -59,7 +59,18 @@ color1='abb2bf', -- date
 
 conky.text = [[
 ${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
-${voffset 80}\
-${alignc}${execi 1 $HOME/.config/conky/spoty/spoty.sh}\
+CPU Temp ${hwmon 0 temp 1}°C\
+${font}${color}
+\
+\
+\
+${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
+CPU ${cpugraph 15,65 color0 color0} ${cpu}%\
+${font}${color}
+\
+\
+\
+${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
+RAM ${memgraph 15,65 ncolor0 color0} ${memperc}%\
 ${font}${color}
 ]]
