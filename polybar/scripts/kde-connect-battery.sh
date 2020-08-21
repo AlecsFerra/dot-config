@@ -29,4 +29,6 @@ if $is_reach; then
     fi
 
     echo "$device_name $icon  $battery%"
+else
+    echo ""
 fi

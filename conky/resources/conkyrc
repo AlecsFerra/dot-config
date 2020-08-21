@@ -60,17 +60,17 @@ color1='abb2bf', -- date
 conky.text = [[
 ${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
 CPU Temp ${hwmon 0 temp 1}°C\
-${font}${color}
+${font}${color1}
 \
 \
 \
 ${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
 CPU ${cpugraph 15,65 color0 color0} ${cpu}%\
-${font}${color}
+${font}${color1}
 \
 \
 \
 ${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
 RAM ${memgraph 15,65 ncolor0 color0} ${memperc}%\
-${font}${color}
+${font}${color1}
 ]]
