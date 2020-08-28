@@ -46,8 +46,7 @@ override_utf8_locale=true,
 -------------------------------------
 default_color='FFFFFF',
 
-color0='abb2bf', -- clock
-color1='abb2bf', -- date
+color1='abb2bf',
 
 
 -------------------------------------
@@ -68,9 +67,9 @@ conky.text = [[
 \
 \
 \
-${font Iosevka Nerd Font:weight=Light:size=96}${color0}\
+${font Iosevka Nerd Font:weight=Light:size=96}${color1}\
 ${alignc}${time %H:%M}\
-${font}${color0}
+${font}${color1}
 \
 \
 \

@@ -88,8 +88,7 @@ module-margin-right = 2
 font-0 = fixed:pixelsize=12;1
 font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
 font-2 = siji:pixelsize=12;1
-font-3 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=11;2"
-font-4 = "JetBrains Mono Nerd Font:pixelsize=15"
+font-3 = "JetBrains Mono Nerd Font:pixelsize=15"
 
 modules-left = battery kde-connect xkeyboard network-short
 modules-center = bspwm

@@ -22,7 +22,7 @@ configuration {
     foreground-selected:            #ffffffFF;
     urgent:                         #E91E6366;
     urgent-selected:                #E91E6377;
-    border-radius:                  6px;
+    //border-radius:                  6px;
 }
 
 window {
@@ -36,7 +36,7 @@ window {
     anchor:                         west;
     x-offset:                       0;
     y-offset:                       0;
-    border-radius:                  6px;
+    //border-radius:                  6px;
 }
 
 prompt {
@@ -51,7 +51,7 @@ inputbar {
     background-color:               @background-alt;
     text-color:                     @foreground;
     expand:                         false;
-    border-radius:                  6px;
+    //border-radius:                  6px;
     margin:                         0px 0px 0px 0px;
     padding:                        10px 10px 10px 10px;
     position:                       south;
@@ -86,7 +86,7 @@ listview {
 
 mainbox {
     background-color:               @background-color;
-    border-radius:                  6px;
+    //border-radius:                  6px;
     children:                       [ inputbar, listview ];
     spacing:                        15px;
     padding:                        30px 25px 15px 25px;
@@ -96,7 +96,7 @@ element {
     background-color:               @background;
     text-color:                     @foreground;
     orientation:                    vertical;
-    border-radius:                  6px;
+    //border-radius:                  6px;
     padding:                        10px 0px 10px 0px;
 }
 
@@ -116,7 +116,7 @@ element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    border-radius:                  9px;
+    //border-radius:                  9px;
 }
 
 element normal.active,

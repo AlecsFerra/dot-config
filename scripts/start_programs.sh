@@ -13,7 +13,7 @@ deadd-notification-center &
 batsignal -b &
 
 # Wallpaper and lockscreen
-wallpaper="$HOME"/Pictures/Wallpapers/vg.jpg
+wallpaper="$HOME"/Pictures/Wallpapers/initiald-bw.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 feh --bg-fill $wallpaper &
@@ -30,7 +30,7 @@ lxpolkit &
 # Mouse pointer and keyboard
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
-setxkbmap -option grp:alt_shift_toggle it,us &
+$HOME/.config/scripts/keyboard.sh &
 
 # Polybar and rice
 "$HOME"/.config/polybar/start.sh &
