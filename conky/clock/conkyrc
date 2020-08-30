@@ -18,9 +18,9 @@ draw_borders=false,
 --  Window Specifications
 -------------------------------------
 gap_x=0,
-gap_y=0,
+gap_y=90,
 
-alignment="middle_middle",
+alignment="top_middle",
 
 own_window=true,
 own_window_type="desktop",

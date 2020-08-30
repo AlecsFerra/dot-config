@@ -22,7 +22,7 @@ super + g
     $HOME/.config/rofi/search/search.sh
 
 super + m
-            $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh
+    $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh
 
 super + n
     kill -s USR1 $(pidof deadd-notification-center)
@@ -64,6 +64,9 @@ super + {_,shift} + q
 super + {_,shift} + {h,j,k,l}
     bspc node -{f,s} {west,south,north,east}
 
+super + alt + {h,j,k,l}
+    bspc node -z {right,bottom,top,left} 10 10
+
 super + ctrl + {h,j,k,l,space}
     bspc node -p {west,south,north,east,cancel}
 
@@ -76,5 +79,3 @@ super + {t, s, f}
 super + shift + t
     bspc node -t pseudo_tiled
 
-#super + shift + {t, s, f}
-#    bsp-layout set {tall, even, wide}
