@@ -1,0 +1,7 @@
+#browser vbox#appcontent tabbrowser,
+#content,
+#tabbrowser-tabpanels,
+browser[type=content-primary],
+browser[type=content]>html {
+    background: #282c34 !important
+}

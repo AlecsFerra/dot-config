@@ -1,0 +1,23 @@
+#forward-button {
+    display: none !important;
+}
+
+#back-button {
+    display: none !important;
+}
+
+.titlebar-spacer {
+    display: none !important;
+}
+
+#tracking-protection-icon-container {
+    display: none !important;
+}
+
+.tabbrowser-tab:not([pinned]) .tab-close-button {
+    display: none !important;
+}
+
+hbox.tab-content .tab-icon-image {
+    display: none !important;
+}

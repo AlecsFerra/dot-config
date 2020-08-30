@@ -18,3 +18,4 @@ ln -s "$ABSOLUTE_PATH"/nvim      $TARGET
 ln -s "$ABSOLUTE_PATH"/newsboat  $TARGET
 ln -s "$ABSOLUTE_PATH"/secrets   $TARGET
 ln -s "$ABSOLUTE_PATH"/conky     $TARGET
+ln -s "$ABSOLUTE_PATH"/chrome    $HOME/.mozilla/firefox/ctlvbtmr.default-release/
