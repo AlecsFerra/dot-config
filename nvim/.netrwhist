@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/alecs/Repos/dot-config'
 let g:netrw_dirhist_5='/home/alecs/.mozilla/firefox/ctlvbtmr.default-release/chrome/patches'
 let g:netrw_dirhist_4='/home/alecs/Repos/dot-config'
 let g:netrw_dirhist_3='/home/alecs/.telegram-cli'

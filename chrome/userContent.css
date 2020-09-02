@@ -53,6 +53,6 @@ url("about:privatebrowsing") {
     --in-content-border-active: #282c34 !important;
     --in-content-border-active-shadow: none !important;
     --in-content-page-background: #282c34 !important;
-    --in-content-page-color: #282c34 !important;
+    --in-content-page-color: #abb2bf !important;
     scrollbar-width: none;
 }

@@ -31,6 +31,7 @@ lxpolkit &
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
 $HOME/.config/scripts/keyboard.sh &
+$HOME/.config/scripts/wacom.sh &
 
 # Polybar and rice
 "$HOME"/.config/polybar/start.sh &

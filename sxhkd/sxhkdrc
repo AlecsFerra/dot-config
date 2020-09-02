@@ -42,6 +42,12 @@ super + Left
 super + Up
     .config/scripts/spoty_command.sh playpause
 
+super + c
+    xwacomcalibrate && notify-send "Wacom" "Calibrated to match the current window"
+
+super + {shift, alt} + c
+    xwacomcalibrate -f {eDP-1, HDMI-1} && notify-send "Wacom" "Calibrated to match the screen"
+
 XF86AudioMute
     pavolume mutetoggle --noshow
 
