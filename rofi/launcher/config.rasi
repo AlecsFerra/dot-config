@@ -96,7 +96,7 @@ element {
     background-color:               @background;
     text-color:                     @foreground;
     orientation:                    vertical;
-    //border-radius:                  6px;
+    border-radius:                  10px;
     padding:                        10px 0px 10px 0px;
 }
 

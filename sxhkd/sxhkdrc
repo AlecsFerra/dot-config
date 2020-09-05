@@ -27,7 +27,7 @@ super + m
 super + n
     kill -s USR1 $(pidof deadd-notification-center)
 
-super + shift + f
+super + z
     $TERMINAL -e zsh -ic ranger
 
 super + shift + x

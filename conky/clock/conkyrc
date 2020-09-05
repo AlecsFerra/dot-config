@@ -20,7 +20,7 @@ draw_borders=false,
 gap_x=0,
 gap_y=90,
 
-alignment="top_middle",
+alignment="middle_middle",
 
 own_window=true,
 own_window_type="desktop",
