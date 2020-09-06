@@ -15,6 +15,6 @@ if [ $n_updates -ne "$old_up" ]; then
     echo $n_updates > "$HOME/.cache/arch-up-script/old"
     if [ $n_updates -gt 0 ]; then
         notify-send.py -a pacman " 📦 Updates" " $n_updates ready to install" \
-                       -i system-sotware-update
+                       -i system-software-update
     fi
 fi
