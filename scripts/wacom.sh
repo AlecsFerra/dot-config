@@ -13,9 +13,14 @@ case ${1:-"xournal"} in
         xsetwacom set "$pad" Button 9 "key +ctrl + -ctrl"
         xsetwacom set "$pad" Button 3 "key up"
         xsetwacom set "$pad" Button 1 "key down"
+
+        [ -z "$1" ] || notify-send -a Wacom "Wacom mode set" \
+                                   "xournal mode set" -i pencil
         echo "Mode xournal is set"
         ;;
     *)
+        notify-send -a Wacom "Cannot find wacom mode" "$1" \
+                    -i pencil
         echo "Undefined mode $1"
         exit 3
         ;;
