@@ -1,7 +1,10 @@
 # vim: filetype=sh
 
-super + {_, shift} + Return
-    $TERMINAL { , --class dropdown_terminal}
+super + Return
+    $TERMINAL
+
+super + shift + Return
+    tdrop -ma $TERMINAL
 
 super + w
     firefox
@@ -55,6 +58,9 @@ super + {shift, alt} + c
 
 XF86AudioMute
     pavolume mutetoggle --noshow
+
+super + XF86AudioMute
+    tdrop -a -x 62% -w 25% -y 685 pavucontrol
 
 XF86AudioRaiseVolume
     pavolume volup 5 --noshow
