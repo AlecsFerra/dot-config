@@ -9,6 +9,7 @@ click-left = alacritty --class dropdown_update -e yay &
 [module/kde-connect]
 type = custom/script
 exec = ~/.config/polybar/scripts/kde-connect-battery.sh
+click-left = thunar /run/user/1000/bc589360833d3c73/primary/
 interval = 5
 
 [module/news]

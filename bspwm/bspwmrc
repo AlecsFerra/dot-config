@@ -37,4 +37,5 @@ bspc rule -a spotify desktop='^5'
 bspc rule -a Alacritty:dropdown_update state=floating
 bspc rule -a Alacritty:dropdown_conn state=floating
 bspc rule -a Alacritty:dropdown_terminal state=floating
+bspc rule -a Indicator-kdeconnect state=floating
 bspc rule -a Zathura state=tiled
