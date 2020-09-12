@@ -121,7 +121,7 @@ date = %H:%M
 date-alt = %Y-%m-%d %a
 
 format = <label>
-label =  %date%
+label = %date%
 label-margin = 1
 ;label-underline = ${colors.nord8}
 

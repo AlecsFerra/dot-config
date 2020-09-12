@@ -93,5 +93,5 @@ font-4 = "JetBrains Mono Nerd Font:pixelsize=15"
 
 modules-left = battery kde-connect xkeyboard network-short
 modules-center = bspwm
-modules-right = news updates
+modules-right = news updates date
 tray-position = right
