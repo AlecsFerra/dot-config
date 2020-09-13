@@ -14,7 +14,7 @@ interval = 5
 
 [module/news]
 type = custom/script
-exec = newsboat -x print-unread | awk '{print "    " $1}'
+exec = newsboat -x reload print-unread | awk '{print "    " $1}'
 interval = 100
 click-left = alacritty -e zsh -ic newsboat
 
