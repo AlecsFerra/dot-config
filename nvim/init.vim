@@ -24,6 +24,22 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'edwinb/idris2-vim'
 
+Plug 'jiangmiao/auto-pairs'
+
+Plug 'liuchengxu/vim-which-key'
+
+Plug 'justinmk/vim-sneak'
+
+Plug 'tpope/vim-sleuth'
+
+Plug 'sheerun/vim-polyglot'
+
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'rhysd/vim-clang-format', {'for' : ['c', 'cpp']}
+
+Plug 'rust-lang/rust.vim'
+
 call plug#end()
 
 syntax on
@@ -42,8 +58,14 @@ set colorcolumn=80
 set updatetime=50
 set cmdheight=2
 set autochdir
+set iskeyword+=-
+set formatoptions-=cro
+set clipboard=unnamedplus
+set noshowmode
+set mouse=a
+set hidden
 
-
+cmap w!! w !sudo tee %
 
 let g:python3_host_prog = '/usr/bin/python3'
 
@@ -67,7 +89,7 @@ function! s:find_files()
     endif
 endfunction " If a git root is found call GFiles on it else call Files on .
 command! ProjectFiles execute s:find_files()
-nmap <leader>p :ProjectFiles<CR>
+nnoremap <leader>i :ProjectFiles<CR>
 
 " Switch windows
 nnoremap <leader>h :wincmd h<CR>
@@ -94,3 +116,8 @@ fun! TrimWhitespace()
 endfun
 autocmd BufWritePre * :call TrimWhitespace()
 
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+set timeoutlen=500
+
+let g:clang_format#auto_format=1

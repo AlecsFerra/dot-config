@@ -125,3 +125,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>C
+
+" FOR CMAKE set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+" Use clang-tidy flags with clang-tidy --list-checks (fast: clang-tidy --checks='-*,bugprone-*' --dump-config > .clang-tidy)
