@@ -7,7 +7,7 @@ window:
     lines: 20
 
   padding:
-    x: 0
+    x: 6
     y: 0
 
   dynamic_padding: true
@@ -62,27 +62,27 @@ mouse:
 # BEGIN ACE
 colors:
   primary:
-    background: '0x3E4755'
-    foreground: '0xD2D2D4'
+    background: '0x2f3846'
+    foreground: '0xd2d2d4'
   cursor:
-    text:       '0x3E4755'
-    cursor:     '0xD2D2D4'
+    text:       '0x2f3846'
+    cursor:     '0xd2d2d4'
   normal:
-    black:      '0x3E4755'
-    red:        '0xE28479'
-    green:      '0x70B791'
-    yellow:     '0xC9C76B'
-    blue:       '0x839AEC'
-    magenta:    '0xD18493'
-    cyan:       '0x78B3C5'
-    white:      '0xD2D2D4'
+    black:      '0x2f3846'
+    red:        '0xe28479'
+    green:      '0x70b791'
+    yellow:     '0xc9c76b'
+    blue:       '0x839aec'
+    magenta:    '0xd18493'
+    cyan:       '0x78b3c5'
+    white:      '0xd2d2d4'
   bright:
-    black:      '0x5D6473'
-    red:        '0xEC8E83'
+    black:      '0x4d5664'
+    red:        '0xec8e83'
     green:      '0x95c7ae'
-    yellow:     '0xD3D175'
-    blue:       '0x8DA4F6'
-    magenta:    '0xDB8E9D'
-    cyan:       '0x82BDCF'
-    white:      '0xD1D1D3'
+    yellow:     '0xd3d175'
+    blue:       '0x8da4f6'
+    magenta:    '0xdb8e9d'
+    cyan:       '0x82bdcf'
+    white:      '0xd1d1d3'
 # END ACE
