@@ -60,7 +60,7 @@ XF86AudioMute
     pavolume mutetoggle --noshow
 
 super + XF86AudioMute
-    tdrop -a -x 62% -w 25% -y 685 pavucontrol
+    tdrop -a -x 60% -w 25% -y 685 pavucontrol
 
 XF86AudioRaiseVolume
     pavolume volup 5 --noshow

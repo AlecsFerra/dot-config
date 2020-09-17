@@ -17,7 +17,7 @@ wallpaper="$HOME"/Pictures/Wallpapers/darkmnt.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 feh --bg-fill $wallpaper &
-wal --theme base16-onedark &
+wal --theme blossom &
 
 conky -c $HOME/.config/conky/clock/conkyrc &
 conky -c $HOME/.config/conky/resources/conkyrc &

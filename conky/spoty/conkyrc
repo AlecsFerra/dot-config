@@ -47,8 +47,7 @@ override_utf8_locale=true,
 -------------------------------------
 default_color='FFFFFF',
 
-color0='abb2bf', -- clock
-color1='abb2bf', -- date
+color1='dfdff2', -- date
 
 }
 

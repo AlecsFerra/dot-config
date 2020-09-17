@@ -7,15 +7,15 @@
 /*tab border*/
 
 .tab-content {
-    border-bottom: 2px solid #61afef !important;
+    border-bottom: 2px solid #839AEC !important;
     padding-top: 3px !important;
 }
 
 .tab-content[selected="true"] {
-    background-color: #282c34 !important;
-    border-bottom: 2px solid #98c379 !important;
+    background-color: #2F3846 !important;
+    border-bottom: 2px solid #70B791!important;
     /*tab border*/
-    color: #abb2bf !important;
+    color: #DFDFF2 !important;
 }
 
 
@@ -29,8 +29,8 @@ tab {
     padding-right: 1px !important;
     padding-left: 1px !important;
     padding-bottom: 0px !important;
-    background-color: #282c34 !important;
-    color: #9BA8BB !important;
+    background-color: #2F3846 !important;
+    color: #DFDFF2 !important;
 }
 
 scrollbox[orient="horizontal"] {
@@ -43,7 +43,7 @@ scrollbox[orient="horizontal"] {
 }
 
 #tabbrowser-tabs {
-    background-color: #282c34 !important;
+    background-color: #2F3846 !important;
     margin-left: 0px !important;
     height: 25px !important;
     margin-bottom: 0px !important;
@@ -110,7 +110,7 @@ scrollbox[orient="horizontal"] {
 /* New Tab Flash */
 
  :root {
-    --newtab-textbox-background-color: #282c34;
+    --newtab-textbox-background-color: #2F3846;
 }
 
 

@@ -19,4 +19,5 @@ ln -s "$ABSOLUTE_PATH"/newsboat  $TARGET
 ln -s "$ABSOLUTE_PATH"/secrets   $TARGET
 ln -s "$ABSOLUTE_PATH"/conky     $TARGET
 ln -s "$ABSOLUTE_PATH"/wal       $TARGET
+ln -s "$ABSOLUTE_PATH"/zathura   $TARGET
 ln -s "$ABSOLUTE_PATH"/chrome    $HOME/.mozilla/firefox/*.default-release/

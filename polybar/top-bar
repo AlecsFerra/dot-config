@@ -51,10 +51,10 @@ ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3= 4;切
 ws-icon-4 = 5;阮
-ws-icon-5 = 6;Ⅵ
-ws-icon-6 = 7;Ⅶ
-ws-icon-7 = 8;Ⅷ
-ws-icon-8 = 9;IX
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
 ws-icon-9 = 10;
 
 label-focused = %icon%
@@ -163,7 +163,7 @@ type = internal/xkeyboard
 blacklist-0 = num lock
 blacklist-1 = caps lock
 
-format-prefix = "⌨ "
+format-prefix = "   "
 label-layout = %layout%
 
 

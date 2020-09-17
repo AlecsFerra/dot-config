@@ -4,18 +4,18 @@ url("about:blank"),
 url("about:newtab"),
 url("about:privatebrowsing") {
     body {
-        background-color: #282c34!important;
+        background-color: #2F3846!important;
         --newtab-search-icon: transparent !important;
     }
     a,
     a:visited,
     a:hover {
-        color: #282c34!important
+        color: #2F3846!important
     }
     #newtab-search-text {
-        background-color: #282c34 !important;
+        background-color: #2F3846 !important;
         font-size: 18px !important;
-        color: #282c34 !important;
+        color: #2F3846 !important;
         box-shadow: none !important;
         text-align: center !important;
         border: none !important;
@@ -38,7 +38,7 @@ url("about:privatebrowsing") {
         background: none !important;
     }
     .prefs-button button {
-        fill: #282c34 !important;
+        fill: #2F3846 !important;
     }
     .prefs-button button:hover,
     .prefs-button button:focus {
@@ -50,9 +50,9 @@ url("about:privatebrowsing") {
 }
 
 :root {
-    --in-content-border-active: #282c34 !important;
+    --in-content-border-active: #2F3846 !important;
     --in-content-border-active-shadow: none !important;
-    --in-content-page-background: #282c34 !important;
+    --in-content-page-background: #2F3846 !important;
     --in-content-page-color: #abb2bf !important;
     scrollbar-width: none;
 }
