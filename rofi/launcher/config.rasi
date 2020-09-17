@@ -14,12 +14,12 @@ configuration {
 
 
 * {
-    background:                     #282c3400;
-    background-color:               #282c3466;
-    background-entry:               #282c3466;
-    background-alt:                 #61afef40;
-    foreground:                     #f2f2f2EE;
-    foreground-selected:            #ffffffFF;
+    background:                     #2F384600;
+    background-color:               #2F384666;
+    background-entry:               #2F384666;
+    background-alt:                 #839aec40;
+    foreground:                     #dfdff2EE;
+    foreground-selected:            #dfdff2FF;
     urgent:                         #E91E6366;
     urgent-selected:                #E91E6377;
     //border-radius:                  6px;
@@ -44,7 +44,6 @@ prompt {
 	padding: 						0px 8px -10px 4px;
 	background-color: 				@background;
 	text-color: 					@foreground;
-	font:							"FantasqueSansMono Nerd Font 16";
 }
 
 inputbar {
