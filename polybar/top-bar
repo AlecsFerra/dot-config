@@ -219,8 +219,8 @@ interface = ${config.interface}
 interval = 1
 
 ;format-connected = %{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> %{A}
-format-connected = %{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> <label-connected>%{A}
-format-disconnected = %{A1:alacritty --class dropdown_conn -e nmtui:}<label-disconnected>%{A}
+format-connected = "%{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> <label-connected>%{A} "
+format-disconnected = "%{A1:alacritty --class dropdown_conn -e nmtui:}<label-disconnected>%{A} "
 
 ;label-connected = "%local_ip%    %downspeed%   %upspeed% "
 label-connected =
