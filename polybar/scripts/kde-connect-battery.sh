@@ -28,7 +28,7 @@ if $is_reach; then
         esac
     fi
 
-    echo "$icon  $device_name $battery%"
+    echo "$device_name $icon $battery%"
 else
     echo ""
 fi
