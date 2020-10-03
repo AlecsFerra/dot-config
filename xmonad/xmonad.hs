@@ -8,14 +8,13 @@ import qualified Data.Map        as M
 -- To Spawn only one the start program
 import XMonad.Util.SpawnOnce
 
-import XMonad.Hooks.ManageDocks
-
 import XMonad.ManageHook
 import XMonad.Hooks.ManageHelpers
-
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
 
 import XMonad.Layout.Spacing
+import XMonad.Layout.NoBorders
 
 defaultTerminal = "alacritty"
 
@@ -30,11 +29,9 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     [ ((modm,               xK_q     ), kill)
 
-     -- Rotate through the available layout algorithms
     , ((modm,               xK_space ), sendMessage NextLayout)
 
-    --  Reset the layouts on the current workspace to default
-    , ((modm .|. shiftMask, xK_space ), setLayout $ XMonad.layoutHook conf)
+    , ((modm .|. shiftMask, xK_space ), sendMessage ToggleStruts)
 
     -- Move focus to the next window
     , ((modm,               xK_j     ), windows W.focusDown)
@@ -98,7 +95,7 @@ mouseBindings' (XConfig {XMonad.modMask = modm}) = M.fromList $
                                        >> windows W.shiftMaster))
     ]
 
-layout' = tiled ||| Mirror tiled ||| Full
+layout' = tiled ||| Mirror tiled ||| noBorders Full
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = spacing 3 $ Tall nmaster delta ratio
