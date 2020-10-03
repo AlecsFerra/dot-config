@@ -6,77 +6,6 @@ include-file = $HOME/.config/polybar/top-bar
 include-file = $HOME/.config/polybar/vars
 include-file = $HOME/.config/polybar/bottom-bar
 
-[bar/base]
-theme = dark
-monitor = ${env:MONITOR:eDP-1}
-width = ${config.width}
-height = ${config.height}
-offset-x = ${config.offset-x}
-offset-y = ${config.offset-y}
-radius = ${config.radius}
-
-fixed-center = ${config.fixed-center}
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = ${config.line-size}
-
-padding = 0
-wm-restack = ${config.wm-restack}
-
-tray-padding = 3
-tray-detached = false
-tray-maxsize = 22
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-enable-ipc = true
-
-[bar/top]
-inherit = bar/base
-
-module-margin = 1
-padding-right = 2
-
-font-0 = fixed:pixelsize=12;1
-font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
-font-2 = siji:pixelsize=12;1
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=12"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=12"
-font-5 = "Font Awesome 5 Brands:pixelsize=12"
-font-6 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=10;2"
-font-7 = "JetBrains Mono Nerd Font:pixelsize=12"
-
-modules-left = ${config.top-left}
-modules-center = ${config.top-center}
-modules-right = ${config.top-right}
-
-;tray-position = ${config.systray-top}
-
-[bar/bottom]
-inherit = bar/base
-
-bottom = true
-
-padding = 2
-module-margin = 2
-
-font-0 = fixed:pixelsize=12;1
-font-1 = unifont:fontformat=truetype:size=12:antialias=false;0
-font-2 = siji:pixelsize=12;1
-font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=12"
-font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=12"
-font-5 = "Font Awesome 5 Brands:pixelsize=12"
-font-6 = "Noto Color Emoji:pixelsize=16:style=Regular:scale=11;2"
-font-7 = "JetBrains Mono Nerd Font:pixelsize=15"
-
-modules-left = ${config.bottom-left}
-modules-center = ${config.bottom-center}
-modules-right = ${config.bottom-right}
-
-tray-position = ${config.systray-bottom}
 
 [bar/minimal]
 bottom = true
@@ -94,7 +23,8 @@ foreground = ${colors.foreground}
 line-size = ${config.line-size}
 
 padding = 0
-wm-restack = ${config.wm-restack}
+
+override-redirect = true
 
 tray-padding = 10
 tray-detached = false
@@ -105,13 +35,14 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
-padding-left = 3
+; padding-left = 3
+padding-left = 2
 module-margin-right = 2
 
 font-0 = DejaVuSans:size=12;4
-font-1 = "JetBrains Mono Nerd Font:size=14;4"
+font-1 = "JetBrains Mono Nerd Font:size=14;3"
 
 modules-left = battery xkeyboard network-short kde-connect
-modules-center = bspwm
+modules-center = ewmh
 modules-right = news updates date
 tray-position = right

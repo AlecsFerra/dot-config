@@ -13,7 +13,7 @@ deadd-notification-center &
 batsignal -b &
 
 # Wallpaper and lockscreen
-wallpaper="$HOME"/Pictures/Wallpapers/darkmnt.jpg
+wallpaper="$HOME"/Pictures/Wallpapers/planes.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 feh --bg-fill $wallpaper &

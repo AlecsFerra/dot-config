@@ -1,48 +1,4 @@
 ; vim:ft=dosini
-
-[module/i3]
-type = internal/i3
-
-strip-wsnumbers = true
-index-sort = true
-enable-click = true
-enable-scroll = true
-wrapping-scroll = true
-reverse-scroll = true
-
-fuzzy-match = false
-
-format = <label-state> <label-mode>
-
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3= 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;Ⅵ
-ws-icon-6 = 7;Ⅶ
-ws-icon-7 = 8;Ⅷ
-ws-icon-8 = 9;Ⅸ
-ws-icon-9 = 10;Ⅹ
-
-label-focused = %icon%
-label-focused-underline = ${colors.nord7}
-label-focused-foreground = ${colors.nord7}
-label-focused-padding = 2
-
-label-unfocused = %icon%
-label-unfocused-foreground = ${colors.nord9}
-label-unfocused-padding = 2
-
-label-urgent = %icon%
-label-urgent-foreground = ${colors.urgent}
-label-urgent-background = ${colors.foreground}
-label-urgent-padding = 2
-
-; seperator
-label-separator = |
-label-separator-foreground = ${colors.buffer}
-
 [module/bspwm]
 type = internal/bspwm
 
@@ -79,6 +35,46 @@ label-urgent-padding = 2
 ; seperator
 label-separator =
 label-separator-foreground = ${colors.buffer}
+
+[module/ewmh]
+type = internal/xworkspaces
+
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3= 4;切
+icon-4 = 5;阮
+icon-5 = 6;
+icon-6 = 7;
+icon-7 = 8;
+icon-8 = 9;
+icon-9 = 10;
+
+label-monitor = %name%
+
+label-active = %icon%
+;label-focused-underline = ${colors.nord7}
+label-active-foreground = ${colors.nord7}
+label-active-padding = 2
+
+label-occupied = %icon%
+;label-occupied-underline = ${colors.nord9}
+label-occupied-foreground = ${colors.nord9}
+label-occupied-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.buffer}
+label-empty-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.urgent}
+;label-urgent-underline = ${colors.urgent}
+label-urgent-padding = 2
+
+; seperator
+label-separator =
+label-separator-foreground = ${colors.buffer}
+
 
 [module/workspace-name]
 type = internal/i3

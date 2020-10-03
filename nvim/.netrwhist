@@ -1,12 +1,12 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =9
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/alecs/Hacktoberfest-2020/contributors'
+let g:netrw_dirhist_2='/home/alecs/Documents/Code/schemhaskell/app'
+let g:netrw_dirhist_1='/home/alecs/Documents/Code/schemhaskell'
+let g:netrw_dirhist_0='/home/alecs/Documents/Code/schemhaskell/src'
 let g:netrw_dirhist_9='/home/alecs/Repos/dot-config/conky/clock'
 let g:netrw_dirhist_8='/home/alecs/Repos/dot-config'
 let g:netrw_dirhist_7='/home/alecs/.config/zathura'
 let g:netrw_dirhist_6='/home/alecs/Documents/Code/test-owo/src'
 let g:netrw_dirhist_5='/home/alecs/Documents/Code'
 let g:netrw_dirhist_4='/home/alecs/Documents/Code/ThatLang/src'
-let g:netrw_dirhist_3='/home/alecs/Documents/Code/ThatLang/src/parsing'
-let g:netrw_dirhist_2='/home/alecs/Documents/Code/ThatLang/src'
-let g:netrw_dirhist_1='/home/alecs/Documents/Code/ThatLang'
-let g:netrw_dirhist_0='/home/alecs/Documents/Code/ThatLang/src/parsing'

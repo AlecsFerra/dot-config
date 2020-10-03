@@ -1,10 +1,7 @@
 # vim: filetype=sh
 
 super + Return
-    $TERMINAL
-
-super + shift + Return
-    tdrop -ma $TERMINAL
+    alacritty
 
 super + w
     firefox
@@ -24,7 +21,7 @@ super + e
 super + g
     $HOME/.config/rofi/search/search.sh
 
-super + m
+super + shift + m
     $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh
 
 super + n
@@ -59,9 +56,6 @@ super + {shift, alt} + c
 XF86AudioMute
     pavolume mutetoggle --noshow
 
-super + XF86AudioMute
-    tdrop -a -x 60% -w 25% -y 685 pavucontrol
-
 XF86AudioRaiseVolume
     pavolume volup 5 --noshow
 
@@ -75,24 +69,24 @@ XF86MonBrightnessDown
     xbacklight -dec 5
 
 ## BSPWM specific ##
-super + {_,shift} + q
-    bspc node -{c,k}
+# super + {_,shift} + q
+#    bspc node -{c,k}
 
-super + {_,shift} + {h,j,k,l}
-    bspc node -{f,s} {west,south,north,east}
+#super + {_,shift} + {h,j,k,l}
+#    bspc node -{f,s} {west,south,north,east}
 
-super + alt + {h,j,k,l}
-    bspc node -z {right,bottom,top,left} 10 10
+#super + alt + {h,j,k,l}
+#    bspc node -z {right,bottom,top,left} 10 10
 
-super + ctrl + {h,j,k,l,space}
-    bspc node -p {west,south,north,east,cancel}
+#super + ctrl + {h,j,k,l,space}
+#    bspc node -p {west,south,north,east,cancel}
 
-super + {_,shift} + {1-9,0}
-    bspc {desktop, node -d} '^{1-9,10}' -f
+#super + {_,shift} + {1-9,0}
+#    bspc {desktop, node -d} '^{1-9,10}' -f
 
-super + {t, s, f}
-    bspc node -t {tiled, floating, fullscreen}
+#super + {t, s, f}
+#    bspc node -t {tiled, floating, fullscreen}
 
-super + shift + t
-    bspc node -t pseudo_tiled
+#super + shift + t
+#    bspc node -t pseudo_tiled
 
