@@ -39,6 +39,8 @@ label-separator-foreground = ${colors.buffer}
 [module/ewmh]
 type = internal/xworkspaces
 
+#format = <label-monitor> <label-state>
+
 icon-0 = 1;
 icon-1 = 2;
 icon-2 = 3;
@@ -51,6 +53,7 @@ icon-8 = 9;
 icon-9 = 10;
 
 label-monitor = %name%
+label-monitor-foreground = ${colors.buffer}
 
 label-active = %icon%
 ;label-focused-underline = ${colors.nord7}
@@ -72,7 +75,7 @@ label-urgent-foreground = ${colors.urgent}
 label-urgent-padding = 2
 
 ; seperator
-label-separator =
+label-separator = ""
 label-separator-foreground = ${colors.buffer}
 
 
@@ -148,6 +151,10 @@ ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.notify}
+
+time-format = %H:%M
+label-discharging = %percentage%%
+;(%time%)
 
 format-full = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-full> %{A}
 label-full = 

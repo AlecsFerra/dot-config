@@ -1,4 +1,4 @@
-vim:ft=dosini
+# vim:ft=dosini
 
 [config]
 # DPI value for HiDPI screen

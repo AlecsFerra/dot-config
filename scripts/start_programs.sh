@@ -13,10 +13,11 @@ deadd-notification-center &
 batsignal -b &
 
 # Wallpaper and lockscreen
-export wallpaper="$HOME"/Pictures/Wallpapers/planes.jpg
+export wallpaper="$HOME"/Pictures/Wallpapers/audi.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
-feh --bg-fill $wallpaper &
+#feh --bg-fill $wallpaper &
+hsetroot -fill $wallpaper -tint "#2F3846" # -contrast 0.80
 wal --theme blossom &
 
 conky -c $HOME/.config/conky/clock/conkyrc &
