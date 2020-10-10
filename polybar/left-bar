@@ -1,0 +1,144 @@
+; vim:ft=dosini
+
+[module/ewmh]
+type = internal/xworkspaces
+
+#format = <label-monitor> <label-state>
+icon-0 = 1;
+icon-1 = 2;
+icon-2 = 3;
+icon-3= 4;切
+icon-4 = 5;阮
+icon-5 = 6;
+icon-6 = 7;
+icon-7 = 8;
+icon-8 = 9;
+icon-9 = 10;
+
+label-monitor = %name%
+label-monitor-foreground = ${colors.buffer}
+
+label-active = %icon%
+label-active-foreground = ${colors.nord7}
+label-active-padding = 2
+
+label-occupied = %icon%
+label-occupied-foreground = ${colors.nord9}
+label-occupied-padding = 2
+
+label-empty = %icon%
+label-empty-foreground = ${colors.buffer}
+label-empty-padding = 2
+
+label-urgent = %icon%
+label-urgent-foreground = ${colors.urgent}
+label-urgent-padding = 2
+
+label-separator = ""
+label-separator-foreground = ${colors.buffer}
+
+[module/spotify]
+type = custom/script
+exec = $HOME/.config/polybar/scripts/spoty.sh
+interval = 2
+label = %output%
+
+[module/battery]
+type = internal/battery
+exec = tlp-stat -s | grep -q 'Mode           = AC' && echo "✨" || echo "💤"
+internal = 50
+full-at = ${config.battery-full-at}
+
+battery = ${config.battery-bat}
+adapter = ${config.battery-adp}
+
+
+format-charging = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<animation-charging> <label-charging>%{A}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+format-discharging = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-discharging>%{A}
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.notify}
+
+time-format = %H:%M
+label-discharging = %percentage%%
+;(%time%)
+
+format-full = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-full> %{A}
+label-full = 
+label-full-foreground = ${colors.success}
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+blacklist-1 = caps lock
+
+format-prefix = "   "
+label-layout = %layout%
+
+
+[module/network-short]
+type = internal/network
+interface = ${config.interface}
+
+interval = 1
+
+;format-connected = %{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> %{A}
+format-connected = "%{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> <label-connected>%{A} "
+format-disconnected = "%{A1:alacritty --class dropdown_conn -e nmtui:}<label-disconnected>%{A} "
+
+;label-connected = "%local_ip%    %downspeed%   %upspeed% "
+label-connected =
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.urgent}
+
+ramp-signal-0 = 直
+ramp-signal-0-foreground = ${colors.urgent}
+ramp-signal-1 = 直
+ramp-signal-1-foreground = ${colors.nord9}
+ramp-signal-2 = 直
+ramp-signal-2-foreground = ${colors.warning}
+ramp-signal-3 = 直
+ramp-signal-3-foreground = ${colors.nord7}
+
+[module/network]
+type = internal/network
+interface = ${config.interface}
+
+interval = 1
+
+;format-connected = %{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> %{A}
+format-connected = %{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> <label-connected>%{A}
+format-disconnected = %{A1:alacritty --class dropdown_conn -e nmtui:}<label-disconnected>%{A}
+
+;label-connected = "%local_ip%    %downspeed%   %upspeed% "
+label-connected = "%local_ip%"
+
+label-disconnected = 
+label-disconnected-foreground = ${colors.urgent}
+
+ramp-signal-0 = 
+ramp-signal-0-foreground = ${colors.urgent}
+ramp-signal-1 = 
+ramp-signal-1-foreground = ${colors.nord9}
+ramp-signal-2 = 
+ramp-signal-2-foreground = ${colors.warning}
+ramp-signal-3 = 
+ramp-signal-3-foreground = ${colors.nord7}
+
+[module/kde-connect]
+type = custom/script
+exec = ~/.config/polybar/scripts/kde-connect-battery.sh
+click-left = thunar /run/user/1000/bc589360833d3c73/primary/
+interval = 10
+

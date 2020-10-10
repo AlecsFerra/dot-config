@@ -40,6 +40,8 @@ Plug 'rhysd/vim-clang-format', {'for' : ['c', 'cpp']}
 
 Plug 'rust-lang/rust.vim'
 
+Plug 'arthurxavierx/vim-unicoder'
+
 call plug#end()
 
 syntax on
@@ -73,6 +75,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#coc#enabled = 1
 
 let g:rainbow_active = 1
+
+let g:unicoder_exclude_filetypes = ['tex', 'latex']
 
 " Open File Finder
 let g:fzf_buffers_jump = 1

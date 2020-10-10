@@ -1,0 +1,26 @@
+; vim:ft=dosini
+
+[module/updates]
+type = custom/script
+exec = ~/.config/polybar/scripts/arch-up.sh
+interval = 600
+click-left = alacritty --class dropdown_update -e yay &
+
+[module/news]
+type = custom/script
+exec = newsboat -x reload print-unread | awk '{print "    " $1}'
+interval = 100
+click-left = alacritty -e zsh -ic newsboat
+
+[module/date]
+type = internal/date
+interval = 1.0
+
+date = %H:%M
+date-alt = %Y-%m-%d %a
+
+format = <label>
+label = %date%
+label-margin = 1
+;label-underline = ${colors.nord8}
+

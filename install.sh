@@ -5,8 +5,6 @@ TARGET="$HOME"/.config
 
 ln -s "$ABSOLUTE_PATH"/alacritty $TARGET
 ln -s "$ABSOLUTE_PATH"/xmonad/   $HOME/.xmonad
-# Dunst removed to use linux notification centre
-# ln -s "$ABSOLUTE_PATH"/dunst     $TARGET
 ln -s "$ABSOLUTE_PATH"/deadd     $TARGET
 ln -s "$ABSOLUTE_PATH"/picom     $TARGET
 ln -s "$ABSOLUTE_PATH"/polybar   $TARGET
