@@ -71,9 +71,10 @@ tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
      delta      = 3/100
 
 manageHook' = (composeAll . concat $
-    [ [className =? c --> doShift "3"   | c <- ["Firefox", "Chromium"]]
-    , [className =? c --> doShift "4"   | c <- ["Telegram"]]
-    , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect"]]
+    [ [className =? c --> doShift "3"   | c <- ["firefox", "Chromium"]]
+    , [className =? c --> doShift "4"   | c <- ["TelegramDesktop"]]
+    , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
+                                                "Sms.py"]]
     ])
 
 eventHook' = mempty

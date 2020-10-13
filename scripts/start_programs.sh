@@ -50,3 +50,6 @@ flameshot &
 # kde-bugget
 /usr/lib/kdeconnectd &
 indicator-kdeconnect &
+
+# gestures
+libinput-gestures-setup start &

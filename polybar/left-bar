@@ -73,9 +73,9 @@ time-format = %H:%M
 label-discharging = %percentage%%
 ;(%time%)
 
-format-full = %{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-full> %{A}
-label-full = 
-label-full-foreground = ${colors.success}
+format-full = %{A1:$HOME/.config/polybar/scripts/tlp.sh:} <label-full>%{A}
+label-full = 100%
+label-full-foreground = ${colors.foreground}
 
 [module/xkeyboard]
 type = internal/xkeyboard

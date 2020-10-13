@@ -1,7 +1,0 @@
-# Dark theme.
-rofi.theme: ~/.config/rofi/search/theme.rasi
-
-rofi.font: "Ubuntu Mono" 10
-rofi.fullscreen: false
-rofi.separator-style: none
-rofi.hide-scrollbar: true

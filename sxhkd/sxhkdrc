@@ -18,9 +18,6 @@ super + d
 super + e
     $HOME/.config/rofi/emoji/emoji-selector.sh
 
-super + g
-    $HOME/.config/rofi/search/search.sh
-
 super + shift + m
     $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh
 
@@ -31,7 +28,7 @@ super + z
     $TERMINAL -e zsh -ic ranger
 
 super + shift + x
-    sleep 1 && xset dpms force suspend
+    xset dpms force suspend
 
 super + Right
     .config/scripts/spoty_command.sh next
