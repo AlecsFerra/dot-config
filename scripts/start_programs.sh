@@ -7,11 +7,6 @@ sxhkd &
 # Load Xresources
 xrdb ~/.config/Xresources &
 
-# Notifications
-# "$HOME"/.config/dunst/run_dunst.sh &
-deadd-notification-center &
-batsignal -b &
-
 # Wallpaper and lockscreen
 export wallpaper="$HOME"/Pictures/Wallpapers/audi.jpg
 betterlockscreen --update $wallpaper &
@@ -20,8 +15,12 @@ xss-lock -- "$HOME"/.config/scripts/lock.sh &
 hsetroot -fill $wallpaper -tint "#2F3846" # -contrast 0.80
 wal --theme blossom &
 
+# Polybar and rice
+"$HOME"/.config/polybar/start.sh &
+"$HOME"/.config/xob/launch_volume_bar.sh &
+
 conky -c $HOME/.config/conky/clock/conkyrc &
-conky -c $HOME/.config/conky/resources/conkyrc &
+# conky -c $HOME/.config/conky/resources/conkyrc &
 conky -c $HOME/.config/conky/spoty/conkyrc &
 # glava --desktop &
 
@@ -33,10 +32,6 @@ xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
 $HOME/.config/scripts/keyboard.sh &
 $HOME/.config/scripts/wacom.sh &
-
-# Polybar and rice
-"$HOME"/.config/polybar/start.sh &
-"$HOME"/.config/xob/launch_volume_bar.sh &
 
 # Picom
 picom &
@@ -53,3 +48,9 @@ indicator-kdeconnect &
 
 # gestures
 libinput-gestures-setup start &
+
+# Notifications
+# "$HOME"/.config/dunst/run_dunst.sh &
+deadd-notification-center &
+batsignal -b &
+

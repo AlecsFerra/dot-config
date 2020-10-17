@@ -41,11 +41,15 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_r     ), io $ spawn "xmonadr.sh"       )
     , ((modm .|. shiftMask, xK_q     ), io $ exitWith ExitSuccess     )
     ]
+
     ++
+
     [((m .|. modm, k), windows $ f i)
         | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+
     ++
+
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_a, xK_s] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]

@@ -51,19 +51,22 @@ super + {shift, alt} + c
                     -i pencil
 
 XF86AudioMute
-    pavolume mutetoggle --noshow
+    pamixer -t
 
 XF86AudioRaiseVolume
-    pavolume volup 5 --noshow
+    pamixer -i 5
 
 XF86AudioLowerVolume
-    pavolume voldown 5 --noshow
+    pamixer -d 5
 
 XF86MonBrightnessUp
     xbacklight -inc 5
 
 XF86MonBrightnessDown
     xbacklight -dec 5
+
+XF86TouchpadToggle
+    notify-send "OWOWOWOWOWOWO"
 
 ## BSPWM specific ##
 # super + {_,shift} + q
