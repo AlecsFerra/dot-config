@@ -1,21 +1,23 @@
+@import url("colors.css");
+
 @-moz-document url("about:home"),
 url(about:preferences),
 url("about:blank"),
 url("about:newtab"),
 url("about:privatebrowsing") {
     body {
-        background-color: #2F3846!important;
+        background-color: var(--background)!important;
         --newtab-search-icon: transparent !important;
     }
     a,
     a:visited,
     a:hover {
-        color: #2F3846!important
+        color: var(--background)!important
     }
     #newtab-search-text {
-        background-color: #2F3846 !important;
+        background-color: var(--background) !important;
         font-size: 18px !important;
-        color: #2F3846 !important;
+        color: var(--background) !important;
         box-shadow: none !important;
         text-align: center !important;
         border: none !important;
@@ -38,7 +40,7 @@ url("about:privatebrowsing") {
         background: none !important;
     }
     .prefs-button button {
-        fill: #2F3846 !important;
+        fill: var(--background) !important;
     }
     .prefs-button button:hover,
     .prefs-button button:focus {
@@ -50,9 +52,9 @@ url("about:privatebrowsing") {
 }
 
 :root {
-    --in-content-border-active: #2F3846 !important;
+    --in-content-border-active: var(--background) !important;
     --in-content-border-active-shadow: none !important;
-    --in-content-page-background: #2F3846 !important;
+    --in-content-page-background: var(--background) !important;
     --in-content-page-color: #abb2bf !important;
     scrollbar-width: none;
 }

@@ -8,11 +8,11 @@ sxhkd &
 xrdb ~/.config/Xresources &
 
 # Wallpaper and lockscreen
-export wallpaper="$HOME"/Pictures/Wallpapers/audi.jpg
+export wallpaper="$HOME"/Pictures/Wallpapers/cupola.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 #feh --bg-fill $wallpaper &
-hsetroot -fill $wallpaper -tint "#2F3846" # -contrast 0.80
+hsetroot -fill $wallpaper -tint "#2F3846" & # -contrast 0.80
 wal --theme blossom &
 
 # Polybar and rice
@@ -38,7 +38,6 @@ picom &
 
 # Applets
 blueman-applet &
-redshift &
 redshift-gtk &
 flameshot &
 
@@ -47,10 +46,9 @@ flameshot &
 indicator-kdeconnect &
 
 # gestures
-libinput-gestures-setup start &
+#libinput-gestures-setup start &
 
 # Notifications
-# "$HOME"/.config/dunst/run_dunst.sh &
 deadd-notification-center &
 batsignal -b &
 

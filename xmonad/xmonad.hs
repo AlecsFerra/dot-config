@@ -22,8 +22,8 @@ borderWidth' = 2
 modMask'     = mod4Mask
 workspaces'  = ["1","2","3","4","5","6","7","8","9", "10"]
 
-normalBorderColor'  = "#839aec"
-focusedBorderColor' = "#70b791"
+normalBorderColor'  = "#EBCB8B"
+focusedBorderColor' = "#BF616A"
 
 keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_q     ), kill                          )
@@ -67,7 +67,7 @@ layout' = tiledLayout ||| noBorders Full
 
 tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
   where
-     gapsSize   = 3
+     gapsSize   = 6
      outerGaps  = gaps $ map (\x -> (x, gapsSize)) [U, D, L, R]
      innerGaps  = spacing gapsSize
      nmaster    = 1

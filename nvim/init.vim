@@ -67,6 +67,8 @@ set noshowmode
 set mouse=a
 set hidden
 
+set path=.,,**
+
 cmap w!! w !sudo tee %
 
 let g:python3_host_prog = '/usr/bin/python3'
@@ -76,7 +78,7 @@ let g:airline#extensions#coc#enabled = 1
 
 let g:rainbow_active = 1
 
-let g:unicoder_exclude_filetypes = ['tex', 'latex']
+let g:unicoder_exclude_filetypes = ['tex', 'latex', 'md']
 
 " Open File Finder
 let g:fzf_buffers_jump = 1
