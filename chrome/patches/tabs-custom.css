@@ -17,7 +17,7 @@
     background-color: var(--background) !important;
     border-bottom: 2px solid var(--color2)!important;
     /*tab border*/
-    color: #DFDFF2 !important;
+    color: var(--foreground) !important;
 }
 
 
@@ -32,7 +32,7 @@ tab {
     padding-left: 1px !important;
     padding-bottom: 0px !important;
     background-color: var(--background) !important;
-    color: #DFDFF2 !important;
+    color: var(--foreground) !important;
 }
 
 scrollbox[orient="horizontal"] {

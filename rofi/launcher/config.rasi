@@ -12,14 +12,13 @@ configuration {
 	sidebar-mode: 					false;
 }
 
-
 * {
-    background:                     #2F384600;
-    background-color:               #2F384666;
-    background-entry:               #2F384666;
-    background-alt:                 #839aec40;
-    foreground:                     #dfdff2EE;
-    foreground-selected:            #dfdff2FF;
+    background:                     #2E344000;
+    background-color:               #2E344066;
+    background-entry:               #2E344066;
+    background-alt:                 #BF616A;
+    foreground:                     #E5E9F0EE;
+    foreground-selected:            #E5E9F0FF;
     urgent:                         #E91E6366;
     urgent-selected:                #E91E6377;
     //border-radius:                  6px;
@@ -95,7 +94,7 @@ element {
     background-color:               @background;
     text-color:                     @foreground;
     orientation:                    vertical;
-    border-radius:                  10px;
+    // border-radius:                  10px;
     padding:                        10px 0px 10px 0px;
 }
 
