@@ -142,3 +142,7 @@ exec = ~/.config/polybar/scripts/kde-connect-battery.sh
 click-left = thunar /run/user/1000/bc589360833d3c73/primary/
 interval = 10
 
+[module/controller]
+type = custom/script
+exec = ~/.config/polybar/scripts/ps3controllerbattery.sh
+interval = 10
