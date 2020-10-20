@@ -65,9 +65,6 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
     xbacklight -dec 5
 
-XF86TouchpadToggle
-    notify-send "OWOWOWOWOWOWO"
-
 ## BSPWM specific ##
 # super + {_,shift} + q
 #    bspc node -{c,k}
