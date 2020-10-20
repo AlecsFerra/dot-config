@@ -68,7 +68,7 @@ layout' = tiledLayout ||| noBorders Full
 tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
   where
      gapsSize   = 6
-     outerGaps  = gaps $ map (\x -> (x, gapsSize)) [U, D, L, R]
+     outerGaps  = gaps $ map (\x -> (x, gapsSize)) [U, L, R]
      innerGaps  = spacing gapsSize
      nmaster    = 1
      ratio      = 1/2
