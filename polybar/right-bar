@@ -24,3 +24,8 @@ label = %date%
 label-margin = 1
 ;label-underline = ${colors.nord8}
 
+[module/dnd]
+type = custom/script
+exec = [ ! -e $HOME/.cache/dnd_toggle_file ] && echo "零" || echo "鈴"
+click-left = dnd.sh &
+interval = 5

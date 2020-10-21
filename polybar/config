@@ -44,5 +44,5 @@ font-1 = "JetBrains Mono Nerd Font:size=14;3"
 
 modules-left = battery xkeyboard network-short kde-connect controller
 modules-center = ewmh
-modules-right = news updates date
+modules-right = news updates dnd date
 tray-position = right
