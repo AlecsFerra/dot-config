@@ -8,19 +8,15 @@ sxhkd &
 xrdb ~/.config/Xresources &
 
 # Wallpaper and lockscreen
-export wallpaper="$HOME"/Pictures/Wallpapers/cupola.jpg
+export wallpaper="$HOME"/Pictures/Wallpapers/leaf.jpg
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 #feh --bg-fill $wallpaper &
-hsetroot -fill $wallpaper -tint "#2E3440" & # -contrast 0.80
+hsetroot -fill $wallpaper #-tint "#2E3440" & # -contrast 0.80
 wal --theme base16-nord &
 
-# Polybar and rice
-"$HOME"/.config/polybar/start.sh &
-"$HOME"/.config/xob/launch_volume_bar.sh &
-
 conky -c $HOME/.config/conky/clock/conkyrc &
-conky -c $HOME/.config/conky/resources/conkyrc &
+#conky -c $HOME/.config/conky/resources/conkyrc &
 conky -c $HOME/.config/conky/spoty/conkyrc &
 # glava --desktop &
 
@@ -51,4 +47,8 @@ indicator-kdeconnect &
 # Notifications
 deadd-notification-center &
 batsignal -b &
+
+# Polybar and rice
+"$HOME"/.config/polybar/start.sh &
+"$HOME"/.config/xob/launch_volume_bar.sh &
 

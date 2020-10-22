@@ -42,6 +42,8 @@ Plug 'rust-lang/rust.vim'
 
 Plug 'arthurxavierx/vim-unicoder'
 
+Plug 'bling/vim-bufferline'
+
 call plug#end()
 
 syntax on
@@ -127,3 +129,5 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 set timeoutlen=500
 
 let g:clang_format#auto_format=1
+
+let g:bufferline_echo = 0
