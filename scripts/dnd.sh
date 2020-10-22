@@ -1,6 +1,6 @@
 #/bin/sh
 
-TOGGLE_FILE="$HOME/.cache/dnd_toggle_file"
+TOGGLE_FILE="/tmp/dnd_toggle_file"
 
 if [ ! -e $TOGGLE_FILE ]; then
 	touch $TOGGLE_FILE
