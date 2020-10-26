@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 TOGGLE_FILE="/tmp/dnd_toggle_file"
 

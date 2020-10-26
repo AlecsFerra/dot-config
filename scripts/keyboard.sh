@@ -9,3 +9,4 @@ else
     setxkbmap -option grp:alt_shift_toggle it,us &
     echo "set it"
 fi
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'

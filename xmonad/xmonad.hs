@@ -67,7 +67,7 @@ layout' = tiledLayout ||| noBorders Full
 
 tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
   where
-     gapsSize   = 6
+     gapsSize   = 3
      outerGaps  = gaps $ map (\x -> (x, gapsSize)) [U, L, R]
      innerGaps  = spacing gapsSize
      nmaster    = 1
@@ -78,7 +78,8 @@ manageHook' = (composeAll . concat $
     [ [className =? c --> doShift "3"   | c <- ["firefox", "Chromium"]]
     , [className =? c --> doShift "4"   | c <- ["TelegramDesktop"]]
     , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
-                                                "Sms.py"]]
+                                                "Sms.py",
+                                                "pavucontrol"]]
     ])
 
 eventHook' = mempty

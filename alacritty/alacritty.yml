@@ -40,7 +40,7 @@ font:
 
 draw_bold_text_with_bright_colors: false
 
-background_opacity: 0.5
+background_opacity: 0.8
 
 cursor:
   # Values for `style`:

@@ -107,6 +107,10 @@ nnoremap <leader>l :wincmd l<CR>
 
 nnoremap <leader>m :! echo % <bar> entr pandoc % -o %.pdf & <CR>
 
+" Move lines
+nmap n :m +1<CR>
+nmap m :m -2<CR>
+
 " Open Undo Tree
 nnoremap <leader>u :UndotreeShow<CR>
 
