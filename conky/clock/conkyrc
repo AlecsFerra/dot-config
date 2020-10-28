@@ -44,10 +44,7 @@ override_utf8_locale=true,
 -------------------------------------
 --  Color Scheme
 -------------------------------------
-default_color='FFFFFF',
-
-color1='dfdff2',
-
+color1='E5E9F0',
 
 -------------------------------------
 --  Locale (e.g. "es_ES.UTF-8")

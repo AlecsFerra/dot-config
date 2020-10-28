@@ -45,9 +45,7 @@ override_utf8_locale=true,
 -------------------------------------
 --  Color Scheme
 -------------------------------------
-default_color='FFFFFF',
-
-color1='dfdff2', -- date
+color1='E5E9F0', -- date
 
 }
 

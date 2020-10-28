@@ -57,10 +57,10 @@ XF86AudioMute
     pamixer -t
 
 XF86AudioRaiseVolume
-    pamixer -i 5
+    pamixer -i 5 #--allow-boost
 
 XF86AudioLowerVolume
-    pamixer -d 5
+    pamixer -d 5 #--allow-boost
 
 XF86MonBrightnessUp
     xbacklight -inc 5

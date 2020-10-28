@@ -4,7 +4,7 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-export wallpaper="$HOME"/Pictures/Wallpapers/darkpenguin.png
+export wallpaper="$HOME"/Pictures/Wallpapers/artic.jpg
 wal --theme base16-nord && "$HOME"/.config/polybar/start.sh & # Bullshit
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
