@@ -12,15 +12,9 @@ configuration {
 	sidebar-mode: 					false;
 }
 
+@theme "~/.cache/wal/rofi-laucher-colors.rasi"
+
 * {
-    background:                     #2E344000;
-    background-color:               #2E344066;
-    background-entry:               #2E344066;
-    background-alt:                 #BF616A;
-    foreground:                     #E5E9F0EE;
-    foreground-selected:            #E5E9F0FF;
-    urgent:                         #E91E6366;
-    urgent-selected:                #E91E6377;
     //border-radius:                  6px;
 }
 
@@ -35,7 +29,6 @@ window {
     anchor:                         west;
     x-offset:                       0;
     y-offset:                       0;
-    //border-radius:                  6px;
 }
 
 prompt {
