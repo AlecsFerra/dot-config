@@ -16,6 +16,8 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
 
+import Colors
+
 defaultTerminal = "alacritty"
 
 borderWidth' = 2
