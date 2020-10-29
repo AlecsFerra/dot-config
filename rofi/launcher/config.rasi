@@ -15,7 +15,7 @@ configuration {
 @theme "~/.cache/wal/rofi-laucher-colors.rasi"
 
 * {
-    //border-radius:                  6px;
+    border-radius:                  6px;
 }
 
 window {

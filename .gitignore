@@ -4,6 +4,8 @@ nvim/.netrwhist
 
 xmonad/xmonad.o
 xmonad/xmonad.hi
+xmonad/lib/Colors.o
+xmonad/lib/Colors.hi
 xmonad/xmonad.errors
 xmonad/xmonad-x86_64-linux
-xmonad/xmonad-<yourname>.caba
+xmonad/xmonad-<yourname>.cabal
