@@ -16,7 +16,7 @@ hsetroot -cover $wallpaper #-tint "#2E3440" & # -contrast 0.80
 conky -c $HOME/.config/conky/clock/conkyrc &
 conky -c $HOME/.config/conky/resources/conkyrc &
 conky -c $HOME/.config/conky/spoty/conkyrc &
-# glava --desktop &
+glava --desktop &
 
 # Auth manager
 lxpolkit &
