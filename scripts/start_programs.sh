@@ -14,8 +14,8 @@ hsetroot -cover $wallpaper #-tint "#2E3440" & # -contrast 0.80
 # Rice stuff
 "$HOME"/.config/xob/launch_volume_bar.sh &
 conky -c $HOME/.config/conky/clock/conkyrc &
+#conky -c $HOME/.config/conky/spoty/conkyrc &
 conky -c $HOME/.config/conky/resources/conkyrc &
-conky -c $HOME/.config/conky/spoty/conkyrc &
 glava --desktop &
 
 # Auth manager
