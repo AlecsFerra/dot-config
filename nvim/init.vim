@@ -35,8 +35,6 @@ set colorcolumn=80					" Column for code
 
 set cmdheight=2							" Make command zone 2 chars high
 
-set autochdir								" Automatically open file directory
-
 set iskeyword+=-						" Add - to word components
 
 set clipboard=unnamedplus   " Share clipboard with system

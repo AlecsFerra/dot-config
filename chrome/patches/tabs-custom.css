@@ -9,13 +9,13 @@
 /*tab border*/
 
 .tab-content {
-    border-bottom: 2px solid var(--color4) !important;
+    border-bottom: 2px solid var(--color2) !important;
     padding-top: 3px !important;
 }
 
 .tab-content[selected="true"] {
     background-color: var(--background) !important;
-    border-bottom: 2px solid var(--color2)!important;
+    border-bottom: 2px solid var(--color1)!important;
     /*tab border*/
     color: var(--foreground) !important;
 }

@@ -24,8 +24,8 @@ borderWidth' = 2
 modMask'     = mod4Mask
 workspaces'  = ["1","2","3","4","5","6","7","8","9", "10"]
 
-normalBorderColor'  = color4
-focusedBorderColor' = color2
+normalBorderColor'  = color2
+focusedBorderColor' = color1
 
 keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_q     ), kill                          )

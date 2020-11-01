@@ -19,11 +19,10 @@ nnoremap <leader>f :Format<CR>
 let g:leader_which_key_map.f = 'Format file'
 
 nnoremap <leader>F :Fold<CR>
-let g:leader_which_key_map.f = 'Fold statement'
+let g:leader_which_key_map.F = 'Fold statement'
 
 nmap <leader>r  <Plug>(coc-fix-current)
 let g:leader_which_key_map.r = 'Quick fix problem'
-
 
 nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
 let g:leader_which_key_map.d = 'Show diagnostics'
@@ -70,6 +69,9 @@ let g:g_which_key_map.ld = "Go to last diagnostic"
 
 nmap <silent> gnd <Plug>(coc-diagnostic-next)
 let g:g_which_key_map.nd = "Go to next diagnostic"
+
+nmap <silent> gg :1<CR>
+let g:g_which_key_map.g = "Go to top" 
 
 " Rename
 nmap <leader>rn <Plug>(coc-rename)
