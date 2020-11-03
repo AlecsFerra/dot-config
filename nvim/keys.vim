@@ -1,55 +1,69 @@
 " WichKey configuration
-set timeoutlen=100
+set timeoutlen=0
+
+let mapleader = ' ' " Leader key, used for commands
 
 " Leader key
 call which_key#register('<Space>', "g:leader_which_key_map")
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nmap <silent> <leader> :WhichKey '<Space>'<CR>
+vmap <silent> <leader> :WhichKey '<Space>'<CR>
 let g:leader_which_key_map = {}
 
-nnoremap <leader>o :ProjectFiles<CR> 
+nmap <silent> <leader>o :ProjectFiles<CR> 
 let g:leader_which_key_map.o = 'Open a project file in a new buffer'
 
-nnoremap <leader>O :Files<CR>
+nmap <silent> <leader>O :Files<CR>
 let g:leader_which_key_map.O = 'Open a local file in a new buffer'
 
-nnoremap <leader>c :ColorHighlight<CR>
+nmap <silent> <leader>c :ColorHighlight<CR>
 let g:leader_which_key_map.c = 'Colorize rgba literals'
 
-nnoremap <leader>f :Format<CR>
-let g:leader_which_key_map.f = 'Format file'
+nmap <silent> <leader>fm :Format<CR>
+let g:leader_which_key_map.fm = 'Format file'
 
-nnoremap <leader>F :Fold<CR>
+nmap <silent> <leader>F :Fold<CR>
 let g:leader_which_key_map.F = 'Fold statement'
 
-nmap <leader>r  <Plug>(coc-fix-current)
-let g:leader_which_key_map.r = 'Quick fix problem'
+nmap <silent> <leader>qf <Plug>(coc-fix-current)
+let g:leader_which_key_map.qf = 'Quick fix problem'
 
-nnoremap <silent> <space>d  :<C-u>CocList diagnostics<cr>
+nmap <silent> <leader>d  :<C-u>CocList diagnostics<cr>
 let g:leader_which_key_map.d = 'Show diagnostics'
 
-nnoremap <silent> <space>s  :<C-u>CocList outline<cr>
+nmap <silent> <leader>s  :<C-u>CocList outline<cr>
 let g:leader_which_key_map.s = "Search for symbol in current buffer"
 
-nnoremap <silent> <space>S  :<C-u>CocList -I symbols<cr>
+nmap <silent> <leader>S  :<C-u>CocList -I symbols<cr>
 let g:leader_which_key_map.S = "Search for symbol in project"
+
+nmap <silent> <leader>rn <Plug>(coc-rename)
+let g:leader_which_key_map.rn = "Rename symbol"
+
+let g:leader_which_key_map.r = { 'name': 'which_key_ignore' }
+let g:leader_which_key_map.q = { 'name': 'which_key_ignore' }
+let g:leader_which_key_map.f = { 'name': 'which_key_ignore' }
+
+" xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
+" nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+" let g:leader_which_key_map.a = 'Open action menu'
 
 " Buffers
 call which_key#register(',', "g:comma_which_key_map")
-nnoremap <silent> , :WhichKey ','<CR>
+nmap <silent> , :WhichKey ','<CR>
 let g:comma_which_key_map = {}
 
-nnoremap ,n :bn<CR>
+nmap ,n :bn<CR>
 let g:comma_which_key_map.n = 'Next buffer'
 
-nnoremap ,l :bp<CR>
+nmap ,l :bp<CR>
 let g:comma_which_key_map.l = 'Last buffer'
 
-nnoremap ,c :bdelete<CR>
+nmap ,c :bdelete<CR>
 let g:comma_which_key_map.c = 'Close buffer'
 
 " Goto
 call which_key#register('g', "g:g_which_key_map")
-nnoremap <silent> g :WhichKey 'g'<CR>
+nmap <silent> g :WhichKey 'g'<CR>
 let g:g_which_key_map = {}
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -73,16 +87,15 @@ let g:g_which_key_map.nd = "Go to next diagnostic"
 nmap <silent> gg :1<CR>
 let g:g_which_key_map.g = "Go to top" 
 
-" Rename
-nmap <leader>rn <Plug>(coc-rename)
-
 " Move lines
 nmap M :m +1<CR>
 nmap m :m -2<CR>
 
 " Open undo tree
-nnoremap U :UndotreeShow<CR>
+nmap U :UndotreeShow<CR>
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nmap <silent> K :call <SID>show_documentation()<CR>
 
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)

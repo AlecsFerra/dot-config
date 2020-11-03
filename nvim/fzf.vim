@@ -9,3 +9,6 @@ function! s:find_files() " If a git root is found call GFiles on it else call Fi
     endif
 endfunction 
 command! ProjectFiles execute s:find_files()
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.local/share/nvim/plugged/fzf.vim/bin/preview.sh {}']}, <bang>0)

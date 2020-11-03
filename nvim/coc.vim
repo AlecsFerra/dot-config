@@ -38,6 +38,8 @@ function! s:show_documentation()
   endif
 endfunction
 
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 augroup mygroup
   autocmd!
@@ -46,6 +48,10 @@ augroup mygroup
   " Update signature help on jump placeholder.
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
+
+function! s:cocActionsOpenFromSelected(type) abort
+  execute 'CocCommand actions.open ' . a:type
+endfunction
 
 " FOR CMAKE set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 " Use clang-tidy flags with clang-tidy --list-checks (fast: clang-tidy --checks='-*,bugprone-*' --dump-config > .clang-tidy)

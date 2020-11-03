@@ -1,4 +1,3 @@
-let mapleader = ' ' " Leader key, used for commands
 
 let config_path = expand('~') . '/.config/nvim/' " Config directory
 

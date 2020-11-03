@@ -4,7 +4,7 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-export wallpaper="$HOME/Pictures/Wallpapers/tokio-vicolo.jpg"
+export wallpaper="$HOME/Pictures/Wallpapers/planes.jpg"
 wal --theme dracula && "$HOME"/.config/polybar/start.sh & # Bullshit
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
@@ -14,9 +14,10 @@ hsetroot -cover $wallpaper #-tint "#2E3440" & # -contrast 0.80
 # Rice stuff
 "$HOME"/.config/xob/launch_volume_bar.sh &
 conky -c $HOME/.config/conky/clock/conkyrc &
-#conky -c $HOME/.config/conky/spoty/conkyrc &
-conky -c $HOME/.config/conky/resources/conkyrc &
-glava --desktop &
+conky -c $HOME/.config/conky/spoty/conkyrc &
+conky -c $HOME/.config/conky/tasks/conkyrc &
+#conky -c $HOME/.config/conky/resources/conkyrc &
+#glava --desktop &
 
 # Auth manager
 lxpolkit &
