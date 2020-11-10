@@ -29,3 +29,23 @@ type = custom/script
 exec = [ ! -e /tmp/dnd_toggle_file ] && echo "" || echo "鈴"
 click-left = dnd.sh &
 interval = 5
+
+[module/temperature]
+type = internal/temperature
+
+units = false
+
+label = %temperature-c%°
+format = <ramp> <label>
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 =  
+ramp-4 =  
+
+[module/cpu]
+type = internal/cpu
+
+label = %percentage%%
+format = ﬙  <label>

@@ -1,17 +1,3 @@
-#!/bin/bash
-# Alacritty Color Export
-# Version 0.1.0
-# github.com/egeesin
-#
-# Exports generated Wal colors to Alacritty config
-# WARNING: Don't forget to backup your Alacritty config
-# before execute this script!
-#
-# Dependencies: bash, grep, sed
-# Usage: ./script.sh
-#        ./script.sh <config yml>
-
-# Get Wal color file
 SRC=${HOME}"/.cache/wal/colors"
 [[ ! -e $SRC ]] && echo "ERR: Wal colors not found, exiting script. Did you executed Wal before?" && exit 0
 [[ -e $SRC ]] && echo "Colors found, source ready."

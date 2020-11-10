@@ -1,19 +1,30 @@
 # vim: filetype=sh
 
+# launcher
+ 
 super + Return
     alacritty
 
-super + w
+super + d ; d
+    rofi -show drun -modi "drun" -config $HOME/.config/rofi/launcher/config.rasi
+
+super + d ; w
     firefox
 
-super + w + shift
-    tor-browser
+super + d ; z
+    $TERMINAL -e zsh -ic ranger
+
+super + d ; t
+		telegram-desktop
+
+super + d ; p
+		pavucontrol
+
+super + d ; x
+		xournalpp
 
 {_, shift} + Print
     flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
-
-super + d
-    rofi -show drun -modi "drun" -config $HOME/.config/rofi/launcher/config.rasi
 
 super + e
     $HOME/.config/rofi/emoji/emoji-selector.sh
@@ -27,9 +38,6 @@ super + n
 super + shift + n
     dnd.sh
 
-super + z
-    $TERMINAL -e zsh -ic ranger
-
 super + shift + x
     xset dpms force suspend
 
@@ -42,13 +50,16 @@ super + Left
 super + Up
     .config/scripts/spoty_command.sh playpause
 
-super + c
+super + c ; x
+	wacom.sh xournal
+
+super + c ; w
     xwacomcalibrate && \
         notify-send -a Wacom "Wacom Calibrate" \
                     "Calibrated to match the current window" \
                     -i pencil
 
-super + {shift, alt} + c
+super + c ; {s, a}
     xwacomcalibrate -f {eDP-1, HDMI-1} && notify-send -a Wacom "Wacom Calibrate" \
                     "Calibrated to match the screen" \
                     -i pencil
@@ -67,26 +78,3 @@ XF86MonBrightnessUp
 
 XF86MonBrightnessDown
     xbacklight -dec 5
-
-## BSPWM specific ##
-# super + {_,shift} + q
-#    bspc node -{c,k}
-
-#super + {_,shift} + {h,j,k,l}
-#    bspc node -{f,s} {west,south,north,east}
-
-#super + alt + {h,j,k,l}
-#    bspc node -z {right,bottom,top,left} 10 10
-
-#super + ctrl + {h,j,k,l,space}
-#    bspc node -p {west,south,north,east,cancel}
-
-#super + {_,shift} + {1-9,0}
-#    bspc {desktop, node -d} '^{1-9,10}' -f
-
-#super + {t, s, f}
-#    bspc node -t {tiled, floating, fullscreen}
-
-#super + shift + t
-#    bspc node -t pseudo_tiled
-

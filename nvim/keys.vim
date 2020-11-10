@@ -87,6 +87,9 @@ let g:g_which_key_map.nd = "Go to next diagnostic"
 nmap <silent> gg :1<CR>
 let g:g_which_key_map.g = "Go to top" 
 
+map <silent> gt <Plug>(easymotion-overwin-w)
+let g:g_which_key_map.gt = "Easy motion"
+
 " Move lines
 nmap M :m +1<CR>
 nmap m :m -2<CR>
@@ -99,3 +102,10 @@ nmap <silent> K :call <SID>show_documentation()<CR>
 
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
+
+
+" Splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l

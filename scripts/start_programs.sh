@@ -4,8 +4,8 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-export wallpaper="$HOME/Pictures/Wallpapers/planes.jpg"
-wal --theme dracula && "$HOME"/.config/polybar/start.sh & # Bullshit
+export wallpaper="$HOME/Pictures/Wallpapers/solar.jpg"
+wal --theme pastel && "$HOME"/.config/polybar/start.sh & # Bullshit
 betterlockscreen --update $wallpaper &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 #feh --bg-fill $wallpaper &
@@ -45,5 +45,6 @@ indicator-kdeconnect &
 
 # Notifications
 deadd-notification-center &
+rm/tmp/dnd_toggle_file 2>/dev/null
 batsignal -b &
 

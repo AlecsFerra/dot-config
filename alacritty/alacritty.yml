@@ -59,30 +59,31 @@ mouse:
       program: xdg-open
       args: []
   modifiers: None
+
 # BEGIN ACE
 colors:
   primary:
-    background: '0x282A36'
-    foreground: '0xF8F8F2'
+    background: '0x1C1F27'
+    foreground: '0xe8e8e8'
   cursor:
-    text:       '0x282A36'
-    cursor:     '0xF8F8F2'
+    text:       '0x1C1F27'
+    cursor:     '0xe8e8e8'
   normal:
-    black:      '0x282A36'
-    red:        '0xFF5555'
-    green:      '0x50FA7B'
-    yellow:     '0xF1FA8C'
-    blue:       '0xBD93F9'
-    magenta:    '0xFF79C6'
-    cyan:       '0x8BE9FD'
-    white:      '0xF8F8F2'
+    black:      '0x1C1F27'
+    red:        '0xed858a'
+    green:      '0x85edb3'
+    yellow:     '0xeda685'
+    blue:       '0x85b8ed'
+    magenta:    '0xca85ed'
+    cyan:       '0x85e8ed'
+    white:      '0xe8e8e8'
   bright:
-    black:      '0x6272A4'
-    red:        '0xFF6E6E'
-    green:      '0x69FF94'
-    yellow:     '0xFFFFA5'
-    blue:       '0xD6ACFF'
-    magenta:    '0xFF92DF'
-    cyan:       '0xA4FFFF'
-    white:      '0xFFFFFF'
+    black:      '0x6e717b'
+    red:        '0xed858a'
+    green:      '0x85edb3'
+    yellow:     '0xeda685'
+    blue:       '0x85b8ed'
+    magenta:    '0xca85ed'
+    cyan:       '0x85e8ed'
+    white:      '0xe8e8e8'
 # END ACE
