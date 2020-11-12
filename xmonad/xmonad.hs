@@ -76,15 +76,15 @@ tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
      ratio      = 1/2
      delta      = 3/100
 
-manageHook' = (composeAll . concat $
+windowrules = (composeAll . concat $
     [ [className =? c --> doShift "3"   | c <- ["firefox", "Chromium"]]
     , [className =? c --> doShift "4"   | c <- ["TelegramDesktop"]]
     , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
                                                 "Sms.py",
                                                 "pavucontrol"]]
-    ])
+    ]) 
 
-eventHook' = mempty
+eventHook' = fullscreenEventHook
 
 startupHook' = spawnOnce "$HOME/.config/scripts/start_programs.sh"
 
@@ -104,7 +104,7 @@ defaults = def {
         mouseBindings      = mouseBindings',
 
         layoutHook         = avoidStruts $ layout',
-        manageHook         = manageHook',
+        manageHook         = windowrules, 
         handleEventHook    = eventHook',
         startupHook        = startupHook'
     }

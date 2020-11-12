@@ -90,7 +90,7 @@ vimiumHintMarkerContainer div.internalVimiumHintMarker, #vimiumHintMarkerContain
 }}
 
 #vomnibar li.vomnibarSelected {{
-  background: #4c566a
+  background: {color8} 
 }}
 
 div.vimiumHUD {{

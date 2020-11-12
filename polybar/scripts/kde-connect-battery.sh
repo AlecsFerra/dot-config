@@ -10,21 +10,23 @@ if $is_reach; then
     is_charging="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$device_id" org.kde.kdeconnect.device.battery.isCharging)"
     if $is_charging; then
         case $battery in
-            100) icon="" ;;
-            9[0-9]) icon="" ;;
-            8[0-9]|7[0-9]) icon="" ;;
-            6[0-9]|5[0-9]) icon="" ;;
-            4[0-9]|3[0-9]) icon="" ;;
             [0-9]) icon="" ;;
+            100) icon="" ;;
+            9*) icon="" ;;
+            8*|7*) icon="" ;;
+            6*|5*) icon="" ;;
+            4*|3*) icon="" ;;
+            *) icon="" ;;
         esac
     else
         case $battery in
-            100) icon="" ;;
-            9[0-9]) icon="" ;;
-            8[0-9]|7[0-9]) icon="" ;;
-            6[0-9]|5[0-9]) icon="" ;;
-            4[0-9]|3[0-9]) icon="" ;;
             [0-9]) icon="" ;;
+            100) icon="" ;;
+            9*) icon="" ;;
+            8*|7*) icon="" ;;
+            6*|5*) icon="" ;;
+            4*) icon="" ;;
+            *) icon="" ;;
         esac
     fi
 

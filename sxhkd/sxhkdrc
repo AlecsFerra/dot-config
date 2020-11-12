@@ -23,6 +23,9 @@ super + d ; p
 super + d ; x
 		xournalpp
 
+super + d ; b
+		bitwarden
+
 {_, shift} + Print
     flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
 
