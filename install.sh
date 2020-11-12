@@ -19,3 +19,6 @@ ln -s "$ABSOLUTE_PATH"/conky     $TARGET
 ln -s "$ABSOLUTE_PATH"/wal       $TARGET
 ln -s "$ABSOLUTE_PATH"/zathura   $TARGET
 ln -s "$ABSOLUTE_PATH"/chrome    $HOME/.mozilla/firefox/*.default-release
+
+echo "DONT FORGET TO COPY THE udev-rules in /etc/udev/rules.d"
+echo "COPY!!! NO LINKS"

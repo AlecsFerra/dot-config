@@ -1,2 +1,2 @@
-#! /bin/sh
+#! /bin/dash
 xmonad --recompile && xmonad --restart

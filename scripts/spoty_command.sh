@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 
 domain="org.mpris.MediaPlayer2"
 
@@ -18,11 +18,11 @@ case $1 in
         ;;
     *)
         echo "Invalid command $1"
-        exit -1
+        exit 1
         ;;
 esac
 
 dbus-send --print-reply\
           --dest=${domain}.spotify \
           /org/mpris/MediaPlayer2 \
-          $command
+          "$command"

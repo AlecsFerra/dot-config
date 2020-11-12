@@ -1,22 +1,21 @@
-#!/bin/sh
+#!/bin/dash
+
+. "$HOME"/.config/secrets
 
 # Monitor
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-export wallpaper="$HOME/Pictures/Wallpapers/solar.jpg"
-wal --theme pastel && "$HOME"/.config/polybar/start.sh & # Bullshit
-betterlockscreen --update $wallpaper &
+wal --theme "$WALTHEME" && "$HOME"/.config/polybar/start.sh & # Bullshit
+betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
-#feh --bg-fill $wallpaper &
-hsetroot -cover $wallpaper #-tint "#2E3440" & # -contrast 0.80
 
 # Rice stuff
 "$HOME"/.config/xob/launch_volume_bar.sh &
-conky -c $HOME/.config/conky/clock/conkyrc &
-conky -c $HOME/.config/conky/spoty/conkyrc &
-conky -c $HOME/.config/conky/tasks/conkyrc &
-#conky -c $HOME/.config/conky/resources/conkyrc &
+conky -c "$HOME"/.config/conky/clock/conkyrc &
+conky -c "$HOME"/.config/conky/spoty/conkyrc &
+conky -c "$HOME"/.config/conky/tasks/conkyrc &
+#conky -c "$HOME"/.config/conky/resources/conkyrc &
 #glava --desktop &
 
 # Auth manager
@@ -25,8 +24,8 @@ lxpolkit &
 # Mouse pointer and keyboard
 xsetroot -cursor_name left_ptr &
 unclutter --timeout 1 &
-$HOME/.config/scripts/keyboard.sh &
-$HOME/.config/scripts/wacom.sh &
+"$HOME"/.config/scripts/keyboard.sh &
+"$HOME"/.config/scripts/wacom.sh &
 
 # Picom
 picom &

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/dash
 list=$(xsetwacom list devices)
 
 stylus="$(echo "$list" | grep STYLUS | cut -f 2 | sed "s/id: //")"

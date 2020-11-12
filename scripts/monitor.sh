@@ -1,12 +1,22 @@
-#!/bin/bash
+#!/bin/dash
+
+# only if xorg is running
+pidof Xorg || exit
+
+. /home/alecs/.config/secrets
+
 intern=eDP-1
 extern=HDMI-1
 
+# Required as it's run by udev
+export DISPLAY=:0
+export XAUTHORITY=/home/alecs/.Xauthority
+
+hsetroot -cover "$WALLPAPER"
+
 if xrandr | grep "$extern disconnected"; then
-    echo single
     xrandr --output "$intern" --output "$extern" --off --auto
 else
-    echo multi
     xrandr --output "$extern" --left-of "$intern" --auto
 fi
 

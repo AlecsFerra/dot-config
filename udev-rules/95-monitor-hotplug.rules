@@ -1,0 +1,1 @@
+KERNEL=="card0", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}="/home/alecs/.Xauthority",RUN+="/home/alecs/.config/scripts/monitor.sh"

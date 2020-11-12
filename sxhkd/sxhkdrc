@@ -32,9 +32,6 @@ super + d ; b
 super + e
     $HOME/.config/rofi/emoji/emoji-selector.sh
 
-super + shift + m
-    $HOME/.config/scripts/monitor.sh && $HOME/.config/polybar/start.sh
-
 super + n
     kill -s USR1 $(pidof deadd-notification-center)
 
