@@ -1,7 +1,7 @@
 #nord color palette
 [colors]
-#background = ${xrdb:background:#222}
-background = 00000000
+background = ${xrdb:background:#222}
+#background = 00000000
 #background = #B02F3846
 buffer = #90DFDFF2
 foreground = ${xrdb:foreground:#222}

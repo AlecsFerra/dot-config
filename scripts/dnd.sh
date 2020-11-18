@@ -9,11 +9,13 @@ if [ ! -e $TOGGLE_FILE ]; then
 				   -a "DnD manager" \
 				   -i sleep
 	notify-send.py a --hint boolean:deadd-notification-center:true \
-					 string:type:pausePopups
+					 string:type:pausePopups \
+					 -a trash_me
 else
 	rm $TOGGLE_FILE
 	notify-send.py a --hint boolean:deadd-notification-center:true \
-					 string:type:unpausePopups
+					 string:type:unpausePopups \
+					 -a trash_me
 	notify-send.py "Deactivatig DnD mode" \
 				   "From now on all notifications will be displayed" \
 				   -a "DnD manager" \

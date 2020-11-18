@@ -1,38 +1,8 @@
 # vim:ft=dosini
 
 [config]
-# DPI value for HiDPI screen
-dpi = 192
-
-# bar position, apply globally
-width = 100%
-height = 27
-offset-x = 0
-offset-y = 0
-radius = 0.0
-
-fixed-center = true
-override-redirect = false
-wm-restack = false
-
 mpd-host = "127.0.0.1"
 mpd-port = "6600"
-
-# Top modules
-top-left = bspwm
-top-center = spotify mpd
-top-right = network-short alsa backlight date battery
-
-# Bottom modules
-bottom-left =  xkeyboard news updates
-bottom-center = weather
-bottom-right = cpu memory temperature
-
-systray-top = none
-systray-bottom = none
-
-# global style
-line-size = 6
 
 interface = wlo1
 
@@ -45,25 +15,3 @@ master-soundcard = default
 speaker-soundcard = default
 headphone-soundcard = default
 master-mixer = Master
-
-
-thermal-zone = 3
-# Base temperature for where to start the ramp (in degrees celsius)
-base-temperature = 20
-# Threshold temperature to display warning label (in degrees celsius)
-warn-temperature = 70
-
-
-notify-click-left = xdotool key control+grave
-
-# network module setting
-network-click-left = alacritty --class dropdown_nmtui -e nmtui
-
-# i3
-# Only show workspaces defined on the same output as the bar
-#
-# Useful if you want to show monitor specific workspaces
-# on different bars
-#
-# Default: false
-i3-pin-workspaces = true

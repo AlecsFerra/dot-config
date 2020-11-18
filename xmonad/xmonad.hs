@@ -1,3 +1,4 @@
+{-# LANGUAGE TupleSections #-}
 import XMonad
 import Data.Monoid
 import System.Exit
@@ -27,7 +28,7 @@ workspaces'  = ["1","2","3","4","5","6","7","8","9", "10"]
 normalBorderColor'  = color2
 focusedBorderColor' = color1
 
-keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+keys' conf@XConfig {XMonad.modMask = modm} = M.fromList $
     [ ((modm,               xK_q     ), kill                          )
     , ((modm,               xK_space ), sendMessage NextLayout        )
     , ((modm .|. shiftMask, xK_space ), sendMessage ToggleStruts      )
@@ -40,8 +41,6 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_h     ), sendMessage Shrink            )
     , ((modm,               xK_l     ), sendMessage Expand            )
     , ((modm,               xK_t     ), withFocused $ windows . W.sink)
-    , ((modm .|. shiftMask, xK_r     ), io $ spawn "xmonadr.sh"       )
-    , ((modm .|. shiftMask, xK_q     ), io $ exitWith ExitSuccess     )
     ]
 
     ++
@@ -57,32 +56,33 @@ keys' conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
 
 
-mouseBindings' (XConfig {XMonad.modMask = modm}) = M.fromList $
-    [ ((modm, button1), (\w -> focus w >> mouseMoveWindow w
-                                       >> windows W.shiftMaster))
-    , ((modm, button2), (\w -> focus w >> windows W.shiftMaster))
-    , ((modm, button3), (\w -> focus w >> mouseResizeWindow w
-                                       >> windows W.shiftMaster))
+mouseBindings' XConfig {XMonad.modMask = modm} = M.fromList 
+    [ ((modm, button1), \w -> focus w >> mouseMoveWindow w
+                                       >> windows W.shiftMaster)
+    , ((modm, button2), \w -> focus w >> windows W.shiftMaster)
+    , ((modm, button3), \w -> focus w >> mouseResizeWindow w
+                                       >> windows W.shiftMaster)
     ]
 
 layout' = tiledLayout ||| noBorders Full
 
 tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
   where
-     gapsSize   = 3
-     outerGaps  = gaps $ map (\x -> (x, gapsSize)) [U, L, R]
+     gapsSize   = 5
+     outerGaps  = gaps $ map (, gapsSize) [U, L, R, D]
      innerGaps  = spacing gapsSize
      nmaster    = 1
      ratio      = 1/2
      delta      = 3/100
 
-windowrules = (composeAll . concat $
+windowrules = composeAll . concat $
     [ [className =? c --> doShift "3"   | c <- ["firefox", "Chromium"]]
     , [className =? c --> doShift "4"   | c <- ["TelegramDesktop"]]
     , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
                                                 "Sms.py",
-                                                "pavucontrol"]]
-    ]) 
+                                                "zoom",
+                                                "Pavucontrol"]]
+    ] 
 
 eventHook' = fullscreenEventHook
 
@@ -103,7 +103,7 @@ defaults = def {
         keys               = keys',
         mouseBindings      = mouseBindings',
 
-        layoutHook         = avoidStruts $ layout',
+        layoutHook         = avoidStruts layout',
         manageHook         = windowrules, 
         handleEventHook    = eventHook',
         startupHook        = startupHook'

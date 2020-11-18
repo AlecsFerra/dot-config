@@ -3,7 +3,7 @@
 [module/updates]
 type = custom/script
 exec = ~/.config/polybar/scripts/arch-up.sh
-interval = 600
+interval = 300
 click-left = alacritty --class dropdown_update -e paru &
 
 [module/news]

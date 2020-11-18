@@ -18,7 +18,7 @@ draw_borders=false,
 --  Window Specifications
 -------------------------------------
 gap_x=15,
-gap_y=15,
+gap_y=25,
 
 alignment="top_left",
 

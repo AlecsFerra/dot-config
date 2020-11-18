@@ -90,6 +90,10 @@ let g:g_which_key_map.g = "Go to top"
 map <silent> gt <Plug>(easymotion-overwin-w)
 let g:g_which_key_map.gt = "Easy motion"
 
+" Snippets
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
+
 " Move lines
 nmap M :m +1<CR>
 nmap m :m -2<CR>
@@ -103,9 +107,17 @@ nmap <silent> K :call <SID>show_documentation()<CR>
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-
 " Splits
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" Always center
+function! CentreCursor()
+    let pos = getpos(".")
+    normal! zz
+    call setpos(".", pos)
+endfunction
+
+:autocmd CursorMoved,CursorMovedI * call CentreCursor()

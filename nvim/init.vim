@@ -21,8 +21,7 @@ set number relativenumber   " Show numbers relative to cursor position
 
 set tabstop=2 softtabstop=2 " Tab vs spaces related stuff
 set shiftwidth=2
-set smarttab
-set smartindent
+set expandtab
 
 set smartcase								" Search ignore case 
 set incsearch								" Show mathces while typing

@@ -12,11 +12,10 @@ extern=HDMI-1
 export DISPLAY=:0
 export XAUTHORITY=/home/alecs/.Xauthority
 
-hsetroot -cover "$WALLPAPER"
-
 if xrandr | grep "$extern disconnected"; then
     xrandr --output "$intern" --output "$extern" --off --auto
 else
     xrandr --output "$extern" --left-of "$intern" --auto
 fi
 
+hsetroot -cover "$WALLPAPER"

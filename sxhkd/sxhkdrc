@@ -1,7 +1,7 @@
 # vim: filetype=sh
 
-# launcher
- 
+# Launch Commands
+
 super + Return
     alacritty
 
@@ -26,21 +26,34 @@ super + d ; x
 super + d ; b
 		bitwarden
 
-{_, shift} + Print
-    flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
-
+# Emoji
 super + e
     $HOME/.config/rofi/emoji/emoji-selector.sh
 
+# Notifications
 super + n
     kill -s USR1 $(pidof deadd-notification-center)
 
 super + shift + n
     dnd.sh
 
-super + shift + x
+# System stuff 
+super + x ; x
     xset dpms force suspend
 
+super + x ; r
+    $HOME/.config/scripts/xmonadr.sh
+
+super + x ; q
+    killall xorg
+
+super + x ; s
+    reboot
+
+super + x ; S
+    poweroff
+
+# Spotify
 super + Right
     .config/scripts/spoty_command.sh next
 
@@ -50,6 +63,7 @@ super + Left
 super + Up
     .config/scripts/spoty_command.sh playpause
 
+# Wacom Command
 super + c ; x
 	wacom.sh xournal
 
@@ -63,6 +77,9 @@ super + c ; {s, a}
     xwacomcalibrate -f {eDP-1, HDMI-1} && notify-send -a Wacom "Wacom Calibrate" \
                     "Calibrated to match the screen" \
                     -i pencil
+# Misc stuff
+{_, shift} + Print
+    flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
 
 XF86AudioMute
     pamixer -t

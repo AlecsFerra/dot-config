@@ -6,21 +6,19 @@ include-file = $HOME/.config/polybar/left-bar
 include-file = $HOME/.config/polybar/vars
 include-file = $HOME/.config/polybar/right-bar
 
-
 [bar/minimal]
-bottom = true
+bottom = false
 theme = dark
 monitor = ${env:MONITOR:eDP-1}
-width = ${config.width}
-height = ${config.height}
-offset-x = ${config.offset-x}
-offset-y = ${config.offset-y}
-radius = ${config.radius}
+
+width = 99%
+height = 30
+offset-x = 9
+offset-y = 9
+radius = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
-
-line-size = ${config.line-size}
 
 padding = 0
 
@@ -36,13 +34,12 @@ cursor-scroll = ns-resize
 enable-ipc = true
 
 padding-left = 2
-;padding-left = 1
 module-margin-right = 2
 
-font-0 = DejaVuSans:size=11;2
-font-1 = "Iosevka Nerd Font:size=12;2"
+font-0 = DejaVuSans:size=11;3
+font-1 = "Iosevka Nerd Font:size=12;3"
 
-modules-left = battery xkeyboard network-short kde-connect controller
+modules-left = battery kde-connect controller xkeyboard network-short
 modules-center = ewmh
 modules-right = news updates cpu temperature dnd date
 tray-position = right
