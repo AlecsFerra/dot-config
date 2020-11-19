@@ -8,7 +8,7 @@ click-left = alacritty --class dropdown_update -e paru &
 
 [module/news]
 type = custom/script
-exec = newsboat -x reload print-unread | awk '{print "    " $1}'
+exec = newsboat -x reload print-unread | awk '{print "    " $1} '
 interval = 100
 click-left = alacritty -e zsh -ic newsboat
 
@@ -22,12 +22,13 @@ date-alt = %Y-%m-%d %a
 format = <label>
 label = %date%
 label-margin = 1
-;label-underline = ${colors.nord8}
 
-[module/dnd]
+[module/notifications]
 type = custom/script
-exec = [ ! -e /tmp/dnd_toggle_file ] && echo "" || echo "鈴"
-click-left = dnd.sh &
+exec = $HOME/.config/polybar/scripts/notifications.sh
+
+click-left = kill -s USR1 $(pidof deadd-notification-center)
+click-right = dnd.sh &
 interval = 5
 
 [module/temperature]

@@ -4,7 +4,8 @@
 mpd-host = "127.0.0.1"
 mpd-port = "6600"
 
-interface = wlo1
+wifiinterface = wlo1
+wireinterface = 
 
 battery-full-at = 100
 battery-bat = BAT0

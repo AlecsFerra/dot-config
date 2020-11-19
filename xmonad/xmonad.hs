@@ -30,8 +30,8 @@ focusedBorderColor' = color1
 
 keys' conf@XConfig {XMonad.modMask = modm} = M.fromList $
     [ ((modm,               xK_q     ), kill                          )
-    , ((modm,               xK_space ), sendMessage NextLayout        )
-    , ((modm .|. shiftMask, xK_space ), sendMessage ToggleStruts      )
+    , ((modm .|. shiftMask, xK_space ), sendMessage NextLayout        )
+    , ((modm,               xK_space ), sendMessage ToggleStruts      )
     , ((modm,               xK_j     ), windows W.focusDown           )
     , ((modm,               xK_k     ), windows W.focusUp             )
     , ((modm,               xK_m     ), windows W.focusMaster         )
@@ -72,12 +72,13 @@ tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
      outerGaps  = gaps $ map (, gapsSize) [U, L, R, D]
      innerGaps  = spacing gapsSize
      nmaster    = 1
-     ratio      = 1/2
+     ratio      = 1/3
      delta      = 3/100
 
 windowrules = composeAll . concat $
     [ [className =? c --> doShift "3"   | c <- ["firefox", "Chromium"]]
     , [className =? c --> doShift "4"   | c <- ["TelegramDesktop"]]
+    , [className =? c --> doShift "5"   | c <- ["zoom"]]
     , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
                                                 "Sms.py",
                                                 "zoom",

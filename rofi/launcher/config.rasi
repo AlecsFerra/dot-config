@@ -14,9 +14,9 @@ configuration {
 
 @theme "~/.cache/wal/rofi-laucher-colors.rasi"
 
-* {
+/* * {
     border-radius:                  6px;
-}
+}*/
 
 window {
     transparency:                   "real";

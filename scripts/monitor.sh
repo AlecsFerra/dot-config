@@ -1,7 +1,7 @@
 #!/bin/dash
 
 # only if xorg is running
-pidof Xorg || exit
+pidof xmonad-x86_64-linux || exit
 
 . /home/alecs/.config/secrets
 
@@ -18,4 +18,4 @@ else
     xrandr --output "$extern" --left-of "$intern" --auto
 fi
 
-hsetroot -cover "$WALLPAPER"
+hsetroot -fill "$WALLPAPER"
