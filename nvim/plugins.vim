@@ -25,6 +25,8 @@ Plug 'ryanoasis/vim-devicons' " Icons
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP engine
 Plug 'tenfyzhong/vim-gencode-cpp' " Generate c++ defs
+Plug 'lervag/vimtex'
+Plug 'idris-hackers/idris-vim'
 
 Plug 'easymotion/vim-easymotion'
 

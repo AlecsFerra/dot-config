@@ -1,0 +1,6 @@
+[module/title]
+type = internal/xwindow
+
+format = <label>
+label = %title%
+label-maxlen = 50

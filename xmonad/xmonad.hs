@@ -72,12 +72,13 @@ tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
      outerGaps  = gaps $ map (, gapsSize) [U, L, R, D]
      innerGaps  = spacing gapsSize
      nmaster    = 1
-     ratio      = 1/3
+     ratio      = 1/2
      delta      = 3/100
 
 windowrules = composeAll . concat $
     [ [className =? c --> doShift "3"   | c <- ["firefox", "Chromium"]]
-    , [className =? c --> doShift "4"   | c <- ["TelegramDesktop"]]
+    , [className =? c --> doShift "4"   | c <- ["TelegramDesktop",
+                                                "discord"]]
     , [className =? c --> doShift "5"   | c <- ["zoom"]]
     , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
                                                 "Sms.py",

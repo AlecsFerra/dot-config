@@ -55,4 +55,5 @@ endfunction
 
 " FOR CMAKE set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 " Use clang-tidy flags with clang-tidy --list-checks (fast: clang-tidy --checks='-*,bugprone-*' --dump-config > .clang-tidy)
-"
+
+let g:tex_flavor = 'latex'
