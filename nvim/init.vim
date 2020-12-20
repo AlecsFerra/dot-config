@@ -1,4 +1,7 @@
 
+let mapleader = ' ' " Leader key, used for commands
+let maplocalleader = ','
+
 let config_path = expand('~') . '/.config/nvim/' " Config directory
 
 " Load plugins declaration

@@ -1,10 +1,8 @@
 " WichKey configuration
-set timeoutlen=0
-
-let mapleader = ' ' " Leader key, used for commands
+" set timeoutlen=0
 
 " Leader key
-call which_key#register('<Space>', "g:leader_which_key_map")
+" call which_key#register('<Space>', "g:leader_which_key_map")
 nmap <silent> <leader> :WhichKey '<Space>'<CR>
 vmap <silent> <leader> :WhichKey '<Space>'<CR>
 let g:leader_which_key_map = {}
@@ -48,18 +46,18 @@ let g:leader_which_key_map.f = { 'name': 'which_key_ignore' }
 " let g:leader_which_key_map.a = 'Open action menu'
 
 " Buffers
-call which_key#register(',', "g:comma_which_key_map")
-nmap <silent> , :WhichKey ','<CR>
-let g:comma_which_key_map = {}
+" call which_key#register('.', "g:dot_which_hey_map")
+nmap <silent> . :WhichKey '.'<CR>
+let g:dot_which_hey_map = {}
 
-nmap ,n :bn<CR>
-let g:comma_which_key_map.n = 'Next buffer'
+nmap .n :bn<CR>
+let g:dot_which_hey_map.n = 'Next buffer'
 
-nmap ,l :bp<CR>
-let g:comma_which_key_map.l = 'Last buffer'
+nmap .l :bp<CR>
+let g:dot_which_hey_map.l = 'Last buffer'
 
-nmap ,c :bdelete<CR>
-let g:comma_which_key_map.c = 'Close buffer'
+nmap .c :bdelete<CR>
+let g:dot_which_hey_map.c = 'Close buffer'
 
 " Goto
 call which_key#register('g', "g:g_which_key_map")

@@ -6,8 +6,8 @@ device_name="Mi 9"
 is_reach="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$device_id" org.kde.kdeconnect.device.isReachable)"
 
 if $is_reach; then
-    battery="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$device_id" org.kde.kdeconnect.device.battery.charge)"
-    is_charging="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$device_id" org.kde.kdeconnect.device.battery.isCharging)"
+    battery="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$device_id/battery" org.kde.kdeconnect.device.battery.charge)"
+    is_charging="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$device_id/battery" org.kde.kdeconnect.device.battery.isCharging)"
     if $is_charging; then
         icon=""
         #case $battery in

@@ -60,7 +60,6 @@ full-at = ${config.battery-full-at}
 battery = ${config.battery-bat}
 adapter = ${config.battery-adp}
 
-
 format-charging = "%{A1:$HOME/.config/polybar/scripts/tlp.sh:}<animation-charging> <label-charging>%{A}"
 animation-charging-0 = 
 animation-charging-1 = 
@@ -70,6 +69,7 @@ animation-charging-4 = 
 animation-charging-framerate = 750
 
 format-discharging = "%{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-discharging>%{A}"
+
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 

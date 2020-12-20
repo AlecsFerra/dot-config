@@ -30,8 +30,8 @@ focusedBorderColor' = color1
 
 keys' conf@XConfig {XMonad.modMask = modm} = M.fromList $
     [ ((modm,               xK_q     ), kill                          )
-    , ((modm .|. shiftMask, xK_space ), sendMessage NextLayout        )
-    , ((modm,               xK_space ), sendMessage ToggleStruts      )
+    , ((modm .|. shiftMask, xK_space ), sendMessage ToggleStruts      )
+    , ((modm,               xK_space ), sendMessage NextLayout        )
     , ((modm,               xK_j     ), windows W.focusDown           )
     , ((modm,               xK_k     ), windows W.focusUp             )
     , ((modm,               xK_m     ), windows W.focusMaster         )
@@ -64,7 +64,7 @@ mouseBindings' XConfig {XMonad.modMask = modm} = M.fromList
                                        >> windows W.shiftMaster)
     ]
 
-layout' = tiledLayout ||| noBorders Full
+layout' = smartBorders $ tiledLayout ||| Mirror tiledLayout ||| noBorders Full 
 
 tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
   where
@@ -83,6 +83,7 @@ windowrules = composeAll . concat $
     , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
                                                 "Sms.py",
                                                 "zoom",
+                                                "krita",
                                                 "Pavucontrol"]]
     ] 
 

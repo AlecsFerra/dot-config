@@ -45,3 +45,11 @@ font-1 = "Iosevka Nerd Font:size=12;2"
 modules-left = ewmh
 modules-center = title
 modules-right = cpu temperature news updates kde-connect controller notifications wifi date battery 
+
+[module/battery-test]
+type = internal/battery
+battery = ${config.battery-bat}
+adapter = ${config.battery-adp}
+
+[bar/debug]
+modules-left = battery-test

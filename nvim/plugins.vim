@@ -19,14 +19,13 @@ Plug 'chrisbra/Colorizer' " Colorize rgb colors, Key combination <leader> c
 Plug 'frazrepo/vim-rainbow' " Colorize parens
 Plug 'jiangmiao/auto-pairs' " Auto close parens
 
-Plug 'arthurxavierx/vim-unicoder' " Inser unicode chars
-
 Plug 'ryanoasis/vim-devicons' " Icons
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP engine
 Plug 'tenfyzhong/vim-gencode-cpp' " Generate c++ defs
 Plug 'lervag/vimtex'
 Plug 'idris-hackers/idris-vim'
+Plug 'derekelkins/agda-vim'
 
 Plug 'easymotion/vim-easymotion'
 
