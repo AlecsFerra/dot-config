@@ -1,11 +1,9 @@
 * {{
-    background:                     {background}00;
-    background-color:               {background}66;
-    background-entry:               {background}66;
-    background-alt:                 {color1}EE;
-    foreground:                     {foreground}EE;
-    foreground-selected:            {foreground}FF;
+    background-color:               {background}70;
+    selected:                       {color1};
+    nonselected:                    {color2};
     urgent:                         #E91E6366;
     urgent-selected:                #E91E6377;
+    foreground:                     {foreground};
 }}
 

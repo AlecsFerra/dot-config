@@ -1,26 +1,22 @@
 configuration {
     font:                           "JetBrains Mono Nerd Font 10";
     show-icons:                     true;
-	icon-theme: 					"Papirus";
-    display-drun: 					"";
+	  icon-theme: 					          "Humanity";
+    display-drun: 					        "";
     drun-display-format:            "{name}";
     threads:                        0;
-    scroll-method:                  0;
+    scroll-method:                  1;
     disable-history:                false;
     fullscreen:                     false;
-	hide-scrollbar: 				true;
-	sidebar-mode: 					false;
+	  hide-scrollbar: 				        true;
+	  sidebar-mode: 					        false;
 }
 
 @theme "~/.cache/wal/rofi-laucher-colors.rasi"
 
-/* * {
-    border-radius:                  6px;
-}*/
-
 window {
     transparency:                   "real";
-    background-color:               @background;
+    background-color:               @background-color;
     text-color:                     @foreground;
     border-radius:                  0px;
     height:                         100%;
@@ -32,82 +28,75 @@ window {
 }
 
 prompt {
-    enabled: 						false;
-	padding: 						0px 8px -10px 4px;
-	background-color: 				@background;
-	text-color: 					@foreground;
+    enabled: 					            	false;
 }
 
 inputbar {
-    background-color:               @background-alt;
+    border-color:                   @selected;
+    //border:                         2px 0px 2px 0px;
+    background-color:               @selected;
     text-color:                     @foreground;
     expand:                         false;
-    //border-radius:                  6px;
+    border-radius:                  6px;
     margin:                         0px 0px 0px 0px;
     padding:                        10px 10px 10px 10px;
-    position:                       south;
+    position:                       north;
 }
 
 
 entry {
-    background-color:               @background;
+    background-color:               #00000000;
     text-color:                     @foreground;
     placeholder-color:              @foreground;
     expand:                         true;
     horizontal-align:               0;
-    placeholder:                    "Search";
+    placeholder:                    "Run application";
     blink:                          true;
 }
 
 case-indicator {
-    background-color:               @background;
-    text-color:                     @foreground;
-    spacing:                        0;
+    background-color:               #00000000;
 }
 
-
 listview {
-    background-color:               @background;
-    columns:                        5;
-    spacing:                        4px;
+    background-color:               #00000000;
+    padding:                        1px 0px 0px 0px;
+    columns:                        1;
+    spacing:                        5px;
     cycle:                          false;
     dynamic:                        true;
     layout:                         vertical;
 }
 
 mainbox {
-    background-color:               @background-color;
-    //border-radius:                  6px;
-    children:                       [ inputbar, listview ];
+    children:                       [ inputbar, listview, mode-switcher ];
     spacing:                        15px;
-    padding:                        30px 25px 15px 25px;
+    padding:                        25px 25px 25px 25px;
 }
 
 element {
-    background-color:               @background;
+    background-color:               #00000000;
+    //background-color:               @nonselected;
     text-color:                     @foreground;
-    orientation:                    vertical;
-    // border-radius:                  10px;
-    padding:                        10px 0px 10px 0px;
+    orientation:                    horizontal;
+    border-radius:                  6px;
+    padding:                        5px 10px 5px 10px;
 }
 
 element-icon {
-    size:                           65px;
+    size:                           39px;
     border:                         0px;
 }
 
 element-text {
-    expand:                         true;
     horizontal-align:               0.5;
     vertical-align:                 0.5;
-    margin:                         5px 10px 0px 10px;
 }
 
 element normal.urgent,
 element alternate.urgent {
     background-color:               @urgent;
     text-color:                     @foreground;
-    //border-radius:                  9px;
 }
 
 element normal.active,
@@ -117,8 +106,9 @@ element alternate.active {
 }
 
 element selected {
-    background-color:               @background-alt;
-    text-color:                     @foreground-selected;
+    background-color:               @selected;
+    //border:                         0px 0px 2px 0px;
+    border-color:                   @selected;
 }
 
 element selected.urgent {
@@ -128,6 +118,24 @@ element selected.urgent {
 
 element selected.active {
     background-color:               @background-alt;
-    color:                          @foreground-selected;
+}
+
+mode-switcher {
+    background-color:               @background;
+    height: 80px;
+    spacing: 15px;
+}
+
+button {
+    padding:                        8px  0px 8px  0px;
+    border-radius:                  6px;
+    background-color:               #00000000;
+    color:                          @foreground;
+}
+
+button selected {
+    background-color:               @selected;
+    //border:                         0px 0px 2px 0px;
+    border-color:                   @background-alt;
 }
 

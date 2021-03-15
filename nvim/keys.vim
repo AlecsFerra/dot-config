@@ -112,10 +112,10 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Always center
-function! CentreCursor()
-    let pos = getpos(".")
-    normal! zz
-    call setpos(".", pos)
-endfunction
+"function! CentreCursor()
+"   let pos = getpos(".")
+"   normal! zz
+"   call setpos(".", pos)
+"endfunction
 
-:autocmd CursorMoved,CursorMovedI * call CentreCursor()
+":autocmd CursorMoved,CursorMovedI * call CentreCursor()

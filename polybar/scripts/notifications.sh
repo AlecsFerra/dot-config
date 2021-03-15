@@ -1,7 +1,7 @@
 #! /bin/dash
 
 if test -f "/tmp/dnd_toggle_file"; then
-  echo "鈴  "
+  echo " 鈴  "
 else
-  echo "  "
+  echo "   "
 fi

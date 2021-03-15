@@ -1,35 +1,173 @@
 ; vim:ft=dosini
 
-[module/news]
-type = custom/script
-exec = newsboat -x reload print-unread | awk '{print "    " $1} '
-interval = 100
-click-left = alacritty -e zsh -ic newsboat
+[powerline/right-to-left-item]
+format-prefix-foreground              = ${self.background}
+format-prefix-background              = ${self.background-next}
+format-prefix                         = ""
+format-volume-prefix-foreground       = ${self.background}
+format-volume-prefix-background       = ${self.background-next}
+format-volume-prefix                  = ""
+format-charging-prefix-foreground     = ${self.background}
+format-charging-prefix-background     = ${self.background-next}
+format-charging-prefix                = ""
+format-discharging-prefix-foreground  = ${self.background}
+format-discharging-prefix-background  = ${self.background-next}
+format-discharging-prefix             = ""
+format-full-prefix-foreground         = ${self.background}
+format-full-prefix-background         = ${self.background-next}
+format-full-prefix                    = ""
+format-muted-prefix-foreground        = ${self.background}
+format-muted-prefix-background        = ${self.background-next}
+format-muted-prefix                   = ""
+format-mounted-prefix-foreground      = ${self.background}
+format-mounted-prefix-background      = ${self.background-next}
+format-mounted-prefix                 = ""
+format-unmounted-prefix-foreground    = ${self.background}
+format-unmounted-prefix-background    = ${self.background-next}
+format-unmounted-prefix               = ""
+format-connected-prefix-foreground    = ${self.background}
+format-connected-prefix-background    = ${self.background-next}
+format-connected-prefix               = ""
+format-disconnected-prefix-foreground = ${self.background}
+format-disconnected-prefix-background = ${self.background-next}
+format-disconnected-prefix            = ""
+content-prefix-foreground             = ${self.background}
+content-prefix-background             = ${self.background-next}
+content-prefix                        = ""
 
-[module/updates]
-type = custom/script
-exec = ~/.config/polybar/scripts/arch-up.sh
-interval = 300
-click-left = alacritty --class dropdown_update -e paru &
+[module/right-starting]
+type               = custom/text
+content-background = ${colors.color1}
+content-foreground = ${colors.background}
+content            = ""
 
 [module/date]
-type = internal/date
-interval = 1.0
+type              = internal/date
+inherit           = powerline/right-to-left-item
 
-date = %H:%M
-date-alt = %Y-%m-%d %a
+background        = ${colors.color1}
+format-background = ${colors.color1}
+background-next   = ${colors.color2}
+format-foreground = ${colors.foreground}
 
-format = <label>
-label = %date%
-label-margin = 1
+interval        = 1.0
+date            = " %H:%M "
+date-alt        = " %Y-%m-%d %a "
+
+[module/tlp]
+type = custom/script
+inherit = powerline/right-to-left-item
+
+format-background = ${colors.color2}
+background        = ${colors.color2}
+format-foreground = ${colors.foreground}
+background-next   = ${colors.color2}
+
+interval = 5
+exec = tlp-stat -s | grep -q 'Mode           = AC' && echo " " || echo "鈴  "
+
+click-left = $HOME/.config/polybar/scripts/tlp.sh
+
+[module/battery]
+type            = internal/battery
+inherit         = powerline/right-to-left-item
+
+background      = ${colors.color2}
+background-next = ${colors.color3}
+
+battery = ${config.battery-bat}
+adapter = ${config.battery-adp}
+
+internal = 50
+full-at = ${config.battery-full-at}
+
+
+animation-charging-0         = 
+animation-charging-1         = 
+animation-charging-2         = 
+animation-charging-3         = 
+animation-charging-4         = 
+animation-charging-framerate = 750
+format-charging-background   = ${colors.color2}
+format-charging-foreground   = ${colors.foreground}
+format-charging              = "  <label-charging> <animation-charging>"
+label-charging               = " %percentage%%"
+
+ramp-capacity-0               = 
+ramp-capacity-1               = 
+ramp-capacity-2               = 
+ramp-capacity-3               = 
+ramp-capacity-4               = 
+format-discharging-background = ${colors.color2}
+format-discharging-foreground = ${colors.foreground}
+format-discharging            = " <label-discharging> <ramp-capacity>"
+label-discharging = " %percentage%%"
+
+format-full-background = ${colors.color2}
+format-full-foreground = ${colors.foreground}
+format-full            = "<label-full>"
+label-full             = "  100%"
+
+[module/wifi]
+type    = internal/network
+inherit = powerline/right-to-left-item
+
+interface = ${config.wifiinterface}
+interval  = 1
+
+background      = ${colors.color3}
+background-next = ${colors.color4}
+
+format-connected-background    = ${colors.color3}
+format-disconnected-background = ${colors.color3}
+format-connected-foreground    = ${colors.foreground}
+format-disconnected-foreground = ${colors.foreground}
+format-connected    = " %{A1:alacritty --class dropdown_conn -e nmtui:}<label-connected>%{A} "
+format-disconnected = " %{A1:alacritty --class dropdown_conn -e nmtui:}<label-disconnected>%{A} "
+
+label-disconnected = " 睊 "
+label-connected    = " %essid% 直 "
 
 [module/notifications]
 type = custom/script
-exec = $HOME/.config/polybar/scripts/notifications.sh
+inherit = powerline/right-to-left-item
 
+format-background = ${colors.color4}
+background        = ${colors.color4}
+format-foreground = ${colors.foreground}
+background-next   = ${colors.color5}
+
+interval = 5
+exec = $HOME/.config/polybar/scripts/notifications.sh
 click-left = kill -s USR1 $(pidof deadd-notification-center)
 click-right = dnd.sh &
-interval = 5
+
+[module/updates]
+type       = custom/script
+inherit    = powerline/right-to-left-item
+
+format-background = ${colors.color5}
+background        = ${colors.color5}
+format-foreground = ${colors.foreground}
+background-next   = ${colors.color6}
+
+exec       = ~/.config/polybar/scripts/arch-up.sh
+interval   = 300
+click-left = alacritty --class dropdown_update -e topgrade &
+
+[module/news]
+type       = custom/script
+inherit    = powerline/right-to-left-item
+
+format-background = ${colors.color6}
+background        = ${colors.color6}
+format-foreground = ${colors.foreground}
+background-next   = ${colors.background}
+
+exec       = newsboat -x reload print-unread | awk '{print " " $1 "   "} '
+interval   = 100
+click-left = alacritty -e zsh -ic newsboat
+
 
 [module/temperature]
 type = internal/temperature
@@ -37,82 +175,23 @@ type = internal/temperature
 units = false
 
 label = %temperature-c%°
-format = <ramp> <label>
+format = <label> <ramp>
 
 ramp-0 = 
 ramp-1 = 
 ramp-2 = 
-ramp-3 =  
-ramp-4 =  
+ramp-3 = 
 
 [module/cpu]
 type = internal/cpu
 
 label = %percentage%%
-format = ﬙  <label>
-
-[module/battery]
-type = internal/battery
-exec = tlp-stat -s | grep -q 'Mode           = AC' && echo "✨" || echo "💤"
-internal = 50
-full-at = ${config.battery-full-at}
-
-battery = ${config.battery-bat}
-adapter = ${config.battery-adp}
-
-format-charging = "%{A1:$HOME/.config/polybar/scripts/tlp.sh:}<animation-charging> <label-charging>%{A}"
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-3 = 
-animation-charging-4 = 
-animation-charging-framerate = 750
-
-format-discharging = "%{A1:$HOME/.config/polybar/scripts/tlp.sh:}<ramp-capacity> <label-discharging>%{A}"
-
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-3 = 
-ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.notify}
-
-time-format = %H:%M
-label-discharging = "%percentage%%"
-;(%time%)
-
-format-full = %{A1:$HOME/.config/polybar/scripts/tlp.sh:} <label-full>%{A}
-label-full = 100%
-label-full-foreground = ${colors.foreground}
-
-[module/wifi]
-type = internal/network
-interface = ${config.wifiinterface}
-
-interval = 1
-
-format-connected = "%{A1:alacritty --class dropdown_conn -e nmtui:}<ramp-signal> <label-connected>%{A}"
-format-disconnected = "%{A1:alacritty --class dropdown_conn -e nmtui:}<label-disconnected>%{A}"
-
-label-disconnected = 
-label-disconnected-foreground = ${colors.urgent}
-
-label-connected = 
-
-ramp-signal-0 = 直
-ramp-signal-0-foreground = ${colors.urgent}
-ramp-signal-1 = 直
-ramp-signal-1-foreground = ${colors.nord9}
-ramp-signal-2 = 直
-ramp-signal-2-foreground = ${colors.warning}
-ramp-signal-3 = 直
-ramp-signal-3-foreground = ${colors.nord7}
-
+format = <label> ﬙
 
 [module/kde-connect]
 type = custom/script
 exec = ~/.config/polybar/scripts/kde-connect-battery.sh
-click-left = thunar /run/user/1000/bc589360833d3c73/primary/
+click-left = thunar /run/user/1000/4c4e68715f38a796/primary/
 interval = 10
 
 [module/controller]

@@ -40,7 +40,7 @@ font:
 
 draw_bold_text_with_bright_colors: false
 
-background_opacity: 0.8
+background_opacity: 0.9
 
 cursor:
   # Values for `style`:
@@ -63,27 +63,27 @@ mouse:
 # BEGIN ACE
 colors:
   primary:
-    background: '0x2f3846'
-    foreground: '0xd2d2d4'
+    background: '0x2E3440'
+    foreground: '0xE5E9F0'
   cursor:
-    text:       '0x2f3846'
-    cursor:     '0xd2d2d4'
+    text:       '0x2E3440'
+    cursor:     '0xE5E9F0'
   normal:
-    black:      '0x2f3846'
-    red:        '0xe28479'
-    green:      '0x70b791'
-    yellow:     '0xc9c76b'
-    blue:       '0x839aec'
-    magenta:    '0xd18493'
-    cyan:       '0x78b3c5'
-    white:      '0xd2d2d4'
+    black:      '0x2E3440'
+    red:        '0x88C0D0'
+    green:      '0xBF616A'
+    yellow:     '0x5E81AC'
+    blue:       '0xEBCB8B'
+    magenta:    '0xA3BE8C'
+    cyan:       '0xD08770'
+    white:      '0xE5E9F0'
   bright:
-    black:      '0x4d5664'
-    red:        '0xec8e83'
-    green:      '0x95c7ae'
-    yellow:     '0xd3d175'
-    blue:       '0x8da4f6'
-    magenta:    '0xdb8e9d'
-    cyan:       '0x82bdcf'
-    white:      '0xd1d1d3'
+    black:      '0x4C566A'
+    red:        '0x88C0D0'
+    green:      '0xBF616A'
+    yellow:     '0x5E81AC'
+    blue:       '0xEBCB8B'
+    magenta:    '0xA3BE8C'
+    cyan:       '0xD08770'
+    white:      '0x8FBCBB'
 # END ACE

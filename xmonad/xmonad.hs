@@ -1,114 +1,134 @@
 {-# LANGUAGE TupleSections #-}
-import XMonad
-import Data.Monoid
-import System.Exit
-
-import qualified XMonad.StackSet as W
-import qualified Data.Map        as M
-
-import XMonad.Util.SpawnOnce
-
-import XMonad.ManageHook
-import XMonad.Hooks.ManageHelpers
-import XMonad.Hooks.EwmhDesktops
-import XMonad.Hooks.ManageDocks
-
-import XMonad.Layout.Spacing
-import XMonad.Layout.Gaps
-import XMonad.Layout.NoBorders
 
 import Colors
+import Data.Char
+import qualified Data.Map as M
+import Data.Monoid
+import System.Exit
+import XMonad
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+--import XMonad.Hooks.WindowSwallowing
+import XMonad.Layout.Gaps
+import XMonad.Layout.NoBorders
+import XMonad.Layout.ShowWName
+import XMonad.Layout.Spacing
+import XMonad.ManageHook
+import qualified XMonad.StackSet as W
+import XMonad.Util.SpawnOnce
 
 defaultTerminal = "alacritty"
 
 borderWidth' = 2
-modMask'     = mod4Mask
-workspaces'  = ["1","2","3","4","5","6","7","8","9", "10"]
 
-normalBorderColor'  = color2
+modMask' = mod4Mask
+
+workspaces' = ["main", "code", "web", "chat", "5", "6", "7", "8", "9", "10"]
+
+normalBorderColor' = color2
+
 focusedBorderColor' = color1
 
-keys' conf@XConfig {XMonad.modMask = modm} = M.fromList $
-    [ ((modm,               xK_q     ), kill                          )
-    , ((modm .|. shiftMask, xK_space ), sendMessage ToggleStruts      )
-    , ((modm,               xK_space ), sendMessage NextLayout        )
-    , ((modm,               xK_j     ), windows W.focusDown           )
-    , ((modm,               xK_k     ), windows W.focusUp             )
-    , ((modm,               xK_m     ), windows W.focusMaster         )
-    , ((modm,               xK_i     ), windows W.swapMaster          )
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown            )
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp              )
-    , ((modm,               xK_h     ), sendMessage Shrink            )
-    , ((modm,               xK_l     ), sendMessage Expand            )
-    , ((modm,               xK_t     ), withFocused $ windows . W.sink)
+keys' conf@XConfig {XMonad.modMask = modm} =
+  M.fromList $
+    [ ((modm, xK_q), kill),
+      ((modm .|. shiftMask, xK_space), sendMessage ToggleStruts),
+      ((modm, xK_space), sendMessage NextLayout),
+      ((modm, xK_j), windows W.focusDown),
+      ((modm, xK_k), windows W.focusUp),
+      ((modm, xK_m), windows W.focusMaster),
+      ((modm, xK_i), windows W.swapMaster),
+      ((modm .|. shiftMask, xK_j), windows W.swapDown),
+      ((modm .|. shiftMask, xK_k), windows W.swapUp),
+      ((modm, xK_h), sendMessage Shrink),
+      ((modm, xK_l), sendMessage Expand),
+      ((modm, xK_t), withFocused $ windows . W.sink)
+    ]
+      ++ [ ((m .|. modm, k), windows $ f i)
+           | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0]),
+             (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+         ]
+      ++ [ ((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
+           | (key, sc) <- zip [xK_a, xK_s] [0 ..],
+             (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
+         ]
+
+mouseBindings' XConfig {XMonad.modMask = modm} =
+  M.fromList
+    [ ( (modm, button1),
+        \w ->
+          focus w >> mouseMoveWindow w
+            >> windows W.shiftMaster
+      ),
+      ((modm, button2), \w -> focus w >> windows W.shiftMaster),
+      ( (modm, button3),
+        \w ->
+          focus w >> mouseResizeWindow w
+            >> windows W.shiftMaster
+      )
     ]
 
-    ++
-
-    [((m .|. modm, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0])
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
-
-    ++
-
-    [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-        | (key, sc) <- zip [xK_s, xK_a] [0..]
-        , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
-
-
-mouseBindings' XConfig {XMonad.modMask = modm} = M.fromList 
-    [ ((modm, button1), \w -> focus w >> mouseMoveWindow w
-                                       >> windows W.shiftMaster)
-    , ((modm, button2), \w -> focus w >> windows W.shiftMaster)
-    , ((modm, button3), \w -> focus w >> mouseResizeWindow w
-                                       >> windows W.shiftMaster)
-    ]
-
-layout' = smartBorders $ tiledLayout ||| Mirror tiledLayout ||| noBorders Full 
+layout' = smartBorders $ tiledLayout ||| Mirror tiledLayout ||| noBorders Full
 
 tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
   where
-     gapsSize   = 5
-     outerGaps  = gaps $ map (, gapsSize) [U, L, R, D]
-     innerGaps  = spacing gapsSize
-     nmaster    = 1
-     ratio      = 1/2
-     delta      = 3/100
+    gapsSize = 5
+    outerGaps = gaps $ map (,gapsSize) [U, L, R, D]
+    innerGaps = spacing gapsSize
+    nmaster = 1
+    ratio = 1 / 2
+    delta = 3 / 100
 
-windowrules = composeAll . concat $
-    [ [className =? c --> doShift "3"   | c <- ["firefox", "Chromium"]]
-    , [className =? c --> doShift "4"   | c <- ["TelegramDesktop",
-                                                "discord"]]
-    , [className =? c --> doShift "5"   | c <- ["zoom"]]
-    , [className =? c --> doCenterFloat | c <- ["Indicator-kdeconnect",
-                                                "Sms.py",
-                                                "zoom",
-                                                "krita",
-                                                "Pavucontrol"]]
-    ] 
+windowrules =
+  composeAll . concat $
+    [ [className =? c --> doShift (workspaces' !! 2) | c <- ["firefox", "LibreWolf", "Chromium"]],
+      [ className =? c --> doShift (workspaces' !! 3)
+        | c <-
+            [ "TelegramDesktop",
+              "discord",
+              "Element"
+            ]
+      ],
+      [className =? c --> doShift (workspaces' !! 4) | c <- ["zoom"]],
+      [ className =? c --> doCenterFloat
+        | c <-
+            [ "Indicator-kdeconnect",
+              "Sms.py",
+              "zoom",
+              "krita",
+              "Pavucontrol"
+            ]
+      ]
+    ]
 
-eventHook' = fullscreenEventHook
+showNameTheme :: SWNConfig
+showNameTheme = SWNC "xft:Ubuntu:bold:size=30" background foreground 1.0
+
+--swallowHook = swallowEventHook (className =? "Alacritty") (return True)
+
+--eventHook' = swallowHook
 
 startupHook' = spawnOnce "$HOME/.config/scripts/start_programs.sh"
 
+layoutHook' = showWName' showNameTheme $ avoidStruts layout'
+
 main = xmonad $ docks $ ewmh defaults
 
-defaults = def {
-        terminal           = defaultTerminal,
-        focusFollowsMouse  = True,
-        clickJustFocuses   = False,
-        borderWidth        = borderWidth',
-        modMask            = modMask',
-        workspaces         = workspaces',
-        normalBorderColor  = normalBorderColor',
-        focusedBorderColor = focusedBorderColor',
-
-        keys               = keys',
-        mouseBindings      = mouseBindings',
-
-        layoutHook         = avoidStruts layout',
-        manageHook         = windowrules, 
-        handleEventHook    = eventHook',
-        startupHook        = startupHook'
+defaults =
+  def
+    { terminal = defaultTerminal,
+      focusFollowsMouse = True,
+      clickJustFocuses = False,
+      borderWidth = borderWidth',
+      modMask = modMask',
+      workspaces = workspaces',
+      normalBorderColor = normalBorderColor',
+      focusedBorderColor = focusedBorderColor',
+      keys = keys',
+      mouseBindings = mouseBindings',
+      layoutHook = layoutHook',
+      manageHook = windowrules,
+      --handleEventHook = eventHook',
+      startupHook = startupHook'
     }
-

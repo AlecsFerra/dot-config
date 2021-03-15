@@ -6,10 +6,14 @@ super + Return
     alacritty
 
 super + d ; d
-    rofi -show drun -modi "drun" -config $HOME/.config/rofi/launcher/config.rasi
+    rofi -show drun -modi "drun,window,run,ssh" \
+         -config $HOME/.config/rofi/launcher/config.rasi
 
 super + d ; w
-    firefox
+    librewolf
+
+super + d ; W
+    tor-browser
 
 super + d ; z
     $TERMINAL -e zsh -ic ranger
@@ -45,7 +49,7 @@ super + x ; r
     $HOME/.config/scripts/xmonadr.sh
 
 super + x ; q
-    killall xorg
+    killall xmonad-x86_64-linux
 
 super + x ; s
     reboot
@@ -73,7 +77,7 @@ super + c ; w
                     "Calibrated to match the current window" \
                     -i pencil
 
-super + c ; {s, a}
+super + c ; {a, s}
     xwacomcalibrate -f {eDP-1, HDMI-1} && notify-send -a Wacom "Wacom Calibrate" \
                     "Calibrated to match the screen" \
                     -i pencil

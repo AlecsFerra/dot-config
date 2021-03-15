@@ -32,7 +32,7 @@ if $is_reach; then
         #esac
     fi
 
-    echo "$icon $battery% "
+    echo "$battery% $icon "
 else
     echo ""
 fi
