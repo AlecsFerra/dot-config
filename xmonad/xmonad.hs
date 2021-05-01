@@ -9,7 +9,8 @@ import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
---import XMonad.Hooks.WindowSwallowing
+import XMonad.Layout.Accordion
+import XMonad.Hooks.WindowSwallowing
 import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ShowWName
@@ -17,6 +18,7 @@ import XMonad.Layout.Spacing
 import XMonad.ManageHook
 import qualified XMonad.StackSet as W
 import XMonad.Util.SpawnOnce
+import XMonad.Hooks.SetWMName
 
 defaultTerminal = "alacritty"
 
@@ -45,73 +47,71 @@ keys' conf@XConfig {XMonad.modMask = modm} =
       ((modm, xK_l), sendMessage Expand),
       ((modm, xK_t), withFocused $ windows . W.sink)
     ]
-      ++ [ ((m .|. modm, k), windows $ f i)
-           | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0]),
-             (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
-         ]
-      ++ [ ((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
-           | (key, sc) <- zip [xK_a, xK_s] [0 ..],
-             (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
-         ]
+      ++ moveWindow
+      ++ changeWS
+  where
+    moveWindow =
+      [ ((m .|. modm, k), windows $ f i)
+        | (i, k) <- zip (XMonad.workspaces conf) ([xK_1 .. xK_9] ++ [xK_0]),
+          (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+      ]
+    changeWS =
+      [ ((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
+        | (key, sc) <- zip [xK_s, xK_a] [0 ..],
+          (f, m) <- [(W.view, 0), (W.shift, shiftMask)]
+      ]
 
 mouseBindings' XConfig {XMonad.modMask = modm} =
   M.fromList
     [ ( (modm, button1),
-        \w ->
-          focus w >> mouseMoveWindow w
-            >> windows W.shiftMaster
-      ),
-      ((modm, button2), \w -> focus w >> windows W.shiftMaster),
+        \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster ),
+      ((modm, button2), 
+        \w -> focus w >> windows W.shiftMaster),
       ( (modm, button3),
-        \w ->
-          focus w >> mouseResizeWindow w
-            >> windows W.shiftMaster
-      )
+        \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster)
     ]
 
-layout' = smartBorders $ tiledLayout ||| Mirror tiledLayout ||| noBorders Full
+layout' = smartBorders $ tiledLayout 
+                    ||| makeGaps Accordion
+                    ||| Mirror tiledLayout 
+                    ||| noBorders Full
 
-tiledLayout = outerGaps $ innerGaps $ Tall nmaster delta ratio
+makeGaps = outerGaps . innerGaps
   where
     gapsSize = 5
-    outerGaps = gaps $ map (,gapsSize) [U, L, R, D]
     innerGaps = spacing gapsSize
+    outerGaps = gaps $ map (,gapsSize) [U, L, R, D]
+
+tiledLayout = makeGaps $ Tall nmaster delta ratio
+  where
     nmaster = 1
     ratio = 1 / 2
     delta = 3 / 100
 
+chatApplications = ["TelegramDesktop", "discord", "Element", "Hexchat"]
+browsers = ["firefox", "LibreWolf", "Chromium"]
+floating = [ "Indicator-kdeconnect", "Sms.py", "zoom"]
 windowrules =
   composeAll . concat $
-    [ [className =? c --> doShift (workspaces' !! 2) | c <- ["firefox", "LibreWolf", "Chromium"]],
-      [ className =? c --> doShift (workspaces' !! 3)
-        | c <-
-            [ "TelegramDesktop",
-              "discord",
-              "Element"
-            ]
-      ],
+    [ [className =? c --> doShift (workspaces' !! 2) | c <- browsers],
+      [className =? c --> doShift (workspaces' !! 3) | c <- chatApplications],
       [className =? c --> doShift (workspaces' !! 4) | c <- ["zoom"]],
-      [ className =? c --> doCenterFloat
-        | c <-
-            [ "Indicator-kdeconnect",
-              "Sms.py",
-              "zoom",
-              "krita",
-              "Pavucontrol"
-            ]
-      ]
+      [ className =? c --> doCenterFloat | c <- floating],
+      [className =? c --> doSideFloat SE | c <- ["Pavucontrol"]]
     ]
 
 showNameTheme :: SWNConfig
 showNameTheme = SWNC "xft:Ubuntu:bold:size=30" background foreground 1.0
 
---swallowHook = swallowEventHook (className =? "Alacritty") (return True)
+swallowHook = swallowEventHook (className =? "Alacritty") (return True)
 
---eventHook' = swallowHook
+eventHook' = swallowHook
 
-startupHook' = spawnOnce "$HOME/.config/scripts/start_programs.sh"
+startupHook' = do
+  spawnOnce "$HOME/.config/scripts/start_programs.sh"
+  setWMName "AlecsMonad 0.420.69-beta"
 
-layoutHook' = showWName' showNameTheme $ avoidStruts layout'
+layoutHook' = showWName' showNameTheme $ avoidStruts layout' 
 
 main = xmonad $ docks $ ewmh defaults
 
@@ -129,6 +129,6 @@ defaults =
       mouseBindings = mouseBindings',
       layoutHook = layoutHook',
       manageHook = windowrules,
-      --handleEventHook = eventHook',
+      handleEventHook = eventHook',
       startupHook = startupHook'
     }
