@@ -9,7 +9,7 @@ Plug 'junegunn/fzf.vim'                            " Key combination <leader> o
 Plug 'mbbill/undotree' " Open a history to undo/redo a bunch of modification
                        " Key combination U
 		       
-Plug 'liuchengxu/vim-which-key' " Show all combinations when key is pressed
+"Plug 'liuchengxu/vim-which-key' " Show all combinations when key is pressed
 
 Plug 'vim-airline/vim-airline' " Better airline
 Plug 'pacha/vem-tabline'

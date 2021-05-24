@@ -12,21 +12,23 @@ bottom = false
 theme = dark
 monitor = ${env:MONITOR:eDP-1}
 
-width = 1900
+width = 1920
 height = 20
-offset-x = 10
-offset-y = 10
+offset-x = 0 
+offset-y = 0
 radius = 0
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-padding-left = 1
+padding-left = 0
+padding-right = 0
 
 override-redirect = true
 
 tray-position = right
 tray-detached = false
+tray-padding = 3
 tray-maxsize = 22
 
 cursor-click = pointer

@@ -9,8 +9,9 @@ import XMonad
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
+--import XMonad.Hooks.WindowSwallowing
 import XMonad.Layout.Accordion
-import XMonad.Hooks.WindowSwallowing
 import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
 import XMonad.Layout.ShowWName
@@ -18,7 +19,6 @@ import XMonad.Layout.Spacing
 import XMonad.ManageHook
 import qualified XMonad.StackSet as W
 import XMonad.Util.SpawnOnce
-import XMonad.Hooks.SetWMName
 
 defaultTerminal = "alacritty"
 
@@ -64,17 +64,22 @@ keys' conf@XConfig {XMonad.modMask = modm} =
 mouseBindings' XConfig {XMonad.modMask = modm} =
   M.fromList
     [ ( (modm, button1),
-        \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster ),
-      ((modm, button2), 
-        \w -> focus w >> windows W.shiftMaster),
+        \w -> focus w >> mouseMoveWindow w >> windows W.shiftMaster
+      ),
+      ( (modm, button2),
+        \w -> focus w >> windows W.shiftMaster
+      ),
       ( (modm, button3),
-        \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster)
+        \w -> focus w >> mouseResizeWindow w >> windows W.shiftMaster
+      )
     ]
 
-layout' = smartBorders $ tiledLayout 
-                    ||| makeGaps Accordion
-                    ||| Mirror tiledLayout 
-                    ||| noBorders Full
+layout' =
+  smartBorders $
+    tiledLayout
+      ||| makeGaps Accordion
+      ||| Mirror tiledLayout
+      ||| noBorders Full
 
 makeGaps = outerGaps . innerGaps
   where
@@ -89,29 +94,32 @@ tiledLayout = makeGaps $ Tall nmaster delta ratio
     delta = 3 / 100
 
 chatApplications = ["TelegramDesktop", "discord", "Element", "Hexchat"]
+
 browsers = ["firefox", "LibreWolf", "Chromium"]
-floating = [ "Indicator-kdeconnect", "Sms.py", "zoom"]
+
+floating = ["Indicator-kdeconnect", "Sms.py", "zoom"]
+
 windowrules =
   composeAll . concat $
     [ [className =? c --> doShift (workspaces' !! 2) | c <- browsers],
       [className =? c --> doShift (workspaces' !! 3) | c <- chatApplications],
       [className =? c --> doShift (workspaces' !! 4) | c <- ["zoom"]],
-      [ className =? c --> doCenterFloat | c <- floating],
+      [className =? c --> doCenterFloat | c <- floating],
       [className =? c --> doSideFloat SE | c <- ["Pavucontrol"]]
     ]
 
 showNameTheme :: SWNConfig
 showNameTheme = SWNC "xft:Ubuntu:bold:size=30" background foreground 1.0
 
-swallowHook = swallowEventHook (className =? "Alacritty") (return True)
+--swallowHook = swallowEventHook (className =? "Alacritty") (return True)
 
-eventHook' = swallowHook
+--eventHook' = swallowHook <+> fullscreenEventHook
 
 startupHook' = do
   spawnOnce "$HOME/.config/scripts/start_programs.sh"
   setWMName "AlecsMonad 0.420.69-beta"
 
-layoutHook' = showWName' showNameTheme $ avoidStruts layout' 
+layoutHook' = showWName' showNameTheme $ avoidStruts layout'
 
 main = xmonad $ docks $ ewmh defaults
 
@@ -129,6 +137,6 @@ defaults =
       mouseBindings = mouseBindings',
       layoutHook = layoutHook',
       manageHook = windowrules,
-      handleEventHook = eventHook',
+      --handleEventHook = eventHook',
       startupHook = startupHook'
     }

@@ -12,7 +12,7 @@ xss-lock -- "$HOME"/.config/scripts/lock.sh &
 
 # Rice stuff
 "$HOME"/.config/xob/launch_volume_bar.sh &
-#conky -c "$HOME"/.config/conky/clock/conkyrc &
+conky -c "$HOME"/.config/conky/clock/conkyrc &
 conky -c "$HOME"/.config/conky/spoty/conkyrc &
 conky -c "$HOME"/.config/conky/tasks/conkyrc &
 conky -c "$HOME"/.config/conky/resources/conkyrc &
@@ -48,4 +48,4 @@ batsignal -b &
 
 ## PROGRAMS ##
 telegram-desktop &
-element-desktop &
+hexchat &

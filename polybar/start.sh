@@ -6,5 +6,5 @@ extern=HDMI-1
 if xrandr | grep "$extern disconnected"; then
 	MONITOR=$intern polybar minimal &
 else
-	MONITOR=$intern polybar minimal &
+	MONITOR=$extern polybar minimal &
 fi

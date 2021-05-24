@@ -21,6 +21,9 @@ super + d ; z
 super + d ; t
 		telegram-desktop
 
+super + d ; T
+		tex-match
+
 super + d ; p
 		pavucontrol
 
@@ -59,13 +62,13 @@ super + x ; S
 
 # Spotify
 super + Right
-    .config/scripts/spoty_command.sh next
+    .config/scripts/music_command.sh next
 
 super + Left
-    .config/scripts/spoty_command.sh previus
+    .config/scripts/music_command.sh previus
 
 super + Up
-    .config/scripts/spoty_command.sh playpause
+    .config/scripts/music_command.sh playpause
 
 # Wacom Command
 super + c ; x
@@ -77,7 +80,7 @@ super + c ; w
                     "Calibrated to match the current window" \
                     -i pencil
 
-super + c ; {a, s}
+super + c ; {s, a}
     xwacomcalibrate -f {eDP-1, HDMI-1} && notify-send -a Wacom "Wacom Calibrate" \
                     "Calibrated to match the screen" \
                     -i pencil

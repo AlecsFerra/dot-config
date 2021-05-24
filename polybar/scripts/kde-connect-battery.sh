@@ -1,7 +1,7 @@
 #! /bin/bash
 
-device_id="4c4e68715f38a796"
-device_name="Mi 9"
+device_id="18670d10550d4c33"
+device_name="X3"
 
 is_reach="$(qdbus org.kde.kdeconnect "/modules/kdeconnect/devices/$device_id" org.kde.kdeconnect.device.isReachable)"
 

@@ -164,8 +164,8 @@ background        = ${colors.color6}
 format-foreground = ${colors.foreground}
 background-next   = ${colors.background}
 
-exec       = newsboat -x reload print-unread | awk '{print " " $1 "   "} '
-interval   = 100
+exec       =  newsboat -x reload print-unread | grep "Error" 1>/dev/null || newsboat -x reload print-unread | awk '{print " " $1 "   "}'
+interval   = 200
 click-left = alacritty -e zsh -ic newsboat
 
 
