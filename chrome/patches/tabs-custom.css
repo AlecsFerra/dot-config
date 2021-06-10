@@ -1,59 +1,32 @@
 @import url("../colors.css");
-
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-.tab-line {
-    display: none !important;
-}
 
-
-/*tab border*/
-
-.tab-content {
-    border-bottom: 2px solid var(--color2) !important;
-    padding-top: 3px !important;
-}
-
-.tab-content[selected="true"] {
-    background-color: var(--background) !important;
-    border-bottom: 2px solid var(--color1)!important;
-    /*tab border*/
-    color: var(--foreground) !important;
-}
-
-
-/*tab width*/
-
-.tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"]) {
-    max-width: 200px !important;
-}
-
-tab {
+.tab {
     padding-right: 1px !important;
     padding-left: 1px !important;
     padding-bottom: 0px !important;
-    background-color: var(--background) !important;
-    color: var(--foreground) !important;
-}
-
-scrollbox[orient="horizontal"] {
-    -moz-box-pack: center;
-}
-
-.tabbrowser-tab::before,
-.tabbrowser-tab::after {
-    display: none !important;
+    align-content: center !important;
 }
 
 #tabbrowser-tabs {
-    background-color: var(--background) !important;
-    margin-left: 0px !important;
-    height: 25px !important;
-    margin-bottom: 0px !important;
-    text-align: center !important;
+    --proton-tab-block-margin: 0;
+    max-height: 20px;
+    min-height: 20px;
+    height: 20px;
 }
 
-.tabbrowser-tab:hover>.tab-stack>.tab-background:not([selected="true"]):not([multiselected]) {
-    background-color: transparent !important
+.tab-background {
+    box-shadow: none !important;
+    align-content: center;
+}
+
+.tab-content {
+    background-color: var(--background) !important;
+}
+
+.tab-content[selected="true"] {
+    color: var(--foreground) !important;
+    opacity: 90%;
 }
 
 .tabbrowser-tab {
@@ -68,19 +41,43 @@ scrollbox[orient="horizontal"] {
     opacity: 1
 }
 
+.tab-text {
+    text-align: center !important;
+    -moz-box-flex: 1 !important;
+}
 
-/* FAVICONS Color */
+#tabbrowser-tabs {
+    background-color: var(--background) !important;
+    margin-bottom: 0px !important;
+    max-height: 25px !important;
+    text-align: center !important;
+    align-content: center !important;
+    align-self: center !important;
+}
 
+scrollbox[orient="horizontal"] {
+    -moz-box-pack: center;
+}
 
-/* Default */
+#tabbrowser-tab[fadein]:not([pinned]):not([style*="max-width"]) {
+    max-width: 200px !important;
+}
 
-.tab-throbber-tabslist,
-.tab-throbber,
-.tab-icon-pending,
-.tab-icon-image,
-.tab-sharing-icon-overlay,
-.tab-icon-sound,
-.tab-close-button {
+#tabbrowser-tabs .tab-background>.tab-context-line {
+    margin: 0 !important;
+}
+
+.tab-label-container {
+    -moz-box-pack: center;
+    -moz-box-orient: horizontal
+}
+
+#alltabs-button {
+    display: none !important;
+}
+
+#TabsToolbar .close-icon {
+    /*filter: opacity(0%) !important;*/
     display: none !important;
 }
 
@@ -89,35 +86,12 @@ scrollbox[orient="horizontal"] {
     /*display: none !important;*/
 }
 
-.tab-text[selected] {
-    text-align: center !important;
-    font-weight: bold !important;
-    -moz-box-flex: 1 !important;
-}
-
-.tab-text {
-    text-align: center !important;
-    -moz-box-flex: 1 !important;
-}
-
-
-/* Close tab color */
-
-#TabsToolbar .close-icon {
-    /*filter: opacity(0%) !important;*/
-    display: none !important;
-}
-
-
-/* New Tab Flash */
-
- :root {
-    --newtab-textbox-background-color: var(--background);
-}
-
-
-/* remove list-all-tabs button with appears permanently after ff 78 update */
-
-#alltabs-button {
-    display: none !important;
+.tab-throbber-tabslist,
+.tab-throbber,
+.tab-icon-pending,
+.tab-icon-image,
+.tab-sharing-icon-overlay,
+.tab-icon-sound,
+.tab-close-button {
+    color: var(--foreground);
 }

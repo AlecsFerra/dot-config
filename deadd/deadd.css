@@ -1,0 +1,20 @@
+.blurredBG, #main_window, .blurredBG.low, .blurredBG.normal {
+  background: rgba(40, 42, 54, 0.6);
+}
+
+.blurredBG.notification.critical {
+    background: rgba(255, 0, 0, 0.6);
+}
+
+.title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+label.deadd-noti-center.noti-center.time {
+  font-size: 105px;
+}
+
+label.deadd-noti-center.noti-center.date {
+  font-size: 30px;
+}

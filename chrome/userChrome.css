@@ -1,5 +1,4 @@
 /*MANDATORY*/
-
 @import url("patches/tabs-custom.css");
 @import url("patches/nav-bar-custom.css");
 @import url("patches/tabs-below-nav-bar.css");
@@ -8,15 +7,14 @@
 
 /*OPTIONAL*/
 
-
-/*@import url("patches/tabs-below-content.css");*/
-
+@import url("patches/tabs-below-content.css");
 
 /*USE ANY ONE at once*/
 
 @import url("patches/ctrl+l-access.css");
 
 /*@import url("patches/hover-access.css");*/
+
 
 /**
  * other stuff: chrome://browser/skin/browser.css

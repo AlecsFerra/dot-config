@@ -10,7 +10,7 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
---import XMonad.Hooks.WindowSwallowing
+import XMonad.Hooks.WindowSwallowing
 import XMonad.Layout.Accordion
 import XMonad.Layout.Gaps
 import XMonad.Layout.NoBorders
@@ -111,9 +111,9 @@ windowrules =
 showNameTheme :: SWNConfig
 showNameTheme = SWNC "xft:Ubuntu:bold:size=30" background foreground 1.0
 
---swallowHook = swallowEventHook (className =? "Alacritty") (return True)
+swallowHook = swallowEventHook (className =? "Alacritty") (return True)
 
---eventHook' = swallowHook <+> fullscreenEventHook
+eventHook' = swallowHook <+> fullscreenEventHook
 
 startupHook' = do
   spawnOnce "$HOME/.config/scripts/start_programs.sh"
@@ -137,6 +137,6 @@ defaults =
       mouseBindings = mouseBindings',
       layoutHook = layoutHook',
       manageHook = windowrules,
-      --handleEventHook = eventHook',
+      handleEventHook = eventHook',
       startupHook = startupHook'
     }
