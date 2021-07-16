@@ -8,13 +8,10 @@ let config_path = expand('~') . '/.config/nvim/' " Config directory
 exec 'source' config_path . 'plugins.vim'
 exec 'source' config_path . 'fzf.vim'
 exec 'source' config_path . 'undotree.vim'
-exec 'source' config_path . 'airline.vim'
 exec 'source' config_path . 'keys.vim'
-exec 'source' config_path . 'unicoder.vim'
-exec 'source' config_path . 'rainbow.vim'
-exec 'source' config_path . 'coc.vim'
+exec 'source' config_path . 'tabline.vim'
+exec 'luafile' config_path . 'lsp.lua'
 
-" Set a colorscheme
 colorscheme wal
 
 " General settings
@@ -43,3 +40,7 @@ set clipboard=unnamedplus   " Share clipboard with system
 set mouse=a									" Enable mouse
 
 set hidden									" Allow new buffer open when unsaved
+
+set noshowmode              " Hide inser in cmd
+
+set completeopt=menuone,noselect
