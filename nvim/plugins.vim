@@ -3,6 +3,7 @@ call plug#begin('/home/alecs/.local/share/nvim/plugged')
 Plug 'dylanaraps/wal.vim'     " PyWal Colorschemes
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'pacha/vem-tabline'      " Open tabs
+Plug 'vim-airline/vim-airline'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() }} " Fuzzy finder (used in open buffer command)
 Plug 'junegunn/fzf.vim'                            " Key combination <leader> o
@@ -15,6 +16,8 @@ Plug 'chrisbra/Colorizer'
 
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
-Plug 'glepnir/lspsaga.nvim'
+Plug 'kosayoda/nvim-lightbulb'
+Plug 'folke/lsp-colors.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 call plug#end()

@@ -6,7 +6,7 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-wal --theme base16-nord && "$HOME"/.config/polybar/start.sh & # Bullshit
+wal --theme onedarkl && "$HOME"/.config/polybar/start.sh & # Bullshit
 betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 

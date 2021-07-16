@@ -9,7 +9,7 @@ exec 'source' config_path . 'plugins.vim'
 exec 'source' config_path . 'fzf.vim'
 exec 'source' config_path . 'undotree.vim'
 exec 'source' config_path . 'keys.vim'
-exec 'source' config_path . 'tabline.vim'
+exec 'source' config_path . 'statuslines.vim'
 exec 'luafile' config_path . 'lsp.lua'
 
 colorscheme wal
@@ -22,6 +22,8 @@ set number relativenumber   " Show numbers relative to cursor position
 set tabstop=2 softtabstop=2 " Tab vs spaces related stuff
 set shiftwidth=2
 set expandtab
+
+set updatetime=500          " Time cursor hold event
 
 set smartcase								" Search ignore case 
 set incsearch								" Show mathces while typing
