@@ -13,6 +13,7 @@ exec 'source' config_path . 'statuslines.vim'
 exec 'luafile' config_path . 'lsp.lua'
 
 colorscheme wal
+"colorscheme onedark
 
 " General settings
 syntax on                   " Turn on syntax highlighting

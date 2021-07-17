@@ -1,6 +1,8 @@
 call plug#begin('/home/alecs/.local/share/nvim/plugged')
 
 Plug 'dylanaraps/wal.vim'     " PyWal Colorschemes
+Plug 'joshdick/onedark.vim'
+
 Plug 'ryanoasis/vim-devicons' " Icons
 Plug 'pacha/vem-tabline'      " Open tabs
 Plug 'vim-airline/vim-airline'
@@ -19,5 +21,6 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'kosayoda/nvim-lightbulb'
 Plug 'folke/lsp-colors.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
