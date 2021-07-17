@@ -1,6 +1,6 @@
 
 -- LSP SERVERS
-local servers = { "rust_analyzer", "hls", "clangd" }
+local servers = { "rust_analyzer", "hls", "clangd", "bashls" }
 
 -- LSP
 local nvim_lsp = require('lspconfig')
