@@ -11,7 +11,7 @@ betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 
 # Rice stuff
-"$HOME"/.config/xob/launch_volume_bar.sh &
+"$HOME"/.config/xob/launch.sh &
 conky -c "$HOME"/.config/conky/clock/conkyrc &
 conky -c "$HOME"/.config/conky/spoty/conkyrc &
 conky -c "$HOME"/.config/conky/tasks/conkyrc &
@@ -38,8 +38,6 @@ flameshot &
 /usr/lib/kdeconnectd &
 indicator-kdeconnect &
 
-# gestures
-#libinput-gestures-setup start &
 
 # Notifications
 deadd-notification-center &
