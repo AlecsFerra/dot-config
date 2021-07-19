@@ -23,4 +23,6 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'sheerun/vim-polyglot'
 
+Plug 'edwinb/idris2-vim'
+
 call plug#end()
