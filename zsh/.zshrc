@@ -23,6 +23,14 @@ setopt complete_in_word
 setopt always_to_end
 setopt prompt_subst
 
+# Completion
+zstyle ':completion:*' menu select
+
+# History
+HISTSIZE=10000
+SAVEHIST=1000
+setopt SHARE_HISTORY
+
 # Vi mode
 bindkey -v
 export KEYTIMEOUT=1
