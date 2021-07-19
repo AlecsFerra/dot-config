@@ -1,4 +1,4 @@
-#!/bin/dash
+#! /bin/dash
 
 . "$HOME"/.config/secrets
 

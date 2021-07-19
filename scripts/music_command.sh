@@ -1,4 +1,4 @@
-#!/bin/dash
+#! /bin/dash
 
 # The player is always (not really) the 1st PID, dumb hack
 pid=$(pgrep "freezer" | head -1)

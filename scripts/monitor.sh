@@ -1,4 +1,4 @@
-#!/bin/dash
+#! /bin/dash
 
 # only if xorg is running
 pidof xmonad-x86_64-linux || exit

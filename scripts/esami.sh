@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /bin/dash
 
 killall xss-lock &
 killall deadd-notification-center &
