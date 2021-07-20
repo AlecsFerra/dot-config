@@ -1,8 +1,14 @@
+#XDG
+source ~/.config/zsh/xdg_dirs.zsh
+
 # ZSH config
-# git  zsh-autosuggestions zsh-completions zsh-syntax-highlighting
+# History
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+SAVEHIST=1000
+setopt share_history inc_append_history extended_history
 
 autoload -Uz compinit
-compinit
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 export ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 source ~/.config/zsh/agnoster.zsh-theme
@@ -14,9 +20,6 @@ source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/dirs.zsh
 
 setopt autocd
-setopt extended_history       # record timestamp of command in HISTFILE
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups
 setopt extendedglob
 setopt auto_menu
 setopt complete_in_word
@@ -25,11 +28,7 @@ setopt prompt_subst
 
 # Completion
 zstyle ':completion:*' menu select
-
-# History
-HISTSIZE=10000
-SAVEHIST=1000
-setopt SHARE_HISTORY
+zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
 # Vi mode
 bindkey -v
@@ -82,7 +81,6 @@ alias vim=nvim
 alias v=vim
 alias r=ranger
 
-eval "$(antidot init)" # Cleanup home
 
 # Path vars
 path+=("/home/alecs/.config/cargo/bin")
