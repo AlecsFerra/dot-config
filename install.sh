@@ -18,6 +18,7 @@ ln -s "$ABSOLUTE_PATH"/secrets          $TARGET
 ln -s "$ABSOLUTE_PATH"/conky            $TARGET
 ln -s "$ABSOLUTE_PATH"/wal              $TARGET
 ln -s "$ABSOLUTE_PATH"/zathura          $TARGET
+ln -s "$ABSOLUTE_PATH"/octave           $TARGET
 ln -s "$ABSOLUTE_PATH"/zsh              $TARGET
 ln -s "$ABSOLUTE_PATH"/zsh/.zshenv      $HOME
 ln -s "$ABSOLUTE_PATH"/chrome           $HOME/.librewolf/*.default-release
