@@ -81,6 +81,10 @@ alias vim=nvim
 alias v=vim
 alias r=ranger
 
+# Opam
+test -r /home/alecs/.local/share/opam/opam-init/init.zsh \
+   && . /home/alecs/.local/share/opam/opam-init/init.zsh > /dev/null 2> /dev/null \
+   || true
 
 # Path vars
 path+=("/home/alecs/.config/cargo/bin")
