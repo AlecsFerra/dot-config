@@ -4,6 +4,10 @@ nvim/.netrwhist
 
 zsh/.zcompdump
 
+backup/include.txt
+backup/exclude.txt
+backup/backupdiskpartuuid.txt
+
 xmonad/xmonad.o
 xmonad/xmonad.hi
 xmonad/lib/Colors.o
