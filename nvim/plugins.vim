@@ -25,4 +25,6 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'edwinb/idris2-vim'
 
+Plug 'joom/latex-unicoder.vim'
+
 call plug#end()

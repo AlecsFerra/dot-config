@@ -18,12 +18,6 @@ map <silent> gT :bprev<CR>
 " Open undo tree
 nmap U :UndotreeShow<CR>
 
-" Splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
 function! Compe_select_confirm() abort
   if !exists('*complete_info')
     throw 'compe#_select_confirm requires complete_info function to work'
@@ -39,3 +33,6 @@ function! Compe_select_confirm() abort
 endfunction
 
 inoremap <silent><expr> <cr> pumvisible() ? Compe_select_confirm() : '<cr>'
+
+command It :set spell spelllang=it
+command En :set spell spelllang=En
