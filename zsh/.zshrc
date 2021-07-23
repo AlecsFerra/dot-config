@@ -4,7 +4,8 @@ source ~/.config/zsh/xdg_dirs.zsh
 # ZSH config
 # History
 HISTFILE="$XDG_STATE_HOME/zsh/history"
-SAVEHIST=1000
+SAVEHIST=10000
+HISTSIZE=10000
 setopt share_history inc_append_history extended_history
 
 autoload -Uz compinit
