@@ -15,3 +15,8 @@ xmonad/lib/Colors.hi
 xmonad/xmonad.errors
 xmonad/xmonad-x86_64-linux
 xmonad/xmonad-<yourname>.cabal
+
+aspell/en.prepl
+aspell/en.pws
+aspell/it.prepl
+aspell/it.pws

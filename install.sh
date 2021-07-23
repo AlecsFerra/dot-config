@@ -21,6 +21,7 @@ ln -s "$ABSOLUTE_PATH"/zathura            $TARGET
 ln -s "$ABSOLUTE_PATH"/octave             $TARGET
 ln -s "$ABSOLUTE_PATH"/python/pythonrc.py $TARGET
 ln -s "$ABSOLUTE_PATH"/zsh                $TARGET
+ln -s "$ABSOLUTE_PATH"/aspell             $TARGET
 ln -s "$ABSOLUTE_PATH"/zsh/.zshenv        $HOME
 ln -s "$ABSOLUTE_PATH"/chrome             $HOME/.librewolf/*.default-release
 
