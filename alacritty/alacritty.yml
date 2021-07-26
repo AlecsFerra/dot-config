@@ -11,7 +11,7 @@ window:
     y: 0
 
   dynamic_padding: true
-  decorations: none
+  decorations: full
 
 font:
   normal:
