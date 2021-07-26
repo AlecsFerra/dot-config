@@ -51,7 +51,7 @@ entry {
 }
 
 inputbar {
-	children: 				[ prompt, entry ];
+	children: 				[ entry ];
   background-color: @background;
   text-color:       @foreground;
   expand:           false;

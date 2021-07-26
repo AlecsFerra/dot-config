@@ -2,4 +2,5 @@
 
 rofi -show drun \
      -modi "drun,window,run,ssh" \
-     -config "$HOME/.config/rofi/launcher/theme.rasi"
+     -config "$HOME/.config/rofi/launcher/theme.rasi" \
+     -no-fixed-num-lines
