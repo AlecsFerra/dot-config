@@ -99,13 +99,16 @@ browsers = ["firefox", "LibreWolf", "Chromium"]
 
 floating = ["Indicator-kdeconnect", "Sms.py", "zoom"]
 
+plasma = ["krunner", "plasmashell", "plasma-desktop"]
+
 windowrules =
   composeAll . concat $
     [ [className =? c --> doShift (workspaces' !! 2) | c <- browsers],
       [className =? c --> doShift (workspaces' !! 3) | c <- chatApplications],
       [className =? c --> doShift (workspaces' !! 4) | c <- ["zoom"]],
       [className =? c --> doCenterFloat | c <- floating],
-      [className =? c --> doSideFloat SE | c <- ["Pavucontrol"]]
+      [className =? c --> doSideFloat SE | c <- ["Pavucontrol"]],
+      [className =? c --> doIgnore <+> hasBorder False >> doFloat | c <- plasma]
     ]
 
 showNameTheme :: SWNConfig
