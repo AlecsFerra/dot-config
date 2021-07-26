@@ -1,0 +1,37 @@
+* {{
+  background: {background};
+  foreground: {foreground};
+  cursor:     {cursor};
+  color0:     {color0};
+  color1:     {color1};
+  color2:     {color2};
+  color3:     {color3};
+  color4:     {color4};
+  color5:     {color5};
+  color6:     {color6};
+  color7:     {color7};
+  color8:     {color8};
+  color9:     {color9};
+  color10:    {color10};
+  color11:    {color11};
+  color12:    {color12};
+  color13:    {color13};
+  color14:    {color14};
+  color15:    {color15};
+  color0a:     {color0}40;
+  color1a:     {color1}40;
+  color2a:     {color2}40;
+  color3a:     {color3}40;
+  color4a:     {color4}40;
+  color5a:     {color5}40;
+  color6a:     {color6}40;
+  color7a:     {color7}40;
+  color8a:     {color8}40;
+  color9a:     {color9}40;
+  color10a:    {color10}40;
+  color11a:    {color11}40;
+  color12a:    {color12}40;
+  color13a:    {color13}40;
+  color14a:    {color14}40;
+  color15a:    {color15}40;
+}}

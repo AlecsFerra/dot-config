@@ -1,9 +1,0 @@
-* {{
-    background-color:               {background}70;
-    selected:                       {color1};
-    nonselected:                    {color2};
-    urgent:                         #E91E6366;
-    urgent-selected:                #E91E6377;
-    foreground:                     {foreground};
-}}
-
