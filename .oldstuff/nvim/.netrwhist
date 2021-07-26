@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/home/alecs/.config/Bitwarden/blob_storage/eb8a4da0-62f3-4a5c-9169-6412518f8e3c'
-let g:netrw_dirhist_4='/home/alecs/Repos/dot-config/conky/clock'
-let g:netrw_dirhist_3='/home/alecs/.Wurst encryption'
-let g:netrw_dirhist_2='/home/alecs/.xmonad'
-let g:netrw_dirhist_1='/home/alecs/.config/zathura'
