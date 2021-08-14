@@ -25,5 +25,18 @@ ln -s "$ABSOLUTE_PATH"/aspell             $TARGET
 ln -s "$ABSOLUTE_PATH"/zsh/.zshenv        $HOME
 ln -s "$ABSOLUTE_PATH"/chrome             $HOME/.librewolf/*.default-release
 
-echo "DONT FORGET TO COPY THE udev-rules in /etc/udev/rules.d"
-echo "COPY!!! NO LINKS"
+# Cleanup xmonad
+rm -rf ~/.xmonad/xmonad
+
+echo -n "Install root components (Y/N)? "
+read -r root_comp </dev/tty
+if [ "$root_comp" = "Y" ]; then
+  echo "Installing root components!"
+
+  # Monitor rule
+  sudo cp "$ABSOLUTE_PATH/hooks/95-monitor-hotplug.rules" /etc/udev/rules.d/
+  sudo chmod 644 "/etc/udev/rules.d/95-monitor-hotplug.rules"
+
+else
+  echo "Ok, exiting!"
+fi
