@@ -1,4 +1,4 @@
 #! /bin/sh
 
-umount /media/BackupDisk
-dmsetup remove /dev/mapper/BackupDisk
+sudo umount /media/BackupDisk
+sudo dmsetup remove /dev/mapper/BackupDisk

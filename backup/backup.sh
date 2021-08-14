@@ -3,7 +3,7 @@
 dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
 home="/home/alecs/"
-backuplocation="/media/BackupDisk/backup"
+ackuplocation="/media/BackupDisk/backupArch"
 
 rsync -arvzp \
   --progress \
