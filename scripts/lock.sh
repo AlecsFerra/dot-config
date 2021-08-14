@@ -1,4 +1,4 @@
 #! /bin/dash
-xset dpms 0 10 0 #Set the suspend timing to 10 secs (Save power)
+xset dpms 0 10 0 
 betterlockscreen -l
-xset -dpms #Remove it
+xset -dpms
