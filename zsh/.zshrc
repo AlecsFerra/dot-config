@@ -61,7 +61,7 @@ alias cda="cd $HOME/Documents/Appunti/"
 alias cdb="cd $HOME/Documents/Books/"
 
 # X11
-alias s="startx $HOME/.xinitrc"
+alias s="startx $HOME/.xinitrc 1>$HOME/.cache/x.log 2>&1"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 alias get_class="xprop | grep CLASS"
