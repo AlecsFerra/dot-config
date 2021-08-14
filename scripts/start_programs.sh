@@ -46,4 +46,3 @@ batsignal -b &
 
 ## PROGRAMS ##
 telegram-desktop &
-hexchat &
