@@ -192,7 +192,7 @@ format = <label> ﬙
 
 [module/kde-connect]
 type = custom/script
-exec = ~/.config/polybar/scripts/kde-connect-battery.sh
+exec = ~/.config/polybar/scripts/kde-connect-battery.sh 2>/dev/null
 click-left = thunar /run/user/1000/4c4e68715f38a796/primary/
 interval = 10
 
