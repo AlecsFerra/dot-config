@@ -78,8 +78,8 @@ alias cpwd="  pwd \
             | xclip -selection clipboard
             echo 'Copied selection to clipboard!'"
 
-alias vim=nvim
-alias v=vim
+alias v=$EDITOR
+alias sv=sudoedit
 alias r=ranger
 
 # Opam
