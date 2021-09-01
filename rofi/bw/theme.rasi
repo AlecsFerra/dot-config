@@ -20,14 +20,13 @@ window {
   transparency:        "real";
   background-color:    @background;
   text-color:          @foreground;
-	border:							 0px;
-	border-color:			 	 @border;
-  border-radius:       0px;
+	border:							 0px 1px 1px 1px;
+	border-color:			 	 @accent;
+  border-radius:       0px 0px 4px 4px;
 	width:							 38%;
   location:            north;
   x-offset:            0;
   y-offset:            0;
-  border-radius:       4px;
 }
 
 prompt {
@@ -90,6 +89,8 @@ element {
 
 element-text {
   expand:           true;
+  background-color: #00000000;
+  color:            @foreground;
   horizontal-align: 0;
   vertical-align:   0.5;
   margin:           0% 0% 0% 0.25%;
