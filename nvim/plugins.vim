@@ -27,4 +27,6 @@ Plug 'edwinb/idris2-vim'
 
 Plug 'joom/latex-unicoder.vim'
 
+Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
