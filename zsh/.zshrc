@@ -19,6 +19,7 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath+=(~/.config/zsh/plugins/zsh-completions/src/)
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/dirs.zsh
+source ~/.config/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
 
 setopt autocd
 setopt extendedglob
