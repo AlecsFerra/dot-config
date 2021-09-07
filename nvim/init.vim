@@ -15,6 +15,8 @@ exec 'luafile' config_path . 'lsp.lua'
 colorscheme wal
 "colorscheme onedark
 
+let g:rainbow_active = 1
+
 " General settings
 syntax on                   " Turn on syntax highlighting
 

@@ -14,8 +14,6 @@ Plug 'mbbill/undotree'
 
 Plug 'easymotion/vim-easymotion'
 
-Plug 'chrisbra/Colorizer'
-
 Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-compe'
 Plug 'kosayoda/nvim-lightbulb'
@@ -23,10 +21,14 @@ Plug 'folke/lsp-colors.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'sheerun/vim-polyglot'
 
+" Lang specific
 Plug 'edwinb/idris2-vim'
+Plug 'wlangstroth/vim-racket'
 
 Plug 'joom/latex-unicoder.vim'
 
 Plug 'jiangmiao/auto-pairs'
+Plug 'luochen1990/rainbow'
+Plug 'chrisbra/Colorizer'
 
 call plug#end()
