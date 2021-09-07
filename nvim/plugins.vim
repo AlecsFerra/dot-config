@@ -1,4 +1,4 @@
-call plug#begin('/home/alecs/.local/share/nvim/plugged')
+call plug#begin('$HOME/.local/share/nvim/plugged')
 
 Plug 'dylanaraps/wal.vim'     " PyWal Colorschemes
 Plug 'joshdick/onedark.vim'
