@@ -22,7 +22,7 @@ import XMonad.Util.SpawnOnce
 
 defaultTerminal = "alacritty"
 
-borderWidth' = 2
+borderWidth' = 3
 
 modMask' = mod4Mask
 
