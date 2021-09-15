@@ -13,9 +13,11 @@ export DISPLAY=:0
 export XAUTHORITY=/home/alecs/.Xauthority
 
 if xrandr | grep "$extern disconnected"; then
-    xrandr --output "$intern" --output "$extern" --off --auto
+    xrandr --auto
+    xrandr --output "$extern" --off
 else
-    xrandr --output "$extern" --left-of "$intern" --auto
+    xrandr --auto
+    xrandr --output "$intern" --off
 fi
 
 hsetroot -fill "$WALLPAPER"
