@@ -36,6 +36,8 @@ cursor-scroll = ns-resize
 
 enable-ipc = true
 
+locale = it_IT
+
 #font-0 = DejaVuSans:size=11;3
 font-0 = "Iosevka Nerd Font:size=12:antialias=true;3"
 

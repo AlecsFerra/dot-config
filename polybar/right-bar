@@ -66,7 +66,7 @@ format-foreground = ${colors.foreground-alt}
 background-next   = ${colors.color2}
 
 interval = 5
-exec = tlp-stat -s | grep -q 'Mode           = AC' && echo " " || echo "鈴  "
+exec = sudo tlp-stat -s | grep -q 'Mode           = AC' && echo " " || echo "鈴  "
 
 click-left = $HOME/.config/polybar/scripts/tlp.sh
 
