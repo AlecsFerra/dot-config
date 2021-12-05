@@ -116,7 +116,7 @@ showNameTheme = SWNC "xft:Ubuntu:bold:size=30" background foreground 1.0
 
 swallowHook = swallowEventHook (className =? "Alacritty") (return True)
 
-eventHook' = swallowHook <+> fullscreenEventHook
+eventHook' = swallowHook 
 
 startupHook' = do
   spawnOnce "$HOME/.config/scripts/start_programs.sh"

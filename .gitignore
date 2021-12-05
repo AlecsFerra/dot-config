@@ -13,7 +13,10 @@ xmonad/xmonad.hi
 xmonad/lib/Colors.o
 xmonad/lib/Colors.hi
 xmonad/xmonad.errors
+xmonad/.stack-work
+xmonad/build-x86_64-linux/
 xmonad/xmonad-x86_64-linux
+xmonad/stack.yaml.lock
 xmonad/xmonad-<yourname>.cabal
 
 aspell/en.prepl
