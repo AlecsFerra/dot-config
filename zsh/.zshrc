@@ -9,17 +9,18 @@ HISTSIZE=10000
 setopt share_history inc_append_history extended_history
 
 autoload -Uz compinit
-compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 export ZSH_AUTOSUGGEST_STRATEGY=(history)
 
 source ~/.config/zsh/agnoster.zsh-theme
 setopt prompt_subst
-source ~/.config/zsh/plugins/git.zsh
 source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath+=(~/.config/zsh/plugins/zsh-completions/src/)
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.config/zsh/plugins/dirs.zsh
 source ~/.config/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+source ~/.config/zsh/plugins/git.zsh
+source ~/.config/zsh/plugins/dirs.zsh
 
 setopt autocd
 setopt extendedglob
@@ -55,6 +56,9 @@ alias la="lsd --group-dirs first --all"
 
 alias rm=trash-put
 alias tmp="cd $(mktemp -d)"
+
+#Termbin
+alias tb="nc termbin.com 9999"
 
 # Dirs
 alias cdc="cd $HOME/Repos/dot-config/"
