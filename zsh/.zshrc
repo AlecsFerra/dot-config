@@ -41,6 +41,7 @@ export CLICOLOR=1
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export TERMINAL="alacritty"
+export DIFFPROG="nvim -d"
 
 export QT_STYLE_OVERRIDE=kvantum
 
@@ -86,6 +87,9 @@ alias cpwd="  pwd \
 alias v=$EDITOR
 alias sv=sudoedit
 alias r=ranger
+
+alias scheme=scheme48
+alias kc="kdeconnect-cli -d 18670d10550d4c33"
 
 # Opam
 test -r /home/alecs/.local/share/opam/opam-init/init.zsh \
