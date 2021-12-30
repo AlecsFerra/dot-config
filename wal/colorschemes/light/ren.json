@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/alecs/Pictures/Wallpapers/cupola.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#fbf3e0",
+        "foreground": "#44271E",
+        "cursor": "#44271E"
+    },
+    "colors": {
+        "color0": "#fbf9f8",
+        "color1": "#A38D6D",
+        "color2": "#D29F66",
+        "color3": "#AC9D99",
+        "color4": "#D5B092",
+        "color5": "#C9B6B0",
+        "color6": "#DECAB0",
+        "color7": "#44271E",
+        "color8": "#8a827f",
+        "color9": "#A38D6D",
+        "color10": "#D29F66",
+        "color11": "#AC9D99",
+        "color12": "#D5B092",
+        "color13": "#C9B6B0",
+        "color14": "#DECAB0",
+        "color15": "#44271E"
+    }
+}
