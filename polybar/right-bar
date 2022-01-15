@@ -40,7 +40,7 @@ content-prefix                        = ""
 [module/right-starting]
 type               = custom/text
 content-background = ${colors.color1}
-content-foreground = ${colors.background}
+content-foreground = ${colors.backgroundalt}
 content            = ""
 
 [module/date]

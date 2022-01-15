@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-intern=eDP-1
-extern=HDMI-1
+intern=eDP1
+extern=HDMI1
 
 if xrandr | grep "$extern disconnected"; then
 	MONITOR=$intern polybar minimal &

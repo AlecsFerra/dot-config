@@ -26,10 +26,11 @@ padding-right = 0
 
 override-redirect = true
 
-tray-position = right
-tray-detached = false
-tray-padding = 3
-tray-maxsize = 22
+tray-position   = right
+tray-background = ${colors.backgroundalt}
+tray-detached   = false
+tray-padding    = 3
+tray-maxsize    = 22
 
 cursor-click = pointer
 cursor-scroll = ns-resize
@@ -41,7 +42,7 @@ locale = it_IT
 #font-0 = DejaVuSans:size=11;3
 font-0 = "Iosevka Nerd Font:size=12:antialias=true;3"
 
-modules-left = ewmh
-modules-center = title
+modules-left = ewmh left-ending
+modules-center = center-right title center-left
 modules-right = controller kde-connect news updates notifications wifi battery tlp date right-starting
 
