@@ -20,6 +20,7 @@ Plug 'kosayoda/nvim-lightbulb'
 Plug 'folke/lsp-colors.nvim'
 Plug 'ray-x/lsp_signature.nvim'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-commentary'
 
 " Lang specific
 Plug 'edwinb/idris2-vim'

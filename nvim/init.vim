@@ -26,6 +26,8 @@ set tabstop=2 softtabstop=2 " Tab vs spaces related stuff
 set shiftwidth=2
 set expandtab
 
+"set spell
+
 set updatetime=500          " Time cursor hold event
 
 set smartcase								" Search ignore case 
