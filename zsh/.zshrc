@@ -69,6 +69,9 @@ alias cdb="cd $HOME/Documents/Books/"
 # X11
 alias s="startx $HOME/.xinitrc 1>$HOME/.cache/x.log 2>&1"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export MOZ_X11_EGL=1
+
+alias cpy="xclip -i -sel clip"
 
 alias get_class="xprop | grep CLASS"
 
