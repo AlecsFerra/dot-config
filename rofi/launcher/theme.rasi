@@ -2,7 +2,8 @@ configuration {
 	font:							   "JetBrains Mono Nerd Font 10";
   show-icons:          true;
 	icon-theme: 				 "Papirus";
-  display-drun: 			 " ";
+  display-drun: 			 "";
+  display-window: 		 "";
   drun-display-format: "{name}";
   disable-history:     false;
   fullscreen:          false;
