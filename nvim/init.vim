@@ -26,17 +26,21 @@ set tabstop=2 softtabstop=2 " Tab vs spaces related stuff
 set shiftwidth=2
 set expandtab
 
+set shell=zsh
+set shellcmdflag=-ic
+
 "set spell
 
 set updatetime=500          " Time cursor hold event
 
-set smartcase								" Search ignore case 
+set smartcase								" Search ignore case .
 set incsearch								" Show mathces while typing
 
 set noswapfile							" Remove stupid backupfiles
 set nobackup
 
-set colorcolumn=80					" Column for code
+set colorcolumn=81					" Column for code
+set tw=80
 
 set cmdheight=2							" Make command zone 2 chars high
 
