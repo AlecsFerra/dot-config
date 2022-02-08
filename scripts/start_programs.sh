@@ -31,7 +31,6 @@ unclutter --timeout 1 &
 picom &
 
 # Applets
-blueman-applet &
 flameshot &
 
 # kde-bugget
