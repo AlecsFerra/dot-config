@@ -130,7 +130,7 @@ format-disconnected = " %{A1:alacritty --class dropdown_conn -e nmtui:}<label-di
 label-disconnected = " 睊 "
 label-connected    = " %essid% 直 "
 
-[module/notifications]
+[module/bt]
 type = custom/script
 inherit = powerline/right-to-left-item
 
@@ -138,6 +138,18 @@ format-background = ${colors.color4}
 background        = ${colors.color4}
 format-foreground = ${colors.foreground-alt}
 background-next   = ${colors.color5}
+exec = rofi-bluetooth --status | awk '{ print " " $1 " " }'
+click-left = rofi-bluetooth &
+interval = 5
+
+[module/notifications]
+type = custom/script
+inherit = powerline/right-to-left-item
+
+format-background = ${colors.color5}
+background        = ${colors.color5}
+format-foreground = ${colors.foreground-alt}
+background-next   = ${colors.color6}
 
 interval = 5
 exec = $HOME/.config/polybar/scripts/notifications.sh
@@ -148,10 +160,10 @@ click-right = dnd.sh &
 type       = custom/script
 inherit    = powerline/right-to-left-item
 
-format-background = ${colors.color5}
-background        = ${colors.color5}
+format-background = ${colors.color6}
+background        = ${colors.color6}
 format-foreground = ${colors.foreground-alt}
-background-next   = ${colors.color6}
+background-next   = ${colors.color7}
 
 exec       = ~/.config/polybar/scripts/arch-up.sh
 interval   = 300
@@ -161,8 +173,8 @@ click-left = alacritty --class dropdown_update -e topgrade &
 type       = custom/script
 inherit    = powerline/right-to-left-item
 
-format-background = ${colors.color6}
-background        = ${colors.color6}
+format-background = ${colors.color7}
+background        = ${colors.color7}
 format-foreground = ${colors.foreground-alt}
 background-next   = ${colors.background}
 

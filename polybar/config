@@ -44,5 +44,5 @@ font-0 = "Iosevka Nerd Font:size=12:antialias=true;3"
 
 modules-left = ewmh left-ending
 modules-center = center-right title center-left
-modules-right = controller kde-connect news updates notifications wifi battery tlp date right-starting
+modules-right = controller kde-connect news updates notifications bt wifi battery tlp date right-starting
 
