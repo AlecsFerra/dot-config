@@ -17,9 +17,6 @@ super + D ; W
 super + D ; z
     $TERMINAL -e zsh -ic ranger
 
-super + D ; t
-		telegram-desktop
-
 super + D ; T
 		tex-match
 
@@ -30,7 +27,10 @@ super + D ; x
 		xournalpp
 
 super + D ; b
-		bitwarden
+		bitwarden-desktop
+
+super + D ; t
+		$HOME/.config/rofi/bt/run.sh
 
 super + b
     $HOME/.config/rofi/bw/run.sh
