@@ -1,0 +1,112 @@
+/* COMMON */
+
+@import "./colors.scss";
+
+* {
+  all: unset;
+}
+
+.bar {
+  font-family: 'Font Awesome 6 Pro';
+  font-size: 20px;
+  padding: 10px 0px 10px 0px;
+  background-color: $background;
+}
+
+.bar tooltip {
+  font-size: 1px;
+}
+
+
+/* WORKSPACES */
+.workspaces {
+  padding: .2rem .7rem .2rem .7rem;
+  border-radius: 5px;
+}
+.workspaces>*{
+  margin: .55rem 0 .55rem 0;
+}
+.workspaces>.active {
+  color: $color1;
+}
+
+.workspaces>.occupied {
+  color: $color2;
+}
+
+/* BATTERY */
+.bar .battery {
+  //font-family: 'DejaVuSansMono Nerd Font';
+  font-family: 'Iosevka Nerd Font';
+  color: $color3;
+  font-size: 26px;
+  padding-bottom: .2rem;
+}
+
+/* POWER MENU */
+.powermenu {
+  color: $color1;
+}
+
+.button-bspres, .button-reb, .button-lock,
+.button-quit, .button-off{
+  padding: .5rem .2rem .3rem .2rem;
+}
+
+
+/* CLOCK */
+.time {
+  font-weight: bold;
+  color: $foreground;
+  border-radius: 5px;
+  padding: .7rem 0 .5rem 0;
+  margin: .5rem 0 .5rem 0;
+}
+
+/* SCALES GENERAL */
+scale trough {
+  border-radius: 5px;
+  min-height: 80px;
+  min-width: 10px;
+  margin: .3rem 0 .3rem 0;
+}
+
+trough highlight {
+  border-radius: 5px;
+}
+
+/* VOLUME */
+.volume-icon {
+  color: $color2;
+}
+.volbar trough highlight {
+  background-color: $color2;
+}
+
+/* BRIGHTNESS */
+.bright-icon{
+  color: $color3;
+  padding-bottom: .7rem;
+}
+
+.brightbar trough highlight {
+  background-color: $color3;
+}
+
+/* CONNECTION */
+.connection {
+  color: $color5;
+  padding-bottom: .7rem;
+}
+
+/* UPDATES */
+.updates {
+  color: $color6;
+  padding-bottom: .8rem;
+}
+
+/* DND */
+.dnd {
+  color: $color4;
+  padding-bottom: .8rem;
+}
