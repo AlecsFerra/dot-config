@@ -30,6 +30,8 @@ set shell=zsh
 set shellcmdflag=-ic
 
 "set spell
+set nocp
+set digraph
 
 set updatetime=500          " Time cursor hold event
 

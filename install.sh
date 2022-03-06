@@ -7,7 +7,7 @@ ln -s "$ABSOLUTE_PATH"/alacritty          $TARGET
 ln -s "$ABSOLUTE_PATH"/xmonad/            $HOME/.xmonad
 ln -s "$ABSOLUTE_PATH"/deadd              $TARGET
 ln -s "$ABSOLUTE_PATH"/picom              $TARGET
-ln -s "$ABSOLUTE_PATH"/polybar            $TARGET
+ln -s "$ABSOLUTE_PATH"/eww                $TARGET
 ln -s "$ABSOLUTE_PATH"/scripts            $TARGET
 ln -s "$ABSOLUTE_PATH"/sxhkd              $TARGET
 ln -s "$ABSOLUTE_PATH"/xob                $TARGET

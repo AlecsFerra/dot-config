@@ -26,6 +26,7 @@ window {
 	width:							 38%;
   location:            north;
   x-offset:            0;
+  y-offset:            0;
 }
 
 prompt {

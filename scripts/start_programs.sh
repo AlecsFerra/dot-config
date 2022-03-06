@@ -6,9 +6,11 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-wal --theme onedarkl && "$HOME"/.config/polybar/start.sh & # Bullshit
+wal --theme onedarkl #&& "$HOME"/.config/polybar/start.sh & # Bullshit
 betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
+
+eww open bar -c "$HOME/.config/eww/bar" 
 
 # Rice stuff
 "$HOME"/.config/xob/launch.sh &
@@ -16,6 +18,7 @@ conky -c "$HOME"/.config/conky/clock/conkyrc &
 conky -c "$HOME"/.config/conky/spoty/conkyrc &
 conky -c "$HOME"/.config/conky/tasks/conkyrc &
 conky -c "$HOME"/.config/conky/resources/conkyrc &
+pywalfox start &
 #glava --desktop &
 
 # Auth manager
@@ -45,3 +48,4 @@ batsignal -b &
 
 ## PROGRAMS ##
 telegram-desktop &
+sleep 10 && $HOME/.config/eww/bar/tray.sh &

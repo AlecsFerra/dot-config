@@ -17,7 +17,7 @@ draw_borders=false,
 -------------------------------------
 --  Window Specifications
 -------------------------------------
-gap_x=20,
+gap_x=60,
 gap_y=5,
 
 alignment="bottom_left",
@@ -45,8 +45,6 @@ override_utf8_locale=true,
 -------------------------------------
 --  Color Scheme
 -------------------------------------
-color1='F8F8F2', -- date
-
 }
 
 
@@ -55,19 +53,20 @@ color1='F8F8F2', -- date
 
 
 conky.text = [[
-${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=15}\
+${execpi 15 $HOME/.config/conky/colors.sh foreground}
 CPU Temp ${hwmon 0 temp 1}°C\
-${font}${color1}
+${font}
 \
 \
 \
-${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=15}\
 CPU ${cpugraph 15,65 color0 color0} ${cpu}%\
-${font}${color1}
+${font}
 \
 \
 \
-${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=15}\
 RAM ${memgraph 15,65 ncolor0 color0} ${memperc}%\
-${font}${color1}
+${font}
 ]]

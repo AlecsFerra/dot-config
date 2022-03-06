@@ -63,4 +63,5 @@ path+=("/home/alecs/.local/bin")
 path+=("/home/alecs/.idris2/bin")
 path+=("/home/alecs/.config/scripts")
 path+=("/home/alecs/Repos/dot-config/backup")
+path+=($GOPATH)
 export PATH

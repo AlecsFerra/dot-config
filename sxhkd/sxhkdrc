@@ -8,6 +8,9 @@ super + Return
 super + d ;
     $HOME/.config/rofi/launcher/run.sh
 
+super + T ;
+    $HOME/.config/eww/bar/tray.sh
+
 super + D ; w
     librewolf
 
@@ -84,7 +87,7 @@ super + c ; {s, a}
                     -i pencil
 # Misc stuff
 {_, shift} + Print
-    flameshot {gui, full} -p $HOME/Pictures/Screenshots/}
+    flameshot {gui, full}
 
 XF86AudioMute
     pamixer -t

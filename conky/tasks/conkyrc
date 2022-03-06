@@ -44,8 +44,6 @@ override_utf8_locale=true,
 -------------------------------------
 --  Color Scheme
 -------------------------------------
-color1='F8F8F2',
-
 -------------------------------------
 --  Locale (e.g. "es_ES.UTF-8")
 --  Leave empty for default
@@ -61,7 +59,7 @@ template9="en_UK"
 
 conky.text = [[
 ${font Iosevka Nerd Font:weight=Light:size=15}
-${color1}\
+${execpi 15 $HOME/.config/conky/colors.sh foreground} \
 ${execpi 10 cat $HOME/todo.txt}\
 
 ]]

@@ -45,7 +45,6 @@ override_utf8_locale=true,
 -------------------------------------
 --  Color Scheme
 -------------------------------------
-color1='F8F8F2', -- date
 
 }
 
@@ -55,7 +54,8 @@ color1='F8F8F2', -- date
 
 
 conky.text = [[
-${font Iosevka Nerd Font:weight=Light:size=15}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=15}\
+${execpi 15 $HOME/.config/conky/colors.sh foreground}
 ${voffset 80}\
 ${alignc}${execi 1 $HOME/.config/conky/spoty/spoty.sh}\
 ${font}${color}

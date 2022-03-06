@@ -18,7 +18,7 @@ draw_borders=false,
 --  Window Specifications
 -------------------------------------
 gap_x=0,
-gap_y=5,
+gap_y=60,
 
 alignment="middle_middle",
 
@@ -42,11 +42,6 @@ override_utf8_locale=true,
 
 
 -------------------------------------
---  Color Scheme
--------------------------------------
-color1='F8F8F2',
-
--------------------------------------
 --  Locale (e.g. "es_ES.UTF-8")
 --  Leave empty for default
 -------------------------------------
@@ -64,29 +59,30 @@ conky.text = [[
 \
 \
 \
-${font Iosevka Nerd Font:weight=Light:size=96}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=96}\
+${execpi 15 $HOME/.config/conky/colors.sh foreground}
 ${alignc}${time %H:%M}\
-${font}${color1}
+${font}
 \
 \
 \
 \
-${font Iosevka Nerd Font:weight=Light:size=28}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=28}\
 ${voffset 30}\
 ${alignc}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %d"}\
-${font}${color1}
+${font}
 \
 \
 \
-${font Iosevka Nerd Font:weight=Light:size=30}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=30}\
 ${voffset 30}\
 ${alignc}${execi 300 $HOME/.config/conky/clock/openweather.sh meteo}\
-${font}${color1}
+${font}
 \
 \
 \
-${font Iosevka Nerd Font:weight=Light:size=28}${color1}\
+${font Iosevka Nerd Font:weight=Light:size=28}\
 ${voffset 30}\
 ${alignc}${execi 300 $HOME/.config/conky/clock/openweather.sh sunrise}\
-${font}${color1}
+${font}
 ]]
