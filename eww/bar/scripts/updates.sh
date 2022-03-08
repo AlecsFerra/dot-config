@@ -22,7 +22,7 @@ icon() {
 }
 
 run() {
-  $TERMINAL -e $SHELL -ic topgrade
+  $TERMINAL -e $SHELL -ic topgrade -k
 }
 
 

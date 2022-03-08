@@ -7,7 +7,7 @@
                         :height "98%"
                         :width  "48px")
     :monitor 0
-    :reserve (struts :distance "35px"
+    :reserve (struts :distance "49px"
                      :side     "left")
     :wm-ignore false
     :hexpand   false
@@ -98,16 +98,81 @@
 
 ;; Battery ;;
 (defwidget bat []
-    (box :orientation  "v"
-         :space-evenly "false"
-         (button :class   "battery"
-                 :onclick "scripts/battery.sh changemode"
-                 :tooltip "Battery: ${battery-cappacity}%"
-                 battery)))
+    (eventbox :onhover     "${eww} open batmenu"
+              :onhoverlost "${eww} close batmenu"
+              (box :orientation  "v"
+                   :space-evenly "false"
+                   (button :class   "battery"
+                           battery))))
+
+(defwindow batmenu
+           :geometry (geometry :anchor "bottom left"
+                               :x      "52px"
+                               :y      "-12px"
+                               :width  "370px"
+                               :height "216px")
+           (batmenu))
+
+(defwidget batmenu []
+           (eventbox :onhover     "${eww} open batmenu"
+                     :onhoverlost "${eww} close batmenu"
+                     :class "batmenu"
+                     (box :orientation "h"
+                          (bat-circ)
+                          (bat-status))))
+
+(defwidget bat-circ []
+           (circular-progress :class       "bat-progress"
+                              :value       "${battery-cappacity - 0.00001}"
+                              :clockwise   false
+                              :start-angle "0"
+                              :thickness   "10"
+                              (label :text powermode-icon)))
+
+(defwidget bat-status []
+           (box :orientation "v"
+                :class       "stats"
+                (row :l "Charge left:" :r "${battery-cappacity}%")
+                (row :l "Time left:"   :r "${battery-timeleft}")
+                (row :l "Status:"      :r "${battery-status}")
+                (row :l "Mode:"        :r "${battery-mode}")
+                (mode-selector)))
+
+(defwidget row [l r]
+           (box :orientation "h"
+                (label :class  "left"
+                       :valign "left"
+                       :xalign 0
+                       :text   l)
+                (label :class  "right"
+                       :valign "right"
+                       :xalign 1
+                       :text   r)))
+
+(defwidget mode-selector []
+           (box :orientation "h"
+                (button :onclick "scripts/battery.sh set-mode power-saver"
+                        :class   "actionbutton"
+                        "")
+                (button :onclick "scripts/battery.sh set-mode balanced"
+                        :class   "actionbutton"
+                        "")
+                (button :onclick "scripts/battery.sh set-mode performance"
+                        :class   "actionbutton"
+                        "")))
+
 (defpoll battery           :interval "1s"
     "scripts/battery.sh icon")
 (defpoll battery-cappacity :interval "1s"
     "scripts/battery.sh percent")
+(defpoll powermode-icon    :interval "1s"
+    "scripts/battery.sh mode-icon")
+(defpoll battery-timeleft  :interval "10s"
+    "scripts/battery.sh timeleft")
+(defpoll battery-status    :interval "1s"
+    "scripts/battery.sh status")
+(defpoll battery-mode      :interval "1s"
+    "scripts/battery.sh mode")
 
 ;; Brightness ;;
 (defwidget bright []
@@ -189,3 +254,4 @@
          (button :onclick "scripts/dnd.sh run"
                  :class "dnd-icon" dnd-icon)))
 (defpoll dnd-icon :interval "1s" "scripts/dnd.sh icon")
+
