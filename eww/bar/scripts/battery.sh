@@ -1,27 +1,11 @@
 #! /bin/bash
 
 bat=/sys/class/power_supply/BAT0/
-per="$(cat "$bat/capacity")"
-
-changemode(){
-    if tlp-stat -s | grep -q 'Mode           = AC' ; then
-        sudo tlp bat
-        mode="Power saving mode enabled 😴"
-    else
-        sudo tlp ac
-        mode="Performance mode enabled 😈"
-    fi
-
-    notify-send "Mode updated" "$mode" -i battery
-}
-
-percent() {
-    echo $per
-}
 
 icon() {
     if [ $(cat "$bat/status") = "Charging" ] ||
        [ $(cat "$bat/status") = "Full" ]; then
+        per="$(percent)"
         if [ "$per" -gt "90" ]; then
             icon=""
         elif [ "$per" -gt "80" ]; then
@@ -107,11 +91,14 @@ set-mode() {
   powerprofilesctl set $1
 }
 
+percent() {
+    cat "$bat/capacity"
+}
+
 case $1 in
   "icon")       icon;;
   "percent")    percent;;
   "mode-icon")  mode-icon;;
-  "changemode") changemode;;
   "timeleft")   timeleft;;
   "status")     status;;
   "mode")       mode;;

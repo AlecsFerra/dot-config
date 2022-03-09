@@ -1,16 +1,26 @@
 #! /bin/sh
 
 get() {
-   pamixer --get-volume 
+    pamixer --get-volume
 }
 
 icon() {
-    mute=$(pamixer --get-mute)
-    if [[ $mute = "false" ]]; then
-        echo ""
-    else
-        echo ""
-    fi
+    get_icon() {
+      mute=$(pamixer --get-mute)
+      if [[ $mute = "false" ]]; then
+          echo ""
+      else
+          echo ""
+      fi
+    }
+
+    get_icon
+    pactl subscribe \
+          | grep --line-buffered "sink" \
+          | while read -r line; do
+        get_icon
+    done
+
 }
 
 mute() {

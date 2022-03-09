@@ -1,6 +1,7 @@
 #! /bin/dash
 
-TOGGLE_FILE="/tmp/dnd_toggle_file"
+TOGGLE_FILE="/tmp/dnd/dnd_toggle_file"
+mkdir -p "/tmp/dnd"
 
 if [ ! -e $TOGGLE_FILE ]; then
 	touch $TOGGLE_FILE

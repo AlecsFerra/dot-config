@@ -41,6 +41,7 @@
          :class        "bot"
          :valign       "end"
          (updates)
+         (bt)
          (wifi)
          (dnd)
          (bright)
@@ -195,8 +196,9 @@
             (button :onclick ""
                     :class   "bright-icon"
                     ""))))
-(defpoll current-brightness :interval "1s"
-                        "scripts/brightness.sh get")
+(deflisten current-brightness
+    "scripts/brightness.sh get")
+
 (defvar bright false)
 
 ;; Volume ;;
@@ -220,10 +222,8 @@
             (button :onclick "scripts/volume.sh mute"
                     :class   "volume-icon"
                     volume-icon))))
-(defpoll current-volume :interval "1s"
-                        "scripts/volume.sh get")
-(defpoll volume-icon    :interval "1s"
-                        "scripts/volume.sh icon")
+(deflisten current-volume "scripts/volume.sh get")
+(deflisten volume-icon    "scripts/volume.sh icon")
 (defvar volum false)
 
 
@@ -234,8 +234,8 @@
          :class   "connection"
          (button :onclick "scripts/wifi.sh wifi"
                  :class "wifi-icon" wifi-icon)))
-(defpoll wifi-icon :interval "1s" "scripts/wifi.sh icon")
-(defpoll wifi-name :interval "1s" "scripts/wifi.sh name")
+(deflisten wifi-icon "scripts/wifi.sh icon")
+(deflisten wifi-name "scripts/wifi.sh name")
 
 ;; Update Widget;;
 (defwidget updates []
@@ -253,5 +253,12 @@
          :class       "dnd"
          (button :onclick "scripts/dnd.sh run"
                  :class "dnd-icon" dnd-icon)))
-(defpoll dnd-icon :interval "1s" "scripts/dnd.sh icon")
+(deflisten dnd-icon "scripts/dnd.sh icon")
 
+;; DnD Widget;;
+(defwidget bt []
+    (box :orientation "v"
+         :class       "bt"
+         (button :onclick "scripts/bt.sh run"
+                 :class "bt-icon" bt-icon)))
+(defpoll bt-icon :interval "1s" "scripts/bt.sh icon")

@@ -17,8 +17,8 @@ eww open bar -c "$HOME/.config/eww/bar"
 conky -c "$HOME"/.config/conky/clock/conkyrc &
 conky -c "$HOME"/.config/conky/spoty/conkyrc &
 conky -c "$HOME"/.config/conky/tasks/conkyrc &
-conky -c "$HOME"/.config/conky/resources/conkyrc &
-pywalfox start &
+#conky -c "$HOME"/.config/conky/resources/conkyrc &
+pywalfox start -p &
 #glava --desktop &
 
 # Auth manager
@@ -43,7 +43,6 @@ indicator-kdeconnect &
 
 # Notifications
 deadd-notification-center &
-rm /tmp/dnd_toggle_file 2>/dev/null
 batsignal -b &
 
 ## PROGRAMS ##

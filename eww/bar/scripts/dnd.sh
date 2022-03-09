@@ -1,13 +1,23 @@
 #! /bin/bash
 
-TOGGLE_FILE="/tmp/dnd_toggle_file"
+TOGGLE_DIR="/tmp/dnd/"
+TOGGLE_FILE="$TOGGLE_DIR/dnd_toggle_file"
 
 icon() {
-    if [ ! -e $TOGGLE_FILE ]; then
-        echo ""
-    else
-        echo ""
-    fi
+    get_icon() {
+        if [ ! -e $TOGGLE_FILE ]; then
+            echo ""
+        else
+            echo ""
+        fi
+    }
+
+    mkdir -p "$TOGGLE_DIR"
+
+    get_icon
+    inotifywait -q -mr -e create,delete $TOGGLE_DIR | while read -r; do
+        get_icon
+    done
 }
 
 run() {

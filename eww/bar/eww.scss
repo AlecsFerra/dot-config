@@ -11,6 +11,9 @@
   font-size: 20px;
   padding: 10px 0px 10px 0px;
   background-color: $background;
+  /*border: 3px solid;
+  border-radius: 5px;
+  border-color: $color6;*/
 }
 
 .bar tooltip {
@@ -99,9 +102,15 @@ trough highlight {
   padding-bottom: .7rem;
 }
 
+.bt {
+  color: $color6;
+  letter-spacing: -18px;
+  padding-bottom: .8rem;
+}
+
 /* UPDATES */
 .updates {
-  color: $color6;
+  color: $color7;
   padding-bottom: .8rem;
 }
 
