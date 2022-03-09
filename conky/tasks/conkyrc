@@ -61,5 +61,4 @@ conky.text = [[
 ${font Iosevka Nerd Font:weight=Light:size=15}
 ${execpi 15 $HOME/.config/conky/colors.sh foreground} \
 ${execpi 10 cat $HOME/todo.txt}\
-
 ]]

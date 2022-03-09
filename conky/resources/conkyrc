@@ -17,10 +17,10 @@ draw_borders=false,
 -------------------------------------
 --  Window Specifications
 -------------------------------------
-gap_x=60,
+gap_x=10,
 gap_y=5,
 
-alignment="bottom_left",
+alignment="top_right",
 
 
 own_window=true,
@@ -53,20 +53,29 @@ override_utf8_locale=true,
 
 
 conky.text = [[
-${font Iosevka Nerd Font:weight=Light:size=15}\
-${execpi 15 $HOME/.config/conky/colors.sh foreground}
-CPU Temp ${hwmon 0 temp 1}°C\
-${font}
+${execpi 15 $home/.config/conky/colors.sh foreground}sYSTEM INFORMATION ${hr 2}$color
+${execpi 15 $HOME/.config/conky/colors.sh color1}System: $color$nodename ${alignr} Uptime: $color$uptime
+${execpi 15 $HOME/.config/conky/colors.sh color1}Kernel: $color$kernel${alignr} ${execpi 15 $home/.config/conky/colors.sh color1}Arch: $color$machine
+${execpi 15 $HOME/.config/conky/colors.sh color1}Frequency: $color$freq MHz
 \
+${execpi 15 $HOME/.config/conky/colors.sh foreground}CPU ${hr 2}$color
+${execpi 15 $HOME/.config/conky/colors.sh color1}Avg. Load: $color $loadavg
+${execpi 15 $HOME/.config/conky/colors.sh color1}CPU Temperature: $color${acpitemp}°C
+${execpi 15 $HOME/.config/conky/colors.sh color1}CPU Usage:$color $cpu% ${color7}${cpubar}
+${cpugraph 0000ff 00ff00}$color
 \
+${execpi 15 $HOME/.config/conky/colors.sh foreground}MEMORY & SWAP ${hr 2}$color
+${execpi 15 $HOME/.config/conky/colors.sh color1}RAM Usage: ${color}$mem / $memmax
+$memperc% ${color6}${membar}$color
+${stippled_hr 2}
+${execpi 15 $HOME/.config/conky/colors.sh color1}Swap Usage: ${color}$swap / $swapmax
+$swapperc% ${color6}${swapbar}$color
 \
-${font Iosevka Nerd Font:weight=Light:size=15}\
-CPU ${cpugraph 15,65 color0 color0} ${cpu}%\
-${font}
+${execpi 15 $HOME/.config/conky/colors.sh foreground} FILE SYSTEM ${hr 2}$color
+${execpi 15 $HOME/.config/conky/colors.sh color1}/$color : \
+${execpi 15 $HOME/.config/conky/colors.sh foreground}${fs_used /} / ${fs_size /}
+${fs_used_perc /}% ${fs_bar /}
+Reads: $color$diskio_read/s${alignr} Writes: $color$diskio_write/s
+${diskiograph_read 20,100 33FF00 FF3333 scale -t} ${alignr}${diskiograph_write 20,100 33FF00 FF3333 scale -t}$color
 \
-\
-\
-${font Iosevka Nerd Font:weight=Light:size=15}\
-RAM ${memgraph 15,65 ncolor0 color0} ${memperc}%\
-${font}
 ]]
