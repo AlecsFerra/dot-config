@@ -85,8 +85,8 @@ makeGaps = outerGaps . innerGaps
   where
     gapsSize = 5
     innerGaps = spacing gapsSize
-    --outerGaps = gaps $ map (,gapsSize) [U, L, R, D]
-    outerGaps = gaps $ (L, 18) : (map (,gapsSize) [U, R, D])
+    outerGaps = gaps $ map (,gapsSize) [U, L, R, D]
+    --outerGaps = gaps $ (L, 18) : (map (,gapsSize) [U, R, D])
 
 tiledLayout = makeGaps $ Tall nmaster delta ratio
   where
