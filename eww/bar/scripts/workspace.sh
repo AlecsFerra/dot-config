@@ -43,7 +43,28 @@ parse_ws() {
     echo ")"
 }
 
+parse_ws_wayland() {
+
+    echo -n "
+        (box :class      \"workspaces\"
+             :orientation \"v\"
+             :spacing     0
+    " | tr "\n" " "
+    for i in "${!names[@]}"; do
+        make_button "${names[$i]}"  \
+                    "${status[$i]}" \
+                    "${ICONS[$i]}"  \
+                    "$i"
+    done
+    echo ")"
+}
+
 xprop -spy -root _NET_CURRENT_DESKTOP _NET_ACTIVE_WINDOW _NET_CLIENT_LIST \
-  | while read -r id; do
+  | while read -r; do
   parse_ws
+done
+
+swaymsg -t SUBSCRIBE -m "['window', 'workspace']" \
+  | while read -r; do
+  parse_ws_wayland
 done

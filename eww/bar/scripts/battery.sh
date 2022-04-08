@@ -1,11 +1,11 @@
-#! /bin/bash
+#! /bin/sh
 
 bat=/sys/class/power_supply/BAT0/
 
 icon() {
-    if [ $(cat "$bat/status") = "Charging" ] ||
-       [ $(cat "$bat/status") = "Full" ]; then
-        per="$(percent)"
+    per="$(percent)"
+    if [ "$(cat "$bat/status")" = "Charging" ] ||
+       [ "$(cat "$bat/status")" = "Full" ]; then
         if [ "$per" -gt "90" ]; then
             icon=""
         elif [ "$per" -gt "80" ]; then
@@ -58,7 +58,7 @@ icon() {
     echo $icon
 }
 
-mode-icon() {
+modeicon() {
   mode=$(powerprofilesctl get)
   case $mode in
     "power-saver") echo "";;
@@ -87,8 +87,8 @@ mode() {
   powerprofilesctl get
 }
 
-set-mode() {
-  powerprofilesctl set $1
+setmode() {
+  powerprofilesctl set "$1"
 }
 
 percent() {
@@ -98,9 +98,9 @@ percent() {
 case $1 in
   "icon")       icon;;
   "percent")    percent;;
-  "mode-icon")  mode-icon;;
+  "mode-icon")  modeicon;;
   "timeleft")   timeleft;;
   "status")     status;;
   "mode")       mode;;
-  "set-mode")   set-mode $2;;
+  "set-mode")   setmode "$2";;
 esac

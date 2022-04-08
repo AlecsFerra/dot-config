@@ -7,7 +7,7 @@ get() {
 icon() {
     get_icon() {
       mute=$(pamixer --get-mute)
-      if [[ $mute = "false" ]]; then
+      if [ "$mute" = "false" ]; then
           echo ""
       else
           echo ""
@@ -17,7 +17,7 @@ icon() {
     get_icon
     pactl subscribe \
           | grep --line-buffered "sink" \
-          | while read -r line; do
+          | while read -r; do
         get_icon
     done
 
@@ -29,12 +29,12 @@ mute() {
 
 sett() {
     percentage=$1
-    pamixer --set-volume $percentage
+    pamixer --set-volume "$percentage"
 }
 
 case $1 in
   "get")  get;;
   "icon") icon;;
   "mute") mute;;
-  "set")  sett $2;;
+  "set")  sett "$2";;
 esac

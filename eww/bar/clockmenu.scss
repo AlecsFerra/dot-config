@@ -1,0 +1,45 @@
+.clockmenu {
+  background-color: $background;
+  font-family: Comic Mono;
+  font-size: 1em;
+  font-weight: bold;
+
+  .clockmenu-inner {
+      padding: 1rem 1rem .2rem;
+
+      .cal {
+          &.highlight {
+              padding: 10rem;
+          }
+
+          padding: .8rem .25rem 0rem;
+          margin-left: 10px;
+      }
+  }
+
+  .date {
+    color: yellow;
+  }
+}
+
+calendar:selected {
+  color: $color1;
+}
+
+calendar.header {
+  color: $foreground;
+  font-weight: bold;
+}
+
+calendar.button {
+  color: $foreground;
+}
+
+calendar.highlight {
+  color: $color1;
+  font-weight: bold;
+}
+
+calendar:indeterminate {
+  color: $background;
+}

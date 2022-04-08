@@ -3,11 +3,11 @@
 
 (defwindow bar
     :geometry (geometry :x      "5px"
-                        :y      "1%"
-                        :height "98%"
+                        :y      "10px"
+                        :height "${1080 - 2 * 10}px"
                         :width  "48px")
     :monitor 0
-    :reserve (struts :distance "49px"
+    :reserve (struts :distance "48px"
                      :side     "left")
     :wm-ignore false
     :hexpand   false
@@ -41,9 +41,9 @@
          :class        "bot"
          :valign       "end"
          (updates)
-         (bt)
-         (wifi)
          (dnd)
+         (wifi)
+         (bt)
          (bright)
          (volum)
          (clock)
@@ -51,16 +51,42 @@
          (power)))
 
 (defwidget clock []
-    (box :orientation "v"
-         :class "time"
-         :valign "end"
-    (button :onclick "scripts/popup.sh calendar"
-            :class "time-hour" hour)
-    (button :onclick "scripts/popup.sh calendar"
-            :class "time-min"  min)))
+    (eventbox :onhover     "${eww} open clockmenu"
+              :onhoverlost "${eww} close clockmenu"
+              (box :orientation "v"
+                   :class "time"
+                   :valign "end"
+              (button :onclick ""
+                      :class "time-hour" hour)
+              (button :onclick ""
+                      :class "time-min"  min))))
 
-(defpoll hour :interval "1s" "date '+%H'")
-(defpoll min  :interval "1s" "date '+%M'")
+(defwindow clockmenu
+           :geometry (geometry :anchor "bottom left"
+                               :x      "57px"
+                               :y      "-12px"
+                               :width  "390px"
+                               :height "016px")
+           (clockmenu))
+
+(defwidget clockmenu []
+	(box :class "clockmenu" 
+		   :orientation "v"
+       :space-evenly false
+	     (box :class "clockmenu-inner"
+	          (calendar :class "cal" 
+			                :day   day 
+			                :month month
+			                :year  year))
+       ;(label :class "date"'
+       ;       :text "${day}/${month}/${year}")))
+       ))
+
+(defpoll day   :interval "10h" "date '+%d'")
+(defpoll month :interval "10h" "date '+%m' -d '-1 months'")
+(defpoll year  :interval "10h" "date '+%Y'")
+(defpoll hour  :interval "1s"  "date '+%H'")
+(defpoll min   :interval "1s"  "date '+%M'")
 
 ;; Power menu ;;
 (defwidget power []
@@ -108,9 +134,9 @@
 
 (defwindow batmenu
            :geometry (geometry :anchor "bottom left"
-                               :x      "52px"
+                               :x      "57px"
                                :y      "-12px"
-                               :width  "370px"
+                               :width  "390px"
                                :height "216px")
            (batmenu))
 
@@ -119,8 +145,9 @@
                      :onhoverlost "${eww} close batmenu"
                      :class "batmenu"
                      (box :orientation "h"
-                          (bat-circ)
-                          (bat-status))))
+                          (bat-status)
+                          (bat-circ))))
+
 
 (defwidget bat-circ []
            (circular-progress :class       "bat-progress"

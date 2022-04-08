@@ -1,3 +1,4 @@
+#! /bin/bash
 declare -A ICONS
 ICONS[0]=""
 ICONS[1]=""

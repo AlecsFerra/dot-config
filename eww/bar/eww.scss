@@ -1,6 +1,8 @@
 /* COMMON */
 
 @import "./colors.scss";
+@import "./batmenu.scss";
+@import "./clockmenu.scss";
 
 * {
   all: unset;
@@ -103,7 +105,7 @@ trough highlight {
 }
 
 .bt {
-  color: $color6;
+  color: $color4;
   letter-spacing: -18px;
   padding-bottom: .8rem;
 }
@@ -116,52 +118,6 @@ trough highlight {
 
 /* DND */
 .dnd {
-  color: $color4;
+  color: $color6;
   padding-bottom: .8rem;
-}
-
-/* BAT MENU */
-.batmenu {
-  margin: 10px 10px 10px 10px;
-  //margin-left: 90px;
-  background-color: $background;
-}
-
-.bat-progress {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: $color3;
-}
-
-.bat-progress > label { 
-  font-family: "Font Awesome 6 Pro";
-  font-size: 70px;
-}
-
-.batmenu .left {
-  padding-left: 15px;
-  color: $color3;
-}
-
-.batmenu .right {
-  padding-right: 15px;
-  color: $foreground;
-}
-
-.batmenu .stats .actionbutton {
-  font-size: 16px;
-  margin: 4px;
-  border: 3px solid;
-  border-radius: 5px;
-  color: $color3;
-  border-color: $color3;
-}
-
-.batmenu .actionbutton:hover{
-  // border-color: $foreground;
-  color: $foreground;
-  background-color: $color3;
-}
-
-.batmenu .stats label {
-  font-size: 13px;
 }
