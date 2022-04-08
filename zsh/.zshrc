@@ -17,6 +17,7 @@ source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath+=(~/.config/zsh/plugins/zsh-completions/src/)
 source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.config/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source ~/.config/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
 
 compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 source ~/.config/zsh/plugins/git.zsh
@@ -34,7 +35,6 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
 # Vi mode
-bindkey -v
 export KEYTIMEOUT=1
 export CLICOLOR=1
 

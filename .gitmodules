@@ -16,3 +16,6 @@
 [submodule "xmonad/xmonad-contrib"]
 	path = xmonad/xmonad-contrib
 	url = https://github.com/xmonad/xmonad-contrib
+[submodule "zsh/plugins/zsh-fzy"]
+	path = zsh/plugins/zsh-fzy
+	url = https://github.com/aperezdc/zsh-fzy

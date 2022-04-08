@@ -52,6 +52,20 @@ function ex() {
   fi
 }
 
+rangercd () {
+    tmp="$(mktemp)"
+    ranger --choosedir="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir"
+            fi
+        fi
+    fi
+}
+
 #Termbin
 alias tb="nc termbin.com 9999"
 
@@ -63,7 +77,7 @@ alias cdb="cd $HOME/Documents/Books/"
 # X11
 alias s="startx $HOME/.xinitrc 1>$HOME/.cache/x.log 2>&1"
 
-alias cpy="xclip -i -sel clip"
+alias cpy="xclip -selection clipboard"
 
 alias get_class="xprop | grep CLASS"
 
@@ -81,9 +95,18 @@ alias cpwd="  pwd \
 
 alias v=$EDITOR
 alias sv=sudoedit
-alias r=ranger
+alias r=rangercd
 alias img="nsxiv -a"
 alias z=zathura
 
 alias scheme=scheme48
 alias kc="kdeconnect-cli -d 18670d10550d4c33"
+
+bindkey -v
+bindkey -s '^o' 'r\n'
+
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey '^r' edit-command-line
+
+bindkey '^f' fzy-history-widget
