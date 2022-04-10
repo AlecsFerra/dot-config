@@ -1,3 +1,4 @@
+alias doas="doas " #force alias expansion after sudo
 alias sudo="sudo " #force alias expansion after sudo
 
 alias ls="lsd --group-dirs first"
@@ -14,14 +15,12 @@ alias mkdir="mkdir -p"
 
 #alias cp="rsync -avz --progress"
 function _cp() {
-  cp "$@" &
-  progress -mp $!
+  cp "$@" & progress -mp $!
 }
 alias cp="_cp"
 
 function _mv() {
-  mv "$@" &
-  progress -mp $!
+  mv "$@" & progress -mp $!
 }
 alias mv="_mv"
 
@@ -52,16 +51,14 @@ function ex() {
   fi
 }
 
-rangercd () {
+rangercd() {
     tmp="$(mktemp)"
     ranger --choosedir="$tmp" "$@"
     if [ -f "$tmp" ]; then
         dir="$(cat "$tmp")"
         rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
-            fi
+        if [ -d "$dir" ] &&[ "$dir" != "$(pwd)" ]; then
+            cd "$dir"
         fi
     fi
 }
@@ -75,7 +72,7 @@ alias cda="cd $HOME/Documents/Appunti/"
 alias cdb="cd $HOME/Documents/Books/"
 
 # X11
-alias s="startx $HOME/.xinitrc 1>$HOME/.cache/x.log 2>&1"
+alias x="startx $HOME/.xinitrc 1>$HOME/.cache/x.log 2>&1"
 
 alias cpy="xclip -selection clipboard"
 
@@ -94,7 +91,8 @@ alias cpwd="  pwd \
             echo 'Copied selection to clipboard!'"
 
 alias v=$EDITOR
-alias sv=sudoedit
+alias s="doas "
+alias sv=doasedit
 alias r=rangercd
 alias img="nsxiv -a"
 alias z=zathura
@@ -108,5 +106,4 @@ bindkey -s '^o' 'r\n'
 autoload -z edit-command-line
 zle -N edit-command-line
 bindkey '^r' edit-command-line
-
 bindkey '^f' fzy-history-widget

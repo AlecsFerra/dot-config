@@ -23,6 +23,8 @@ compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 source ~/.config/zsh/plugins/git.zsh
 source ~/.config/zsh/plugins/dirs.zsh
 
+source ~/.config/zsh/wayland_support.zsh
+
 setopt autocd
 setopt extendedglob
 setopt auto_menu
