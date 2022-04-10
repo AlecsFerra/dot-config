@@ -1,0 +1,17 @@
+#! /bin/bash
+
+startGnome() {
+  XDG_SESSION_TYPE="wayland"
+  dbus-run-session -- gnome-shell --display-server --wayland
+}
+
+session=${1:-xmonad}
+case $session in
+  xmonad) startx $HOME/.xinitrc xmonad;;
+  kde) startx kde;;
+  kde-way) echo "Non supported" && exit 1;;
+  gnome) startGnome;;
+  *) echo "Unrecognized session: $session" && exit 1;;
+esac
+
+

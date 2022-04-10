@@ -1,0 +1,4 @@
+#! /bin/bash
+
+rofi -config "~/.config/rofi/bt" \
+     -dmenu

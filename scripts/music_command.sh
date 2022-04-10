@@ -1,12 +1,12 @@
 #! /bin/dash
 
 # The player is always (not really) the 1st PID, dumb hack
-pid=$(pgrep "freezer" | head -1)
-domain="org.mpris.MediaPlayer2.chromium.instance${pid}"
+pid=$(pgrep "nuclear" | head -1)
+domain="org.mpris.MediaPlayer2.nuclear"
 
 case $1 in
   playpause)
-    pgrep freezer 1>/dev/null || freezer
+    pgrep nuclear 1>/dev/null || nuclear
     command=org.mpris.MediaPlayer2.Player.PlayPause
     ;;
   previus)
@@ -25,17 +25,24 @@ case $1 in
     ;;
   *)
     echo "Invalid command $1"
+    echo "
+        playpause
+        previus
+        next
+        uri cool_uri_here
+        trackinfo"
     exit 1
     ;;
 esac
 
-out=$(dbus-send --print-reply\
+out=$(dbus-send --print-reply \
                 --dest=${domain} \
                 /org/mpris/MediaPlayer2 $command)
 
 case $1 in
   trackinfo)
     # metadata should be decoded
+    echo $out
     artist=$(echo "$out" \
           | sed -nr '/xesam:artist"/,+2s/^ +string "(.*)"$/\1/p' \
           | tail -1  \
