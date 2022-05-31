@@ -28,7 +28,6 @@ local diagnostics = {
 
 local diff = {
   "diff",
-  colored = false,
   symbols = {
     added    = icons.git.Add .. " ",
     modified = icons.git.Mod .. " ",

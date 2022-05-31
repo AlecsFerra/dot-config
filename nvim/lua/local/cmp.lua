@@ -86,6 +86,7 @@ cmp.setup {
         buffer = "[Buffer]",
         path = "[Path]",
         emoji = "[Emoji]",
+        spell = "[Spell]",
       })[entry.source.name]
       return vim_item
     end,
@@ -98,14 +99,20 @@ cmp.setup {
     { name = "cmp_tabnine" },
     { name = "path" },
     { name = "emoji" },
+    { name = 'spell' },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
   -- documentation = true,
-  documentation = {
-  	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  -- documentation = {
+  -- 	border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+  -- },
+  window = {
+    documentation = {
+      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    }
   },
   experimental = {
     ghost_text = true,

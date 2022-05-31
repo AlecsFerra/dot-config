@@ -1,5 +1,5 @@
 local options = {
-  -- Random 
+  -- Random
   clipboard    = "unnamedplus",
   completeopt  = { "menuone", "noselect" },
   conceallevel = 0,
@@ -8,19 +8,20 @@ local options = {
   updatetime   = 300,
 
   -- Style
-  termguicolors = true,
-  colorcolumn   = "81",
-  cmdheight     = 2,
-  showmode      = false,
-  showtabline   = 2,
-  cursorline    = true,
-  number        = true,
-  laststatus    = 3,
-  numberwidth   = 3,
-  signcolumn    = "yes",
-  wrap          = false,
-  scrolloff     = 8,
-  sidescrolloff = 8,
+  termguicolors  = true,
+  colorcolumn    = "81",
+  cmdheight      = 2,
+  showmode       = false,
+  showtabline    = 2,
+  cursorline     = true,
+  relativenumber = true,
+  --number         = true,
+  laststatus     = 3,
+  numberwidth    = 3,
+  signcolumn     = "yes",
+  wrap           = false,
+  scrolloff      = 8,
+  sidescrolloff  = 8,
 
   -- Nvim files
   backup       = false,
@@ -46,6 +47,10 @@ local options = {
   -- Splits
   splitbelow = true,
   splitright = true,
+
+  -- Spell
+  spelllang = { "en_us", "it" },
+  spell     = true,
 }
 
 for k, v in pairs(options) do
@@ -53,13 +58,13 @@ for k, v in pairs(options) do
 end
 
 require "local.plugins"
+require "local.impatient"
 require "local.colorscheme"
 require "local.keymaps"
 
 -- Plugin configs
 require "local.treesitter"
 require "local.rice"
-require "local.impatient"
 require "local.colorizer"
 require "local.neoscroll"
 require "local.todo"
@@ -67,3 +72,5 @@ require "local.surround"
 require "local.cmp"
 require "local.lsp"
 require "local.fzf"
+require "local.comment"
+require "local.dial"

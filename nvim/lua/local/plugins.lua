@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use "windwp/nvim-autopairs" -- Auto pair parens, ecc...
   use "windwp/nvim-ts-autotag" -- Auto pair html tags
   use "SmiteshP/nvim-gps" -- Show precise location
+  use "nvim-treesitter/playground" -- Show ast
 
   -- LSP (lua/lsp/*.lua)
   use "christianchiarulli/nvim-lspconfig"
@@ -81,6 +82,7 @@ return packer.startup(function(use)
   use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
   use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
   use { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" }
+  use { "f3fora/cmp-spell", after = "nvim-cmp" }
 
   -- Snippets
   use "L3MON4D3/LuaSnip"
@@ -90,7 +92,7 @@ return packer.startup(function(use)
   use "lewis6991/impatient.nvim"
 
   -- Highlight colors (lua/colorizer.lua)
-  use "norcalli/nvim-colorizer.lua" -- TODO: figure it out
+  use "norcalli/nvim-colorizer.lua"
 
   -- Smooth scrolling (lua/neoscroll.lua)
   use "karb94/neoscroll.nvim"
@@ -98,17 +100,21 @@ return packer.startup(function(use)
   -- Surround text (lua/surround.lua)
   use "Mephistophiles/surround.nvim"
 
+  -- Comment
+  use "numToStr/Comment.nvim"
+  use "folke/todo-comments.nvim" -- Todo management
+
   -- Fzf (lua/fzf.lua)
   use "ibhagwan/fzf-lua"
+
+  -- Better increments (lua/dial.lua)
+  use "monaqa/dial.nvim"
 
   -- Misc 0 conf
   use "nvim-lua/popup.nvim" -- Popup api
   use "kyazdani42/nvim-web-devicons" -- Icons
   use "moll/vim-bbye" -- Better buffer closing
   use "unblevable/quick-scope" -- Highlight on F-like commands
-  use "phaazon/hop.nvim" -- Smarter jumps TODO: init
-  use "monaqa/dial.nvim" -- Better increments  TODO: init
-  use "folke/todo-comments.nvim" -- Todo management
   use "antoinemadec/FixCursorHold.nvim"
 
   if PACKER_BOOTSTRAP then

@@ -14,8 +14,9 @@ keymap("n", "<C-k>", "<C-w>k", opts)
 keymap("n", "<C-l>", "<C-w>l", opts)
 
 -- Move between buffers
-keymap("n", "<C-m>", ":bnext<CR>", opts)
-keymap("n", "<C-n>", ":bprevious<CR>", opts)
+keymap("n", "<C-n>", ":bnext<CR>", opts)
+keymap("n", "<C-h>", ":bprevious<CR>", opts)
+keymap("n", "<C-c>", ":Bdelete<CR>", opts)
 
 -- Move lines
 keymap("n", "M", "<Esc>:m .+1<CR>", opts)
@@ -25,4 +26,5 @@ keymap("n", "m", "<Esc>:m .-2<CR>", opts)
 keymap("n", "U", ":UndotreeShow <CR>", opts)
 
 -- Fzf
-keymap("n", "<leader>O", ":Fzf git_files <CR>", opts)
+keymap("n", "<leader>o", ":FzfLua git_files <CR>", opts)
+keymap("n", "<leader>O", ":FzfLua files <CR>", opts)
