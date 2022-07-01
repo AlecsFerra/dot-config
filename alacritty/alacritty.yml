@@ -31,6 +31,7 @@ font:
     style: Bold Italic
 
   size: 8
+    #size: 12
   offset:
     x: 0
     y: 0
@@ -40,7 +41,7 @@ font:
 
 draw_bold_text_with_bright_colors: false
 
-background_opacity: 0.9
+background_opacity: 0.75
 
 cursor:
   # Values for `style`:
@@ -63,27 +64,27 @@ mouse:
 # BEGIN ACE
 colors:
   primary:
-    background: '0x282c34'
-    foreground: '0xabb2bf'
+    background: '0x282A36'
+    foreground: '0xF8F8F2'
   cursor:
-    text:       '0x282c34'
-    cursor:     '0xabb2bf'
+    text:       '0x282A36'
+    cursor:     '0xF8F8F2'
   normal:
-    black:      '0x282c34'
-    red:        '0xe06c75'
-    green:      '0x98c379'
-    yellow:     '0xe5c07b'
-    blue:       '0x61afef'
-    magenta:    '0xc678dd'
-    cyan:       '0x56b6c2'
-    white:      '0xabb2bf'
+    black:      '0x282A36'
+    red:        '0xFF5555'
+    green:      '0x50FA7B'
+    yellow:     '0xF1FA8C'
+    blue:       '0xBD93F9'
+    magenta:    '0xFF79C6'
+    cyan:       '0x8BE9FD'
+    white:      '0xF8F8F2'
   bright:
-    black:      '0x545862'
-    red:        '0xe06c75'
-    green:      '0x98c379'
-    yellow:     '0xe5c07b'
-    blue:       '0x61afef'
-    magenta:    '0xc678dd'
-    cyan:       '0x56b6c2'
-    white:      '0xc8ccd4'
+    black:      '0x6272A4'
+    red:        '0xFF6E6E'
+    green:      '0x69FF94'
+    yellow:     '0xFFFFA5'
+    blue:       '0xD6ACFF'
+    magenta:    '0xFF92DF'
+    cyan:       '0xA4FFFF'
+    white:      '0xFFFFFF'
 # END ACE

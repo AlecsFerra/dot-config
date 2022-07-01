@@ -21,10 +21,6 @@ configuration {
 
 window {
   transparency:        "real";
-  background-color:    @background;
-  text-color:          @foreground;
-	border:							 0px 1px 1px 1px;
-	border-color:			 	 @accent;
   border-radius:       0px 0px 4px 4px;
 	width:							 38%;
   location:            north;
@@ -51,14 +47,16 @@ entry {
 
 inputbar {
 	children: 				[ entry ];
-  background-color: @background;
   text-color:       @foreground;
   expand:           false;
-	border:						0.1%;
   border-radius:    4px;
-	border-color:			@accent;
+  background-color: rgba(255, 255, 255, 0.1);
   margin:           0% 0% 0% 0%;
   padding:          1%;
+}
+
+entry {
+  background-color: rgba(255, 255, 255, 0.0);
 }
 
 listview {
@@ -73,9 +71,6 @@ listview {
 
 mainbox {
   background-color: @background-alt;
-	border:						0% 0% 0% 0%;
-  border-radius:    0% 0% 0% 0%;
-	border-color:			@accent;
   children:         [ inputbar, listview ];
   spacing:          1%;
   padding:          1% 0.5% 1% 0.5%;
@@ -106,7 +101,5 @@ element-text {
 
 element selected {
   background-color: @background-bar;
-	border:						0.1%;
   border-radius:    4px;
-  border-color:     @accent;
 }

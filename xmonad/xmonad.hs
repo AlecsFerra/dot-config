@@ -91,8 +91,8 @@ makeGaps = outerGaps . innerGaps
 tiledLayout = makeGaps $ Tall nmaster delta ratio
   where
     nmaster = 1
-    ratio = 1 / 2
-    delta = 2 / 100
+    ratio = 3 / 5
+    delta = 1 / 100
 
 chatApplications = ["TelegramDesktop", "discord", "Element", "Hexchat"]
 

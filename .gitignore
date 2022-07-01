@@ -1,6 +1,7 @@
 secrets
 newsboat/urls
 nvim/.netrwhist
+nvim/plugin
 
 zsh/.zcompdump
 

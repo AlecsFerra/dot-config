@@ -51,6 +51,7 @@ return packer.startup(function(use)
   -- Colorschemes (lua/colorscheme.lua)
   use "dylanaraps/wal.vim"
   use "joshdick/onedark.vim"
+  use "dracula/vim"
 
   -- Rice (lua/rice.lua)
   use "nvim-lualine/lualine.nvim"

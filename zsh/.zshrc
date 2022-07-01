@@ -25,6 +25,8 @@ source ~/.config/zsh/plugins/dirs.zsh
 
 source ~/.config/zsh/wayland_support.zsh
 
+source ~/Repos/melee.sh/melee.sh
+
 setopt autocd
 setopt extendedglob
 setopt auto_menu

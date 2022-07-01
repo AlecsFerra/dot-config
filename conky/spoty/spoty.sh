@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if ! pgrep -x freezer >/dev/null; then
+if ! pgrep -x nuclear >/dev/null; then
   echo ""; exit
 fi
   

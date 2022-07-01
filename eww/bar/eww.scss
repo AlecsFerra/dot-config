@@ -25,7 +25,7 @@
 
 /* WORKSPACES */
 .workspaces {
-  padding: .2rem .7rem .2rem .7rem;
+  padding: .5rem .7rem .2rem .7rem;
   border-radius: 5px;
 }
 .workspaces>*{
@@ -51,6 +51,7 @@
 /* POWER MENU */
 .powermenu {
   color: $color1;
+  padding-bottom: .8rem;
 }
 
 .button-bspres, .button-reb, .button-lock,

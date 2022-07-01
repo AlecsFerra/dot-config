@@ -14,15 +14,15 @@ alias fgrep="fgrep --color=auto"
 alias mkdir="mkdir -p"
 
 #alias cp="rsync -avz --progress"
-function _cp() {
-  cp "$@" & progress -mp $!
-}
-alias cp="_cp"
+#function _cp() {
+#  cp "$@" & progress -mp $!
+#}
+#alias cp="_cp"
 
-function _mv() {
-  mv "$@" & progress -mp $!
-}
-alias mv="_mv"
+#function _mv() {
+#  mv "$@" & progress -mp $!
+#}
+#alias mv="_mv"
 
 alias rm=trash-put
 alias tmp="cd $(mktemp -d)"

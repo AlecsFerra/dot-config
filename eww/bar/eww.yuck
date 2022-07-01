@@ -189,9 +189,9 @@
                         :class   "actionbutton"
                         "")))
 
-(defpoll battery           :interval "1s"
+(defpoll battery           :interval "5s"
     "scripts/battery.sh icon")
-(defpoll battery-cappacity :interval "1s"
+(defpoll battery-cappacity :interval "5s"
     "scripts/battery.sh percent")
 (defpoll powermode-icon    :interval "1s"
     "scripts/battery.sh mode-icon")
@@ -288,4 +288,4 @@
          :class       "bt"
          (button :onclick "scripts/bt.sh run"
                  :class "bt-icon" bt-icon)))
-(defpoll bt-icon :interval "1s" "scripts/bt.sh icon")
+(defpoll bt-icon :interval "5s" "scripts/bt.sh icon")
