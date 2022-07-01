@@ -182,12 +182,12 @@
                 (button :onclick "scripts/battery.sh set-mode power-saver"
                         :class   "actionbutton"
                         "")
-                (button :onclick "scripts/battery.sh set-mode balanced"
-                        :class   "actionbutton"
-                        "")
                 (button :onclick "scripts/battery.sh set-mode performance"
                         :class   "actionbutton"
-                        "")))
+                        "")
+                (button :onclick "scripts/battery.sh set-mode auto"
+                        :class   "actionbutton"
+                        "")))
 
 (defpoll battery           :interval "5s"
     "scripts/battery.sh icon")

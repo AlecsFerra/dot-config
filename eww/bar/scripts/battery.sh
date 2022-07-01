@@ -59,12 +59,11 @@ icon() {
 }
 
 modeicon() {
-  mode=$(powerprofilesctl get)
-  case $mode in
-    "power-saver") echo "";;
-    "balanced")    echo "";;
-    "performance") echo "";;
-  esac
+  if tlp-stat -s | grep -q 'Mode.*=.*AC' ; then
+    echo ""
+  else
+    echo ""
+  fi
 }
 
 timeleft() {
@@ -84,11 +83,21 @@ status() {
 }
 
 mode() {
-  powerprofilesctl get
+  if tlp-stat -s | grep -q 'Mode.*=.*AC' ; then
+    echo "performance"
+  else
+    echo "power-saver"
+  fi
 }
 
 setmode() {
-  powerprofilesctl set "$1"
+  if [ "$1" = "performance" ]; then
+    sudo tlp ac
+  elif [ "$1" = "auto" ]; then
+    sudo tlp start
+  else
+    sudo tlp bat
+  fi
 }
 
 percent() {
