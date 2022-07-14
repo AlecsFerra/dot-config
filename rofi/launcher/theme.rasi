@@ -1,105 +1,102 @@
 configuration {
-	font:							   "JetBrains Mono Nerd Font 10";
+  font:				         "Cantarell 12";
   show-icons:          true;
 	icon-theme: 				 "Papirus";
-  display-drun: 			 "";
-  display-window: 		 "";
-  drun-display-format: "{name}";
-  disable-history:     false;
-  fullscreen:          false;
-	hide-scrollbar: 		 true;
-	sidebar-mode: 			 false;
+  matching:            "fuzzy";
+
+  display-drun: "";
+  display-window: "";
+  display-ssh: "";
 }
 
 @theme "~/.cache/wal/rofi.rasi"
 
-* {
-  background-alt:      @background;
-  background-bar:      @color4a;
-  accent:			         @color4;
+window {
+	transparency: "real";
+	width:			  40%;
+
+  location:     north;
+  y-offset:     20%;
 }
 
 window {
-  transparency:        "real";
-  border-radius:       0px 0px 4px 4px;
-	width:							 38%;
-  location:            north;
-  x-offset:            0;
-}
-
-prompt {
-  enabled: 						true;
-	padding: 						0.30% 0.75% 0% -0.5%;
-	background-color: 	@background-alt;
-	text-color: 				@foreground;
-}
-
-entry {
-  background-color:  @background-alt;
-  text-color:        @foreground;
-  placeholder-color: @foreground;
-  expand:            true;
-  horizontal-align:  0;
-  placeholder:       "Search";
-  padding:           -0.15% 0% 0% 0%;
-  blink:             true;
-}
-
-inputbar {
-	children: 				[ entry ];
-  text-color:       @foreground;
-  expand:           false;
-  border-radius:    4px;
-  background-color: rgba(255, 255, 255, 0.1);
-  margin:           0% 0% 0% 0%;
-  padding:          1%;
-}
-
-entry {
-  background-color: rgba(255, 255, 255, 0.0);
-}
-
-listview {
-  background-color: @background-alt;
-  columns:          1;
-  lines:            7;
-  spacing:          0.5%;
-  cycle:            false;
-  dynamic:          true;
-  layout:           vertical;
+  children: [ mainbox ];
 }
 
 mainbox {
-  background-color: @background-alt;
-  children:         [ inputbar, listview ];
-  spacing:          1%;
-  padding:          1% 0.5% 1% 0.5%;
+  background-color: @background;
+  children:         [ topbar, listview ];
+}
+
+topbar {
+  orientation:      horizontal;
+  expand:           false;
+  background-color: inherit;
+  background-image: url("~/.config/rofi/launcher/bg.png");
+  children:         [ mode-switcher, entry ];
+}
+
+mode-switcher {
+  margin:           10px 10px 10px 10px;
+  spacing:          1em;
+  expand:           false;
+  orientation:      vertical;
+  background-color: #0000;
+}
+
+button {
+  background-color: @background;
+  color:            @foreground;
+  border-radius:    100%;
+  width:            35px;
+  font:				      "Iovseka Nerd Font 14";
+}
+
+button .ssh {
+  color: green;
+}
+
+button selected {
+  background-color: @color4;
+}
+
+entry {
+  margin:           100px 30px 30px 250px;
+  padding:          0.5em;
+  border-radius:    5px;
+  placeholder:      "Search";
+  background-color: @background;
+  color:            @foreground;
+}
+
+listview {
+  margin:           10px;
+  spacing:          0.6em;
+  background-color: inherit;
+  columns:          1;
+	lines:	          5;
+  fixed-height:     false;
+  cycle:            true;
 }
 
 element {
-  background-color: @background-alt;
-  text-color:       @foreground;
-  orientation:      horizontal;
-  border-radius:    0%;
-  padding:          0.5%;
-}
-
-element-icon {
-  background-color: #00000000;
-  size:             32px;
-  border:           0px;
-}
-
-element-text {
-  expand:           true;
-  background-color: #00000000;
-  color:            @foreground;
-  horizontal-align: 0;
-  vertical-align:   0.5;
-  margin:           0% 0% 0% 0.25%;
+  padding:          5px 5px 5px 5px;
+  border-radius:    5px;
+  background-color: @background;
 }
 
 element selected {
-  background-color: @background-bar;
-  border-radius:    4px;
+  background-color: @color4;
 }
+
+element-icon {
+  background-color: inherit;
+  size:             1.5em;
+}
+
+element-text {
+  background-color: inherit;
+  color:            @foreground;
+  margin:           5px 0px 0px 3em;
+}
+
