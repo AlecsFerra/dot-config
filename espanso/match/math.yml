@@ -1,0 +1,86 @@
+matches:
+  # Booleans
+  - trigger: ":and"
+    replace: "∧"
+  - trigger: ":or"
+    replace: "∨"
+  - trigger: ":xor"
+    replace: "⩛"
+
+  # Propositions
+  - trigger: ":not"
+    replace: "¬"
+  - triggers: [":impl", ":=>"]
+    replace: "⇒"
+  - triggers: [":equiv", ":iff", ":<=>"]
+    replace: "⇔"
+
+  # Sets
+  - trigger: ":forall"
+    replace: "∀"
+  - trigger: ":exist"
+    replace: "∃"
+  - trigger: ":nexist"
+    replace: "∄"
+  - triggers: [":inset", ":in"]
+    replace: "∈"
+  - trigger: ":notin"
+    replace: "∉"
+  - trigger: ":niset"
+    replace: "∋"
+  - trigger: ":notni"
+    replace: "∌"
+  - trigger: ":subset"
+    replace: "⊂"
+  - trigger: ":subseq"
+    replace: "⊆"
+  - trigger: ":supset"
+    replace: "⊃"
+  - trigger: ":supseq"
+    replace: "⊇"
+  - trigger: ":union"
+    replace: "∪"
+  - trigger: ":intersect"
+    replace: "∩"
+  - trigger: ":empty"
+    replace: "∅"
+  - trigger: ":|R"
+    replace: "ℝ"
+  - trigger: ":|P"
+    replace: "ℙ"
+  - trigger: ":|Q"
+    replace: "ℚ"
+  - trigger: ":|N"
+    replace: "ℕ"
+  - trigger: ":|Z"
+    replace: "ℤ"
+
+  # Proofs
+  - trigger: ":therefore"
+    replace: "∴"
+  - trigger: ":because"
+    replace: "∵"
+  - trigger: ":qed"
+    replace: "■"
+
+  # Comp
+  - trigger: ":cong"
+    replace: "≅"
+  - triggers: [":approx", ":~="]
+    replace: "≈"
+  - triggers: [":neq", ":!="]
+    replace: "≠"
+  - triggers: [":leq", ":<="]
+    replace: "≤"
+  - triggers: [":geq", ":>="]
+    replace: "≥"
+
+  # Misc
+  - trigger: ":sqrt"
+    replace: "√"
+  - trigger: ":sum"
+    replace: "∑"
+  - trigger: ":integral"
+    replace: "∫"
+  - trigger: ":dagger"
+    replace: "†"

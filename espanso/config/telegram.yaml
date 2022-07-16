@@ -1,0 +1,4 @@
+filter_exec: Telegram
+
+extra_excludes:
+  - "../match/packages/actually-all-emojis/*"
