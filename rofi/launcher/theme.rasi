@@ -4,9 +4,9 @@ configuration {
 	icon-theme: 				 "Papirus";
   matching:            "fuzzy";
 
-  display-drun: "";
-  display-window: "";
-  display-ssh: "";
+  display-drun:        "";
+  display-window:      "";
+  display-ssh:         "";
 }
 
 @theme "~/.cache/wal/rofi.rasi"
@@ -17,10 +17,8 @@ window {
 
   location:     north;
   y-offset:     20%;
-}
 
-window {
-  children: [ mainbox ];
+  children:     [ mainbox ];
 }
 
 mainbox {
@@ -77,6 +75,7 @@ listview {
 	lines:	          5;
   fixed-height:     false;
   cycle:            true;
+  // require-input:    true;
 }
 
 element {

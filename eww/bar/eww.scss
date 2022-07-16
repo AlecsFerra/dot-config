@@ -26,10 +26,11 @@
 /* WORKSPACES */
 .workspaces {
   padding: .5rem .7rem .2rem .7rem;
-  border-radius: 5px;
+  border-radius: 5px 5px 5px 5px;
+  //background-color: rgba(255, 255, 255, 0.1);
 }
 .workspaces>*{
-  margin: .55rem 0 .55rem 0;
+  margin: .75rem 0 .75rem 0;
 }
 .workspaces>.active {
   color: $color1;
@@ -45,13 +46,12 @@
   font-family: 'Iosevka Nerd Font';
   color: $color3;
   font-size: 26px;
-  padding-bottom: .2rem;
 }
 
 /* POWER MENU */
 .powermenu {
   color: $color1;
-  padding-bottom: .8rem;
+  margin: .75rem 0 .75rem 0;
 }
 
 .button-bspres, .button-reb, .button-lock,
@@ -66,7 +66,7 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   padding: .7rem 0 .5rem 0;
-  margin: .5rem 0 .5rem 0;
+  margin: .75rem 0 .75rem 0;
 }
 
 /* SCALES GENERAL */
@@ -84,6 +84,7 @@ trough highlight {
 /* VOLUME */
 .volume-icon {
   color: $color2;
+  margin: .75rem 0 .75rem 0;
 }
 .volbar trough highlight {
   background-color: $color2;
@@ -92,7 +93,7 @@ trough highlight {
 /* BRIGHTNESS */
 .bright-icon{
   color: $color3;
-  padding-bottom: .7rem;
+  margin: .75rem 0 .75rem 0;
 }
 
 .brightbar trough highlight {
@@ -102,23 +103,23 @@ trough highlight {
 /* CONNECTION */
 .connection {
   color: $color5;
-  padding-bottom: .7rem;
+  margin: .75rem 0 .75rem 0;
 }
 
 .bt {
   color: $color4;
   letter-spacing: -18px;
-  padding-bottom: .8rem;
+  margin: .75rem 0 .75rem 0;
 }
 
 /* UPDATES */
 .updates {
   color: $color7;
-  padding-bottom: .8rem;
+  margin: .75rem 0 .75rem 0;
 }
 
 /* DND */
 .dnd {
   color: $color6;
-  padding-bottom: .8rem;
+  margin: .75rem 0 .75rem 0;
 }

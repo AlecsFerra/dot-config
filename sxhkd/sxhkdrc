@@ -38,6 +38,14 @@ super + D ; t
 super + b
     $HOME/.config/rofi/bw/run.sh
 
+super + e
+  notify-send "Starting espanso"
+  espanso start --unmanaged
+
+super + E
+  notify-send "Stopping espanso"
+  espanso stop
+
 # Notifications
 super + n
     kill -s USR1 $(pidof deadd-notification-center)

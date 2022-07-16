@@ -52,6 +52,7 @@ return packer.startup(function(use)
   use "dylanaraps/wal.vim"
   use "joshdick/onedark.vim"
   use "dracula/vim"
+  use "andry-dev/nofrils"
 
   -- Rice (lua/rice.lua)
   use "nvim-lualine/lualine.nvim"

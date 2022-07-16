@@ -39,7 +39,7 @@ flameshot &
 # kde-bugget
 /usr/lib/kdeconnectd &
 indicator-kdeconnect &
-
+espanso start --unmanaged &
 
 # Notifications
 deadd-notification-center &
@@ -47,4 +47,5 @@ batsignal -b &
 
 ## PROGRAMS ##
 telegram-desktop &
+librewolf &
 sleep 10 && $HOME/.config/eww/bar/tray.sh &

@@ -1,5 +1,6 @@
 alias doas="doas " #force alias expansion after sudo
-alias sudo="sudo " #force alias expansion after sudo
+alias sudo="doas " #force alias expansion after sudo
+alias fucking="doas "
 
 alias ls="lsd --group-dirs first"
 alias ll="lsd -l --group-dirs first"
@@ -63,6 +64,10 @@ rangercd() {
     fi
 }
 
+newterm_curr_cd() {
+    nohup $TERMINAL --working-directory $(pwd) </dev/null &>/dev/null &
+}
+
 #Termbin
 alias tb="nc termbin.com 9999"
 
@@ -102,6 +107,7 @@ alias kc="kdeconnect-cli -d 18670d10550d4c33"
 
 bindkey -v
 bindkey -s '^o' 'r\n'
+bindkey -s '^t' 'newterm_curr_cd\n'
 
 autoload -z edit-command-line
 zle -N edit-command-line
