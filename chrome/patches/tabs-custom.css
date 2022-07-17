@@ -22,11 +22,15 @@
 
 .tab-content {
     background-color: var(--background) !important;
+    border-radius: 5px;
+}
+
+.tab-content > * {
+    margin-top: 0.5em;
 }
 
 .tab-content[selected="true"] {
-    color: var(--foreground) !important;
-    opacity: 90%;
+    opacity: 0.9;
 }
 
 .tabbrowser-tab {
@@ -81,17 +85,7 @@ scrollbox[orient="horizontal"] {
     display: none !important;
 }
 
-.tabbrowser-tab[selected] .tab-icon-image {
-    filter: grayscale(100%) opacity(90%) !important;
-    /*display: none !important;*/
-}
-
-.tab-throbber-tabslist,
-.tab-throbber,
-.tab-icon-pending,
-.tab-icon-image,
-.tab-sharing-icon-overlay,
-.tab-icon-sound,
-.tab-close-button {
-    color: var(--foreground);
+.tabbrowser-tab:not([pinned]) .tab-icon-stack > * {
+  margin-bottom: 0.77em;
+  opacity: 1 !important;
 }
