@@ -86,6 +86,6 @@ scrollbox[orient="horizontal"] {
 }
 
 .tabbrowser-tab:not([pinned]) .tab-icon-stack > * {
-  margin-bottom: 0.77em;
+  margin-bottom: 0.76em;
   opacity: 1 !important;
 }
