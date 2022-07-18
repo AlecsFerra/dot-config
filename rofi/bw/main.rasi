@@ -1,0 +1,81 @@
+configuration {
+  font:				         "Cantarell 12";
+  show-icons:          true;
+	icon-theme: 				 "Papirus";
+  matching:            "fuzzy";
+}
+
+@theme "~/.cache/wal/rofi.rasi"
+
+window {
+	transparency: "real";
+	width:			  40%;
+  location:     north;
+  y-offset:     20%;
+  children:     [ mainbox ];
+}
+
+mainbox {
+  background-color: @background;
+  color:            @foreground;
+  children:         [ topbar, listview ];
+}
+
+topbar {
+  orientation:      horizontal;
+  color:            inherit;
+  expand:           false;
+  children:         [ textbox, entry ];
+  background-color: @background;
+  background-image: url("~/.config/rofi/bw/bg.png");
+}
+
+textbox {
+  content:          "<b>Alt+r</b>: Sync vault \r<b>Alt+u</b>: Filter by urls \r<b>Alt+n</b>: Filter by names \r<b>Alt+c</b>: Show folders \r<b>Alt+t</b>: Copy totp \r<b>Alt+L</b>: Lock vault \r<b>Alt+1</b>: Type all \r<b>Alt+2</b>: Type user \r<b>Alt+3</b>: Type pass";
+  markup:           true;
+  color:            inherit;
+  background-color: #00000000;
+  margin:           10px 20px 10px 20px;
+}
+
+entry {
+  margin:           145px 180px 15px -190px;
+  padding:          0.5em;
+  border-radius:    5px;
+  placeholder:      "Search";
+  background-color: @foreground;
+  color:            @background;
+}
+
+listview {
+  padding:          10px 0 10px 0;
+  spacing:          0.6em;
+  background-color: @foreground;
+  columns:          1;
+	lines:	          10;
+  fixed-height:     false;
+  cycle:            true;
+  require-input:    true;
+}
+
+element {
+  background-color: @foreground;
+  border-radius:    5px;
+  margin:           0 10px 0 10px;
+  padding:          2px;
+  children:         [ element-text ];
+}
+
+element-text {
+  background-color: @foreground;
+  color:            @background;
+}
+
+
+element selected {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+element-text selected {
+  background-color: rgba(0, 0, 0, 0);
+}

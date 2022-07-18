@@ -1,0 +1,27 @@
+configuration {
+  show-icons:          true;
+	icon-theme: 				 "Papirus";
+  matching:            "fuzzy";
+}
+
+@theme "~/.cache/wal/rofi.rasi"
+
+window {
+	width:			      40%;
+  location:         north;
+  y-offset:         20%;
+  background-color: @background;
+  color:            @foreground;
+}
+
+error-message {
+  background-color: inherit;
+  color:            inherit;
+}
+
+textbox {
+  font:				      "Cantarell 12";
+  margin:           10px;
+  background-color: inherit;
+  color:            inherit;
+}
