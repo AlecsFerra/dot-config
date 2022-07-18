@@ -6,6 +6,10 @@ matches:
     replace: "∨"
   - trigger: ":xor"
     replace: "⩛"
+  - triggers: [":true", ":top"]
+    replace: "⊤"
+  - triggers: [":false", ":bot"]
+    replace: "⊥"
 
   # Propositions
   - trigger: ":not"
@@ -74,6 +78,12 @@ matches:
     replace: "≤"
   - triggers: [":geq", ":>="]
     replace: "≥"
+
+  # Greek
+  - trigger: ":lambda"
+    replace: "λ"
+  - trigger: ":Lambda"
+    replace: "Λ"
 
   # Misc
   - trigger: ":sqrt"
