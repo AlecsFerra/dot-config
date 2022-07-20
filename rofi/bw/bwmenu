@@ -54,6 +54,9 @@ DIR="$(dirname "$(readlink -f "$0")")"
 source "$DIR/lib-bwmenu"
 
 ask_password() {
+  # Invalidate the cache on a new login
+  rm $CACHE_FILE 
+
   mpw=$(printf '' | rofi -dmenu -config "$SCRIPT_DIR/password.rasi" -p "Password:  " -password ${ROFI_OPTIONS[@]}) || exit $?
   echo "$mpw" | bw unlock 2>/dev/null | grep 'export' | sed -E 's/.*export BW_SESSION="(.*==)"$/\1/' || exit_error $? "Could not unlock vault"
 }
@@ -78,11 +81,10 @@ get_session_key() {
 
 # Load encrypted passwords from cache if exists
 load_cache() {
+  echo "loading cache"
   if [ -f "$CACHE_FILE" ]; then
-    echo "cache hit"
     ITEMS=$(gpg --quiet -d --batch --passphrase $BW_HASH --cipher-algo AES256 $CACHE_FILE)
   else
-    echo "loading"
     load_items
   fi
 }
@@ -93,10 +95,10 @@ load_items() {
   if ! ITEMS=$(bw list items --session "$BW_HASH" 2>/dev/null); then
     exit_error $? "Could not load items"
   fi
-  echo "items: $ITEMS"
 
   # create dir for cache and encrypt $ITEMS
   mkdir -p $(dirname $CACHE_FILE)
+  echo "gpg -c --batch --passphrase $BW_HASH --cipher-algo AES256 -o $CACHE_FILE"
   echo "$ITEMS" | gpg -c --batch --passphrase $BW_HASH --cipher-algo AES256 -o $CACHE_FILE
 }
 
@@ -142,18 +144,22 @@ rofi_menu() {
 
 # Show items in a rofi menu by name of the item
 show_items() {
-  if item=$(
-    echo "$ITEMS" \
-    | jq -r ".[] | select( has( \"login\" ) ) | \"\\(.name)\"" \
-    | dedup_lines \
-    | rofi_menu
-  ); then
-    item_array="$(array_from_name "$item")"
-    "${ENTER_CMD[@]}" "$item_array"
+  if [ -z "${ITEMS}" ]; then
+    exit_error 1 "Empty vault"
   else
-    rofi_exit_code=$?
-    item_array="$(array_from_name "$item")"
-    on_rofi_exit "$rofi_exit_code" "$item_array"
+    if item=$(
+      echo "$ITEMS" \
+      | jq -r ".[] | select( has( \"login\" ) ) | \"\\(.name)\"" \
+      | dedup_lines \
+      | rofi_menu
+    ); then
+      item_array="$(array_from_name "$item")"
+      "${ENTER_CMD[@]}" "$item_array"
+    else
+      rofi_exit_code=$?
+      item_array="$(array_from_name "$item")"
+      on_rofi_exit "$rofi_exit_code" "$item_array"
+    fi
   fi
 }
 
