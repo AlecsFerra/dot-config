@@ -19,6 +19,7 @@ import XMonad.Layout.Spacing
 import XMonad.ManageHook
 import qualified XMonad.StackSet as W
 import XMonad.Util.SpawnOnce
+import qualified XMonad.Util.Hacks as Hacks
 
 defaultTerminal = "alacritty"
 
@@ -118,7 +119,7 @@ showNameTheme = SWNC "xft:Ubuntu:bold:size=30" background foreground 1.0
 
 swallowHook = swallowEventHook (className =? "Alacritty") (return True)
 
-eventHook' = swallowHook 
+eventHook' = Hacks.windowedFullscreenFixEventHook <> swallowHook 
 
 startupHook' = do
   spawnOnce "$HOME/.config/scripts/start_programs.sh"
