@@ -10,7 +10,7 @@ sxhkd &
 betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 
-eww open bar -c "$HOME/.config/eww/bar" 
+eww open statusbar -c "$HOME/.config/eww/bar" 
 
 # Rice stuff
 "$HOME"/.config/xob/launch.sh &
