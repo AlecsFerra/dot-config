@@ -1,5 +1,6 @@
-#! /bin/sh
-no() {
+#! /bin/bash
+
+count() {
     if ! updates_arch=$(checkupdates 2> /dev/null | wc -l ); then
         updates_arch=0
     fi
@@ -12,22 +13,11 @@ no() {
     echo $n_updates
 }
 
-icon() {
-    n_updates=$(no)
-    if [ "$n_updates" -gt "0" ]; then
-        echo ""
-    else
-        echo ""
-    fi
-}
-
-run() {
+launch() {
   $TERMINAL -e "$SHELL" -ic topgrade -k
 }
 
-
 case $1 in
-  "icon") icon;;
-  "no")   no;;
-  "run")  run;;
+  "count")  count;;
+  "launch") launch;;
 esac

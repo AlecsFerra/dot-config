@@ -1,0 +1,35 @@
+(include "extra/dnd/dnd.yuck")
+(include "extra/connection/connection.yuck")
+(include "extra/update/update.yuck")
+(include "extra/bluetooth/bluetooth.yuck")
+
+(defvar eww "eww -c $HOME/.config/eww/bar")
+
+(defvar show-extra false)
+
+(defwidget extra []
+  (box
+    :class       "extra"
+    :orientation "v"
+    :space-evenly false
+    (extra-button)
+    (extra-area)))
+
+(defwidget extra-button []
+  (button
+    :class "extra-button"
+    :onclick "${eww} update show-extra=${!show-extra}"
+    { show-extra ? "" : "" }))
+
+(defwidget extra-area []
+  (revealer
+    :transition "slideup"
+    :reveal     show-extra
+    :duration   "550ms"
+    (box
+      :orientation "v"
+      :class       "extra-area"
+      (dnd)
+      (update)
+      (connection)
+      (bluetooth))))

@@ -1,0 +1,21 @@
+(defvar battery-name "BAT0")
+
+(defwidget battery []
+  (overlay
+    :class  "battery"
+    (button ; Needed to force the correct sizing
+      :tooltip   "${EWW_BATTERY[battery-name].capacity}%"
+      "") 
+    (circular-progress
+      :class "battery-progress"
+      :value     { EWW_BATTERY[battery-name].capacity }
+      :clockwise true
+      :thickness 5
+      :start-at  75
+      {
+        EWW_BATTERY[battery-name].status == "Charging" ||
+        EWW_BATTERY[battery-name].status == "Full"     ?
+          ""
+        :
+          ""
+      })))

@@ -1,125 +1,17 @@
-/* COMMON */
-
-@import "./colors.scss";
-@import "./batmenu.scss";
-@import "./clockmenu.scss";
+@import "colors.scss";
+@import "workspace/workspace.scss";
+@import "battery/battery.scss";
+@import "clock/clock.scss";
+@import "extra/extra.scss";
 
 * {
   all: unset;
 }
 
-.bar {
-  font-family: 'Font Awesome 6 Pro';
-  font-size: 20px;
-  padding: 10px 0px 10px 0px;
+.statusbar {
   background-color: $background;
-  /*border: 3px solid;
-  border-radius: 5px;
-  border-color: $color6;*/
 }
 
-.bar tooltip {
-  font-size: 1px;
-}
-
-
-/* WORKSPACES */
-.workspaces {
-  padding: .5rem .7rem .2rem .7rem;
-  border-radius: 5px 5px 5px 5px;
-  //background-color: rgba(255, 255, 255, 0.1);
-}
-.workspaces>*{
-  margin: .75rem 0 .75rem 0;
-}
-.workspaces>.active {
-  color: $color1;
-}
-
-.workspaces>.occupied {
-  color: $color2;
-}
-
-/* BATTERY */
-.bar .battery {
-  //font-family: 'DejaVuSansMono Nerd Font';
-  font-family: 'Iosevka Nerd Font';
-  color: $color3;
-  font-size: 26px;
-}
-
-/* POWER MENU */
-.powermenu {
-  color: $color1;
-  margin: .75rem 0 .75rem 0;
-}
-
-.button-bspres, .button-reb, .button-lock,
-.button-quit, .button-off{
-  padding: .5rem .2rem .3rem .2rem;
-}
-
-
-/* CLOCK */
-.time {
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 5px;
-  padding: .7rem 0 .5rem 0;
-  margin: .75rem 0 .75rem 0;
-}
-
-/* SCALES GENERAL */
-scale trough {
-  border-radius: 5px;
-  min-height: 80px;
-  min-width: 10px;
-  margin: .3rem 0 .3rem 0;
-}
-
-trough highlight {
-  border-radius: 5px;
-}
-
-/* VOLUME */
-.volume-icon {
-  color: $color2;
-  margin: .75rem 0 .75rem 0;
-}
-.volbar trough highlight {
-  background-color: $color2;
-}
-
-/* BRIGHTNESS */
-.bright-icon{
-  color: $color3;
-  margin: .75rem 0 .75rem 0;
-}
-
-.brightbar trough highlight {
-  background-color: $color3;
-}
-
-/* CONNECTION */
-.connection {
-  color: $color5;
-  margin: .75rem 0 .75rem 0;
-}
-
-.bt {
-  color: $color4;
-  letter-spacing: -18px;
-  margin: .75rem 0 .75rem 0;
-}
-
-/* UPDATES */
-.updates {
-  color: $color7;
-  margin: .75rem 0 .75rem 0;
-}
-
-/* DND */
-.dnd {
-  color: $color6;
-  margin: .75rem 0 .75rem 0;
+.bottom {
+  margin-bottom:    15px;
 }

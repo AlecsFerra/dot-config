@@ -1,291 +1,49 @@
-; Shorthand to call the bar
-(defvar eww "eww -c $HOME/.config/eww/bar")
+(include "workspace/workspace.yuck")
+(include "battery/battery.yuck")
+(include "clock/clock.yuck")
+(include "extra/extra.yuck")
 
-(defwindow bar
-    :geometry (geometry :x      "5px"
-                        :y      "10px"
-                        :height "${1080 - 2 * 10}px"
-                        :width  "48px")
-    :monitor 0
-    :reserve (struts :distance "48px"
-                     :side     "left")
-    :wm-ignore false
-    :hexpand   false
-    :vexpand   false
-    :class     "bar"
-    (bar))
+(defwindow statusbar
+  :geometry 
+    (geometry 
+      :x      "0px"
+      :y      "0px"
+      :height "100%"
+      :width  "50px")
+  :reserve
+    (struts 
+      :distance "50px"
+      :side     "left")
+  (content))
 
-(defwidget bar []
-    (box :class       "statusbar"
-         :orientation "v"
-         :vexpand     false
-         :hexpand     false
-         (top)
-         (bot)))
+(defwidget content []
+  (box
+    :class       "statusbar"
+    :orientation "v"
+    :space-evenly true
+    (top)
+    (bottom)))
 
 (defwidget top []
-    (box :orientation  "v"
-         :space-evenly false
-         :valign       "start"
-         (workspaces)))
+  (box
+    :valign       "start"
+    :orientation  "v" 
+    :space-evenly false
+    (workspace)))
 
-(defwidget workspaces []
-    (literal :content workspacecontent))
+(defwidget middle []
+  (box 
+    :valign      "middle"
+    :orientation "v"))
 
-(deflisten workspacecontent
-           "scripts/workspace.sh")
+(defwidget bottom []
+  (box 
+    :class        "bottom"
+    :valign       "end"
+    :orientation  "v"
+    :space-evenly false
+    :spacing 20
+    (extra)
+    (clock)
+    (battery)))
 
-(defwidget bot []
-    (box :orientation  "v"
-         :space-evenly false
-         :class        "bot"
-         :valign       "end"
-         (updates)
-         (dnd)
-         (wifi)
-         (bt)
-         (bright)
-         (volum)
-         (clock)
-         (bat)
-         (power)))
-
-(defwidget clock []
-    (eventbox :onhover     "${eww} open clockmenu"
-              :onhoverlost "${eww} close clockmenu"
-              (box :orientation "v"
-                   :class "time"
-                   :valign "end"
-              (button :onclick ""
-                      :class "time-hour" hour)
-              (button :onclick ""
-                      :class "time-min"  min))))
-
-(defwindow clockmenu
-           :geometry (geometry :anchor "bottom left"
-                               :x      "57px"
-                               :y      "-12px"
-                               :width  "390px"
-                               :height "016px")
-           (clockmenu))
-
-(defwidget clockmenu []
-	(box :class "clockmenu" 
-		   :orientation "v"
-       :space-evenly false
-	     (box :class "clockmenu-inner"
-	          (calendar :class "cal" 
-			                :day   day 
-			                :month month
-			                :year  year))
-       ;(label :class "date"'
-       ;       :text "${day}/${month}/${year}")))
-       ))
-
-(defpoll day   :interval "10h" "date '+%d'")
-(defpoll month :interval "10h" "date '+%m' -d '-1 months'")
-(defpoll year  :interval "10h" "date '+%Y'")
-(defpoll hour  :interval "1s"  "date '+%H'")
-(defpoll min   :interval "1s"  "date '+%M'")
-
-;; Power menu ;;
-(defwidget power []
-    (eventbox :onhover     "${eww} update power=true"
-              :onhoverlost "${eww} update power=false"
-              (box :orientation  "v"
-                   :space-evenly "false"
-                   :vexpand      "false"
-                   :class        "powermenu"
-                   (revealer :transition "slideup"
-                             :reveal     power
-                             :duration   "550ms"
-                             (box :orientation  "v"
-                                  :space-evenly "false"
-                                  (button :class   "button-bspres"
-                                          :tooltip "Restart"
-                                          :onclick "script/sys.sh restart"
-                                          "")
-                                  (button :class   "button-reb"
-                                          :tooltip "Reboot"
-                                          :onclick "script/sys.sh reboot"
-                                          "")
-                                  (button :class   "button-quit"
-                                          :tooltip "Logout"
-                                          :onclick "script/sys.sh quit"
-                                          "")
-                                  (button :class   "button-lock"
-                                          :tooltip "Lock Screen"
-                                          :onclick "script/sys.sh lock"
-                                          "")))
-                    (button :class   "button-off"
-                            :tooltip "Shutdown"
-                            :onclick "script/sys.sh shutdown"
-                            ""))))
-(defvar power false)
-
-;; Battery ;;
-(defwidget bat []
-    (eventbox :onhover     "${eww} open batmenu"
-              :onhoverlost "${eww} close batmenu"
-              (box :orientation  "v"
-                   :space-evenly "false"
-                   (button :class   "battery"
-                           battery))))
-
-(defwindow batmenu
-           :geometry (geometry :anchor "bottom left"
-                               :x      "57px"
-                               :y      "-12px"
-                               :width  "390px"
-                               :height "216px")
-           (batmenu))
-
-(defwidget batmenu []
-           (eventbox :onhover     "${eww} open batmenu"
-                     :onhoverlost "${eww} close batmenu"
-                     :class "batmenu"
-                     (box :orientation "h"
-                          (bat-status)
-                          (bat-circ))))
-
-
-(defwidget bat-circ []
-           (circular-progress :class       "bat-progress"
-                              :value       "${battery-cappacity - 0.00001}"
-                              :clockwise   false
-                              :start-angle "0"
-                              :thickness   "10"
-                              (label :text powermode-icon)))
-
-(defwidget bat-status []
-           (box :orientation "v"
-                :class       "stats"
-                (row :l "Charge left:" :r "${battery-cappacity}%")
-                (row :l "Time left:"   :r "${battery-timeleft}")
-                (row :l "Status:"      :r "${battery-status}")
-                (row :l "Mode:"        :r "${battery-mode}")
-                (mode-selector)))
-
-(defwidget row [l r]
-           (box :orientation "h"
-                (label :class  "left"
-                       :valign "left"
-                       :xalign 0
-                       :text   l)
-                (label :class  "right"
-                       :valign "right"
-                       :xalign 1
-                       :text   r)))
-
-(defwidget mode-selector []
-           (box :orientation "h"
-                (button :onclick "scripts/battery.sh set-mode power-saver"
-                        :class   "actionbutton"
-                        "")
-                (button :onclick "scripts/battery.sh set-mode performance"
-                        :class   "actionbutton"
-                        "")
-                (button :onclick "scripts/battery.sh set-mode auto"
-                        :class   "actionbutton"
-                        "")))
-
-(defpoll battery           :interval "5s"
-    "scripts/battery.sh icon")
-(defpoll battery-cappacity :interval "5s"
-    "scripts/battery.sh percent")
-(defpoll powermode-icon    :interval "1s"
-    "scripts/battery.sh mode-icon")
-(defpoll battery-timeleft  :interval "10s"
-    "scripts/battery.sh timeleft")
-(defpoll battery-status    :interval "1s"
-    "scripts/battery.sh status")
-(defpoll battery-mode      :interval "1s"
-    "scripts/battery.sh mode")
-
-;; Brightness ;;
-(defwidget bright []
-    (eventbox :onhover     "${eww} update bright=true"
-              :onhoverlost "${eww} update bright=false"
-        (box :orientation  "v"
-             :space-evenly "false"
-             :spacing      "2"
-             (revealer :transition "slideup"
-                       :reveal     bright
-                       :duration   "550ms"
-                       (scale :class       "brightbar"
-                              :value       current-brightness
-                              :orientation "v"
-                              :flipped     true
-                              :tooltip     "Brightness: ${current-brightness}%"
-                              :max         101
-                              :min         0
-                              :onchange    "scripts/brightness.sh set {}" ))
-            (button :onclick ""
-                    :class   "bright-icon"
-                    ""))))
-(deflisten current-brightness
-    "scripts/brightness.sh get")
-
-(defvar bright false)
-
-;; Volume ;;
-(defwidget volum []
-    (eventbox :onhover     "${eww} update volum=true"
-              :onhoverlost "${eww} update volum=false"
-        (box :orientation  "v"
-             :space-evenly "false"
-             :spacing      "2"
-             (revealer :transition "slideup"
-                       :reveal     volum
-                       :duration   "550ms"
-                       (scale :class       "volbar"
-                              :value       current-volume
-                              :orientation "v"
-                              :flipped     true
-                              :tooltip     "Volume: ${current-volume}%"
-                              :max         101
-                              :min         0
-                              :onchange    "scripts/volume.sh set {}" ))
-            (button :onclick "scripts/volume.sh mute"
-                    :class   "volume-icon"
-                    volume-icon))))
-(deflisten current-volume "scripts/volume.sh get")
-(deflisten volume-icon    "scripts/volume.sh icon")
-(defvar volum false)
-
-
-;; Wifi Widget ;;
-(defwidget wifi []
-    (box :orientation "v"
-         :tooltip wifi-name
-         :class   "connection"
-         (button :onclick "scripts/wifi.sh wifi"
-                 :class "wifi-icon" wifi-icon)))
-(deflisten wifi-icon "scripts/wifi.sh icon")
-(deflisten wifi-name "scripts/wifi.sh name")
-
-;; Update Widget;;
-(defwidget updates []
-    (box :orientation "v"
-         :tooltip     "Updates: ${updates-no}"
-         :class       "updates"
-         (button :onclick "scripts/updates.sh run"
-                 :class "updates-icon" updates-icon)))
-(defpoll updates-icon :interval "10m" "scripts/updates.sh icon")
-(defpoll updates-no   :interval "10m" "scripts/updates.sh no")
-
-;; DnD Widget;;
-(defwidget dnd []
-    (box :orientation "v"
-         :class       "dnd"
-         (button :onclick "scripts/dnd.sh run"
-                 :class "dnd-icon" dnd-icon)))
-(deflisten dnd-icon "scripts/dnd.sh icon")
-
-;; DnD Widget;;
-(defwidget bt []
-    (box :orientation "v"
-         :class       "bt"
-         (button :onclick "scripts/bt.sh run"
-                 :class "bt-icon" bt-icon)))
-(defpoll bt-icon :interval "5s" "scripts/bt.sh icon")

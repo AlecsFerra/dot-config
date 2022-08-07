@@ -1,0 +1,12 @@
+(defpoll update-count 
+  :initial  0
+  :interval "10m"
+  :run-while show-extra
+  "extra/update/update.sh count")
+
+(defwidget update []
+  (button
+    :onclick "extra/update/update.sh launch"
+    :tooltip "${update-count} update${update-count == 1 ? "" : "s"} pending"
+    :class   "update"
+    { update-count > 0 ? "" : "" }))
