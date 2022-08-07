@@ -110,7 +110,6 @@ windowrules =
       [className =? c --> doShift (workspaces' !! 4) | c <- ["zoom"]],
       [className =? c --> doCenterFloat | c <- floating],
       [ className =? "float" --> doFloat ],
-      [className =? c --> doSideFloat SE | c <- ["Pavucontrol"]],
       [className =? c --> doIgnore <+> hasBorder False >> doFloat | c <- plasma]
     ]
 

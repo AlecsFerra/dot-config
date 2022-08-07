@@ -50,6 +50,7 @@ return packer.startup(function(use)
 
   -- Colorschemes (lua/colorscheme.lua)
   use "dylanaraps/wal.vim"
+  use "AlphaTechnolog/pywal.nvim"
   use "joshdick/onedark.vim"
   use "dracula/vim"
   use "andry-dev/nofrils"
@@ -74,6 +75,9 @@ return packer.startup(function(use)
   use "christianchiarulli/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "ray-x/lsp_signature.nvim"
+
+  -- Langs
+  use "elkowar/yuck.vim"
 
   -- Cmp (lua/cmp.lua)
   use "hrsh7th/nvim-cmp"

@@ -9,4 +9,5 @@
 
 (rebind "c:tab" "shift-focus")
 (rebind "c:l"   "TeX compress")
+(rebind "c:m"   "")
 

@@ -6,7 +6,7 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-wal --theme dracula 
+# wal --theme dracula 
 betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 
