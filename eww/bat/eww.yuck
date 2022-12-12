@@ -1,0 +1,25 @@
+(include "info/info.yuck")
+(include "controlcenter/controlcenter.yuck")
+
+(defvar eww "eww -c $HOME/.config/eww/bat")
+
+(defwindow batmenu
+  :windowtype "normal"
+  :wm-ignore  true
+  :stacking   "fg"
+  :focusable  true
+  :geometry
+    (geometry
+      :y      "30%"
+      :anchor "center top")
+  (mainbox))
+
+(defwidget mainbox []
+  (eventbox
+    :class       "batmenu"
+    :onhoverlost "${eww} close batmenu"
+    (box
+      :orientation  "v"
+      :space-evenly false
+      (info)
+      (control-center))))

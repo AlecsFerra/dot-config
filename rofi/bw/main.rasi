@@ -52,7 +52,7 @@ listview {
   spacing:          0.6em;
   background-color: @foreground;
   columns:          1;
-	lines:	          10;
+	lines:	          5;
   fixed-height:     false;
   cycle:            true;
   require-input:    true;
@@ -62,7 +62,7 @@ element {
   background-color: @foreground;
   border-radius:    5px;
   margin:           0 10px 0 10px;
-  padding:          2px;
+  padding:          8px;
   children:         [ element-text ];
 }
 

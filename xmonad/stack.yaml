@@ -2,4 +2,4 @@ packages:
 - xmonad
 - xmonad-contrib
 
-resolver: lts-19.6
+resolver: lts-19.23

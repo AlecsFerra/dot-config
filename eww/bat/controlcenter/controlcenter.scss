@@ -1,0 +1,16 @@
+.control-center {
+  padding: 0 10px 10px 10px;
+}
+
+.mode-selector {
+  font-family:      'Font Awesome 6 Pro';
+  font-size:        40px;
+  color:            $color4;
+  padding-top:      10px;
+  padding-bottom:   10px;
+}
+
+.mode-selector:focus, .mode-selector:hover {
+  background-color: $color4;
+  color:            $background;
+}

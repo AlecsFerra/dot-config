@@ -6,7 +6,7 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-# wal --theme dracula 
+wal --theme base16-nord
 betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 
@@ -51,4 +51,5 @@ batsignal -b &
 ## PROGRAMS ##
 telegram-desktop &
 librewolf &
+# qbittorrent-nox &
 sleep 10 && $HOME/.config/eww/bar/tray.sh &

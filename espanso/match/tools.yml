@@ -1,0 +1,28 @@
+matches:
+
+  # Cycle pattern
+  - regex: ":(?P<len>\\d+)cycle"
+    replace: "{{result}}"
+    vars:
+      - name: result
+        type: shell
+        params:
+          cmd: |-
+            echo "
+            from pwnlib.util.cyclic import cyclic_gen
+            g = cyclic_gen()
+            print(g.get($ESPANSO_LEN).decode())
+            " | python
+
+  # Eval
+  - regex: ":eval\\((?P<src>.*)\\)"
+    replace: "{{result}}"
+    vars:
+      - name: result
+        type: shell
+        params:
+          cmd: |-
+            echo "
+            from math import *
+            print($ESPANSO_SRC)
+            " | python || echo "Error"

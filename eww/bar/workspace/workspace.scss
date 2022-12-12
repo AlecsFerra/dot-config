@@ -12,18 +12,17 @@
   .workspace-entry {
     padding-top:    10px;
     padding-bottom: 10px;
+    border-left:    3px solid $background;
     border-right:   3px solid $background;
   }
 
   .active {
-    color:        $color3;
-    border-color: $color3;
-    border-right: 3px solid $color3;
+    color:        $color2;
+    border-right: 3px solid $color2;
   }
 
   .occupied {
     color:        $color4;
-    border-color: $color4;
     border-right: 3px solid $background;
   }
 }

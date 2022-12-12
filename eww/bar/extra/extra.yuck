@@ -25,10 +25,11 @@
   (revealer
     :transition "slideup"
     :reveal     show-extra
-    :duration   "550ms"
+    :duration   "350ms"
     (box
       :orientation "v"
       :class       "extra-area"
+      :space-evenly false
       (dnd)
       (update)
       (connection)

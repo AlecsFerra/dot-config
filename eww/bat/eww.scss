@@ -1,0 +1,19 @@
+@import "colors.scss";
+@import "controlcenter/controlcenter.scss";
+@import "info/info.scss";
+
+.batmenu {
+  background-color: $background;
+  color:            $foreground;
+}
+
+button {
+  background-color: $background;
+  border:           0px;
+}
+.fake-input, .fake-input:focus, *:selected, selection {
+  border:           none;
+  background-color: rgba(0, 0, 0, 0);
+  color:            rgba(0, 0, 0, 0);
+}
+

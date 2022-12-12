@@ -29,9 +29,9 @@ modMask' = mod4Mask
 
 workspaces' = ["main", "code", "web", "chat", "5", "6", "7", "8", "9", "10"]
 
-normalBorderColor' = color2
+normalBorderColor' = color1
 
-focusedBorderColor' = color1
+focusedBorderColor' = color2
 
 keys' conf@XConfig {XMonad.modMask = modm} =
   M.fromList $

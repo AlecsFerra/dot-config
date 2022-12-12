@@ -46,6 +46,7 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export TERMINAL="alacritty"
 export DIFFPROG="nvim -d"
+export PAGER=nvimpager
 
 export QT_STYLE_OVERRIDE=kvantum
 
@@ -55,6 +56,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 export MOZ_X11_EGL=1
 
 source ~/.config/zsh/alias.zsh
+
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Opam
 test -r /home/alecs/.local/share/opam/opam-init/init.zsh \

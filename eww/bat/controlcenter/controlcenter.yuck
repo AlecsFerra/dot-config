@@ -1,0 +1,36 @@
+(defvar eww "eww -c $HOME/.config/eww/bat")
+
+(defwidget control-center []
+  (box
+    :class       "control-center"
+    :orientation "h"
+    :valign      "end"
+    :spacing     10
+    (button-close)
+    (button-energysaving)
+    (button-performance)
+    (button-auto)))
+
+(defwidget button-close []
+  (button
+    :class   "mode-selector"
+    :onclick "${eww} close batmenu"
+    ""))
+
+(defwidget button-energysaving []
+  (button
+    :class   "mode-selector"
+    :onclick "./battery.sh setmode saving"
+    ""))
+
+(defwidget button-performance []
+  (button
+    :class   "mode-selector"
+    :onclick "./battery.sh setmode performance"
+    ""))
+
+(defwidget button-auto []
+  (button
+    :class   "mode-selector"
+    :onclick "./battery.sh setmode auto"
+    ""))

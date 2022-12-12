@@ -39,12 +39,11 @@ super + b
     $HOME/.config/rofi/bw/run.sh
 
 super + e
-  notify-send "Starting espanso"
-  espanso start --unmanaged
+     espanso service start --unmanaged \
+  || espanso service stop && \
+     notify-send "Espanso" "Stopping espanso" \
+       --app-name "espanso"
 
-super + E
-  notify-send "Stopping espanso"
-  espanso stop
 
 # Notifications
 super + n

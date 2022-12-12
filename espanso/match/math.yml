@@ -19,6 +19,12 @@ matches:
   - triggers: [":equiv", ":iff", ":<=>"]
     replace: "⇔"
 
+  # LTL
+  - trigger: ":always"
+    replace: "□"
+  - trigger: ":eventually"
+    replace: "◊"
+
   # Sets
   - trigger: ":forall"
     replace: "∀"
@@ -26,7 +32,7 @@ matches:
     replace: "∃"
   - trigger: ":nexist"
     replace: "∄"
-  - triggers: [":inset", ":in"]
+  - triggers: [":inset", ":setin"]
     replace: "∈"
   - trigger: ":notin"
     replace: "∉"
@@ -84,11 +90,17 @@ matches:
     replace: "λ"
   - trigger: ":Lambda"
     replace: "Λ"
+  - trigger: ":gamma"
+    replace: "γ"
+  - trigger: ":Gamma"
+    replace: "Γ"
 
   # Misc
   - trigger: ":sqrt"
     replace: "√"
-  - trigger: ":sum"
+  - trigger: ":infinity"
+    replace: "∞"
+  - triggers: [":sum", ":Sigma"]
     replace: "∑"
   - trigger: ":integral"
     replace: "∫"

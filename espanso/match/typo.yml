@@ -1,0 +1,3 @@
+matches:
+  - triggers: ["perchè"]
+    replace: "perché"

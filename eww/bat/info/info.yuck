@@ -1,0 +1,69 @@
+(defvar battery-name "BAT0")
+
+(defpoll mode
+  :initial "{
+              \"timeleft\":    \"Loading...\",
+              \"status\":      \"Loading...\",
+              \"mode\":        \"Loading...\",
+              \"temperature\": \"Loading...\"
+           }"
+  :interval "5s"
+  "./battery.sh info")
+
+(defwidget info []
+  (box
+    :class       "info"
+    :orientation "h"
+    :valign      "fill"
+    (info-ui)
+    (stats)))
+
+(defwidget info-ui []
+  (overlay
+    (input
+      :class     "fake-input"
+      :value     " ")
+    (circular-progress
+      :class     "battery-progress"
+      :value     { EWW_BATTERY[battery-name].capacity }
+      :clockwise true
+      :thickness 27
+      :start-at  75
+      {
+        mode.status == "Charging" ? ""
+                                  : ""
+      })))
+
+(defwidget stats []
+  (box
+    :class       "stats"
+    :orientation "v"
+    :space-evenly false
+    (row
+      :l "Charge:"
+      :r "${EWW_BATTERY[battery-name].capacity}%")
+    (row
+      :l "Time left:"
+      :r "${mode.timeleft}")
+    (row
+      :l "Status:"
+      :r "${mode.status}")
+    (row
+      :l "Mode:"
+      :r "${mode.mode}")
+    (row
+      :l "Temperature:"
+      :r "${mode.temperature} °C")))
+
+(defwidget row [l r]
+  (box 
+    :class       "row"
+    :orientation "h"
+    (label 
+      :class  "left"
+      :xalign 0
+      :text   l)
+    (label 
+      :class  "right"
+      :xalign 1
+      :text   r)))

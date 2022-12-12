@@ -122,6 +122,7 @@ return packer.startup(function(use)
   use "moll/vim-bbye" -- Better buffer closing
   use "unblevable/quick-scope" -- Highlight on F-like commands
   use "antoinemadec/FixCursorHold.nvim"
+  use "mbbill/undotree"
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
