@@ -94,13 +94,23 @@ matches:
     replace: "γ"
   - trigger: ":Gamma"
     replace: "Γ"
+  - trigger: ":delta"
+    replace: "δ"
+  - trigger: ":Delta"
+    replace: "Δ"
+  - trigger: ":nabla"
+    replace: "∇"
+  - trigger: ":Sigma"
+    replace: "∑"
+  - trigger: ":sigma"
+    replace: "σ"
 
   # Misc
   - trigger: ":sqrt"
     replace: "√"
   - trigger: ":infinity"
     replace: "∞"
-  - triggers: [":sum", ":Sigma"]
+  - triggers: [":sum"]
     replace: "∑"
   - trigger: ":integral"
     replace: "∫"

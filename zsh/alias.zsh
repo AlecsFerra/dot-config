@@ -1,3 +1,5 @@
+setopt completealiases
+
 alias doas="doas " #force alias expansion after sudo
 alias sudo="doas " #force alias expansion after sudo
 alias fucking="doas "
