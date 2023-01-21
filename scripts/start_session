@@ -5,13 +5,16 @@ startGnome() {
   dbus-run-session -- gnome-shell --display-server --wayland
 }
 
-session=${1:-xmonad}
+startXMonad() {
+  startx $HOME/.xinitrc xmonad
+}
+
+read -p "Session: " session
 case $session in
-  xmonad) startx $HOME/.xinitrc xmonad;;
-  kde) startx kde;;
-  kde-way) echo "Non supported" && exit 1;;
+  xmonad) startXMonad;;
   gnome) startGnome;;
-  *) echo "Unrecognized session: $session" && exit 1;;
+  none) ;;
+  *) startXMonad;;
 esac
 
 

@@ -104,6 +104,12 @@ matches:
     replace: "∑"
   - trigger: ":sigma"
     replace: "σ"
+  - trigger: ":mu"
+    replace: "μ"
+
+  # Powers
+  - trigger: "^2"
+    replace: "²"
 
   # Misc
   - trigger: ":sqrt"

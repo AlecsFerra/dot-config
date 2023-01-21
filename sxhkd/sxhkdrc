@@ -40,8 +40,8 @@ super + b
 
 super + e
      espanso service start --unmanaged \
-  || espanso service stop && \
-     notify-send "Espanso" "Stopping espanso" \
+  || espanso service stop \
+  && notify-send "Espanso" "Stopping espanso" \
        --app-name "espanso"
 
 

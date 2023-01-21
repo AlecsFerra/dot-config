@@ -49,7 +49,7 @@ deadd-notification-center &
 batsignal -b &
 
 ## PROGRAMS ##
-telegram-desktop &
-librewolf &
+# telegram-desktop &
+# librewolf &
 # qbittorrent-nox &
 sleep 10 && $HOME/.config/eww/bar/tray.sh &

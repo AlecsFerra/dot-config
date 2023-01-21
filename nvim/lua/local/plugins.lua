@@ -49,11 +49,11 @@ return packer.startup(function(use)
   use "nvim-lua/plenary.nvim"
 
   -- Colorschemes (lua/colorscheme.lua)
-  use "dylanaraps/wal.vim"
+  -- use "dylanaraps/wal.vim"
   use "AlphaTechnolog/pywal.nvim"
-  use "joshdick/onedark.vim"
-  use "dracula/vim"
-  use "andry-dev/nofrils"
+  -- use "joshdick/onedark.vim"
+  -- use "dracula/vim"
+  -- use "andry-dev/nofrils"
 
   -- Rice (lua/rice.lua)
   use "nvim-lualine/lualine.nvim"
