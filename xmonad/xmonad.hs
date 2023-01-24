@@ -20,6 +20,7 @@ import XMonad.ManageHook
 import qualified XMonad.StackSet as W
 import XMonad.Util.SpawnOnce
 import qualified XMonad.Util.Hacks as Hacks
+import XMonad.Hooks.ManageHelpers
 
 defaultTerminal = "alacritty"
 
@@ -101,17 +102,15 @@ browsers = ["firefox", "LibreWolf", "Chromium"]
 
 floating = ["Indicator-kdeconnect", "Sms.py", "zoom"]
 
-plasma = ["krunner", "plasmashell", "plasma-desktop"]
-
 windowrules =
   composeAll . concat $
-    [ [className =? c --> doShift (workspaces' !! 2) | c <- browsers],
-      [className =? c --> doShift (workspaces' !! 3) | c <- chatApplications],
-      [className =? c --> doShift (workspaces' !! 4) | c <- ["zoom"]],
-      [className =? c --> doCenterFloat | c <- floating],
-      [ className =? "float" --> doFloat ],
-      [className =? c --> doIgnore <+> hasBorder False >> doFloat | c <- plasma]
+    [ [ className =? c --> doShift (workspaces' !! 2) | c <- browsers         ],
+      [ className =? c --> doShift (workspaces' !! 3) | c <- chatApplications ],
+      [ className =? c --> doCenterFloat              | c <- floating         ],
+
+      [ appName ^? "floating-" --> doFloat ]
     ]
+    
 
 showNameTheme :: SWNConfig
 showNameTheme = SWNC "xft:Ubuntu:bold:size=30" background foreground 1.0

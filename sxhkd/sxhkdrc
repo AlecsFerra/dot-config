@@ -5,11 +5,17 @@
 super + Return
     alacritty
 
+super + shift + Return
+    dropdown.sh
+
 super + d ;
     $HOME/.config/rofi/launcher/run.sh
 
 super + T ;
     $HOME/.config/eww/bar/tray.sh
+
+super + D ; m
+    librewolf
 
 super + D ; w
     librewolf
