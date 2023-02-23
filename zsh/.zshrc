@@ -38,6 +38,8 @@ setopt prompt_subst
 zstyle ':completion:*' menu select
 zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
 
+setopt no_complete_aliases
+
 # Vi mode
 export KEYTIMEOUT=1
 export CLICOLOR=1
