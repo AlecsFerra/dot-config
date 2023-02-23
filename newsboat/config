@@ -1,6 +1,7 @@
 browser "librewolf %u"
 prepopulate-query-feeds yes
 refresh-on-startup yes
+reload-threads 100
 
 ## KEYS ##
 bind-key ; macro-prefix
@@ -12,7 +13,6 @@ bind-key l open
 bind-key H prev-feed
 bind-key L next-feed
 bind-key c toggle-show-read-feeds
-
 
 macro v set browser "mpv %u" ; open-in-browser ; set browser "librewolf %u &"
 

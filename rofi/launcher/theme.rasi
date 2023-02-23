@@ -56,11 +56,12 @@ button .ssh {
 
 button selected {
   background-color: @color4;
+  color:            @background;
 }
 
 entry {
   margin:           100px 30px 30px 250px;
-  padding:          0.5em;
+  padding:          10px;
   border-radius:    5px;
   placeholder:      "Search";
   background-color: @background;
@@ -99,3 +100,6 @@ element-text {
   margin:           5px 0px 0px 3em;
 }
 
+element-text selected {
+  color:            @background;
+}

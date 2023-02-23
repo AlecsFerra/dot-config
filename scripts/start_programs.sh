@@ -6,7 +6,7 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-wal --theme base16-nord
+wal --theme base16-onedark
 betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 
