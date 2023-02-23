@@ -85,32 +85,6 @@ matches:
   - triggers: [":geq", ":>="]
     replace: "≥"
 
-  # Greek
-  - trigger: ":lambda"
-    replace: "λ"
-  - trigger: ":Lambda"
-    replace: "Λ"
-  - trigger: ":gamma"
-    replace: "γ"
-  - trigger: ":Gamma"
-    replace: "Γ"
-  - trigger: ":delta"
-    replace: "δ"
-  - trigger: ":Delta"
-    replace: "Δ"
-  - trigger: ":nabla"
-    replace: "∇"
-  - trigger: ":Sigma"
-    replace: "∑"
-  - trigger: ":sigma"
-    replace: "σ"
-  - trigger: ":mu"
-    replace: "μ"
-
-  # Powers
-  - trigger: "^2"
-    replace: "²"
-
   # Misc
   - trigger: ":sqrt"
     replace: "√"
@@ -122,3 +96,7 @@ matches:
     replace: "∫"
   - trigger: ":dagger"
     replace: "†"
+  - trigger: ":darrow"
+    replace: "↓"
+  - trigger: ":uarrow"
+    replace: "↑"
