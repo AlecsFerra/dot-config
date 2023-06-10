@@ -6,22 +6,18 @@
 "$HOME"/.config/scripts/monitor.sh &
 sxhkd &
 
-wal --theme base16-onedark
+wal --theme base16-onedark &
 betterlockscreen --update "$WALLPAPER" &
 xss-lock -- "$HOME"/.config/scripts/lock.sh &
 
-eww open statusbar -c "$HOME/.config/eww/bar" 
+eww open statusbar
 
 # Rice stuff
 "$HOME"/.config/xob/launch.sh &
 conky -c "$HOME"/.config/conky/clock/conkyrc &
 conky -c "$HOME"/.config/conky/spoty/conkyrc &
-conky -c "$HOME"/.config/conky/tasks/conkyrc &
-#conky -c "$HOME"/.config/conky/resources/conkyrc &
 
 pywalfox start -p &
-
-#glava --desktop &
 
 # Auth manager
 lxpolkit &
@@ -49,7 +45,8 @@ deadd-notification-center &
 batsignal -b &
 
 ## PROGRAMS ##
-# telegram-desktop &
-# librewolf &
+telegram-desktop &
+#librewolf &
 # qbittorrent-nox &
+calcurse --daemon &
 sleep 10 && $HOME/.config/eww/bar/tray.sh &

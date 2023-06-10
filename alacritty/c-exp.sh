@@ -42,6 +42,36 @@ else
 	echo -e '# BEGIN ACE\n# END ACE' >> "$CFG";
 fi
 
+echo "Colors:"
+cat <<EOF
+colors:
+  primary:
+    background: '$color1'
+    foreground: '$color8'
+  cursor:
+    text:       '$color1'
+    cursor:     '$color8'
+  normal:
+    black:      '$color1'
+    red:        '$color2'
+    green:      '$color3'
+    yellow:     '$color4'
+    blue:       '$color5'
+    magenta:    '$color6'
+    cyan:       '$color7'
+    white:      '$color8'
+  bright:
+    black:      '$color9'
+    red:        '$color10'
+    green:      '$color11'
+    yellow:     '$color12'
+    blue:       '$color13'
+    magenta:    '$color14'
+    cyan:       '$color15'
+    white:      '$color16'
+EOF
+
+
 # vvv This line may give error on different systems.
 sed -i '' -e "/^# BEGIN ACE/ r /dev/stdin" "$CFG" <<EOF
 colors:

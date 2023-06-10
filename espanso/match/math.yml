@@ -34,7 +34,7 @@ matches:
     replace: "∄"
   - triggers: [":inset", ":setin"]
     replace: "∈"
-  - trigger: ":notin"
+  - trigger: ":setnotin"
     replace: "∉"
   - trigger: ":niset"
     replace: "∋"
@@ -52,6 +52,8 @@ matches:
     replace: "∪"
   - trigger: ":intersect"
     replace: "∩"
+  - trigger: ":product"
+    replace: "⨉"
   - trigger: ":empty"
     replace: "∅"
   - trigger: ":|R"
@@ -78,6 +80,8 @@ matches:
     replace: "≅"
   - triggers: [":approx", ":~="]
     replace: "≈"
+  - triggers: [":~-"]
+    replace: "≃"
   - triggers: [":neq", ":!="]
     replace: "≠"
   - triggers: [":leq", ":<="]
@@ -96,6 +100,8 @@ matches:
     replace: "∫"
   - trigger: ":dagger"
     replace: "†"
+  - trigger: ":rarrow"
+    replace: "→"
   - trigger: ":darrow"
     replace: "↓"
   - trigger: ":uarrow"

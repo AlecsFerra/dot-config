@@ -2,10 +2,10 @@
   :initial  false
   :interval "5s"
   :run-while show-extra
-  "extra/bluetooth/bluetooth.sh info")
+"bar/extra/bluetooth/bluetooth.sh info")
 
 (defwidget bluetooth []
   (button
-    :onclick "extra/bluetooth/bluetooth.sh"
+    :onclick "bar/extra/bluetooth/bluetooth.sh"
     :class   "bluetooth"
-    { bluetooth-connected ? "" : "" }))
+  { bluetooth-connected ? "" : "" }))

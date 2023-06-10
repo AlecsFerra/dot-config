@@ -60,16 +60,16 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
 
   -- Tree sitter (lua/treesitter.lua)
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
-  use "p00f/nvim-ts-rainbow" -- Rainbow parens
-  use "mizlan/iswap.nvim" -- Swap argumetns
-  use "windwp/nvim-autopairs" -- Auto pair parens, ecc...
-  use "windwp/nvim-ts-autotag" -- Auto pair html tags
-  use "SmiteshP/nvim-gps" -- Show precise location
-  use "nvim-treesitter/playground" -- Show ast
+  -- use {
+  --   "nvim-treesitter/nvim-treesitter",
+  --   run = ":TSUpdate",
+  -- }
+  -- use "p00f/nvim-ts-rainbow" -- Rainbow parens
+  -- use "mizlan/iswap.nvim" -- Swap argumetns
+  -- use "windwp/nvim-autopairs" -- Auto pair parens, ecc...
+  -- use "windwp/nvim-ts-autotag" -- Auto pair html tags
+  -- use "SmiteshP/nvim-gps" -- Show precise location
+  -- use "nvim-treesitter/playground" -- Show ast
 
   -- LSP (lua/lsp/*.lua)
   use "christianchiarulli/nvim-lspconfig"

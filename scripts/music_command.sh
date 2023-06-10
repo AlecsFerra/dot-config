@@ -47,6 +47,7 @@ info() {
           string:org.mpris.MediaPlayer2.Player \
           string:Metadata"
   out=$(run_command "$command")
+  echo $out
   artist=$(echo "$out" \
         | sed -nr '/xesam:artist"/,+2s/^ +string "(.*)"$/\1/p' \
         | tail -1)
@@ -63,6 +64,7 @@ info() {
           string:org.mpris.MediaPlayer2.Player \
           string:Position"
   out=$(run_command "$command")
+  echo $out
   position=$(echo "$out" \
           | tail -1 \
           | sed -E "s|.*variant.*int64 (.*)|\1|")

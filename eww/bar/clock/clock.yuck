@@ -1,21 +1,21 @@
 (defpoll hour
   :interval "10s"
-  "date '+%H'")
+"date '+%H'")
 
 (defpoll min
   :interval "10s"
-  "date '+%M'")
+"date '+%M'")
 
 
 (defwidget clock []
-  (box 
+  (box
     :orientation "v"
     :class       "clock"
-    (button 
+    (button
       :class   "hours"
       :onclick ""
-      hour)
-    (button 
+    hour)
+    (button
       :class   "minutes"
       :onclick ""
-      min)))
+    min)))

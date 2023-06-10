@@ -103,13 +103,16 @@ super + c ; {s, a}
     flameshot {gui, full}
 
 XF86AudioMute
-    pamixer -t
+    pamixer -t && \
+      paplay ~/.config/sxhkd/audio-volume-change.wav &
 
 XF86AudioRaiseVolume
-    pamixer -i 5 #--allow-boost
+    pamixer -i 5 && \
+      paplay ~/.config/sxhkd/audio-volume-change.wav &
 
 XF86AudioLowerVolume
-    pamixer -d 5 #--allow-boost
+    pamixer -d 5 && \
+      paplay ~/.config/sxhkd/audio-volume-change.wav &
 
 XF86MonBrightnessUp
     xbacklight -inc 5

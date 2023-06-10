@@ -43,14 +43,12 @@ entry {
   padding:          0.5em;
   border-radius:    5px;
   placeholder:      "Search";
-  background-color: @foreground;
-  color:            @background;
 }
 
 listview {
   padding:          10px 0 10px 0;
   spacing:          0.6em;
-  background-color: @foreground;
+  background-color: @background;
   columns:          1;
 	lines:	          5;
   fixed-height:     false;
@@ -59,7 +57,7 @@ listview {
 }
 
 element {
-  background-color: @foreground;
+  background-color: @background;
   border-radius:    5px;
   margin:           0 10px 0 10px;
   padding:          8px;
@@ -67,15 +65,18 @@ element {
 }
 
 element-text {
-  background-color: @foreground;
-  color:            @background;
+  background-color: @background;
+  color:            @foreground;
 }
 
 
 element selected {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: @color4;
+  color:            @background;
 }
 
 element-text selected {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: @color4;
+  color:            @background;
 }
+

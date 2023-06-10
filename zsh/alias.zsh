@@ -105,6 +105,8 @@ alias z=zathura
 alias scheme=scheme48
 alias kc="kdeconnect-cli -d 18670d10550d4c33"
 
+alias c=calcurse
+
 bindkey -v
 bindkey -s '^o' 'r\n'
 bindkey -s '^t' 'newterm_curr_cd\n'

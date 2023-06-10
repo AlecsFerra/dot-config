@@ -1,19 +1,19 @@
-(include "workspace/workspace.yuck")
-(include "battery/battery.yuck")
-(include "clock/clock.yuck")
-(include "extra/extra.yuck")
+(include "bar/workspace/workspace.yuck")
+(include "bar/battery/battery.yuck")
+(include "bar/clock/clock.yuck")
+(include "bar/extra/extra.yuck")
 
 (defwindow statusbar
-  :geometry 
-    (geometry 
-      :x      "0px"
-      :y      "0px"
-      :height "100%"
-      :width  "50px")
+  :geometry
+  (geometry
+    :x      "0px"
+    :y      "0px"
+    :height "100%"
+  :width  "50px")
   :reserve
-    (struts 
-      :distance "50px"
-      :side     "left")
+  (struts
+    :distance "50px"
+  :side     "left")
   (content))
 
 (defwidget content []
@@ -27,17 +27,17 @@
 (defwidget top []
   (box
     :valign       "start"
-    :orientation  "v" 
+    :orientation  "v"
     :space-evenly false
     (workspace)))
 
 (defwidget middle []
-  (box 
+  (box
     :valign      "middle"
-    :orientation "v"))
+  :orientation "v"))
 
 (defwidget bottom []
-  (box 
+  (box
     :class        "bottom"
     :valign       "end"
     :orientation  "v"
@@ -46,4 +46,3 @@
     (extra)
     (clock)
     (battery)))
-

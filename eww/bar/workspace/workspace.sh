@@ -17,7 +17,7 @@ parse_ws_info() {
     else
       is_active="false"
     fi
-    
+
     if [[ "${occupied[*]}" == *"$i"* ]]; then
       is_occupied="true"
     else

@@ -19,4 +19,4 @@ else
     xrandr --output "$intern" --off
 fi
 
-hsetroot -fill "$WALLPAPER"
+hsetroot -cover "$WALLPAPER"

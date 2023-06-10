@@ -1,0 +1,134 @@
+;;(deflisten info
+;;  :initial "{}"
+;;"music_command.sh info")
+
+(defwidget player []
+  (box
+    :class "player"
+    :space-evenly false
+    :spacing 10
+    (box
+      :class "player-art"
+      :style "background-image: url('${info.coverArt}')"
+      (box
+        :class "player-info"
+        :space-evenly false
+        :orientation "v"
+        :spacing 10
+        (box
+          :class "top-icons"
+          (box
+            :space-evenly false
+            :spacing 10
+            (button
+              :class "player-shuffle"
+              :onclick "scripts/mediacontrol --shuffle"
+              :halign "start"
+              :tooltip "FIXME" ;; ${music-shuffle-status}"
+              :style "FIXME" ;;color:${music-shuffle-color}"
+              ""
+            )
+            (button
+              :class "player-loop"
+              :onclick "./scripts/mediacontrol --loop"
+              :halign "start"
+              :tooltip "FIXME" ;;"${music-loop-status}"
+              :style "FIXME" ;;"color:${music-loop-color}"
+              "FIXME" ;;music-loop-icon
+            )
+          )
+          (box
+            (button
+              :class "spotify-icon"
+              :halign "end"
+              ""
+            )
+          )
+        )
+        (label
+          :class "player-title"
+          :halign "start"
+          :text "${info.title}"
+          :limit-width 30
+        )
+        (label
+          :class "player-artist"
+          :halign "start"
+          :text "${info.artist}"
+          :limit-width 35
+        )
+        (box
+          :space-evenly false
+          :orientation "v"
+          :valign "end"
+          :spacing 6
+          :vexpand true
+          (box
+            :class "player-bar"
+            :halign "center"
+            :valign "end"
+            (eventbox
+              :cursor "pointer"
+              (scale
+                :onchange "playerctl -p spotify position {}"
+                :min 0
+                :max "${info.length}"
+                :value "${info.position}"
+              )
+            )
+          )
+          (box
+            :class "player-position"
+            :space-evenly false
+            :valign "end"
+            (label
+              :class "player-time"
+              :text "${floor(info.position / 60000000)}:${info.position % 60}  / ${info.length}"
+            )
+          )
+        )
+      )
+    )
+    (box
+      :class "player-controls"
+      :orientation "v"
+      :valign "center"
+      :hexpand true
+      :space-evenly false
+      :spacing 30
+      (eventbox
+        :cursor "pointer"
+        (button
+          :class "player-previous"
+          :onclick "scripts/mediacontrol --previous"
+          ""
+        )
+      )
+      (eventbox
+        :cursor "pointer"
+        (button
+          :class "player-toggle"
+          :onclick "scripts/mediacontrol --toggle"
+          "FIXME" ;;music-toggle
+        )
+      )
+      (eventbox
+        :cursor "pointer"
+        (button
+          :class "player-next"
+          :onclick "scripts/mediacontrol --next"
+          ""
+        )
+      )
+    )
+  )
+)
+
+(defwindow player
+  :stacking "fg"
+  :wm-ignore false
+  :windowtype "dock"
+  :geometry (geometry :y "7%"
+            :anchor "top center")
+  (player)
+)

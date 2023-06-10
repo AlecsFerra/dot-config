@@ -2,18 +2,18 @@
   :initial  "{ \"type\": \"disconnected\" }"
   :interval "5s"
   :run-while show-extra
-  "extra/connection/connection.sh info")
-  
+"bar/extra/connection/connection.sh info")
+
 (defwidget connection []
   (button
-    :onclick "extra/connection/connection.sh launch"
+    :onclick "bar/extra/connection/connection.sh launch"
     :tooltip {
-      connection-info.type == "disconnected"  ? "Disconnected" 
-                                              : connection-info.name
+    connection-info.type == "disconnected"  ? "Disconnected"
+    : connection-info.name
     }
     :class   "connection"
-    { 
-      connection-info.type == "wifi"  ? "" : 
-      connection-info.type == "wired" ? "" :
-                                        ""
-    }))
+    {
+    connection-info.type == "wifi"  ? "" :
+    connection-info.type == "wired" ? "" :
+    ""
+  }))

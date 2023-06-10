@@ -1,10 +1,10 @@
-(deflisten dnd-icon 
+(deflisten dnd-icon
   :initial ""
   :run-while show-extra
-  "extra/dnd/dnd.sh icon")
+"bar/extra/dnd/dnd.sh icon")
 
 (defwidget dnd []
   (button
-    :onclick "extra/dnd/dnd.sh run"
+    :onclick "bar/extra/dnd/dnd.sh run"
     :class   "dnd"
-    dnd-icon))
+  dnd-icon))

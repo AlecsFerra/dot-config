@@ -45,7 +45,7 @@ mode-switcher {
 button {
   background-color: @background;
   color:            @foreground;
-  border-radius:    100%;
+  border-radius:    50% 0% 50% 0%;
   width:            35px;
   font:				      "Iovseka Nerd Font 14";
 }

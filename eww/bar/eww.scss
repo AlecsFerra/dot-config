@@ -1,17 +1,11 @@
-@import "colors.scss";
 @import "workspace/workspace.scss";
 @import "battery/battery.scss";
 @import "clock/clock.scss";
 @import "extra/extra.scss";
-
-* {
-  all: unset;
-}
-
 .statusbar {
-  background-color: $background;
+    background-color: $background;
 }
 
 .bottom {
-  margin-bottom:    15px;
+    margin-bottom: 15px;
 }

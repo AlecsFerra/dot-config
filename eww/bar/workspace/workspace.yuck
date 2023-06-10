@@ -1,26 +1,25 @@
-(deflisten workspace-data 
+(deflisten workspace-data
   :initial "[]"
-  "workspace/workspace.sh data")
+"bar/workspace/workspace.sh data")
 
 (defwidget workspace []
-  (box 
+  (box
     :orientation "v"
     :class       "workspace"
     (for entry in workspace-data
-      (workspace-entry 
-        :entry entry))))
+      (workspace-entry
+      :entry entry))))
 
 (defwidget workspace-entry [entry]
   (button
-    :onclick "workspace/workspace.sh focus ${entry.number}"
-    :class { 
-      entry.is_active   ? "workspace-entry active"   :
-      entry.is_occupied ? "workspace-entry occupied" :
-      "workspace-entry empty"
+    :onclick "bar/workspace/workspace.sh focus ${entry.number}"
+    :class {
+    entry.is_active   ? "workspace-entry active"   :
+    entry.is_occupied ? "workspace-entry occupied" :
+    "workspace-entry empty"
     }
-    { 
-      entry.is_active   ? "" :
-      entry.is_occupied ? "" :
-                          ""
-    }))
-
+    {
+    entry.is_active   ? "" :
+    entry.is_occupied ? "" :
+    ""
+  }))

@@ -1,0 +1,94 @@
+.player {
+    font-family: "JetBrains Mono", "Font Awesome 6 Pro Solid";
+    background-color: $background;
+    padding: .6rem;
+    min-height: 10rem;
+    border-radius: .6rem;
+}
+
+.player-art {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 1rem;
+    min-width: 22rem;
+    min-height: 12rem;
+}
+
+.player-info {
+    border-radius: 12px;
+    background: linear-gradient(to right, rgb(25, 25, 25, 1), rgba(38, 38, 38, 0.5));
+    padding: .65rem;
+}
+
+.player-title {
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+.player-artist {
+    color: green;
+    /*$white;*/
+}
+
+.player-bar scale trough highlight {
+    all: unset;
+    /*background-image: linear-gradient(to right, $cyan, $green);*/
+    border-radius: 1.5rem;
+}
+
+.player-bar scale trough {
+    all: unset;
+    background-color: rgba(rgb(30, 0, 255), 0.5);
+    /*rgba($cyan, 0.5);*/
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.9);
+    border-radius: 1rem;
+    min-height: .25rem;
+    min-width: 21rem;
+}
+
+.player-position {
+    font-size: .9rem;
+    font-weight: 500;
+    color: $foreground;
+}
+
+.player-controls {
+    //background-color: $background-alt;
+    padding: .5rem;
+    border-radius: 1rem;
+}
+
+.player-toggle {
+    font-size: 2rem;
+    color: $foreground;
+}
+
+.player-previous,
+.player-next {
+    font-size: 1.6rem;
+    color: $foreground;
+}
+
+.player-toggle:hover,
+.player-previous:hover,
+.player-next:hover {
+    color: magenta;
+    /*$magenta*/
+}
+
+.player-shuffle,
+.player-loop {
+    font-size: 1rem;
+}
+
+.spotify-icon {
+    font-family: "Font Awesome 6 Brands";
+    font-size: 1.25rem;
+    background-color: rgb(15, 15, 15, 0.6);
+    color: green;
+    /*$green;*/
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 8rem;
+}

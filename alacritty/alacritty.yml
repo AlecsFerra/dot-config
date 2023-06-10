@@ -60,7 +60,6 @@ mouse:
       program: xdg-open
       args: []
   modifiers: None
-
 # BEGIN ACE
 colors:
   primary:

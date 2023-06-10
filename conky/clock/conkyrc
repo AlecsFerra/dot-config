@@ -83,6 +83,6 @@ ${font}
 \
 ${font Iosevka Nerd Font:weight=Light:size=28}\
 ${voffset 30}\
-${alignc}${execi 300 $HOME/.config/conky/clock/openweather.sh sunrise}\
+ 
 ${font}
 ]]

@@ -76,3 +76,5 @@ path+=("/home/alecs/.config/scripts")
 path+=("/home/alecs/Repos/dot-config/backup")
 path+=($GOPATH)
 export PATH
+
+calcurse -a

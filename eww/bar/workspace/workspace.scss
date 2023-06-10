@@ -1,29 +1,24 @@
 .workspace {
-  font-family: 'Font Awesome 6 Pro';
-  font-size:   23px;
+    font-family: 'Font Awesome 6 Pro';
+    font-size: 23px;
 }
 
 .workspace {
-   
-  .workspace-mode {
-    background-color: $color4;
-  }
-
-  .workspace-entry {
-    padding-top:    10px;
-    padding-bottom: 10px;
-    border-left:    3px solid $background;
-    border-right:   3px solid $background;
-  }
-
-  .active {
-    color:        $color2;
-    border-right: 3px solid $color2;
-  }
-
-  .occupied {
-    color:        $color4;
-    border-right: 3px solid $background;
-  }
+    .workspace-mode {
+        background-color: $color4;
+    }
+    .workspace-entry {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-left: 3px solid $background;
+        border-right: 3px solid $background;
+    }
+    .active {
+        color: $color2;
+        border-right: 3px solid $color2;
+    }
+    .occupied {
+        color: $color4;
+        border-right: 3px solid $background;
+    }
 }
-
