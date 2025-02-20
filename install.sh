@@ -23,6 +23,7 @@ ln -s "$ABSOLUTE_PATH"/python/pythonrc.py $TARGET
 ln -s "$ABSOLUTE_PATH"/zsh                $TARGET
 ln -s "$ABSOLUTE_PATH"/aspell             $TARGET
 ln -s "$ABSOLUTE_PATH"/espanso            $TARGET
+ln -s "$ABSOLUTE_PATH"/emacs.d            $HOME/.emacs.d
 ln -s "$ABSOLUTE_PATH"/zsh/.zshenv        $HOME
 ln -s "$ABSOLUTE_PATH"/chrome             $HOME/.librewolf/*.default-release
 
