@@ -50,8 +50,7 @@ return packer.startup(function(use)
 
   -- Colorschemes (lua/colorscheme.lua)
   -- use "dylanaraps/wal.vim"
-  use "AlphaTechnolog/pywal.nvim"
-  -- use "joshdick/onedark.vim"
+  use "joshdick/onedark.vim"
   -- use "dracula/vim"
   -- use "andry-dev/nofrils"
 
@@ -60,13 +59,13 @@ return packer.startup(function(use)
   use "akinsho/bufferline.nvim"
 
   -- Tree sitter (lua/treesitter.lua)
-  -- use {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   run = ":TSUpdate",
-  -- }
-  -- use "p00f/nvim-ts-rainbow" -- Rainbow parens
+  use {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+  }
+  use "p00f/nvim-ts-rainbow" -- Rainbow parens
   -- use "mizlan/iswap.nvim" -- Swap argumetns
-  -- use "windwp/nvim-autopairs" -- Auto pair parens, ecc...
+  use "windwp/nvim-autopairs" -- Auto pair parens, ecc...
   -- use "windwp/nvim-ts-autotag" -- Auto pair html tags
   -- use "SmiteshP/nvim-gps" -- Show precise location
   -- use "nvim-treesitter/playground" -- Show ast
@@ -75,9 +74,13 @@ return packer.startup(function(use)
   use "christianchiarulli/nvim-lspconfig"
   use "williamboman/nvim-lsp-installer"
   use "ray-x/lsp_signature.nvim"
+  use({
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+  })
 
-  -- Langs
-  use "elkowar/yuck.vim"
 
   -- Cmp (lua/cmp.lua)
   use "hrsh7th/nvim-cmp"
@@ -107,7 +110,6 @@ return packer.startup(function(use)
   use "Mephistophiles/surround.nvim"
 
   -- Comment
-  use "numToStr/Comment.nvim"
   use "folke/todo-comments.nvim" -- Todo management
 
   -- Fzf (lua/fzf.lua)
@@ -116,12 +118,20 @@ return packer.startup(function(use)
   -- Better increments (lua/dial.lua)
   use "monaqa/dial.nvim"
 
+  -- Telescope
+  use {
+    "nvim-telescope/telescope.nvim", tag = "0.1.8",
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end}
+
   -- Misc 0 conf
   use "nvim-lua/popup.nvim" -- Popup api
   use "kyazdani42/nvim-web-devicons" -- Icons
   use "moll/vim-bbye" -- Better buffer closing
-  use "unblevable/quick-scope" -- Highlight on F-like commands
-  use "antoinemadec/FixCursorHold.nvim"
   use "mbbill/undotree"
 
   if PACKER_BOOTSTRAP then

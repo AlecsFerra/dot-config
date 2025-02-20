@@ -1,7 +1,3 @@
-alias doas="doas " #force alias expansion after sudo
-alias sudo="doas " #force alias expansion after sudo
-alias fucking="doas "
-
 alias ls="lsd --group-dirs first"
 alias ll="lsd -l --group-dirs first"
 alias lla="lsd -l --group-dirs first -all"

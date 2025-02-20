@@ -1,4 +1,3 @@
-eval "$(antidot init)" # Cleanup home
 
 export XDG_STATE_HOME=$HOME/.local/state
 

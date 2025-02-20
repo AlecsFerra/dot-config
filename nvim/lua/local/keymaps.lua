@@ -1,6 +1,5 @@
-local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
-local keymap = vim.api.nvim_set_keymap
+local opts = opts
+local keymap = vim.keymap.set
 
 --Remap space as leader key
 keymap("", "<Space>", "<Nop>", opts)
@@ -23,8 +22,19 @@ keymap("n", "M", "<Esc>:m .+1<CR>", opts)
 keymap("n", "m", "<Esc>:m .-2<CR>", opts)
 
 -- UndoTree
-keymap("n", "U", ":UndotreeShow <CR>", opts)
+keymap("n", "<leader>u", ":UndotreeShow <CR>", opts)
 
 -- Fzf
 keymap("n", "<leader>o", ":FzfLua git_files <CR>", opts)
 keymap("n", "<leader>O", ":FzfLua files <CR>", opts)
+
+-- Telescope
+local builtin = require 'telescope.builtin'
+keymap('n', '<leader>sg', builtin.git_files, opts)
+keymap('n', '<leader>sf', builtin.find_files, opts)
+keymap('n', '<leader>g', builtin.live_grep, opts)
+keymap('n', '<leader>d', builtin.diagnostics, opts)
+keymap('n', '<leader>sr', builtin.resume, opts)
+keymap('n', '<leader><leader>', builtin.buffers, opts)
+
+
