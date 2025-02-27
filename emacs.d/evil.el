@@ -1,14 +1,17 @@
 (use-package evil
-  :demand t
   :init
   (setq evil-shift-width tab-width)
+  (setq evil-want-keybinding nil)
   ;; Dired hijacks the space key
   (eval-after-load "dired"
     '(unbind-key "<SPC>" dired-mode-map))
+
   :config
-  (evil-mode t)
   (evil-set-leader 'normal " ")
   (evil-set-initial-state 'term-mode 'normal)
+
+  :hook
+  (after-init      . evil-mode)
 
   :bind (:map evil-insert-state-map
               ("C-/"        . ignore))
@@ -30,14 +33,20 @@
       (switch-to-buffer (other-buffer (current-buffer)))
     (if (get-buffer "*ansi-term*")
         (switch-to-buffer "*ansi-term*")
-        (ansi-term (getenv "SHELL")))))
+      (ansi-term (getenv "SHELL")))))
+
+(use-package evil-collection
+  :after evil
+  :demand t
+  :config
+  (evil-collection-init '(dired magit)))
 
 (use-package undo-tree
   :demand t
   :after evil
   :init
   (setq undo-tree-history-directory-alist
-        '(("." . "~/.cache/emacs/undo")))
+        `(("." . ,(expand-file-name "undo/" emacs-cache-dir))))
   (setq undo-tree-visualizer-relative-timestamps t)
   ;; For some reason undo tree refuses to start if the original emacs
   ;; keybinding for comments is overriden

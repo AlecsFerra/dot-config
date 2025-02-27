@@ -7,7 +7,7 @@
 (add-to-list 'default-frame-alist
        '(font . "FiraCode Nerd Font Mono-14")) ; Font family and size
 
-(setq gc-cons-threshold 134217728)
+(setq gc-cons-threshold (* 100 1024 1024))
 
 (defvar emacs-cache-dir
   (expand-file-name "~/.cache/emacs/"))

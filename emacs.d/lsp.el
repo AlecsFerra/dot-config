@@ -1,14 +1,12 @@
 (use-package flycheck)
 
-(use-package flyspell
-  :commands flyspell-mode
-  :bind (:map evil-normal-state-map
-              ("<leader>cg" . flyspell-auto-correct-word)))
-
 (use-package lsp-mode
-  :commands lsp
+  :commands (lsp lsp-deferred)
   :init
-  (setq lsp-enable-symbol-highlighting nil)
+  (setq lsp-enable-symbol-highlighting nil
+        lsp-modeline-diagnostics-enable nil)
+  :config
+  ;; (lsp-log-io nil)
   :bind (:map evil-normal-state-map
               ("<leader>ca" . lsp-execute-code-action)))
 
@@ -31,24 +29,41 @@
 (use-package company
   :demand t
   :config
+  (setq ess-r--no-company-meta t)
   (global-company-mode)
   :bind (:map company-active-map
               ("C-j" . company-select-next)
               ("C-k" . company-select-previous)))
 
+;; Spell checking
+(use-package flyspell
+  :custom
+  (flyspell-issue-message-flag nil)
+  (ispell-program-name "enchant-2")
+  (ispell-dictionary "en_US")
+  :hook
+  (tex-mode   . flyspell-mode)
+  (LaTeX-mode . flyspell-mode))
+(use-package flyspell-correct
+  :after flyspell
+  :bind (:map evil-normal-state-map
+              ("<leader>cg" . flyspell-correct-wrapper)))
+
 ;; Haskell
 (use-package haskell-mode
-  :hook (haskell-mode . interactive-haskell-mode))
-
+  :hook
+  (haskell-mode . interactive-haskell-mode))
 (use-package lsp-haskell
   :after haskell-mode
-  :hook ((haskell-mode . lsp-deferred)
-         (haskell-literate-mode . lsp-deferred)))
+  :hook
+  (haskell-mode . lsp-deferred)
+  (haskell-literate-mode . lsp-deferred))
 
 ;; LaTeX
 (use-package auctex)
-
 (use-package lsp-latex
-  :hook ((tex-mode . lsp-deferred)
-         (latex-mode . lsp-deferred)
-         (bibtex-mode . lsp-deferred)))
+  :disabled
+  :hook
+  (tex-mode . lsp-deferred)
+  (LaTeX-mode . lsp-deferred)
+  (bibtex-mode . lsp-deferred))
