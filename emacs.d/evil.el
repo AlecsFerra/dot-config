@@ -58,3 +58,15 @@
 
   :bind (:map evil-normal-state-map
               ("<leader>u" . undo-tree-visualize)))
+
+;; Piece of shit used by magit
+(use-package transient
+  :config
+  (setq transient-history-file
+        (expand-file-name "transient/history.el" emacs-cache-dir)
+        transient-values-file
+        (expand-file-name "transient/values.el" emacs-cache-dir)
+        transient-levels-file
+        (expand-file-name "transient/levels.el" emacs-cache-dir))
+  :bind (:map transient-base-map
+              ("<escape>" . 'transient-quit-one)))
