@@ -21,9 +21,7 @@
 
   :bind (:map evil-normal-state-map
               ("C-/"        . comment-line)
-              ("<leader>eb" . eval-buffer)
-              ("<leader>ee" . eval-last-sexp)
-              ("<leader>bc" . kill-buffer)
+              ("<leader>eb" . eval-buffer) ("<leader>ee" . eval-last-sexp) ("<leader>bc" . kill-buffer)
               ("<leader>t"  . alecs/toggle-term)))
 
 (defun alecs/toggle-term ()
@@ -69,4 +67,4 @@
         transient-levels-file
         (expand-file-name "transient/levels.el" emacs-cache-dir))
   :bind (:map transient-base-map
-              ("<escape>" . 'transient-quit-one)))
+              ("<escape>" . transient-quit-one)))

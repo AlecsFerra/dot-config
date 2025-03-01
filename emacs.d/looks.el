@@ -1,10 +1,14 @@
-(use-package doom-themes
-  :init
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
+;; (use-package doom-themes
+;;   :init
+;;   (setq doom-themes-enable-bold t
+;;         doom-themes-enable-italic t)
+;;   :config
+;;   (doom-themes-visual-bell-config)
+;;   (load-theme 'doom-one-light))
+
+(use-package nano-theme
   :config
-  (doom-themes-visual-bell-config)
-  (load-theme 'doom-winter-is-coming-light))
+  (load-theme 'nano-light))
 
 ;; Run this command to get the required icons.
 ;; M-x nerd-icons-install-fonts
@@ -19,3 +23,7 @@
   (fira-code-mode-disabled-ligatures '("x"))
   :config
   (global-fira-code-mode))
+
+(use-package rainbow-delimiters
+  :hook
+  (prog-mode . rainbow-delimiters-mode))

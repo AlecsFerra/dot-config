@@ -5,9 +5,6 @@
     (setq default-directory orig-dir)))
 (advice-add 'find-file :around #'alecs/default-directory)
 
-(defun alecs/set-default-directory (dir)
-  (setq default-directory dir))
-
 ;; Run gc when out of focus
 ;; (if (boundp 'after-focus-change-function)
 ;;     (add-function :after after-focus-change-function

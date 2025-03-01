@@ -9,7 +9,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default indent-line-function 'insert-tab)
 
-(show-paren-mode)
 (electric-pair-mode t) ; Auto parens
 
 (setq custom-safe-themes t)
