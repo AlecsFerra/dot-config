@@ -1,14 +1,11 @@
-;; (use-package doom-themes
-;;   :init
-;;   (setq doom-themes-enable-bold t
-;;         doom-themes-enable-italic t)
-;;   :config
-;;   (doom-themes-visual-bell-config)
-;;   (load-theme 'doom-one-light))
-
-(use-package nano-theme
+(use-package doom-themes
+  :init
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
   :config
-  (load-theme 'nano-light))
+  (doom-themes-visual-bell-config)
+  (load-theme 'doom-one-light))
+
 
 ;; Run this command to get the required icons.
 ;; M-x nerd-icons-install-fonts

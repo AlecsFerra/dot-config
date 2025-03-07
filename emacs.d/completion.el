@@ -1,5 +1,6 @@
 (use-package vertico
   :demand t
+  :after (marginalia)
   :init
   (setq vertico-cycle t
         vertico-resize nil)
@@ -14,19 +15,15 @@
 
 (use-package marginalia
   :demand t
-  :after (vertico)
   :config
   (marginalia-mode))
 
 (use-package orderless
-  :demand t
-  :after (vertico)
   :init
   (setq completion-styles
         '(orderless basic)))
 
 (use-package consult
-  :demand t
   :after (vertico evil)
   :init
   (setq completion-in-region-function
@@ -37,8 +34,7 @@
               ("<leader><SPC>" . consult-buffer)))
 
 (use-package affe
-  :demand t
-  :after (consult evil)
+  :after (vertico evil)
   :bind (:map evil-normal-state-map
               ("<leader>sf" . affe-find)
               ("<leader>sg" . affe-grep)))

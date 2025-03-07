@@ -16,6 +16,18 @@
 ;; Remove whitespaces on save
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
+;; Vertico suggestions
+(setq-default enable-recursive-minibuffers t)
+(setq-default minibuffer-prompt-properties
+              '(read-only t cursor-intangible t face minibuffer-prompt))
+
+
+;; Scrolling
+(pixel-scroll-precision-mode)
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
+
 ;; ESC is ESC
 (define-key minibuffer-local-map [escape]
             'minibuffer-keyboard-quit)

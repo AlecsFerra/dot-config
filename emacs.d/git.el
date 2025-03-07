@@ -5,4 +5,6 @@
 
 (use-package magit-delta
   :after magit
+  :config
+  (add-to-list 'magit-delta-delta-args "--light")
   :hook (magit-mode . magit-delta-mode))
