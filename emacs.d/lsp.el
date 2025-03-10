@@ -49,30 +49,5 @@
   :bind (:map evil-normal-state-map
               ("<leader>cg" . flyspell-correct-wrapper)))
 
-;; Haskell
-(use-package haskell-mode
-  :hook
-  (haskell-mode . interactive-haskell-mode))
-(use-package lsp-haskell
-  :after haskell-mode
-  :hook
-  (haskell-mode . lsp-deferred)
-  (haskell-literate-mode . lsp-deferred))
-
-;; LaTeX
-(use-package auctex)
-(use-package lsp-latex
-  :disabled
-  :hook
-  (tex-mode . lsp-deferred)
-  (LaTeX-mode . lsp-deferred)
-  (bibtex-mode . lsp-deferred))
-
-(use-package pdf-tools
-  :after evil-collection
-  :magic ("%PDF" . pdf-view-mode)
-  :init
-  (add-to-list 'evil-collection-mode-list '(pdf pdf-view))
-  (setq-default pdf-view-display-size 'fit-page)
-  :config
-  (pdf-tools-install))
+(alecs/load-config-file "lang/haskell")
+(alecs/load-config-file "lang/latex")
