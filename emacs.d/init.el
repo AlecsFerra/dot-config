@@ -6,12 +6,12 @@
 (advice-add 'find-file :around #'alecs/default-directory)
 
 ;; Run gc when out of focus
-;; (if (boundp 'after-focus-change-function)
-;;     (add-function :after after-focus-change-function
-;;                   (lambda () (unless (frame-focus-state)
-;;                           (garbage-collect))))
-;;   (add-hook 'after-focus-change-function
-;;             'garbage-collect))
+(if (boundp 'after-focus-change-function)
+    (add-function :after after-focus-change-function
+                  (lambda () (unless (frame-focus-state)
+                          (garbage-collect))))
+  (add-hook 'after-focus-change-function
+            'garbage-collect))
 
 (set-language-environment "UTF-8") ; Force UTF-8
 

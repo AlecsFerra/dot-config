@@ -8,7 +8,6 @@
 
   :config
   (evil-set-leader 'normal " ")
-  (evil-set-initial-state 'term-mode 'normal)
 
   :hook
   (after-init      . evil-mode)
@@ -38,8 +37,11 @@
 (use-package evil-collection
   :after evil
   :demand t
+  :init
+  (setq evil-collection-key-blacklist '("SPC"))
   :config
-  (evil-collection-init '(dired magit)))
+  (add-to-list 'evil-collection-mode-list 'dired)
+  (evil-collection-init))
 
 (use-package undo-tree
   :demand t

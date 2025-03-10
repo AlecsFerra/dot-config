@@ -1,5 +1,7 @@
 (use-package magit
-  :after evil
+  :after (evil evil-collection)
+  :init
+  (add-to-list 'evil-collection-mode-list 'magit)
   :bind (:map evil-normal-state-map
               ("<leader>gg" . magit-status)))
 

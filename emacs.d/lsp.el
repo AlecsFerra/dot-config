@@ -67,3 +67,12 @@
   (tex-mode . lsp-deferred)
   (LaTeX-mode . lsp-deferred)
   (bibtex-mode . lsp-deferred))
+
+(use-package pdf-tools
+  :after evil-collection
+  :magic ("%PDF" . pdf-view-mode)
+  :init
+  (add-to-list 'evil-collection-mode-list '(pdf pdf-view))
+  (setq-default pdf-view-display-size 'fit-page)
+  :config
+  (pdf-tools-install))
