@@ -26,6 +26,8 @@
 (defun alecs/load-config-file (file)
   (load (expand-file-name file "~/.emacs.d/")))
 
+; (setq use-package-compute-statistics t)
+
 (alecs/load-config-file "basic")
 (alecs/load-config-file "evil")
 (alecs/load-config-file "looks")

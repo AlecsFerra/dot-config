@@ -16,15 +16,15 @@
         TeX-source-correlate-method 'synctex
         TeX-source-correlate-start-server nil)
   ;; Reload buffer on compilation
-  (add-hook 'TeX-after-compilation-finished-functions
-            #'TeX-revert-document-buffer)
+  :hook
+  (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
+  (LaTeX-mode . auto-fill-mode)
   :bind (:map evil-normal-state-map
               ("<leader>cc" . TeX-command-run-all)))
 
 (use-package lsp-latex
   :disabled
   :hook
-  (tex-mode . lsp-deferred)
   (LaTeX-mode . lsp-deferred)
   (bibtex-mode . lsp-deferred))
 

@@ -5,6 +5,9 @@
   :init
   (setq lsp-enable-symbol-highlighting nil
         lsp-modeline-diagnostics-enable nil)
+  (setq lsp-session-file
+        (expand-file-name ".lsp-session-v1" emacs-cache-dir))
+
   :config
   ;; (lsp-log-io nil)
   :bind (:map evil-normal-state-map
@@ -39,15 +42,17 @@
 (use-package flyspell
   :custom
   (flyspell-issue-message-flag nil)
-  (ispell-program-name "enchant-2")
+  ; (ispell-program-name "enchant-2")
   (ispell-dictionary "en_US")
   :hook
   (tex-mode   . flyspell-mode)
   (LaTeX-mode . flyspell-mode))
+
 (use-package flyspell-correct
   :after flyspell
   :bind (:map evil-normal-state-map
               ("<leader>cg" . flyspell-correct-wrapper)))
 
-(alecs/load-config-file "lang/haskell")
-(alecs/load-config-file "lang/latex")
+(setq langs '("haskell" "latex"))
+(dolist (file langs)
+  (alecs/load-config-file (concat "lang/" file)))
