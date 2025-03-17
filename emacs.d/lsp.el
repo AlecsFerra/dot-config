@@ -9,7 +9,7 @@
         (expand-file-name ".lsp-session-v1" emacs-cache-dir))
 
   :config
-  ;; (lsp-log-io nil)
+  (lsp-log-io nil)
   :bind (:map evil-normal-state-map
               ("<leader>ca" . lsp-execute-code-action)))
 
@@ -30,29 +30,35 @@
               ("K" . lsp-ui-doc-glance)))
 
 (use-package company
+  :after evil
   :demand t
   :config
   (setq ess-r--no-company-meta t)
   (global-company-mode)
   :bind (:map company-active-map
-              ("C-j" . company-select-next)
-              ("C-k" . company-select-previous)))
+              ("C-j"   . company-select-next)
+              ("C-k"   . company-select-previous))
+  :bind (:map evil-insert-state-map
+              ("<backtab>" . company-complete)))
 
-;; Spell checking
-(use-package flyspell
-  :custom
-  (flyspell-issue-message-flag nil)
-  ; (ispell-program-name "enchant-2")
-  (ispell-dictionary "en_US")
-  :hook
-  (tex-mode   . flyspell-mode)
-  (LaTeX-mode . flyspell-mode))
+(use-package company-box
+  :after company
+  :init
+  (setq company-box-doc-enable t)
+  :hook (company-mode . company-box-mode))
 
-(use-package flyspell-correct
-  :after flyspell
-  :bind (:map evil-normal-state-map
-              ("<leader>cg" . flyspell-correct-wrapper)))
+;; (copilot-install-server)
+(use-package copilot
+  :vc (:url "https://github.com/copilot-emacs/copilot.el"
+            :rev :newest
+            :branch "main")
+  :custom (copilot-install-dir (expand-file-name "copilot" emacs-cache-dir))
+  :init
+  (setq copilot-indent-offset-warning-disable t)
+  :bind (:map copilot-completion-map
+              ("<tab>" . copilot-accept-completion))
+  :hook (prog-mode . copilot-mode))
 
-(setq langs '("haskell" "latex"))
+(setq langs '("haskell" "latex" "agda"))
 (dolist (file langs)
   (alecs/load-config-file (concat "lang/" file)))

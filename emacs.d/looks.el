@@ -6,15 +6,14 @@
   (doom-themes-visual-bell-config)
   (load-theme 'doom-one-light))
 
-
 ;; Run this command to get the required icons.
-;; M-x nerd-icons-install-fonts
+;; (nerd-icons-install-fonts)
 (use-package doom-modeline
   :config
   (doom-modeline-mode t))
 
 ;; Fira code ligatures
-;; M-x fira-code-mode-install-fonts
+;; (fira-code-mode-install-fonts)
 (use-package fira-code-mode
   :custom
   (fira-code-mode-disabled-ligatures '("x"))

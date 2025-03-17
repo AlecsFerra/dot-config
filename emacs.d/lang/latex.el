@@ -1,3 +1,17 @@
+(use-package flyspell
+  :custom
+  (flyspell-issue-message-flag nil)
+  ; (ispell-program-name "enchant-2")
+  (ispell-dictionary "en_US")
+  :hook
+  (tex-mode   . flyspell-mode)
+  (LaTeX-mode . flyspell-mode))
+
+(use-package flyspell-correct
+  :after flyspell
+  :bind (:map evil-normal-state-map
+              ("<leader>cg" . flyspell-correct-wrapper)))
+
 (use-package auctex
   :init
   (setq TeX-command-default "Latex"
@@ -33,6 +47,7 @@
   :magic ("%PDF" . pdf-view-mode)
   :init
   (add-to-list 'evil-collection-mode-list '(pdf pdf-view))
-  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-view-use-scaling t
+        pdf-view-display-size 'fit-page)
   :config
-  (pdf-tools-install))
+  (pdf-tools-install t))

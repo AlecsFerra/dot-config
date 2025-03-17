@@ -3,6 +3,8 @@
 
 ;; Line numbers
 (setq-default display-line-numbers 'relative)
+(setq-default display-line-numbers-width 3)
+(set-fringe-mode '(0 . nil))
 
 ;; Tabs -> spaces
 (setq-default tab-width 2)
