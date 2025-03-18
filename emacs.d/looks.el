@@ -1,7 +1,7 @@
 (use-package doom-themes
-  :init
-  (setq doom-themes-enable-bold t
-        doom-themes-enable-italic t)
+  :custom
+  (doom-themes-enable-bold t)
+  (doom-themes-enable-italic t)
   :config
   (doom-themes-visual-bell-config)
   (load-theme 'tsdh-light))
@@ -9,8 +9,15 @@
 ;; Run this command to get the required icons.
 ;; (nerd-icons-install-fonts)
 (use-package doom-modeline
-  :config
-  (doom-modeline-mode t))
+  :custom
+  (doom-modeline-hud t)
+  (doom-modeline-major-mode-icon nil)
+  (doom-modeline-highlight-modified-buffer-name nil)
+  (doom-modeline-percent-position nil)
+  (doom-modeline-position-line-format nil)
+  (doom-modeline-buffer-encoding nil)
+  :hook
+  (after-init . doom-modeline-mode))
 
 ;; Fira code ligatures
 ;; (fira-code-mode-install-fonts)
