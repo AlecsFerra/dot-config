@@ -4,7 +4,7 @@
         doom-themes-enable-italic t)
   :config
   (doom-themes-visual-bell-config)
-  (load-theme 'doom-one-light))
+  (load-theme 'tsdh-light))
 
 ;; Run this command to get the required icons.
 ;; (nerd-icons-install-fonts)

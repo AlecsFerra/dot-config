@@ -22,7 +22,7 @@
               ("C-/"        . comment-line)
               ("<leader>eb" . eval-buffer)
               ("<leader>ee" . eval-last-sexp)
-              ("<leader>bc" . kill-buffer)
+              ("<leader>bc" . (lambda () (interactive) (kill-buffer (current-buffer))))
               ("<leader>t"  . alecs/toggle-term)))
 
 (defun alecs/toggle-term ()

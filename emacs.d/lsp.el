@@ -7,9 +7,6 @@
         lsp-modeline-diagnostics-enable nil)
   (setq lsp-session-file
         (expand-file-name ".lsp-session-v1" emacs-cache-dir))
-
-  :config
-  (lsp-log-io nil)
   :bind (:map evil-normal-state-map
               ("<leader>ca" . lsp-execute-code-action)))
 
@@ -25,7 +22,8 @@
         lsp-ui-doc-show-with-mouse nil)
   :config
   (lsp-ui-doc-frame-mode)
-
+  :bind (:map lsp-ui-doc-frame-mode-map
+              ("q" . nil))
   :bind (:map evil-normal-state-map
               ("K" . lsp-ui-doc-glance)))
 
@@ -34,6 +32,7 @@
   :demand t
   :config
   (setq ess-r--no-company-meta t)
+  (setq company-tooltip-scrollbar-width 0)
   (global-company-mode)
   :bind (:map company-active-map
               ("C-j"   . company-select-next)
@@ -45,9 +44,9 @@
   :after company
   :init
   (setq company-box-doc-enable t)
+  (setq company-box-scrollbar nil)
   :hook (company-mode . company-box-mode))
 
-;; (copilot-install-server)
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el"
             :rev :newest
@@ -55,6 +54,10 @@
   :custom (copilot-install-dir (expand-file-name "copilot" emacs-cache-dir))
   :init
   (setq copilot-indent-offset-warning-disable t)
+  :config
+  (unless (file-exists-p (copilot-server-executable))
+    (copilot-install-server))
+  (add-to-list 'copilot-indentation-alist '(prog-mode 2))
   :bind (:map copilot-completion-map
               ("<tab>" . copilot-accept-completion))
   :hook (prog-mode . copilot-mode))

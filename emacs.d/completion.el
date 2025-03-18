@@ -29,9 +29,29 @@
   (setq completion-in-region-function
         'consult-completion-in-region)
   (setq consult-buffer-filter
-        '("^ " "*Messages*" "*scratch*"))
+        '("^ " "\*.*\*" "magit.*"))
   :bind (:map evil-normal-state-map
               ("<leader><SPC>" . consult-buffer)))
+
+(use-package embark
+  :commands (alecs/embark-kill)
+  :config
+  (defun alecs/embark-kill (&optional arg)
+    "Kill buffer or remove file from recentf."
+    (interactive "P")
+    (let ((embark-default-action-overrides '((buffer . kill-buffer)
+                                             (file . embark-recentf-remove)))
+          (embark-pre-action-hook (assq-delete-all 'kill-buffer
+                                                    embark-pre-action-hooks))
+          embark-quit-after-action)
+      (embark-dwim arg)))
+  :bind
+  (("C-." . embark-act)
+   ("C-c" . alecs/embark-kill)))
+
+(use-package embark-consult
+  :hook
+  (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package affe
   :after (vertico evil)
