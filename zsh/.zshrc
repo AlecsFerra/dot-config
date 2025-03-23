@@ -1,0 +1,45 @@
+#XDG
+source ~/.config/zsh/xdg_dirs.zsh
+
+# ZSH config
+# History
+HISTFILE="$XDG_STATE_HOME/zsh/history"
+SAVEHIST=10000
+HISTSIZE=10000
+setopt share_history inc_append_history extended_history
+
+autoload -Uz compinit
+export ZSH_AUTOSUGGEST_STRATEGY=(history)
+
+source ~/.config/zsh/agnoster.zsh-theme
+setopt prompt_subst
+source ~/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+fpath+=(~/.config/zsh/plugins/zsh-completions/src/)
+source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.config/zsh/plugins/zsh-you-should-use/you-should-use.plugin.zsh
+source ~/.config/zsh/plugins/zsh-fzy/zsh-fzy.plugin.zsh
+
+compinit -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+source ~/.config/zsh/plugins/git.zsh
+source ~/.config/zsh/plugins/dirs.zsh
+
+setopt autocd
+setopt extendedglob
+setopt auto_menu
+setopt complete_in_word
+setopt always_to_end
+setopt prompt_subst
+
+# Completion
+zstyle ':completion:*' menu select
+zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
+
+setopt no_complete_aliases
+
+# Vi mode
+export KEYTIMEOUT=1
+export CLICOLOR=1
+
+export VISUAL=emacs
+export EDITOR="$VISUAL"
+export TERMINAL="ghostty"
