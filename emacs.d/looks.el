@@ -1,10 +1,10 @@
-(use-package doom-themes
+(set-frame-font "Berkeley Mono 14" nil t)
+
+(use-package catppuccin-theme
   :custom
-  (doom-themes-enable-bold t)
-  (doom-themes-enable-italic t)
+  (catppuccin-flavor 'latte)
   :config
-  (doom-themes-visual-bell-config)
-  (load-theme 'tsdh-light))
+  (load-theme 'catppuccin))
 
 ;; Run this command to get the required icons.
 ;; (nerd-icons-install-fonts)
@@ -19,13 +19,24 @@
   :hook
   (after-init . doom-modeline-mode))
 
-;; Fira code ligatures
-;; (fira-code-mode-install-fonts)
-(use-package fira-code-mode
+(setq banner-directory "~/.emacs.d/banners/")
+(use-package dashboard
   :custom
-  (fira-code-mode-disabled-ligatures '("x"))
+  (dashboard-banner-logo-title "I can't believe it's not VIM!")
+  (dashboard-startup-banner (concat banner-directory "bcc.txt"))
+  (dashboard-page-separator "\n")
+  (dashboard-display-icons-p t)
+  (dashboard-icon-type 'nerd-icons)
+  (dashboard-startupify-list `(dashboard-insert-banner
+                               dashboard-insert-banner-title
+                               dashboard-insert-newline
+                               ,(dashboard-insert-newline 2)
+                               dashboard-insert-init-info))
+  :hook
+  (dashboard-mode . (lambda ()
+                      (display-line-numbers-mode -1)))
   :config
-  (global-fira-code-mode))
+  (dashboard-setup-startup-hook))
 
 (use-package rainbow-delimiters
   :hook

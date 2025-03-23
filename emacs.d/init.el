@@ -17,7 +17,6 @@
 
 (require 'package)
 (require 'use-package-ensure)
-
 (setq use-package-always-ensure t)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)

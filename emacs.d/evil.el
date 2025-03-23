@@ -2,9 +2,6 @@
   :custom
   (evil-shift-width tab-width)
   (evil-want-keybinding nil)
-  :init
-  (eval-after-load "dired" ; Dired hijacks the space key
-    '(unbind-key "<SPC>" dired-mode-map))
   :config
   (evil-set-leader 'normal " ")
   :hook

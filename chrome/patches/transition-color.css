@@ -1,8 +1,0 @@
-@import url("../colors.css");
-#browser vbox#appcontent tabbrowser,
-#content,
-#tabbrowser-tabpanels,
-browser[type=content-primary],
-browser[type=content]>html {
-    background: var(--background) !important
-}

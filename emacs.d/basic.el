@@ -1,6 +1,3 @@
-;; Fonts
-(set-frame-font "FiraCode Nerd Font Mono 14" nil t)
-
 ;; Line numbers
 (setq-default display-line-numbers 'relative)
 (setq-default display-line-numbers-width 3)
@@ -30,14 +27,17 @@
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
 
+;; I press this to often
+(global-unset-key (kbd "C-x C-c"))
+
 ;; ESC is ESC
 (define-key minibuffer-local-map [escape]
-            'minibuffer-keyboard-quit)
+            'abort-minibuffers)
 (define-key minibuffer-local-ns-map [escape]
-            'minibuffer-keyboard-quit)
+            'abort-minibuffers)
 (define-key minibuffer-local-completion-map [escape]
-            'minibuffer-keyboard-quit)
+            'abort-minibuffers)
 (define-key minibuffer-local-must-match-map [escape]
-            'minibuffer-keyboard-quit)
+            'abort-minibuffers)
 (define-key minibuffer-local-isearch-map [escape]
-            'minibuffer-keyboard-quit)
+            'abort-minibuffers)
