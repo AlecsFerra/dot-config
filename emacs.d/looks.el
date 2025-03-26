@@ -19,11 +19,12 @@
   :hook
   (after-init . doom-modeline-mode))
 
-(setq banner-directory "~/.emacs.d/banners/")
+(setq banner-path "~/.emacs.d/banners/GNUEmacs.png")
 (use-package dashboard
   :custom
   (dashboard-banner-logo-title "I can't believe it's not VIM!")
-  (dashboard-startup-banner (concat banner-directory "bcc.txt"))
+  (dashboard-startup-banner banner-path)
+  (dashboard-image-banner-max-height 252)
   (dashboard-page-separator "\n")
   (dashboard-display-icons-p t)
   (dashboard-icon-type 'nerd-icons)
