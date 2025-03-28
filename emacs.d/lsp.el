@@ -58,6 +58,7 @@
   :custom
   (copilot-install-dir (expand-file-name "copilot" emacs-cache-dir))
   (copilot-indent-offset-warning-disable t)
+  (copilot-version nil)
   :config
   (unless (file-exists-p (copilot-server-executable))
     (copilot-install-server))

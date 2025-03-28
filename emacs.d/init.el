@@ -5,15 +5,31 @@
     (setq default-directory orig-dir)))
 (advice-add 'find-file :around #'alecs/default-directory)
 
-;; Run gc when out of focus
-(if (boundp 'after-focus-change-function)
-    (add-function :after after-focus-change-function
-                  (lambda () (unless (frame-focus-state)
-                          (garbage-collect))))
-  (add-hook 'after-focus-change-function
-            'garbage-collect))
-
 (set-language-environment "UTF-8") ; Force UTF-8
+
+;; Line numbers
+(setq-default display-line-numbers 'relative)
+(setq-default display-line-numbers-width 3)
+(set-fringe-mode '(0 . nil))
+
+;; Tabs -> spaces
+(setq-default tab-width 2)
+(setq-default indent-tabs-mode nil)
+(setq-default indent-line-function 'insert-tab)
+
+(electric-pair-mode t) ; Auto parens
+
+;; Remove whitespaces on save
+(add-hook 'before-save-hook 'whitespace-cleanup)
+
+;; Scrolling
+(pixel-scroll-precision-mode)
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
+(setq auto-window-vscroll nil)
+
+;; I press this to often
+(global-unset-key (kbd "C-x C-c"))
 
 (require 'package)
 (add-to-list 'package-archives
@@ -22,6 +38,7 @@
 (require 'use-package)
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
+(setq use-package-always-defer t)
 
 (package-initialize)
 
@@ -33,7 +50,6 @@
 (defun alecs/load-config-file (file)
   (load (expand-file-name file "~/.emacs.d/")))
 
-(alecs/load-config-file "basic")
 (alecs/load-config-file "evil")
 (alecs/load-config-file "looks")
 (alecs/load-config-file "completion")

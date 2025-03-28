@@ -1,5 +1,6 @@
 #XDG
 source ~/.config/zsh/xdg_dirs.zsh
+source ~/.config/zsh/alias.zsh
 
 # ZSH config
 # History

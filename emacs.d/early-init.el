@@ -4,9 +4,12 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 
+(add-to-list 'default-frame-alist
+             '(ns-appearance . light))
+(add-to-list 'default-frame-alist
+             '(ns-transparent-titlebar . t))
+(setq ns-use-proxy-icon nil)
 (setq frame-title-format "%b - emacs")
-
-(setq gc-cons-threshold (* 100 1024 1024))
 
 (defun alecs/make-dir (dir)
   "Creates directory if non already present"
@@ -54,3 +57,32 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
+
+(setq custom-safe-themes t)
+
+;; Vertico suggestions
+(setq-default enable-recursive-minibuffers t)
+(setq-default minibuffer-prompt-properties
+              '(read-only t cursor-intangible t face minibuffer-prompt))
+
+;; Run gc when out of focus
+(if (boundp 'after-focus-change-function)
+    (add-function :after after-focus-change-function
+                  (lambda () (unless (frame-focus-state)
+                          (garbage-collect))))
+  (add-hook 'after-focus-change-function
+            'garbage-collect))
+
+(setq ring-bell-function 'ignore)
+
+;; ESC is ESC
+(define-key minibuffer-local-map [escape]
+            'abort-minibuffers)
+(define-key minibuffer-local-ns-map [escape]
+            'abort-minibuffers)
+(define-key minibuffer-local-completion-map [escape]
+            'abort-minibuffers)
+(define-key minibuffer-local-must-match-map [escape]
+            'abort-minibuffers)
+(define-key minibuffer-local-isearch-map [escape]
+            'abort-minibuffers)
