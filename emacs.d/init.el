@@ -16,16 +16,22 @@
 (set-language-environment "UTF-8") ; Force UTF-8
 
 (require 'package)
-(require 'use-package-ensure)
-(setq use-package-always-ensure t)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
+
+(require 'use-package)
+(require 'use-package-ensure)
+(setq use-package-always-ensure t)
+
 (package-initialize)
+
+(use-package exec-path-from-shell
+  :demand t
+  :config
+  (exec-path-from-shell-initialize))
 
 (defun alecs/load-config-file (file)
   (load (expand-file-name file "~/.emacs.d/")))
-
-; (setq use-package-compute-statistics t)
 
 (alecs/load-config-file "basic")
 (alecs/load-config-file "evil")

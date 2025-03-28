@@ -13,14 +13,6 @@
   :hook
   (magit-mode . magit-delta-mode))
 
-(use-package git-gutter
-  :custom
-  (git-gutter:modified-sign "▋")
-  (git-gutter:added-sign    "▋")
-  (git-gutter:deleted-sign  "▋")
-  :config
-  (global-git-gutter-mode t))
-
 ;; Piece of shit used by magit
 (use-package transient
   :custom
@@ -30,3 +22,13 @@
   :bind
   (:map transient-base-map
         ("<escape>" . transient-quit-one)))
+
+(use-package git-gutter
+  :demand t
+  :custom
+  (git-gutter:modified-sign "▋")
+  (git-gutter:added-sign    "▋")
+  (git-gutter:deleted-sign  "▋")
+  :config
+  (set-face-foreground 'git-gutter:modified "dodger blue")
+  (global-git-gutter-mode t))

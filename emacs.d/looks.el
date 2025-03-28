@@ -1,6 +1,7 @@
 (set-frame-font "Berkeley Mono 14" nil t)
 
 (use-package catppuccin-theme
+  :demand t
   :custom
   (catppuccin-flavor 'latte)
   :config
@@ -21,6 +22,7 @@
 
 (setq banner-path "~/.emacs.d/banners/GNUEmacs.png")
 (use-package dashboard
+  :demand t
   :custom
   (dashboard-banner-logo-title "I can't believe it's not VIM!")
   (dashboard-startup-banner banner-path)
