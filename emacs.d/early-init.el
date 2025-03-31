@@ -11,14 +11,9 @@
 (setq ns-use-proxy-icon nil)
 (setq frame-title-format "%b - emacs")
 
-(defun alecs/make-dir (dir)
-  "Creates directory if non already present"
-  (unless (file-exists-p dir)
-    (make-directory dir t)))
-
 (defvar emacs-cache-dir
   (expand-file-name "~/.cache/emacs/"))
-(alecs/make-dir emacs-cache-dir)
+(make-directory emacs-cache-dir t)
 
 (setq custom-file
       (expand-file-name "custom.el" emacs-cache-dir))
@@ -30,21 +25,23 @@
       (expand-file-name "auto-save-list" emacs-cache-dir))
 (setq package-user-dir
       (expand-file-name "elpa/" emacs-cache-dir))
+(setq project-list-file
+      (expand-file-name "projects" emacs-cache-dir))
 
 (setq eln-cache-dir
       (expand-file-name "eln-cache/" emacs-cache-dir))
-(alecs/make-dir eln-cache-dir)
+(make-directory eln-cache-dir t)
 (setq native-comp-eln-load-path (list eln-cache-dir))
 
 (setq backup-dir
       (expand-file-name "backups/" emacs-cache-dir))
-(alecs/make-dir backup-dir)
+(make-directory backup-dir t)
 (setq backup-directory-alist
       `(("." . ,backup-dir)))
 
 (setq auto-save-dir
       (expand-file-name "auto-saves/" emacs-cache-dir))
-(alecs/make-dir auto-save-dir)
+(make-directory auto-save-dir t)
 (setq auto-save-file-name-transforms
       `((".*" ,auto-save-dir t)))
 
