@@ -30,6 +30,7 @@
   (TeX-source-correlate-mode t)
   (TeX-source-correlate-method 'synctex)
   (TeX-source-correlate-start-server nil)
+  (TeX-show-comilation nil)
   ;; Reload buffer on compilation
   :hook
   (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)

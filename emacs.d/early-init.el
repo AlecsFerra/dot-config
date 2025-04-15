@@ -4,6 +4,8 @@
 (tool-bar-mode -1)
 (tooltip-mode -1)
 
+(setq custom-safe-themes t)
+
 (add-to-list 'default-frame-alist
              '(ns-appearance . light))
 (add-to-list 'default-frame-alist
@@ -54,8 +56,6 @@
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)
-
-(setq custom-safe-themes t)
 
 ;; Vertico suggestions
 (setq-default enable-recursive-minibuffers t)

@@ -62,7 +62,6 @@
   :config
   (unless (file-exists-p (copilot-server-executable))
     (copilot-install-server))
-  (add-to-list 'copilot-indentation-alist '(prog-mode 2))
   :bind
   (:map copilot-completion-map
         ("<tab>" . copilot-accept-completion))
