@@ -43,8 +43,9 @@
           embark-quit-after-action)
       (embark-dwim arg)))
   :bind
-  (("C-." . embark-act)
-   ("C-c" . alecs/embark-kill)))
+  (:map vertico-map
+        ("C-." . embark-act)
+        ("C-c" . alecs/embark-kill)))
 
 (use-package embark-consult
   :hook
