@@ -31,6 +31,8 @@
 ;; I press this to often
 (global-unset-key (kbd "C-x C-c"))
 
+(setq package-check-signature nil)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
@@ -55,3 +57,4 @@
 (alecs/load-config-file "completion")
 (alecs/load-config-file "lsp")
 (alecs/load-config-file "git")
+(alecs/load-config-file "misc")

@@ -1,6 +1,9 @@
 (when (member "Berkeley Mono" (font-family-list))
   (set-frame-font "Berkeley Mono" nil t))
 
+;; (when (member "Kelmscott Mono" (font-family-list))
+;;   (set-frame-font "Kelmscott Mono" nil t))
+
 (defun alecs/compute-font-size ()
   (let* ((attrs (car (display-monitor-attributes-list)))
          (width (nth 3 (assq 'geometry attrs))))
@@ -54,7 +57,3 @@
                       (display-line-numbers-mode -1)))
   :config
   (dashboard-setup-startup-hook))
-
-(use-package rainbow-delimiters
-  :hook
-  (prog-mode . rainbow-delimiters-mode))

@@ -27,6 +27,8 @@
       (expand-file-name "auto-save-list" emacs-cache-dir))
 (setq package-user-dir
       (expand-file-name "elpa/" emacs-cache-dir))
+(setq package-user-dir
+      (expand-file-name "elpa/gnupg" emacs-cache-dir))
 (setq project-list-file
       (expand-file-name "projects" emacs-cache-dir))
 

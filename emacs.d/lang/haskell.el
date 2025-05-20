@@ -1,9 +1,14 @@
-(use-package haskell-mode
-  :hook
-  (haskell-mode . interactive-haskell-mode))
+(use-package haskell-ts-mode
+  :ensure t
+  :custom
+  (haskell-ts-font-lock-level 4))
+
+(use-package consult-hoogle
+  :bind
+  (:map evil-normal-state-map
+        ("<leader>hh" . consult-hoogle)))
 
 (use-package lsp-haskell
-  :after haskell-mode)
+  :after haskell-ts-mode)
   ;; :hook
-  ;; (haskell-mode . lsp-deferred)
-  ;; (haskell-literate-mode . lsp-deferred))
+  ;; (haskell-ts-mode . lsp-deferred))

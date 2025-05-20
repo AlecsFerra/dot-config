@@ -41,6 +41,13 @@
   (add-to-list 'evil-collection-mode-list 'dired)
   (evil-collection-init))
 
+(use-package evil-numbers
+  :after evil
+  :bind
+  (:map evil-normal-state-map
+        ("C-a" . evil-numbers/inc-at-pt)
+        ("C-x" . evil-numbers/dec-at-pt)))
+
 (use-package undo-tree
   :demand t
   :after evil

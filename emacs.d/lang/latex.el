@@ -21,8 +21,10 @@
   (TeX-auto-save t)
   (TeX-save-query nil)
   ;; Hidden files
-  (TeX-auto-local ".auctex-auto")
-  (TeX-style-local ".auctex-style")
+  (TeX-auto-local
+   (expand-file-name ".acutex-auto/" emacs-cache-dir))
+  (TeX-style-local
+   (expand-file-name ".auctex-style/" emacs-cache-dir))
   ;; Show preview in pdf tools
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
