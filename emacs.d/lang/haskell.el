@@ -1,14 +1,22 @@
-(use-package haskell-ts-mode
-  :ensure t
+(use-package haskell-mode
   :custom
-  (haskell-ts-font-lock-level 4))
+  (haskell-ts-use-indent nil)
+  :hook
+  (haskell-mode . interactive-haskell-mode))
 
-(use-package consult-hoogle
-  :bind
-  (:map evil-normal-state-map
-        ("<leader>hh" . consult-hoogle)))
+(use-package haskell-ts-mode
+  :mode "\\.hs\\'"
+  :hook
+  (haskell-ts-mode . interactive-haskell-mode))
 
 (use-package lsp-haskell
-  :after haskell-ts-mode)
-  ;; :hook
-  ;; (haskell-ts-mode . lsp-deferred))
+  :disabled t
+  :after haskell-ts-mode
+  :hook
+  (haskell-ts-mode . lsp-deferred))
+
+(use-package consult-hoogle
+  :general
+  (alecs/leader
+    :keymaps 'haskell-ts-mode-map
+    "hh" #'consult-hoogle))

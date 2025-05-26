@@ -6,9 +6,10 @@
   (lsp-enable-symbol-highlighting nil)
   (lsp-modeline-diagnostics-enable nil)
   (lsp-session-file (expand-file-name ".lsp-session-v1" emacs-cache-dir))
-  :bind
-  (:map evil-normal-state-map
-        ("<leader>ca" . lsp-execute-code-action)))
+  :general
+  (alecs/leader
+    :keymaps 'lsp-mode-map
+    "c a" #'lsp-execute-code-action))
 
 (use-package lsp-ui
   :after lsp-mode
@@ -22,26 +23,28 @@
   (lsp-ui-doc-show-with-mouse nil)
   :config
   (lsp-ui-doc-frame-mode)
-  :bind
-  (:map lsp-ui-doc-frame-mode-map
-        ("q" . nil))
-  (:map evil-normal-state-map
-        ("K" . lsp-ui-doc-glance)))
+  :general
+  (:keymaps 'lsp-ui-doc-frame-mode-map
+            "q" nil)
+  (:states 'normal
+           :keymaps 'lsp-mode-map
+           "K" #'lsp-ui-doc-glance)
+  :hook
+  (lsp-mode . lsp-ui-mode))
 
 (use-package company
   :after evil
-  :demand t
   :custom
   (ess-r--no-company-meta t)
   (company-tooltip-scrollbar-width 0)
-  :config
-  (global-company-mode)
-  :bind
-  (:map company-active-map
-        ("C-j"   . company-select-next)
-        ("C-k"   . company-select-previous))
-  (:map evil-insert-state-map
-        ("<backtab>" . company-complete)))
+  :general
+  (:keymaps 'company-active-map
+            "C-j" #'company-select-next
+            "C-k" #'company-select-previous)
+  (:states 'insert
+           "<backtab>" #'company-complete)
+  :hook
+  (prog-mode . company-mode))
 
 (use-package company-box
   :after company
@@ -62,11 +65,32 @@
   :config
   (unless (file-exists-p (copilot-server-executable))
     (copilot-install-server))
-  :bind
-  (:map copilot-completion-map
-        ("<tab>" . copilot-accept-completion))
+  :general
+  (:keymaps 'copilot-completion-map
+            "<tab>" #'copilot-accept-completion-by-line)
   :hook
   (prog-mode . copilot-mode))
+
+(use-package treesit
+  :ensure nil ;; Built-in package
+  :config
+  (setq treesit-grammar-dir
+        (expand-file-name "tree-sitter/" emacs-cache-dir))
+  (make-directory treesit-grammar-dir t)
+  (setq treesit-extra-load-path (list treesit-grammar-dir))
+
+  (setq treesit-language-source-alist
+        '((haskell "https://github.com/tree-sitter/tree-sitter-haskell")
+          (html "https://github.com/tree-sitter/tree-sitter-html")
+          (json "https://github.com/tree-sitter/tree-sitter-json")))
+
+  (dolist (lang (mapcar #'car treesit-language-source-alist))
+    (unless (treesit-language-available-p lang)
+      (treesit-install-language-grammar lang treesit-grammar-dir)))
+
+  (add-to-list 'major-mode-remap-alist '(haskell-mode . haskell-ts-mode))
+  (add-to-list 'major-mode-remap-alist '(html-mode    . html-ts-mode))
+  (add-to-list 'major-mode-remap-alist '(json-mode    . json-ts-mode)))
 
 (setq langs '("haskell" "latex" "agda"))
 (dolist (file langs)

@@ -1,11 +1,12 @@
 (defun alecs/agda2-mode-start ()
-  "Load the agda-mode package and start the agda2-mode and loads the file."
+  "Load the agda-mode package, enable agda2-mode, and open the file."
   (interactive)
   (load-file (string-trim (shell-command-to-string "agda-mode locate")))
   (agda2-mode))
 
 (use-package agda2-mode
   :if (executable-find "agda-mode")
-  :ensure nil ; Provided with loadfile
+  :ensure nil ; Installed with Agda
   :commands agda2-mode
-  :mode ("\\.agda\\'" . alecs/agda2-mode-start))
+  :init
+  (add-to-list 'auto-mode-alist '("\\.agda\\'" . alecs/agda2-mode-start)))

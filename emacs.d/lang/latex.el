@@ -1,7 +1,6 @@
 (use-package flyspell
   :custom
   (flyspell-issue-message-flag nil)
-  ; (ispell-program-name "enchant-2")
   (ispell-dictionary "en_US")
   :hook
   (tex-mode   . flyspell-mode)
@@ -9,9 +8,10 @@
 
 (use-package flyspell-correct
   :after flyspell
-  :bind
-  (:map evil-normal-state-map
-        ("<leader>cg" . flyspell-correct-wrapper)))
+  :general
+  (alecs/leader
+    :keymaps 'flyspell-mode-map
+    "cg" #'flyspell-correct-wrapper))
 
 (use-package auctex
   :custom
@@ -37,12 +37,12 @@
   :hook
   (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
   (LaTeX-mode . auto-fill-mode)
-  :bind
-  (:map evil-normal-state-map
-        ("<leader>cc" . TeX-command-run-all)))
+  :general
+  (alecs/leader
+    :keymaps 'LaTeX-mode-map
+    "cc" #'TeX-command-run-all))
 
 (use-package lsp-latex
-  :disabled
   :hook
   (LaTeX-mode . lsp-deferred)
   (bibtex-mode . lsp-deferred))

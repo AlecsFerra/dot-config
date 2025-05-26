@@ -1,8 +1,7 @@
 (when (member "Berkeley Mono" (font-family-list))
   (set-frame-font "Berkeley Mono" nil t))
 
-;; (when (member "Kelmscott Mono" (font-family-list))
-;;   (set-frame-font "Kelmscott Mono" nil t))
+(setq banner-path "~/.emacs.d/banners/MetalEmacs.png")
 
 (defun alecs/compute-font-size ()
   (let* ((attrs (car (display-monitor-attributes-list)))
@@ -11,17 +10,13 @@
      ((> width 2000) 160)
      (t 110))))
 
-(add-hook 'window-setup-hook
-          (lambda ()
-            (set-face-attribute
-             'default nil
-             :height (alecs/compute-font-size))))
+(set-face-attribute 'default nil
+                    :height (alecs/compute-font-size))
 
 (use-package catppuccin-theme
-  :demand t
   :custom
   (catppuccin-flavor 'latte)
-  :config
+  :init
   (load-theme 'catppuccin))
 
 ;; Run this command to get the required icons.
@@ -37,9 +32,7 @@
   :hook
   (after-init . doom-modeline-mode))
 
-(setq banner-path "~/.emacs.d/banners/MetalEmacs.png")
 (use-package dashboard
-  :demand t
   :custom
   (dashboard-banner-logo-title "I can't believe it's not VIM!")
   (dashboard-startup-banner banner-path)
@@ -55,5 +48,5 @@
   :hook
   (dashboard-mode . (lambda ()
                       (display-line-numbers-mode -1)))
-  :config
+  :init
   (dashboard-setup-startup-hook))

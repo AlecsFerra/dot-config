@@ -2,26 +2,8 @@
   :custom
   (evil-shift-width tab-width)
   (evil-want-keybinding nil)
-  :config
-  (evil-set-leader 'normal " ")
-  :hook
-  (after-init . evil-mode)
-
-  :bind
-  (:map evil-insert-state-map
-        ("C-/"        . ignore))
-
-  (:map evil-visual-state-map
-        ("C-/"        . comment-dwim))
-
-  (:map evil-normal-state-map
-        ("C-/"        . comment-line)
-        ("<leader>eb" . eval-buffer)
-        ("<leader>ee" . eval-last-sexp)
-        ("<leader>bc" . (lambda ()
-                          (interactive)
-                          (kill-buffer (current-buffer))))
-        ("<leader>t"  . alecs/toggle-term)))
+  :init
+  (evil-mode t))
 
 (defun alecs/toggle-term ()
   "Inspired by https://gist.github.com/msoeken/4b2e3ee07b7252f8cb99"
@@ -34,34 +16,50 @@
 
 (use-package evil-collection
   :after evil
-  :demand t
   :custom
   (evil-collection-key-blacklist '("SPC"))
+  :init
+  (evil-collection-init)
+  (add-to-list 'evil-collection-mode-list 'dired))
+
+(use-package general
+  :after evil
+  :preface
+  (general-create-definer alecs/leader
+    :states '(normal visual)
+    :prefix "SPC"
+    :global-prefix "C-SPC")
   :config
-  (add-to-list 'evil-collection-mode-list 'dired)
-  (evil-collection-init))
+  (general-evil-setup t)
+  (alecs/leader
+    "eb" #'eval-buffer
+    "ee" #'eval-last-sexp
+    "bc" (lambda ()
+           (interactive)
+           (kill-buffer (current-buffer)))
+    "t"  #'alecs/toggle-term))
 
 (use-package evil-numbers
   :after evil
-  :bind
-  (:map evil-normal-state-map
-        ("C-a" . evil-numbers/inc-at-pt)
-        ("C-x" . evil-numbers/dec-at-pt)))
+  :general
+  (:states '(normal visual)
+           "C-a" #'evil-numbers/inc-at-pt
+           "C-x" #'evil-numbers/dec-at-pt))
 
 (use-package undo-tree
-  :demand t
   :after evil
   :custom
-  (undo-tree-history-directory-alist `(("." . ,(expand-file-name "undo/" emacs-cache-dir))))
+  (undo-tree-history-directory-alist
+   `(("." . ,(expand-file-name "undo/" emacs-cache-dir))))
   (undo-tree-visualizer-relative-timestamps t)
   :init
-  ;; For some reason undo tree refuses to start if the original emacs
-  ;; keybinding for comments is overriden
+  ;; Patch undo-tree override logic
   (advice-add 'undo-tree-overridden-undo-bindings-p
               :override (lambda () nil))
-  :config
-  (evil-set-undo-system 'undo-tree)
   (global-undo-tree-mode t)
-  :bind
-  (:map evil-normal-state-map
-        ("<leader>u" . undo-tree-visualize)))
+  (evil-set-undo-system 'undo-tree)
+  :general
+  (alecs/leader
+    "u" #'undo-tree-visualize)
+  (:keymaps 'undo-tree-visualizer-mode-map
+            "<escape>" #'quit-window))

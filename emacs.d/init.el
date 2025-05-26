@@ -45,8 +45,7 @@
 (package-initialize)
 
 (use-package exec-path-from-shell
-  :demand t
-  :config
+  :init
   (exec-path-from-shell-initialize))
 
 (defun alecs/load-config-file (file)
