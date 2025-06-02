@@ -1,17 +1,24 @@
-(when (member "Berkeley Mono" (font-family-list))
-  (set-frame-font "Berkeley Mono" nil t))
-
-(setq banner-path "~/.emacs.d/banners/MetalEmacs.png")
-
 (defun alecs/compute-font-size ()
   (let* ((attrs (car (display-monitor-attributes-list)))
          (width (nth 3 (assq 'geometry attrs))))
     (cond
+     ((> width 3000) 180)
      ((> width 2000) 160)
+     ((> width 1000) 120)
      (t 110))))
 
-(set-face-attribute 'default nil
-                    :height (alecs/compute-font-size))
+(defun alecs/set-frame-font (&optional font-family font-height)
+  (setq font-family (or font-family "Berkeley Mono"))
+  (let* ((size (or font-height (alecs/compute-font-size)))
+         (font-size (/ (float size) 10))
+         (font-string (format "%s-%d" font-family font-size)))
+    (add-to-list 'default-frame-alist `(font . ,font-string))
+    (set-frame-font font-string nil t)))
+
+(alecs/set-frame-font)
+
+(setq banner-path (expand-file-name "banners/MetalEmacs.png"
+                                    user-emacs-directory))
 
 (use-package catppuccin-theme
   :custom
@@ -19,8 +26,6 @@
   :init
   (load-theme 'catppuccin))
 
-;; Run this command to get the required icons.
-;; (nerd-icons-install-fonts)
 (use-package doom-modeline
   :custom
   (doom-modeline-hud t)

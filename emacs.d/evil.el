@@ -37,7 +37,16 @@
     "bc" (lambda ()
            (interactive)
            (kill-buffer (current-buffer)))
-    "t"  #'alecs/toggle-term))
+    "t"  #'alecs/toggle-term)
+  (general-define-key
+   :states 'visual
+   "C-/" #'comment-dwim)
+  (general-define-key
+   :states 'normal
+   "C-/" #'comment-line)
+  (general-define-key
+   :states 'insert
+   "C-/" #'ignore))
 
 (use-package evil-numbers
   :after evil
@@ -46,20 +55,6 @@
            "C-a" #'evil-numbers/inc-at-pt
            "C-x" #'evil-numbers/dec-at-pt))
 
-(use-package undo-tree
-  :after evil
-  :custom
-  (undo-tree-history-directory-alist
-   `(("." . ,(expand-file-name "undo/" emacs-cache-dir))))
-  (undo-tree-visualizer-relative-timestamps t)
-  :init
-  ;; Patch undo-tree override logic
-  (advice-add 'undo-tree-overridden-undo-bindings-p
-              :override (lambda () nil))
-  (global-undo-tree-mode t)
-  (evil-set-undo-system 'undo-tree)
-  :general
-  (alecs/leader
-    "u" #'undo-tree-visualize)
-  (:keymaps 'undo-tree-visualizer-mode-map
-            "<escape>" #'quit-window))
+(use-package evil-surround
+  :config
+  (global-evil-surround-mode t))

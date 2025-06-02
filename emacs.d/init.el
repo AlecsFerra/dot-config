@@ -8,7 +8,7 @@
 (set-language-environment "UTF-8") ; Force UTF-8
 
 ;; Line numbers
-(setq-default display-line-numbers 'relative)
+(setq-default display-line-numbers t)
 (setq-default display-line-numbers-width 3)
 (set-fringe-mode '(0 . nil))
 
@@ -49,11 +49,12 @@
   (exec-path-from-shell-initialize))
 
 (defun alecs/load-config-file (file)
-  (load (expand-file-name file "~/.emacs.d/")))
+  (load (expand-file-name file user-emacs-directory)))
 
-(alecs/load-config-file "evil")
-(alecs/load-config-file "looks")
-(alecs/load-config-file "completion")
-(alecs/load-config-file "lsp")
-(alecs/load-config-file "git")
-(alecs/load-config-file "misc")
+(dolist (file '("evil"
+                "looks"
+                "completion"
+                "lsp"
+                "git"
+                "misc"))
+  (alecs/load-config-file file))

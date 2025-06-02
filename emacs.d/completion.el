@@ -9,7 +9,7 @@
 (use-package vertico
   :custom
   (vertico-cycle t)
-  (vertico-resize nil)
+  (vertico-resize 0)
   :init
   (vertico-mode t)
   :general
@@ -27,38 +27,46 @@
   (alecs/leader
     "SPC" #'consult-buffer))
 
-(use-package embark
+(use-package embark-consult
   :after consult
-  :commands (alecs/embark-kill)
-  :config
-  (defun alecs/embark-kill (&optional arg)
-    "Kill buffer or remove file from recentf."
-    (interactive "P")
-    (let ((embark-default-action-overrides '((buffer . kill-buffer)
-                                              (file . embark-recentf-remove)))
-          (embark-pre-action-hook (assq-delete-all 'kill-buffer
-                                                    embark-pre-action-hooks))
-          embark-quit-after-action)
-      (embark-dwim arg)))
   :general
   (:keymaps 'vertico-map
             "C-." #'embark-act
-            "C-c" #'alecs/embark-kill))
-
-(use-package embark-consult
-  :after embark
+            "C-c" #'alecs/embark-kill)
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package affe
-  :after consult
+  :after (vertico orderless)
   :general
   (alecs/leader
     "sf" #'affe-find
     "sg" #'affe-grep))
 
 (use-package consult-flycheck
-  :after (consult flycheck)
+  :after flycheck
   :general
   (alecs/leader
     "se" #'consult-flycheck))
+
+(use-package company
+  :custom
+  (ess-r--no-company-meta t)
+  (company-tooltip-scrollbar-width 0)
+  :general
+  (:keymaps 'company-active-map
+            "C-j" #'company-select-next
+            "C-k" #'company-select-previous)
+  (:states 'insert
+           "<enter>" #'company-complete)
+  :hook
+  (prog-mode . company-mode))
+
+(use-package company-box
+  :after company
+  :hook (company-mode . company-box-mode)
+  :custom
+  (company-box-doc-enable t)
+  (company-box-scrollbar nil)
+  :hook
+  (company-mode . company-box-mode))

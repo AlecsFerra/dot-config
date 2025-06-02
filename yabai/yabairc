@@ -24,7 +24,7 @@ yabai -m config layout bsp
 yabai -m config window_placement first_child
 yabai -m config window_placement second_child
 
-GAPS=10
+GAPS=5
 yabai -m config top_padding    $GAPS
 yabai -m config bottom_padding $GAPS
 yabai -m config left_padding   $GAPS
