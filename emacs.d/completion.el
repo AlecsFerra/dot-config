@@ -25,7 +25,8 @@
   (consult-buffer-filter '("^ " "\*.*\*" "magit.*"))
   :general
   (alecs/leader
-    "SPC" #'consult-buffer))
+    "SPC" #'consult-buffer
+    "se" #'consult-flymake))
 
 (use-package embark-consult
   :after consult
@@ -42,12 +43,6 @@
   (alecs/leader
     "sf" #'affe-find
     "sg" #'affe-grep))
-
-(use-package consult-flycheck
-  :after flycheck
-  :general
-  (alecs/leader
-    "se" #'consult-flycheck))
 
 (use-package company
   :custom

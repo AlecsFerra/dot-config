@@ -1,36 +1,34 @@
-(use-package flycheck)
+(use-package flymake
+  :hook
+  (prog-mode . flymake-mode))
 
 (use-package lsp-mode
-  :commands (lsp lsp-deferred)
   :custom
-  (lsp-enable-symbol-highlighting nil)
-  (lsp-modeline-diagnostics-enable nil)
   (lsp-session-file (expand-file-name ".lsp-session-v1" emacs-cache-dir))
+  (lsp-headerline-breadcrumb-enable nil)
+  (lsp-eldoc-render-all t)
   :general
   (alecs/leader
     :keymaps 'lsp-mode-map
-    "c a" #'lsp-execute-code-action))
+    "ca" #'lsp-execute-code-action
+    "cr" #'lsp-rename
+    "cf" #'lsp-format-buffer
+    "cd" #'lsp-find-definition
+    "cR" #'lsp-find-references))
 
-(use-package lsp-ui
-  :after lsp-mode
-  :commands lsp-ui-mode
+(setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
+
+(use-package eldoc-box
   :custom
-  (lsp-headerline-breadcrumb-enable nil)
-  (lsp-eldoc-enable-hover nil)
-  (lsp-ui-sideline-show-diagnostics t)
-  (lsp-ui-sideline-show-code-actions t)
-  (lsp-ui-sideline-delay 0)
-  (lsp-ui-doc-show-with-mouse nil)
-  :config
-  (lsp-ui-doc-frame-mode)
+  (eldoc-box-max-pixel-width 500)
+  (eldoc-box-max-lines 20)
+  (eldoc-box-clear-with-C-g t)
+  (eldoc-box-position-function #'eldoc-box--position-at-point)
+  ;; Eldoc specific settings
   :general
-  (:keymaps 'lsp-ui-doc-frame-mode-map
-            "q" nil)
   (:states 'normal
-           :keymaps 'lsp-mode-map
-           "K" #'lsp-ui-doc-glance)
-  :hook
-  (lsp-mode . lsp-ui-mode))
+           :keymaps 'override
+           "K" #'eldoc-box-help-at-point))
 
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el"
@@ -39,7 +37,7 @@
   :custom
   (copilot-install-dir (expand-file-name "copilot" emacs-cache-dir))
   (copilot-indent-offset-warning-disable t)
-  (copilot-max-char-waring-disable t)
+  (copilot-max-char-warning-disable t)
   (copilot-version nil)
   :config
   (unless (file-exists-p (copilot-server-executable))

@@ -10,10 +10,12 @@
   (haskell-ts-mode . interactive-haskell-mode))
 
 (use-package lsp-haskell
-  :disabled t
-  :after haskell-ts-mode
+  :init
+  (setq lsp-haskell-server-path "haskell-language-server-wrapper")
   :hook
-  (haskell-ts-mode . lsp-deferred))
+  (haskell-ts-mode . lsp-deferred)
+  (haskell-mode . lsp-deferred))
+
 
 (use-package consult-hoogle
   :general

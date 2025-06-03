@@ -1,3 +1,9 @@
+(use-package lsp-latex
+  :hook
+  (LaTeX-mode . lsp-deferred)
+  (bibtex-mode . lsp-deferred))
+
+
 (use-package flyspell
   :custom
   (flyspell-issue-message-flag nil)
@@ -42,11 +48,6 @@
   (alecs/leader
     :keymaps 'LaTeX-mode-map
     "cc" #'TeX-command-run-all))
-
-(use-package lsp-latex
-  :hook
-  (LaTeX-mode . lsp-deferred)
-  (bibtex-mode . lsp-deferred))
 
 (use-package pdf-tools
   :after evil-collection
