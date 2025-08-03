@@ -48,6 +48,10 @@
   :custom
   (ess-r--no-company-meta t)
   (company-tooltip-scrollbar-width 0)
+  :config
+  (setq company-frontends
+        (remove #'company-echo-metadata-frontend
+                company-frontends))
   :general
   (:keymaps 'company-active-map
             "C-j" #'company-select-next

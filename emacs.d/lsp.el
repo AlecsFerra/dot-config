@@ -1,32 +1,60 @@
 (use-package flymake
   :hook
-  (prog-mode . flymake-mode))
+  (prog-mode . flymake-mode)
+  :custom
+  (flymake-fringe-indicator-position nil)
+  :config
+  (defun alecs/eldoc-at-front (orig &rest args)
+    (apply orig args)
+    (when flymake-mode
+      (remove-hook 'eldoc-documentation-functions 'flymake-eldoc-function t)
+      (add-hook 'eldoc-documentation-functions 'flymake-eldoc-function nil t)))
+  (advice-add 'flymake-mode :around #'alecs/eldoc-at-front))
+
+
+(setq xref-prompt-for-identifier nil)
+
+(alecs/leader
+  "eb" #'eval-buffer
+  "ee" #'eval-last-sexp
+  "cf" #'indent-region)
+
+(general-define-key
+ :states 'normal
+ "gr" #'xref-find-references)
+
 
 (use-package lsp-mode
   :custom
   (lsp-session-file (expand-file-name ".lsp-session-v1" emacs-cache-dir))
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-eldoc-render-all t)
+  (lsp-diagnostics-provider :flymake)
   :general
   (alecs/leader
     :keymaps 'lsp-mode-map
     "ca" #'lsp-execute-code-action
-    "cr" #'lsp-rename
-    "cf" #'lsp-format-buffer
-    "cd" #'lsp-find-definition
-    "cR" #'lsp-find-references))
+    "cr" #'lsp-rename))
 
-(setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
+(use-package eldoc
+  :custom
+  (eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
+  (eldoc-echo-area-use-multiline-p t)
+  :config
+  (setq eldoc-display-functions
+        (delq #'eldoc-display-in-echo-area eldoc-display-functions)))
 
 (use-package eldoc-box
   :custom
   (eldoc-box-max-pixel-width 500)
-  (eldoc-box-max-lines 20)
+  (eldoc-box-max-pixel-height 200)
   (eldoc-box-clear-with-C-g t)
   (eldoc-box-position-function #'eldoc-box--position-at-point)
-  ;; Eldoc specific settings
+  :hook
+  (eldoc-box-buffer-setup . (lambda (&rest ignore)
+                              (display-line-numbers-mode -1)))
   :general
-  (:states 'normal
+  (:states '(normal visual)
            :keymaps 'override
            "K" #'eldoc-box-help-at-point))
 
@@ -44,11 +72,10 @@
     (copilot-install-server))
   :general
   (:keymaps 'copilot-completion-map
-            "<tab>"     #'copilot-accept-completion
-            "<backtab>" #'copilot-accept-completion-by-line)
-  :hook
-  (prog-mode . copilot-mode)
-  (magit-log-edit-mode . copilot-mode))
+            "<tab>"     #'copilot-accept-completion-by-line))
+  ;; :hook
+  ;; (prog-mode . copilot-mode)
+  ;; (magit-log-edit-mode . copilot-mode))
 
 (use-package treesit
   :ensure nil ;; Built-in package
@@ -72,5 +99,6 @@
 
 (dolist (file '("haskell"
                 "latex"
-                "agda"))
+                "agda"
+                "lean"))
   (alecs/load-config-file (concat "lang/" file)))

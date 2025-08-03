@@ -23,7 +23,31 @@
 (use-package catppuccin-theme
   :custom
   (catppuccin-flavor 'latte)
+  (catppuccin-highlight-matches t)
+  (catppuccin-italic-comments t)
   :init
+  (defun alecs/catppuccin-diff-face-fix (theme &rest _args)
+    "Override diff faces after Catppuccin colors are applied."
+    (when (and (eq theme 'catppuccin)
+               (eq catppuccin-flavor 'latte))
+      (let* ((ctp-text (catppuccin-color 'text))
+             (ctp-surface2 (catppuccin-color 'surface2))
+             (ctp-green (catppuccin-color 'green))
+             (ctp-red (catppuccin-color 'red))
+             (ctp-yellow (catppuccin-color 'yellow))
+             (ctp-base (catppuccin-color 'base))
+             (lighten #'catppuccin-lighten)
+             (darken #'catppuccin-darken))
+        (custom-set-faces
+         `(diff-hunk-header ((t (:foreground ,ctp-text :background ,ctp-surface2))))
+         `(diff-added ((t (:background ,(funcall lighten ctp-green 80)))))
+         `(diff-removed ((t (:background ,(funcall lighten ctp-red 80)))))
+         `(diff-indicator-added ((t (:foreground ,ctp-green))))
+         `(diff-indicator-removed ((t (:foreground ,ctp-red))))
+         `(diff-refine-added ((t (:background ,(funcall lighten ctp-green 60)))))
+         `(diff-refine-removed ((t (:background ,(funcall lighten ctp-red 60)))))
+         `(diff-refine-changed ((t (:background ,ctp-yellow :foreground ,ctp-base))))))))
+  (advice-add 'enable-theme :after #'alecs/catppuccin-diff-face-fix)
   (load-theme 'catppuccin))
 
 (use-package doom-modeline

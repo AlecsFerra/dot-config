@@ -1,7 +1,7 @@
 ;; Guess indentation for the current buffer
-(use-package dtrt-indent
-  :hook
-  (prog-mode . dtrt-indent-mode))
+;; (use-package dtrt-indent
+;;   :hook
+;;   (prog-mode . dtrt-indent-mode))
 
 (use-package rainbow-mode
   :hook
@@ -17,6 +17,7 @@
   (undo-tree-history-directory-alist
    `(("." . ,(expand-file-name "undo/" emacs-cache-dir))))
   (undo-tree-visualizer-relative-timestamps t)
+  (undo-tree-visualizer-diff t)
   :init
   ;; Patch undo-tree override logic
   (advice-add 'undo-tree-overridden-undo-bindings-p
@@ -31,9 +32,9 @@
 
 (use-package embark
   :general
-  (:keymaps 'evil-normal-state-map
-            "<return>"   #'embark-dwim
-            "<C-return>" #'embark-act))
+  (alecs/leader
+    "aa" #'embark-dwim
+    "ae" #'embark-act))
 
 (defun alecs/embark-kill (&optional arg)
   "Kill buffer or remove file from recentf."

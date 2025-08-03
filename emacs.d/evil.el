@@ -24,6 +24,8 @@
 
 (use-package general
   :after evil
+  :custom
+  (evil-maybe-remove-spaces t)
   :preface
   (general-create-definer alecs/leader
     :states '(normal visual)
@@ -32,8 +34,6 @@
   :config
   (general-evil-setup t)
   (alecs/leader
-    "eb" #'eval-buffer
-    "ee" #'eval-last-sexp
     "bc" (lambda ()
            (interactive)
            (kill-buffer (current-buffer)))
