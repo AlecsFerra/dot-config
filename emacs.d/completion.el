@@ -59,7 +59,8 @@
   (:states 'insert
            "<enter>" #'company-complete)
   :hook
-  (prog-mode . company-mode))
+  (prog-mode . company-mode)
+  (org-mode  . company-mode))
 
 (use-package company-box
   :after company

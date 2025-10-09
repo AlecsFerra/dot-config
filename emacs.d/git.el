@@ -2,6 +2,9 @@
   :after (evil evil-collection)
   :init
   (add-to-list 'evil-collection-mode-list 'magit)
+  :config
+  (setf (car magit-status-margin) t)
+  (setf (cadddr magit-status-margin) t)
   :general
   (alecs/leader
     "gg" #'magit-status)

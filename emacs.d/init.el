@@ -56,5 +56,6 @@
                 "completion"
                 "lsp"
                 "git"
+                "org"
                 "misc"))
   (alecs/load-config-file file))

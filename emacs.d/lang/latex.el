@@ -3,22 +3,6 @@
   (LaTeX-mode . lsp-deferred)
   (bibtex-mode . lsp-deferred))
 
-
-(use-package flyspell
-  :custom
-  (flyspell-issue-message-flag nil)
-  (ispell-dictionary "en_US")
-  :hook
-  (tex-mode   . flyspell-mode)
-  (LaTeX-mode . flyspell-mode))
-
-(use-package flyspell-correct
-  :after flyspell
-  :general
-  (alecs/leader
-    :keymaps 'flyspell-mode-map
-    "cg" #'flyspell-correct-wrapper))
-
 (use-package auctex
   :custom
   (TeX-command-default "Latex")
@@ -59,7 +43,7 @@
   :init
   (add-to-list 'evil-collection-mode-list '(pdf pdf-view))
   :config
-  (pdf-tools-install t)
+  (pdf-tools-install :no-query)
   ;; Ensure PDFs open on the right
   (add-to-list 'display-buffer-alist
                '("\\.pdf\\'"

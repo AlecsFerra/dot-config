@@ -100,5 +100,6 @@
 (dolist (file '("haskell"
                 "latex"
                 "agda"
+                "proofgeneral"
                 "lean"))
   (alecs/load-config-file (concat "lang/" file)))

@@ -1,7 +1,23 @@
 ;; Guess indentation for the current buffer
-;; (use-package dtrt-indent
-;;   :hook
-;;   (prog-mode . dtrt-indent-mode))
+(use-package dtrt-indent
+  :hook
+  (prog-mode . dtrt-indent-mode))
+
+(use-package flyspell
+  :custom
+  (flyspell-issue-message-flag nil)
+  (ispell-dictionary "en_US")
+  :hook
+  (tex-mode   . flyspell-mode)
+  (org-mode   . flyspell-mode)
+  (LaTeX-mode . flyspell-mode))
+
+(use-package flyspell-correct
+  :after flyspell
+  :general
+  (alecs/leader
+    :keymaps 'flyspell-mode-map
+    "cg" #'flyspell-correct-wrapper))
 
 (use-package rainbow-mode
   :hook
