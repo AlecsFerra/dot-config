@@ -30,9 +30,9 @@
   (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
   (LaTeX-mode . auto-fill-mode)
   :general
-  (alecs/leader
-    :keymaps 'LaTeX-mode-map
-    "cc" #'TeX-command-run-all))
+  (general-define-key
+   :keymaps 'LaTeX-mode-map
+   "C-c C-c" #'TeX-command-run-all))
 
 (use-package pdf-tools
   :after evil-collection

@@ -3,6 +3,7 @@
   :init
   (add-to-list 'evil-collection-mode-list 'magit)
   :config
+  ;; Display margin indicators for commit lists
   (setf (car magit-status-margin) t)
   (setf (cadddr magit-status-margin) t)
   :general
@@ -19,9 +20,12 @@
 
 (use-package transient
   :custom
-  (transient-history-file (expand-file-name "transient/history.el" emacs-cache-dir))
-  (transient-values-file  (expand-file-name "transient/values.el" emacs-cache-dir))
-  (transient-levels-file  (expand-file-name "transient/levels.el" emacs-cache-dir))
+  (transient-history-file (expand-file-name "transient/history.el"
+                                            emacs-cache-dir))
+  (transient-values-file  (expand-file-name "transient/values.el"
+                                            emacs-cache-dir))
+  (transient-levels-file  (expand-file-name "transient/levels.el"
+                                            emacs-cache-dir))
   :general
   (:keymaps 'transient-base-map
             "<escape>" #'transient-quit-one))

@@ -27,6 +27,7 @@
   :init
   (load-theme 'catppuccin))
 
+
 (use-package doom-modeline
   :custom
   (doom-modeline-hud t)

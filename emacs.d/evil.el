@@ -8,11 +8,11 @@
 (defun alecs/toggle-term ()
   "Inspired by https://gist.github.com/msoeken/4b2e3ee07b7252f8cb99"
   (interactive)
-  (if (string= (buffer-name) "*ansi-term*")
+  (if (string= (buffer-name) "*terminal*")
       (switch-to-buffer (other-buffer (current-buffer)))
-    (if (get-buffer "*ansi-term*")
-        (switch-to-buffer "*ansi-term*")
-      (ansi-term (getenv "SHELL")))))
+    (if (get-buffer "*terminal*")
+        (switch-to-buffer "*terminal*")
+      (term (getenv "SHELL")))))
 
 (use-package evil-collection
   :after evil

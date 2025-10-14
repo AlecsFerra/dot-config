@@ -14,15 +14,19 @@
 
 (setq xref-prompt-for-identifier nil)
 
+(general-define-key
+ :keymaps 'emacs-lisp-mode-map
+ "C-c C-c" #'eval-buffer)
+
+(general-define-key
+ "C-c C-e" #'eval-last-sexp)
+
 (alecs/leader
-  "eb" #'eval-buffer
-  "ee" #'eval-last-sexp
   "cf" #'indent-region)
 
 (general-define-key
  :states 'normal
  "gr" #'xref-find-references)
-
 
 (use-package lsp-mode
   :custom
