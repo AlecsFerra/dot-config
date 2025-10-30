@@ -38,6 +38,10 @@
   ;; Patch undo-tree override logic
   (advice-add 'undo-tree-overridden-undo-bindings-p
               :override (lambda () nil))
+  (advice-add 'undo-tree-load-history :around
+              (lambda (orig-fun &rest args)
+                (let ((inhibit-message t))
+                  (apply orig-fun args))))
   (global-undo-tree-mode t)
   (evil-set-undo-system 'undo-tree)
   :general

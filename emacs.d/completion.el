@@ -38,7 +38,7 @@
   (embark-collect-mode . consult-preview-at-point-mode))
 
 (use-package affe
-  :after (vertico orderless)
+  :after vertico
   :general
   (alecs/leader
     "sf" #'affe-find

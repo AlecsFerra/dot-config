@@ -19,7 +19,19 @@
  "C-c C-c" #'eval-buffer)
 
 (general-define-key
- "C-c C-e" #'eval-last-sexp)
+ :keymaps 'override
+ "C-c C-e" (lambda ()
+             (interactive)
+             (let* ((beg (if (use-region-p)
+                             (region-beginning)
+                           (save-excursion (mark-defun) (region-beginning))))
+                    (end (if (use-region-p)
+                             (region-end)
+                           (save-excursion (mark-defun) (region-end))))
+                    (sexp (read (buffer-substring beg end)))
+                    (result (eval sexp)))
+               (deactivate-mark)
+               (message "%s" (string-trim-right (pp-to-string result))))))
 
 (alecs/leader
   "cf" #'indent-region)

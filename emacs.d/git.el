@@ -1,3 +1,9 @@
+(defun alecs/magit-display-diff-other-window (buffer)
+  (display-buffer
+   buffer (if (with-current-buffer buffer (derived-mode-p 'magit-diff-mode))
+              '(display-buffer-pop-up-window)
+            '(display-buffer-same-window))))
+
 (use-package magit
   :after (evil evil-collection)
   :init
@@ -6,6 +12,9 @@
   ;; Display margin indicators for commit lists
   (setf (car magit-status-margin) t)
   (setf (cadddr magit-status-margin) t)
+  :custom
+  (magit-save-repository-buffers 'dontask)
+  (magit-display-buffer-function #'alecs/magit-display-diff-other-window)
   :general
   (alecs/leader
     "gg" #'magit-status)

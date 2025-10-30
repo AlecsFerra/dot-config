@@ -44,15 +44,16 @@
     :unnarrowed t))
 
 (defvar org-misc-template
-  `("t" "Temporary notes" plain
-    "%?"
-    :target (file+head "temp/%<%Y%m%d%H%M%S>-${slug}.org"
-                       (alecs/join-lines
-                        "#+title: ${title}"
-                        "#+filetags: misc"))
-    :immediate-finish t
-    :jump-to-captured t
-    :unnarrowed t))
+  (let ((header (alecs/join-lines
+                 "#+title: ${title}"
+                 "#+filetags: misc")))
+    `("t" "Temporary notes" plain
+      "%?"
+      :target (file+head "temp/%<%Y%m%d%H%M%S>-${slug}.org"
+                         ,header)
+      :immediate-finish t
+      :jump-to-captured t
+      :unnarrowed t)))
 
 (defvar org-reference-template
   `("r" "Bibliography Reference" plain

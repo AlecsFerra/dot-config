@@ -7,6 +7,13 @@
 
 (set-language-environment "UTF-8") ; Force UTF-8
 
+(setq pop-up-frames nil)
+(setq ns-pop-up-frames nil)
+(customize-set-variable 'display-buffer-base-action
+  '((display-buffer-reuse-window display-buffer-same-window)
+    (reusable-frames . t)))
+(customize-set-variable 'even-window-sizes nil)
+
 ;; Line numbers
 (setq-default display-line-numbers t)
 (setq-default display-line-numbers-width 3)
