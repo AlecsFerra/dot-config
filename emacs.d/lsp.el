@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (use-package flymake
   :hook
   (prog-mode . flymake-mode)
@@ -11,27 +12,7 @@
       (add-hook 'eldoc-documentation-functions 'flymake-eldoc-function nil t)))
   (advice-add 'flymake-mode :around #'alecs/eldoc-at-front))
 
-
 (setq xref-prompt-for-identifier nil)
-
-(general-define-key
- :keymaps 'emacs-lisp-mode-map
- "C-c C-c" #'eval-buffer)
-
-(general-define-key
- :keymaps 'override
- "C-c C-e" (lambda ()
-             (interactive)
-             (let* ((beg (if (use-region-p)
-                             (region-beginning)
-                           (save-excursion (mark-defun) (region-beginning))))
-                    (end (if (use-region-p)
-                             (region-end)
-                           (save-excursion (mark-defun) (region-end))))
-                    (sexp (read (buffer-substring beg end)))
-                    (result (eval sexp)))
-               (deactivate-mark)
-               (message "%s" (string-trim-right (pp-to-string result))))))
 
 (alecs/leader
   "cf" #'indent-region)
@@ -89,9 +70,6 @@
   :general
   (:keymaps 'copilot-completion-map
             "<tab>"     #'copilot-accept-completion-by-line))
-  ;; :hook
-  ;; (prog-mode . copilot-mode)
-  ;; (magit-log-edit-mode . copilot-mode))
 
 (use-package treesit
   :ensure nil ;; Built-in package
@@ -100,12 +78,16 @@
         (expand-file-name "tree-sitter/" emacs-cache-dir))
   (make-directory treesit-grammar-dir t)
   (setq treesit-extra-load-path (list treesit-grammar-dir))
-  (setq treesit-language-source-alist
-        '((haskell  "https://github.com/tree-sitter/tree-sitter-haskell")
-          (html     "https://github.com/tree-sitter/tree-sitter-html")
-          (elisp    "https://github.com/Wilfred/tree-sitter-elisp")
-          (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-          (json     "https://github.com/tree-sitter/tree-sitter-json")))
+  (add-to-list 'treesit-language-source-alist
+               '(html     "https://github.com/tree-sitter/tree-sitter-html"))
+  (add-to-list 'treesit-language-source-alist
+               '(elisp    "https://github.com/Wilfred/tree-sitter-elisp"))
+  (add-to-list 'treesit-language-source-alist
+               '(markdown "https://github.com/ikatyang/tree-sitter-markdown"))
+  (add-to-list 'treesit-language-source-alist
+               '(json     "https://github.com/tree-sitter/tree-sitter-json"))
+  (add-to-list 'treesit-language-source-alist
+               '(haskell "https://github.com/tree-sitter/tree-sitter-haskell"))
   (dolist (lang (mapcar #'car treesit-language-source-alist))
     (unless (treesit-language-available-p lang)
       (treesit-install-language-grammar lang treesit-grammar-dir))
@@ -113,9 +95,5 @@
           (ts-mode    (intern (format "%s-ts-mode" lang))))
       (add-to-list 'major-mode-remap-alist (cons plain-mode ts-mode)))))
 
-(dolist (file '("haskell"
-                "latex"
-                "agda"
-                "proofgeneral"
-                "lean"))
+(dolist (file '("haskell" "latex" "agda" "proofgeneral" "lean" "emacslisp"))
   (alecs/load-config-file (concat "lang/" file)))

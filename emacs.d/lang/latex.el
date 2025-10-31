@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (use-package lsp-latex
   :hook
   (LaTeX-mode . lsp-deferred)
@@ -49,6 +50,7 @@
                '("\\.pdf\\'"
                  (display-buffer-in-side-window)
                  (side . right)
-                 (window-width . 0.5)
+                 (window-width . 0.44)
                  (slot . 1)
-                 (window-parameters . ((no-delete-other-windows . t))))))
+                 (window-parameters . ((no-delete-other-windows . t)
+                                       (window-preserve-selected-window . t))))))

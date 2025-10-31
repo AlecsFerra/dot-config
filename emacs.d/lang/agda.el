@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (defun alecs/agda2-mode-start ()
   "Load the agda-mode package, enable agda2-mode, and open the file."
   (interactive)

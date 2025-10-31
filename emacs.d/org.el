@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (defun alecs/org-open-at-point-or-ret ()
   (interactive)
   (if (org-in-regexp org-link-bracket-re 1)

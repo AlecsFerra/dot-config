@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (defun alecs/magit-display-diff-other-window (buffer)
   (display-buffer
    buffer (if (with-current-buffer buffer (derived-mode-p 'magit-diff-mode))
@@ -20,6 +21,26 @@
     "gg" #'magit-status)
   (:keymaps 'magit-status-mode-map
             "<escape>" #'magit-mode-bury-buffer))
+
+(use-package forge
+  :custom
+  (forge-database-file (expand-file-name "forge-database.sqlite"
+                                         emacs-cache-dir))
+  :init
+  (setq forge-add-default-bindings nil)
+  (add-to-list 'evil-collection-mode-list 'forge)
+  (with-eval-after-load 'magit
+    (require 'forge))
+  :config
+  :general
+  (alecs/leader
+    "gb" #'forge-browse
+    "gn" (lambda ()
+           (interactive)
+           (forge-pull-notifications)
+           (forge-list-notifications))))
+
+
 
 (use-package magit-delta
   :after magit
@@ -46,5 +67,17 @@
   (git-gutter:deleted-sign  "▋")
   :config
   (set-face-foreground 'git-gutter:modified "dodger blue")
+  (add-to-list 'display-buffer-alist
+               '("\\*git-gutter:diff\\*"
+                 (display-buffer-in-side-window)
+                 (window-height . 0.4)
+                 (side . bottom)
+                 (slot . 1)
+                 (window-parameters
+                  . ((no-delete-other-windows . t)))))
+  :general
+  (alecs/leader
+    "gd" #'git-gutter:popup-hunk
+    "gr" #'git-gutter:revert-hunk)
   :init
   (global-git-gutter-mode t))

@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (use-package evil
   :custom
   (evil-shift-width tab-width)
@@ -18,6 +19,7 @@
   :after evil
   :custom
   (evil-collection-key-blacklist '("SPC"))
+  :config
   :init
   (evil-collection-init)
   (add-to-list 'evil-collection-mode-list 'dired))

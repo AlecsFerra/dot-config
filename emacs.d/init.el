@@ -1,18 +1,19 @@
-;; Do not override currect directory when operning files
-(defun alecs/default-directory (orig-fun &rest args)
-  (let ((orig-dir default-directory))
-    (apply orig-fun args)
-    (setq default-directory orig-dir)))
-(advice-add 'find-file :around #'alecs/default-directory)
-
+;; -*- lexical-binding: t -*-
 (set-language-environment "UTF-8") ; Force UTF-8
 
 (setq pop-up-frames nil)
 (setq ns-pop-up-frames nil)
-(customize-set-variable 'display-buffer-base-action
-  '((display-buffer-reuse-window display-buffer-same-window)
-    (reusable-frames . t)))
-(customize-set-variable 'even-window-sizes nil)
+(setq display-buffer-base-action
+      '((display-buffer-reuse-window
+         display-buffer-same-window)
+        (reusable-frames . t)))
+(setq display-buffer-fallback-action
+      '((display-buffer--maybe-same-window
+         display-buffer-reuse-window
+         display-buffer--maybe-pop-up-frame-or-window
+         display-buffer-in-previous-window
+         display-buffer-use-some-window
+         display-buffer-at-bottom)))
 
 ;; Line numbers
 (setq-default display-line-numbers t)
@@ -38,9 +39,8 @@
 ;; I press this to often
 (global-unset-key (kbd "C-x C-c"))
 
-(setq package-check-signature nil)
-
 (require 'package)
+(setq package-check-signature nil)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 
@@ -58,11 +58,5 @@
 (defun alecs/load-config-file (file)
   (load (expand-file-name file user-emacs-directory)))
 
-(dolist (file '("evil"
-                "looks"
-                "completion"
-                "lsp"
-                "git"
-                "org"
-                "misc"))
+(dolist (file '("evil" "looks" "completion" "lsp" "git" "org" "misc"))
   (alecs/load-config-file file))

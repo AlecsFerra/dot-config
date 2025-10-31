@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (defun alecs/compute-font-size ()
   (let* ((attrs (car (display-monitor-attributes-list)))
          (width (nth 3 (assq 'geometry attrs))))
@@ -6,6 +7,7 @@
      ((> width 2000) 160)
      ((> width 1000) 120)
      (t 110))))
+
 
 (defun alecs/set-frame-font (&optional font-family font-height)
   (setq font-family (or font-family "Berkeley Mono"))

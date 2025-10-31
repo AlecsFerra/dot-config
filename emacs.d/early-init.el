@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 ;; Remove the gui madness
 (menu-bar-mode t)
 (scroll-bar-mode -1)
@@ -48,6 +49,9 @@
 (make-directory auto-save-dir t)
 (setq auto-save-file-name-transforms
       `((".*" ,auto-save-dir t)))
+
+(setq multisession-directory
+      (expand-file-name "multisession/" emacs-cache-dir))
 
 (savehist-mode t)
 (recentf-mode t)
