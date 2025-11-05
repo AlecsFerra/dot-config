@@ -64,12 +64,25 @@
   (copilot-indent-offset-warning-disable t)
   (copilot-max-char-warning-disable t)
   (copilot-version nil)
+  :general
+  (alecs/leader
+    "aa" #'copilot-mode)
   :config
   (unless (file-exists-p (copilot-server-executable))
     (copilot-install-server))
   :general
   (:keymaps 'copilot-completion-map
-            "<tab>"     #'copilot-accept-completion-by-line))
+            "<tab>" #'copilot-accept-completion-by-line))
+
+(use-package copilot-chat
+  :custom
+  (copilot-chat-default-model "gpt-5")
+  (request-storage-directory
+   (expand-file-name "request/" emacs-cache-dir))
+  :general
+  (alecs/leader
+    "ac" #'copilot-chat-display
+    "am" #'copilot-chat-transient))
 
 (use-package treesit
   :ensure nil ;; Built-in package

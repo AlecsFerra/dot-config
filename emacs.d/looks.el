@@ -22,13 +22,18 @@
 (setq banner-path (expand-file-name "banners/MetalEmacs.png"
                                     user-emacs-directory))
 
-(use-package catppuccin-theme
-  :custom
-  (catppuccin-flavor 'latte)
-  (catppuccin-highlight-matches t)
-  :init
-  (load-theme 'catppuccin))
+;; (use-package catppuccin-theme
+;;   :custom
+;;   (catppuccin-flavor 'latte)
+;;   (catppuccin-highlight-matches t)
+;;   :init
+;;   (load-theme 'catppuccin))
 
+(use-package everforest
+  :vc (:url "https://github.com/Theory-of-Everything/everforest-emacs.git"
+            :rev :newest)
+  :init
+  (load-theme 'everforest-hard-light t))
 
 (use-package doom-modeline
   :custom

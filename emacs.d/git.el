@@ -40,11 +40,11 @@
            (forge-pull-notifications)
            (forge-list-notifications))))
 
-
-
 (use-package magit-delta
   :after magit
   :hook (magit-mode . magit-delta-mode)
+  :custom
+  (magit-delta-default-light-theme "Monokai Extended Light")
   :config
   (add-to-list 'magit-delta-delta-args "--light"))
 
