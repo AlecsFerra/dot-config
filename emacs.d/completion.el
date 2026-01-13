@@ -14,10 +14,14 @@
   :init
   (vertico-mode t)
   :general
+  (alecs/leader
+    "sr" #'vertico-repeat)
   (:keymaps 'vertico-map
             [escape] #'abort-recursive-edit
             "C-j"    #'vertico-next
-            "C-k"    #'vertico-previous))
+            "C-k"    #'vertico-previous)
+  :hook
+  (minibuffer-setup . vertico-repeat-save))
 
 (use-package consult
   :after vertico
@@ -34,7 +38,7 @@
   :general
   (:keymaps 'vertico-map
             "C-." #'embark-act
-            "C-c" #'alecs/embark-kill)
+            "C-q" #'alecs/embark-kill)
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
 

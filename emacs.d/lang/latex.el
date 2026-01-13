@@ -9,7 +9,7 @@
   (TeX-command-default "Latex")
   (TeX-engine 'luatex)
   (TeX-PDF-mode t)
-  (TeX-parse-self t) ; parse on load
+  ;; (TeX-parse-self t) ; parse on load
   (TeX-auto-save t)
   (TeX-save-query nil)
   (TeX-master nil) ; Automatically ask for master file

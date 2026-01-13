@@ -8,9 +8,13 @@
      ((> width 1000) 120)
      (t 110))))
 
+;; (use-package unicode-fonts
+;;   :init
+;;   (unicode-fonts-setup))
 
 (defun alecs/set-frame-font (&optional font-family font-height)
-  (setq font-family (or font-family "Berkeley Mono"))
+  (interactive)
+  (setq font-family (or font-family "Aporetic Sans Mono"))
   (let* ((size (or font-height (alecs/compute-font-size)))
          (font-size (/ (float size) 10))
          (font-string (format "%s-%d" font-family font-size)))
@@ -22,18 +26,18 @@
 (setq banner-path (expand-file-name "banners/MetalEmacs.png"
                                     user-emacs-directory))
 
-;; (use-package catppuccin-theme
-;;   :custom
-;;   (catppuccin-flavor 'latte)
-;;   (catppuccin-highlight-matches t)
-;;   :init
-;;   (load-theme 'catppuccin))
-
-(use-package everforest
-  :vc (:url "https://github.com/Theory-of-Everything/everforest-emacs.git"
-            :rev :newest)
+(use-package catppuccin-theme
+  :custom
+  (catppuccin-flavor 'latte)
+  (catppuccin-highlight-matches t)
   :init
-  (load-theme 'everforest-hard-light t))
+  (load-theme 'catppuccin))
+
+;; (use-package everforest
+;;   :vc (:url "https://github.com/Theory-of-Everything/everforest-emacs.git"
+;;             :rev :newest)
+;;   :init
+;;   (load-theme 'everforest-hard-light t))
 
 (use-package doom-modeline
   :custom

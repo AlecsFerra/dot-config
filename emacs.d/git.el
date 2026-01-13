@@ -37,8 +37,8 @@
     "gb" #'forge-browse
     "gn" (lambda ()
            (interactive)
-           (forge-pull-notifications)
-           (forge-list-notifications))))
+           (forge-list-notifications)
+           (forge-pull-notifications))))
 
 (use-package magit-delta
   :after magit

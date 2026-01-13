@@ -57,6 +57,9 @@
       :unnarrowed t)))
 
 (defvar org-reference-template
+  (let ((header (alecs/join-lines
+                 "#+title: ${note-title}"
+                 "#+filetags: reference")))
   `("r" "Bibliography Reference" plain
     ,(alecs/join-lines "* Overview"
                        "%?"
@@ -64,12 +67,10 @@
                        ""
                        "* Related")
     :target (file+head "references/${citar-citekey}.org"
-                       (alecs/join-lines
-                        "#+title: ${note-title}."
-                        "#+filetags: reference"))
+                       ,header)
     :immediate-finish t
     :jump-to-captured t
-    :unnarrowed t))
+    :unnarrowed t)))
 
 (use-package org-roam
   :custom
@@ -92,6 +93,14 @@
     "oi" #'org-roam-node-insert)
   :config
   (org-roam-db-autosync-enable))
+
+(use-package org-roam-ui
+  :after org-roam
+  :config
+  (setq org-roam-ui-sync-theme t
+        org-roam-ui-follow t
+        org-roam-ui-update-on-save t
+        org-roam-ui-open-on-start t))
 
 (use-package citar
   :custom

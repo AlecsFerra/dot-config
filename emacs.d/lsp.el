@@ -3,7 +3,7 @@
   :hook
   (prog-mode . flymake-mode)
   :custom
-  (flymake-fringe-indicator-position nil)
+  (flymake-fringe-indicator-position 'left-fringe)
   :config
   (defun alecs/eldoc-at-front (orig &rest args)
     (apply orig args)
@@ -66,7 +66,7 @@
   (copilot-version nil)
   :general
   (alecs/leader
-    "aa" #'copilot-mode)
+    "ac" #'copilot-mode)
   :config
   (unless (file-exists-p (copilot-server-executable))
     (copilot-install-server))
@@ -81,7 +81,6 @@
    (expand-file-name "request/" emacs-cache-dir))
   :general
   (alecs/leader
-    "ac" #'copilot-chat-display
     "am" #'copilot-chat-transient))
 
 (use-package treesit
@@ -108,5 +107,6 @@
           (ts-mode    (intern (format "%s-ts-mode" lang))))
       (add-to-list 'major-mode-remap-alist (cons plain-mode ts-mode)))))
 
-(dolist (file '("haskell" "latex" "agda" "proofgeneral" "lean" "emacslisp"))
+(dolist (file '("haskell" "latex" "agda" "proofgeneral" "lean"
+                "emacslisp" "smt"))
   (alecs/load-config-file (concat "lang/" file)))
