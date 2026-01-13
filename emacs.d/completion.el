@@ -16,10 +16,9 @@
   :general
   (alecs/leader
     "sr" #'vertico-repeat)
-  (:keymaps 'vertico-map
-            [escape] #'abort-recursive-edit
-            "C-j"    #'vertico-next
-            "C-k"    #'vertico-previous)
+  (evil-define-key 'insert vertico-map
+    (kbd "C-j") #'vertico-next
+    (kbd "C-k") #'vertico-previous)
   :hook
   (minibuffer-setup . vertico-repeat-save))
 

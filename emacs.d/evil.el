@@ -15,15 +15,6 @@
         (switch-to-buffer "*terminal*")
       (term (getenv "SHELL")))))
 
-(use-package evil-collection
-  :after evil
-  :custom
-  (evil-collection-key-blacklist '("SPC"))
-  :config
-  :init
-  (evil-collection-init)
-  (add-to-list 'evil-collection-mode-list 'dired))
-
 (use-package general
   :after evil
   :custom
@@ -49,6 +40,19 @@
   (general-define-key
    :states 'insert
    "C-/" #'ignore))
+
+(use-package evil-collection
+  :after evil
+  :custom
+  (evil-collection-key-blacklist '("SPC"))
+  (evil-collection-setup-minibuffer t)
+  :general
+  (evil-define-key 'insert evil-ex-completion-map
+    (kbd "C-j") #'next-line
+    (kbd "C-k") #'previous-line)
+  :init
+  (evil-collection-init)
+  (add-to-list 'evil-collection-mode-list 'dired))
 
 (use-package evil-numbers
   :after evil
