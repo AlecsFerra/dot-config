@@ -26,4 +26,5 @@
      alecs/smt-solver-region-command))
   (advice-add 'z3-execute-region :override
               #'alecs/z3-execute-region-advice)
-  :mode ("\\.smt2\\'" . z3-mode))
+  :mode
+  ("\\.smt2\\'" . z3-mode))

@@ -27,38 +27,35 @@
 (setq auto-save-list-file-prefix
       (expand-file-name "auto-save-list" emacs-cache-dir))
 (setq package-user-dir
-      (expand-file-name "elpa/" emacs-cache-dir))
-(setq package-user-dir
       (expand-file-name "elpa/gnupg" emacs-cache-dir))
+(make-directory package-user-dir t)
 (setq project-list-file
       (expand-file-name "projects" emacs-cache-dir))
-
 (setq eln-cache-dir
       (expand-file-name "eln-cache/" emacs-cache-dir))
 (make-directory eln-cache-dir t)
 (setq native-comp-eln-load-path (list eln-cache-dir))
-
 (setq backup-dir
       (expand-file-name "backups/" emacs-cache-dir))
 (make-directory backup-dir t)
 (setq backup-directory-alist
       `(("." . ,backup-dir)))
-
 (setq auto-save-dir
       (expand-file-name "auto-saves/" emacs-cache-dir))
 (make-directory auto-save-dir t)
 (setq auto-save-file-name-transforms
       `((".*" ,auto-save-dir t)))
-
 (setq multisession-directory
       (expand-file-name "multisession/" emacs-cache-dir))
+(make-directory multisession-directory t)
+(setq bookmark-default-file
+      (expand-file-name "bookmarks" emacs-cache-dir))
 
 (savehist-mode t)
 (recentf-mode t)
 
 ;; Disable startup messages
 (setq inhibit-startup-message t)
-(setq message-log-max nil)
 
 (fset 'yes-or-no-p 'y-or-n-p)
 (global-auto-revert-mode t)

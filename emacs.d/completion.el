@@ -16,9 +16,9 @@
   :general
   (alecs/leader
     "sr" #'vertico-repeat)
-  (evil-define-key 'insert vertico-map
-    (kbd "C-j") #'vertico-next
-    (kbd "C-k") #'vertico-previous)
+  (general-evil-define-key 'insert vertico-map
+    "C-j" #'vertico-next
+    "C-k" #'vertico-previous)
   :hook
   (minibuffer-setup . vertico-repeat-save))
 

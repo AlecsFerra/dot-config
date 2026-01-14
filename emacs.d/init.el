@@ -36,8 +36,9 @@
 (setq scroll-conservatively 10000)
 (setq auto-window-vscroll nil)
 
-;; I press this to often
+;; I press this too often
 (global-unset-key (kbd "C-x C-c"))
+(global-unset-key (kbd "C-h C-w"))
 
 (require 'package)
 (setq package-check-signature nil)

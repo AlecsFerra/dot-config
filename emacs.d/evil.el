@@ -47,9 +47,9 @@
   (evil-collection-key-blacklist '("SPC"))
   (evil-collection-setup-minibuffer t)
   :general
-  (evil-define-key 'insert evil-ex-completion-map
-    (kbd "C-j") #'next-line
-    (kbd "C-k") #'previous-line)
+  (general-evil-define-key 'insert evil-ex-completion-map
+    "C-j" #'next-history-element
+    "C-k" #'previous-history-element)
   :init
   (evil-collection-init)
   (add-to-list 'evil-collection-mode-list 'dired))
