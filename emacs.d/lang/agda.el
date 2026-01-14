@@ -11,9 +11,9 @@
     (interactive)
     (require 'agda-input)
     (add-hook 'evil-insert-state-entry-hook
-              (lambda () (set-input-method "Agda")) nil t)
+              (λ () (set-input-method "Agda")) nil t)
     (add-hook 'evil-insert-state-exit-hook
-              (lambda () (set-input-method nil)) nil t)))
+              (λ () (set-input-method nil)) nil t)))
 (use-package agda-input
   :if alecs/agda-exec
   :ensure nil ; Installed with Agda)

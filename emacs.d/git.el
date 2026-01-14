@@ -35,7 +35,7 @@
   :general
   (alecs/leader
     "gb" #'forge-browse
-    "gn" (lambda ()
+    "gn" (λ ()
            (interactive)
            (forge-list-notifications)
            (forge-pull-notifications))))

@@ -15,6 +15,13 @@
         (switch-to-buffer "*terminal*")
       (term (getenv "SHELL")))))
 
+(defun alecs/kill-other-buffers ()
+  "Kill all other buffers."
+  (interactive)
+  (mapc 'kill-buffer
+        (delq (current-buffer)
+              (cl-remove-if-not 'buffer-file-name (buffer-list)))))
+
 (use-package general
   :after evil
   :custom
@@ -27,9 +34,8 @@
   :config
   (general-evil-setup t)
   (alecs/leader
-    "bc" (lambda ()
-           (interactive)
-           (kill-buffer (current-buffer)))
+    "bc" (λ () (interactive) (kill-buffer (current-buffer)))
+    "bC" #'alecs/kill-other-buffers
     "t"  #'alecs/toggle-term)
   (general-define-key
    :states 'visual

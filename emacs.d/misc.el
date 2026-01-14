@@ -1,13 +1,6 @@
 ;; -*- lexical-binding: t -*-
 ;; Guess indentation for the current buffer
 
-(defun alecs/kill-other-buffers ()
-  "Kill all other buffers."
-  (interactive)
-  (mapc 'kill-buffer
-        (delq (current-buffer)
-              (cl-remove-if-not 'buffer-file-name (buffer-list)))))
-
 (use-package dtrt-indent
   :hook
   (prog-mode . dtrt-indent-mode))
@@ -46,9 +39,9 @@
   :init
   ;; Patch undo-tree override logic
   (advice-add 'undo-tree-overridden-undo-bindings-p
-              :override (lambda () nil))
+              :override (λ () nil))
   (advice-add 'undo-tree-load-history :around
-              (lambda (orig-fun &rest args)
+              (λ (orig-fun &rest args)
                 (let ((inhibit-message t))
                   (apply orig-fun args))))
   (global-undo-tree-mode t)

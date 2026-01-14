@@ -64,7 +64,6 @@
                                ,(dashboard-insert-newline 2)
                                dashboard-insert-init-info))
   :hook
-  (dashboard-mode . (lambda ()
-                      (display-line-numbers-mode -1)))
+  (dashboard-mode . (lambda () (display-line-numbers-mode -1)))
   :init
   (dashboard-setup-startup-hook))

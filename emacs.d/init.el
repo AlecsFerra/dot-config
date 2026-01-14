@@ -40,6 +40,8 @@
 (global-unset-key (kbd "C-x C-c"))
 (global-unset-key (kbd "C-h C-w"))
 
+(defalias 'λ 'lambda)
+
 (require 'package)
 (setq package-check-signature nil)
 (add-to-list 'package-archives
