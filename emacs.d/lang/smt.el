@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t -*-
 (use-package z3-mode
   :init
   :config

@@ -4,7 +4,9 @@
   (LaTeX-mode . lsp-deferred)
   (bibtex-mode . lsp-deferred))
 
+
 (use-package auctex
+  :after general
   :custom
   (TeX-command-default "Latex")
   (TeX-engine 'luatex)
@@ -26,13 +28,20 @@
   (TeX-source-correlate-method 'synctex)
   (TeX-source-correlate-start-server nil)
   (TeX-show-compilation nil)
-  ;; Reload buffer on compilation
   :hook
   (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
   (LaTeX-mode . auto-fill-mode)
+  :config
+  (add-to-list 'display-buffer-alist
+               `(" output\\*$" ,@alecs/right-side-window))
+  (add-to-list 'display-buffer-alist
+               `("*TeX Help*" ,@alecs/right-side-window))
+  (add-to-list 'display-buffer-alist
+               `("*TeX Errors*" ,@alecs/right-side-window))
   :general
   (general-define-key
    :keymaps 'LaTeX-mode-map
+   "C-c C-l" #'TeX-error-overview
    "C-c C-c" #'TeX-command-run-all))
 
 (use-package pdf-tools
@@ -45,12 +54,5 @@
   (add-to-list 'evil-collection-mode-list '(pdf pdf-view))
   :config
   (pdf-tools-install :no-query)
-  ;; Ensure PDFs open on the right
   (add-to-list 'display-buffer-alist
-               '("\\.pdf\\'"
-                 (display-buffer-in-side-window)
-                 (side . right)
-                 (window-width . 0.44)
-                 (slot . 1)
-                 (window-parameters . ((no-delete-other-windows . t)
-                                       (window-preserve-selected-window . t))))))
+               `("\\.pdf\\'" ,@alecs/right-side-window)))

@@ -60,24 +60,25 @@
   (:keymaps 'transient-base-map
             "<escape>" #'transient-quit-one))
 
+
 (use-package git-gutter
   :custom
   (git-gutter:modified-sign "▋")
   (git-gutter:added-sign    "▋")
   (git-gutter:deleted-sign  "▋")
   :config
+  (defun alecs/git-gutter-toggle-popup ()
+    "Toggle git-gutter popup hunk window."
+    (let ((buf "*git-gutter:diff*"))
+      (if (get-buffer-window buf)
+          (delete-window (get-buffer-window buf))
+        (git-gutter:popup-hunk))))
   (set-face-foreground 'git-gutter:modified "dodger blue")
   (add-to-list 'display-buffer-alist
-               '("\\*git-gutter:diff\\*"
-                 (display-buffer-in-side-window)
-                 (window-height . 0.4)
-                 (side . bottom)
-                 (slot . 1)
-                 (window-parameters
-                  . ((no-delete-other-windows . t)))))
+               `("\\*git-gutter:diff\\*" ,@alecs/bottom-side-window))
   :general
   (alecs/leader
-    "gd" #'git-gutter:popup-hunk
+    "gd" (λ () (interactive) (alecs/git-gutter-toggle-popup))
     "gr" #'git-gutter:revert-hunk)
   :init
   (global-git-gutter-mode t))

@@ -42,6 +42,20 @@
 
 (defalias 'λ 'lambda)
 
+(defconst alecs/right-side-window
+  '((display-buffer-in-side-window)
+    (side . right)
+    (window-width . 0.44)
+    (slot . 1)
+    (window-parameters . ((window-preserve-selected-window . t)))))
+
+(defconst alecs/bottom-side-window
+  '((display-buffer-in-side-window)
+    (side . bottom)
+    (window-width . 0.05)
+    (slot . 1)
+    (window-parameters . ((window-preserve-selected-window . t)))))
+
 (require 'package)
 (setq package-check-signature nil)
 (add-to-list 'package-archives
@@ -61,5 +75,5 @@
 (defun alecs/load-config-file (file)
   (load (expand-file-name file user-emacs-directory)))
 
-(dolist (file '("evil" "looks" "completion" "lsp" "git" "org" "misc"))
+(dolist (file '("evil" "looks" "completion" "git" "lsp" "org" "misc"))
   (alecs/load-config-file file))
