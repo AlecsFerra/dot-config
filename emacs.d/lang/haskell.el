@@ -4,14 +4,14 @@
   (haskell-mode . interactive-haskell-mode)
   (haskell-mode . haskell-indentation-mode))
 
-(use-package haskell-ts-mode
-  :mode "\\.hs\\'"
-  :hook
-  (haskell-ts-mode . interactive-haskell-mode)
-  (haskell-mode . haskell-indentation-mode))
+;; (use-package haskell-ts-mode
+;;   :mode "\\.hs\\'"
+;;   :hook
+;;   (haskell-ts-mode . interactive-haskell-mode)
+;;   (haskell-mode . haskell-indentation-mode))
 
 (use-package consult-hoogle
   :general
   (alecs/leader
-    :keymaps 'haskell-ts-mode-map
+    :keymaps 'haskell-mode-map
     "hh" #'consult-hoogle))

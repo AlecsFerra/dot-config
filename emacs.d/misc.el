@@ -26,7 +26,8 @@
 
 (use-package rainbow-delimiters
   :hook
-  (prog-mode . rainbow-delimiters-mode))
+  (prog-mode . rainbow-delimiters-mode)
+  (LaTeX-mode . rainbow-delimiters-mode))
 
 (use-package undo-tree
   :after evil

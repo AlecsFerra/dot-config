@@ -6,15 +6,6 @@
   :init
   (evil-mode t))
 
-(defun alecs/toggle-term ()
-  "Inspired by https://gist.github.com/msoeken/4b2e3ee07b7252f8cb99"
-  (interactive)
-  (if (string= (buffer-name) "*terminal*")
-      (switch-to-buffer (other-buffer (current-buffer)))
-    (if (get-buffer "*terminal*")
-        (switch-to-buffer "*terminal*")
-      (term (getenv "SHELL")))))
-
 (defun alecs/kill-other-buffers ()
   "Kill all other buffers."
   (interactive)
@@ -35,8 +26,7 @@
   (general-evil-setup t)
   (alecs/leader
     "bc" (λ () (interactive) (kill-buffer (current-buffer)))
-    "bC" #'alecs/kill-other-buffers
-    "t"  #'alecs/toggle-term)
+    "bC" #'alecs/kill-other-buffers)
   (general-define-key
    :states 'visual
    "C-/" #'comment-dwim)
@@ -68,5 +58,11 @@
            "C-x" #'evil-numbers/dec-at-pt))
 
 (use-package evil-surround
-  :config
+  :after evil
+  :init
   (global-evil-surround-mode t))
+
+(use-package evil-matchit
+  :after evil
+  :init
+  (global-evil-matchit-mode t))

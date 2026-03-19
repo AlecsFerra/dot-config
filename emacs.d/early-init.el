@@ -50,6 +50,8 @@
 (make-directory multisession-directory t)
 (setq bookmark-default-file
       (expand-file-name "bookmarks" emacs-cache-dir))
+(setq pcache-directory
+      (expand-file-name "var/pcache" emacs-cache-dir))
 
 (savehist-mode t)
 (recentf-mode t)
@@ -65,13 +67,15 @@
 (setq-default minibuffer-prompt-properties
               '(read-only t cursor-intangible t face minibuffer-prompt))
 
-;; Run gc when out of focus
-(if (boundp 'after-focus-change-function)
-    (add-function :after after-focus-change-function
-                  (lambda () (unless (frame-focus-state)
-                          (garbage-collect))))
-  (add-hook 'after-focus-change-function
-            'garbage-collect))
+;; ;; Run gc when out of focus
+;; (if (boundp 'after-focus-change-function)
+;;     (add-function :after after-focus-change-function
+;;                   (lambda () (unless (frame-focus-state)
+;;                           (garbage-collect))))
+;;   (add-hook 'after-focus-change-function
+;;             'garbage-collect))
+(setq gc-cons-threshold (* 512 1024 1024))
+(setq garbage-collection-messages t)
 
 (setq ring-bell-function 'ignore)
 

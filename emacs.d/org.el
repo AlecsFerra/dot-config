@@ -29,6 +29,21 @@
    '((python . t)
      (haskell . t))))
 
+(use-package org-appear
+  :after evil
+  :hook (org-mode . org-appear-mode)
+  :custom
+  (org-appear-trigger 'manual)
+  (org-appear-autolinks t)
+  (org-appear-autosubmarkers t)
+  (org-appear-autokeywords t)
+  (org-appear-autoentities t)
+  :config
+  (add-hook 'evil-insert-state-entry-hook
+            #'org-appear-manual-start nil t)
+  (add-hook 'evil-insert-state-exit-hook
+            #'org-appear-manual-stop nil t))
+
 (defvar org-general-template
   `("g" "General" plain
     ,(alecs/join-lines "* Overview"

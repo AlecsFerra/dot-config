@@ -6,14 +6,23 @@
 (when alecs/agda-exec
   (load-file (string-trim (shell-command-to-string
                            (concat alecs/agda-exec " locate"))))
+  (defun alecs/agda-input-on ()
+    (set-input-method "Agda"))
+
+  (defun alecs/agda-input-off ()
+    (set-input-method nil))
+
   (defun alecs/enable-agda-input-method ()
-    "Enable Agda input method in the current buffer."
     (interactive)
     (require 'agda-input)
-    (add-hook 'evil-insert-state-entry-hook
-              (λ () (set-input-method "Agda")) nil t)
-    (add-hook 'evil-insert-state-exit-hook
-              (λ () (set-input-method nil)) nil t)))
+    (add-hook 'evil-insert-state-entry-hook #'alecs/agda-input-on nil t)
+    (add-hook 'evil-insert-state-exit-hook  #'alecs/agda-input-off nil t))
+
+  (defun alecs/disable-agda-input-method ()
+    (interactive)
+    (remove-hook 'evil-insert-state-entry-hook #'alecs/agda-input-on t)
+    (remove-hook 'evil-insert-state-exit-hook  #'alecs/agda-input-off t)))
+
 (use-package agda-input
   :if alecs/agda-exec
   :ensure nil ; Installed with Agda)

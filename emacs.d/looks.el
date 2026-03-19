@@ -8,9 +8,9 @@
      ((> width 1000) 120)
      (t 110))))
 
-;; (use-package unicode-fonts
-;;   :init
-;;   (unicode-fonts-setup))
+(use-package unicode-fonts
+  :init
+  (unicode-fonts-setup))
 
 (defun alecs/set-frame-font (&optional font-family font-height)
   (interactive)
@@ -22,9 +22,6 @@
     (set-frame-font font-string nil t)))
 
 (alecs/set-frame-font)
-
-(setq banner-path (expand-file-name "banners/MetalEmacs.png"
-                                    user-emacs-directory))
 
 (use-package catppuccin-theme
   :custom
@@ -49,6 +46,10 @@
   (doom-modeline-buffer-encoding nil)
   :hook
   (after-init . doom-modeline-mode))
+
+(setq banner-path
+      (expand-file-name "banners/MetalEmacs.png"
+                        user-emacs-directory))
 
 (use-package dashboard
   :custom

@@ -19,7 +19,8 @@
 
 (general-define-key
  :states 'normal
- "gr" #'xref-find-references)
+ "gr" #'xref-find-references
+ "gd" #'evil-goto-definition)
 
 (use-package lsp-mode
   :custom
@@ -27,6 +28,7 @@
   (lsp-headerline-breadcrumb-enable nil)
   (lsp-eldoc-render-all t)
   (lsp-diagnostics-provider :flymake)
+  (lsp-server-install-dir (expand-file-name "lsp-servers/" emacs-cache-dir))
   :general
   (alecs/leader
     :keymaps 'lsp-mode-map
@@ -83,29 +85,29 @@
   (alecs/leader
     "am" #'copilot-chat-transient))
 
-(use-package treesit
-  :ensure nil ;; Built-in package
-  :config
-  (setq treesit-grammar-dir
-        (expand-file-name "tree-sitter/" emacs-cache-dir))
-  (make-directory treesit-grammar-dir t)
-  (setq treesit-extra-load-path (list treesit-grammar-dir))
-  (add-to-list 'treesit-language-source-alist
-               '(html     "https://github.com/tree-sitter/tree-sitter-html"))
-  (add-to-list 'treesit-language-source-alist
-               '(elisp    "https://github.com/Wilfred/tree-sitter-elisp"))
-  (add-to-list 'treesit-language-source-alist
-               '(markdown "https://github.com/ikatyang/tree-sitter-markdown"))
-  (add-to-list 'treesit-language-source-alist
-               '(json     "https://github.com/tree-sitter/tree-sitter-json"))
-  (add-to-list 'treesit-language-source-alist
-               '(haskell "https://github.com/tree-sitter/tree-sitter-haskell"))
-  (dolist (lang (mapcar #'car treesit-language-source-alist))
-    (unless (treesit-language-available-p lang)
-      (treesit-install-language-grammar lang treesit-grammar-dir))
-    (let ((plain-mode (intern (format "%s-mode" lang)))
-          (ts-mode    (intern (format "%s-ts-mode" lang))))
-      (add-to-list 'major-mode-remap-alist (cons plain-mode ts-mode)))))
+;; (use-package treesit
+;;   :ensure nil ;; Built-in package
+;;   :config
+;;   (setq treesit-grammar-dir
+;;         (expand-file-name "tree-sitter/" emacs-cache-dir))
+;;   (make-directory treesit-grammar-dir t)
+;;   (setq treesit-extra-load-path (list treesit-grammar-dir))
+;;   (add-to-list 'treesit-language-source-alist
+;;                '(html     "https://github.com/tree-sitter/tree-sitter-html"))
+;;   (add-to-list 'treesit-language-source-alist
+;;                '(elisp    "https://github.com/Wilfred/tree-sitter-elisp"))
+;;   (add-to-list 'treesit-language-source-alist
+;;                '(markdown "https://github.com/ikatyang/tree-sitter-markdown"))
+;;   (add-to-list 'treesit-language-source-alist
+;;                '(json     "https://github.com/tree-sitter/tree-sitter-json"))
+;;   (add-to-list 'treesit-language-source-alist
+;;                '(haskell "https://github.com/tree-sitter/tree-sitter-haskell"))
+;;   (dolist (lang (mapcar #'car treesit-language-source-alist))
+;;     (unless (treesit-language-available-p lang)
+;;       (treesit-install-language-grammar lang treesit-grammar-dir))
+;;     (let ((plain-mode (intern (format "%s-mode" lang)))
+;;           (ts-mode    (intern (format "%s-ts-mode" lang))))
+;;       (add-to-list 'major-mode-remap-alist (cons plain-mode ts-mode)))))
 
 (dolist (file '("haskell" "latex" "agda" "proofgeneral" "lean"
                 "emacslisp" "smt"))
