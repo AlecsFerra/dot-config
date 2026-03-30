@@ -8,7 +8,8 @@
   (general-define-key
    :keymaps 'lean4-mode-map
    :states 'normal
-   "C-c C-i" #'lean4-toggle-info)
+   "C-c C-i" #'lean4-toggle-info
+   "C-c C-r" #'lean4-refresh-file-dependencies)
   :mode "\\.lean4?\\'")
 
 (defun alecs/suppress-lsp-inlayhint-warnings (orig-fun type message &rest args)

@@ -13,6 +13,11 @@
         (delq (current-buffer)
               (cl-remove-if-not 'buffer-file-name (buffer-list)))))
 
+(use-package anzu
+  :after evil
+  :init
+  (global-anzu-mode t))
+
 (use-package general
   :after evil
   :custom

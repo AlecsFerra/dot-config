@@ -1,25 +1,27 @@
 ;; -*- lexical-binding: t -*-
-(use-package lsp-latex
-  :hook
-  (LaTeX-mode . lsp-deferred)
-  (bibtex-mode . lsp-deferred))
 
+;; (use-package lsp-latex
+;;   :hook
+;;   (LaTeX-mode . lsp-deferred)
+;;   (bibtex-mode . lsp-deferred))
 
 (use-package auctex
   :after general
+  :mode
+  ("\\.tex\\'" . LaTeX-mode)
   :custom
   (TeX-command-default "Latex")
   (TeX-engine 'luatex)
   (TeX-PDF-mode t)
-  ;; (TeX-parse-self t) ; parse on load
+  (TeX-parse-self t) ; parse on load
   (TeX-auto-save t)
   (TeX-save-query nil)
   (TeX-master nil) ; Automatically ask for master file
   ;; Hidden files
-  (TeX-auto-local
-   (expand-file-name ".acutex-auto/" emacs-cache-dir))
-  (TeX-style-local
-   (expand-file-name ".auctex-style/" emacs-cache-dir))
+  (TeX-auto-local (expand-file-name ".acutex-auto/"
+                                    emacs-cache-dir))
+  (TeX-style-local (expand-file-name ".auctex-style/"
+                                     emacs-cache-dir))
   ;; Show preview in pdf tools
   (TeX-view-program-selection '((output-pdf "PDF Tools")))
   (TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view)))
@@ -29,8 +31,11 @@
   (TeX-source-correlate-start-server nil)
   (TeX-show-compilation nil)
   :hook
-  (TeX-after-compilation-finished-functions . TeX-revert-document-buffer)
   (LaTeX-mode . auto-fill-mode)
+  :init
+  ;; For some reason is not named *-hook
+  (add-hook 'TeX-after-compilation-finished-functions
+            #'TeX-revert-document-buffer)
   :config
   (add-to-list 'display-buffer-alist
                `(" output\\*$" ,@alecs/right-side-window))

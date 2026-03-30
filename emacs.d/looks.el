@@ -8,10 +8,6 @@
      ((> width 1000) 120)
      (t 110))))
 
-(use-package unicode-fonts
-  :init
-  (unicode-fonts-setup))
-
 (defun alecs/set-frame-font (&optional font-family font-height)
   (interactive)
   (setq font-family (or font-family "Aporetic Sans Mono"))
@@ -30,11 +26,10 @@
   :init
   (load-theme 'catppuccin))
 
-;; (use-package everforest
-;;   :vc (:url "https://github.com/Theory-of-Everything/everforest-emacs.git"
-;;             :rev :newest)
-;;   :init
-;;   (load-theme 'everforest-hard-light t))
+;; If we are on a laptop enable battery status in the modeline
+(setq laptop-hostnames '("dhcp-18-248.imdea"))
+(when (member (system-name) laptop-hostnames)
+  (display-battery-mode t))
 
 (use-package doom-modeline
   :custom
@@ -44,6 +39,7 @@
   (doom-modeline-percent-position nil)
   (doom-modeline-position-line-format nil)
   (doom-modeline-buffer-encoding nil)
+  (doom-modeline-project-name t)
   :hook
   (after-init . doom-modeline-mode))
 

@@ -36,10 +36,7 @@
   :general
   (alecs/leader
     "gb" #'forge-browse
-    "gn" (λ ()
-           (interactive)
-           (forge-list-notifications)
-           (forge-pull-notifications))))
+    "gn" #'forge-list-notifications))
 
 (use-package magit-delta
   :after magit
