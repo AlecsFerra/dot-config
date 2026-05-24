@@ -120,30 +120,24 @@
 (use-package citar
   :custom
   (citar-bibliography '("~/Documents/references.bib"))
+  (citar-latex-prompt-for-cite-style nil)
+  (citar-latex-prompt-for-extra-arguments nil)
   :config
   (defvar citar-indicator-notes-icons
     (citar-indicator-create
-    :symbol (nerd-icons-mdicon
-              "nf-md-notebook"
-              :v-adjust -0.3)
+    :symbol (nerd-icons-mdicon "nf-md-notebook" :v-adjust -0.3)
     :function #'citar-has-notes
     :padding "  "
     :tag "has:notes"))
-
   (defvar citar-indicator-links-icons
     (citar-indicator-create
-    :symbol (nerd-icons-octicon
-              "nf-oct-link"
-              :v-adjust -0.1)
+    :symbol (nerd-icons-octicon "nf-oct-link" :v-adjust -0.1)
     :function #'citar-has-links
     :padding "  "
     :tag "has:links"))
-
   (defvar citar-indicator-files-icons
     (citar-indicator-create
-    :symbol (nerd-icons-faicon
-              "nf-fa-file"
-              :v-adjust -0.1)
+    :symbol (nerd-icons-faicon "nf-fa-file" :v-adjust -0.1)
     :function #'citar-has-files
     :padding "  "
     :tag "has:files"))
@@ -156,6 +150,12 @@
   :general
   (alecs/leader
     "oc" #'citar-open)
+  (alecs/leader
+    :keymaps 'BibTeX-mode-map
+    "oi" #'citar-insert-bibtex)
+  (alecs/leader
+    :keymaps 'LaTeX-mode-map
+    "oi" #'citar-insert-citation)
   :hook
   (LaTeX-mode . citar-capf-setup)
   (org-mode . citar-capf-setup))

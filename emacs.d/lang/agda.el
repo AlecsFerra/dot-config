@@ -13,15 +13,21 @@
     (set-input-method nil))
 
   (defun alecs/enable-agda-input-method ()
-    (interactive)
     (require 'agda-input)
     (add-hook 'evil-insert-state-entry-hook #'alecs/agda-input-on nil t)
     (add-hook 'evil-insert-state-exit-hook  #'alecs/agda-input-off nil t))
 
   (defun alecs/disable-agda-input-method ()
-    (interactive)
     (remove-hook 'evil-insert-state-entry-hook #'alecs/agda-input-on t)
-    (remove-hook 'evil-insert-state-exit-hook  #'alecs/agda-input-off t)))
+    (remove-hook 'evil-insert-state-exit-hook  #'alecs/agda-input-off t))
+
+  (defun alecs/agda-input ()
+    (interactive)
+    (if (member #'alecs/agda-input-on evil-insert-state-entry-hook)
+        (progn (alecs/disable-agda-input-method)
+               (message "Agda input method disabled"))
+      (progn (alecs/enable-agda-input-method)
+             (message "Agda input method enabled")))))
 
 (use-package agda-input
   :if alecs/agda-exec

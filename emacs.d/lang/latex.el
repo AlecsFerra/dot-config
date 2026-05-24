@@ -12,10 +12,12 @@
   :custom
   (TeX-command-default "Latex")
   (TeX-engine 'luatex)
+  (TeX-output-dir "build/")
   (TeX-PDF-mode t)
   (TeX-parse-self t) ; parse on load
   (TeX-auto-save t)
   (TeX-save-query nil)
+  (TeX-debug-warnings t)
   (TeX-master nil) ; Automatically ask for master file
   ;; Hidden files
   (TeX-auto-local (expand-file-name ".acutex-auto/"
