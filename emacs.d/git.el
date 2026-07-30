@@ -11,7 +11,7 @@
   (add-to-list 'evil-collection-mode-list 'magit)
   :config
   ;; Display margin indicators for commit lists
-  (setf (car magit-status-margin) t)
+  (setf (car    magit-status-margin) t)
   (setf (cadddr magit-status-margin) t)
   :custom
   (magit-save-repository-buffers 'dontask)
@@ -27,12 +27,9 @@
   :custom
   (forge-database-file (expand-file-name "forge-database.sqlite"
                                          emacs-cache-dir))
+  (forge-add-default-bindings nil)
   :init
-  (setq forge-add-default-bindings nil)
   (add-to-list 'evil-collection-mode-list 'forge)
-  (with-eval-after-load 'magit
-    (require 'forge))
-  :config
   :general
   (alecs/leader
     "gb" #'forge-browse

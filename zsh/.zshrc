@@ -1,7 +1,3 @@
-# Path
-export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
 # XDG
 source ~/.config/zsh/xdg_dirs.zsh
 source ~/.config/zsh/alias.zsh

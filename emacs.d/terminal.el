@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t -*-
+
 (defun alecs/toggle-term ()
   (interactive)
   (if (string= (buffer-name) "*vterm*")

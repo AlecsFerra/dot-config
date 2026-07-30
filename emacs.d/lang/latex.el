@@ -36,8 +36,8 @@
   (LaTeX-mode . auto-fill-mode)
   :init
   ;; For some reason is not named *-hook
-  (add-hook 'TeX-after-compilation-finished-functions
-            #'TeX-revert-document-buffer)
+  ;; (add-hook 'TeX-after-compilation-finished-functions
+            ;; #'TeX-revert-document-buffer)
   :config
   (add-to-list 'display-buffer-alist
                `(" output\\*$" ,@alecs/right-side-window))
@@ -50,6 +50,17 @@
    :keymaps 'LaTeX-mode-map
    "C-c C-l" #'TeX-error-overview
    "C-c C-c" #'TeX-command-run-all))
+
+(use-package reftex
+  :hook (LaTeX-mode . turn-on-reftex)
+  :custom
+  (reftex-plug-into-AUCTeX t)
+  :general
+  (general-define-key
+   :states '(normal motion)
+   :keymaps 'reftex-mode-map
+   "gt" #'reftex-toc))
+
 
 (use-package pdf-tools
   :after evil-collection
