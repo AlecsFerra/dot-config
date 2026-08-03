@@ -46,14 +46,11 @@
 (use-package transient
   :custom
   (transient-history-file
-   (expand-file-name "transient/history.el"
-                     emacs-cache-dir))
+   (expand-file-name "transient/history.el" emacs-cache-dir))
   (transient-values-file
-   (expand-file-name "transient/values.el"
-                     emacs-cache-dir))
+   (expand-file-name "transient/values.el" emacs-cache-dir))
   (transient-levels-file
-   (expand-file-name "transient/levels.el"
-                     emacs-cache-dir))
+   (expand-file-name "transient/levels.el" emacs-cache-dir))
   :general
   (:keymaps 'transient-base-map
             "<escape>" #'transient-quit-one))

@@ -5,7 +5,10 @@
 
 (use-package orderless
   :custom
-  (completion-styles '(orderless basic)))
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles partial-completion))))
+  (completion-category-defaults nil)
+  (completion-pcm-leading-wildcard t))
 
 (use-package vertico
   :custom
@@ -48,29 +51,29 @@
     "sf" #'affe-find
     "sg" #'affe-grep))
 
-(use-package company
-  :custom
-  (ess-r--no-company-meta t)
-  (company-tooltip-scrollbar-width 0)
-  :config
-  (setq company-frontends
-        (remove #'company-echo-metadata-frontend
-                company-frontends))
-  :general
-  (:keymaps 'company-active-map
-            "C-j" #'company-select-next
-            "C-k" #'company-select-previous)
-  (:states 'insert
-           "<enter>" #'company-complete)
-  :hook
-  (prog-mode . company-mode)
-  (org-mode  . company-mode))
+(use-package corfu
+    :ensure t
+    :custom
+    (corfu-auto t)
+    (corfu-auto-prefix 3)
+    (corfu-min-width 60)
+    (corfu-max-width corfu-min-width)
+    (corfu-count 14)
+    (corfu-scroll-margin 4)
+    (corfu-popupinfo-delay '(0.5 . 0.5))
+    :init
+    (global-corfu-mode t)
+    (corfu-history-mode t)
+    (corfu-popupinfo-mode t))
 
-(use-package company-box
-  :after company
-  :hook (company-mode . company-box-mode)
-  :custom
-  (company-box-doc-enable t)
-  (company-box-scrollbar nil)
-  :hook
-  (company-mode . company-box-mode))
+(use-package cape
+  :init
+  (add-to-list 'completion-at-point-functions #'cape-file)
+  (add-to-list 'completion-at-point-functions #'cape-elisp-block)
+  (add-to-list 'completion-at-point-functions #'cape-abbrev t)
+  (add-to-list 'completion-at-point-functions #'cape-dabbrev t))
+
+(use-package nerd-icons-corfu
+  :after corfu
+  :init
+  (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))

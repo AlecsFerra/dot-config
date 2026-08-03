@@ -1,4 +1,13 @@
 ;; -*- lexical-binding: t -*-
+;; (setenv "LIBRARY_PATH"
+;;         "/usr/local/Cellar/gcc/16.1.0/lib/gcc/current/gcc/x86_64-apple-darwin25/16:/usr/local/lib/gcc/current:/usr/local/opt/libgccjit/lib/gcc/current:/usr/local/lib")
+
+;; (setenv "COMPILER_PATH"
+;;         "/usr/local/Cellar/gcc/16.1.0/libexec/gcc/x86_64-apple-darwin25/16")
+
+;; (setenv "GCC_EXEC_PREFIX"
+;;         "/usr/local/Cellar/gcc/16.1.0/lib/gcc/current/")
+
 ;; Remove the gui madness
 (menu-bar-mode t)
 (scroll-bar-mode -1)
@@ -52,6 +61,8 @@
       (expand-file-name "bookmarks" emacs-cache-dir))
 (setq pcache-directory
       (expand-file-name "var/pcache" emacs-cache-dir))
+(setq tramp-persistency-file-name
+      (expand-file-name "tramp" emacs-cache-dir))
 
 (savehist-mode t)
 (recentf-mode t)

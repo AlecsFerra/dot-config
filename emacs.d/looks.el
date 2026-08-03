@@ -8,6 +8,13 @@
      ((> width 1000) 120)
      (t 110))))
 
+(use-package nerd-icons)
+
+;; Testing the render of unicode math with the font
+;; ⟦ Γ ⊢ t ∶ τ ⟧ₜₘ : (γ ∈ ⟦ ⊢ Γ ⟧ₜₓ) → ⟦ Γ ⊢ τ ⟧ₜₚ γ
+;; map (f ∘ g) ≡ map f ∘ map g
+;; ◂ ⌈f ̧⌉ ⇒ ▵ f
+
 (defun alecs/set-frame-font (&optional font-family font-height)
   (interactive)
   (setq font-family (or font-family "Aporetic Sans Mono"))
@@ -16,18 +23,16 @@
          (font-string (format "%s-%d" font-family font-size)))
     (add-to-list 'default-frame-alist `(font . ,font-string))
     (set-frame-font font-string nil t)))
-
 (alecs/set-frame-font)
 
-(use-package catppuccin-theme
+(use-package batppuccin
   :custom
-  (catppuccin-flavor 'latte)
-  (catppuccin-highlight-matches t)
+  (batppuccin-italic-comments nil)
   :init
-  (load-theme 'catppuccin))
+  (load-theme 'batppuccin-latte t))
 
 ;; If we are on a laptop enable battery status in the modeline
-(setq laptop-hostnames '("dhcp-18-248.imdea"))
+(setq laptop-hostnames '("dhcp-18-248.imdea" "MacBook-Pro.local"))
 (when (member (system-name) laptop-hostnames)
   (display-battery-mode t))
 

@@ -43,24 +43,15 @@
   (setq eldoc-display-functions
         (delq #'eldoc-display-in-echo-area eldoc-display-functions)))
 
-(use-package eldoc-box
-  :custom
-  (eldoc-box-max-pixel-width 500)
-  (eldoc-box-max-pixel-height 200)
-  (eldoc-box-clear-with-C-g t)
-  (eldoc-box-position-function #'eldoc-box--position-at-point)
-  :hook
-  (eldoc-box-buffer-setup . (lambda (&rest ignore)
-                              (display-line-numbers-mode -1)))
+(use-package eldoc-mouse
   :general
   (:states '(normal visual)
            :keymaps 'override
-           "K" #'eldoc-box-help-at-point))
+           "K" #'eldoc-mouse-pop-doc-at-cursor))
 
 (use-package copilot
   :vc (:url "https://github.com/copilot-emacs/copilot.el"
-            :rev :newest
-            :branch "main")
+            :rev :newest :branch "main")
   :custom
   (copilot-install-dir (expand-file-name "copilot" emacs-cache-dir))
   (copilot-indent-offset-warning-disable t)
@@ -75,39 +66,6 @@
   :general
   (:keymaps 'copilot-completion-map
             "<tab>" #'copilot-accept-completion-by-line))
-
-(use-package copilot-chat
-  :custom
-  (copilot-chat-default-model "gpt-5")
-  (request-storage-directory
-   (expand-file-name "request/" emacs-cache-dir))
-  :general
-  (alecs/leader
-    "am" #'copilot-chat-transient))
-
-;; (use-package treesit
-;;   :ensure nil ;; Built-in package
-;;   :config
-;;   (setq treesit-grammar-dir
-;;         (expand-file-name "tree-sitter/" emacs-cache-dir))
-;;   (make-directory treesit-grammar-dir t)
-;;   (setq treesit-extra-load-path (list treesit-grammar-dir))
-;;   (add-to-list 'treesit-language-source-alist
-;;                '(html     "https://github.com/tree-sitter/tree-sitter-html"))
-;;   (add-to-list 'treesit-language-source-alist
-;;                '(elisp    "https://github.com/Wilfred/tree-sitter-elisp"))
-;;   (add-to-list 'treesit-language-source-alist
-;;                '(markdown "https://github.com/ikatyang/tree-sitter-markdown"))
-;;   (add-to-list 'treesit-language-source-alist
-;;                '(json     "https://github.com/tree-sitter/tree-sitter-json"))
-;;   (add-to-list 'treesit-language-source-alist
-;;                '(haskell "https://github.com/tree-sitter/tree-sitter-haskell"))
-;;   (dolist (lang (mapcar #'car treesit-language-source-alist))
-;;     (unless (treesit-language-available-p lang)
-;;       (treesit-install-language-grammar lang treesit-grammar-dir))
-;;     (let ((plain-mode (intern (format "%s-mode" lang)))
-;;           (ts-mode    (intern (format "%s-ts-mode" lang))))
-;;       (add-to-list 'major-mode-remap-alist (cons plain-mode ts-mode)))))
 
 (dolist (file '("haskell" "latex" "agda" "proofgeneral" "lean"
                 "emacslisp" "smt"))
