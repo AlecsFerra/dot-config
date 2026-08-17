@@ -48,6 +48,7 @@
   :hook
   (after-init . doom-modeline-mode))
 
+
 (setq banner-path
       (expand-file-name "banners/MetalEmacs.png"
                         user-emacs-directory))

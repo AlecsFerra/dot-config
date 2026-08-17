@@ -71,3 +71,9 @@
   :after evil
   :init
   (global-evil-matchit-mode t))
+
+(use-package evil-goggles
+  :config
+  (evil-goggles-use-diff-faces)
+  :init
+  (evil-goggles-mode))

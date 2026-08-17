@@ -1,9 +1,9 @@
 ;; -*- lexical-binding: t -*-
 
-;; (use-package lsp-latex
-;;   :hook
-;;   (LaTeX-mode . lsp-deferred)
-;;   (bibtex-mode . lsp-deferred))
+(use-package lsp-latex
+  :hook
+  (LaTeX-mode . lsp-deferred)
+  (bibtex-mode . lsp-deferred))
 
 (use-package auctex
   :after general
@@ -68,6 +68,11 @@
   :custom
   (pdf-view-use-scaling t)
   (pdf-view-display-size 'fit-page)
+  :hook
+  (pdf-view-mode . pdf-links-minor-mode)
+  (pdf-view-mode . pdf-isearch-minor-mode)
+  (pdf-view-mode . pdf-outline-minor-mode)
+  (pdf-view-mode . pdf-history-minor-mode)
   :init
   (add-to-list 'evil-collection-mode-list '(pdf pdf-view))
   :config

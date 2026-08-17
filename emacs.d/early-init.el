@@ -23,6 +23,9 @@
 (setq ns-use-proxy-icon nil)
 (setq frame-title-format "%b - emacs")
 
+(defun display-startup-echo-area-message ()
+  (message ""))
+
 (defvar emacs-cache-dir
   (expand-file-name "~/.cache/emacs/"))
 (make-directory emacs-cache-dir t)
